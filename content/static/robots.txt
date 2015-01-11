@@ -1,0 +1,10 @@
+User-agent: googlebot
+Allow: /
+Disallow: /drafts
+
+User-Agent: bingbot
+Allow: /
+Disallow: /drafts
+
+User-agent: *
+Disallow: /
