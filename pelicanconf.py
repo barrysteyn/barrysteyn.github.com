@@ -1,29 +1,34 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+import re
 
 # Custom Jinja Filters
 def get_attribute_index(list, attribute, index):
-    seen = set()
-    new_list = [getattr(list_item, attribute)[index]
-        for list_item in list if not (getattr(list_item, attribute)[index]
-        in seen or seen.add(getattr(list_item, attribute)[index]))]
-   
-    return new_list
+  seen = set()
+  new_list = [getattr(list_item, attribute)[index]
+      for list_item in list if not (getattr(list_item, attribute)[index]
+      in seen or seen.add(getattr(list_item, attribute)[index]))]
  
+  return new_list
+
+def regex_replace(item, find, replace):
+  return re.sub(find, replace, item) 
  
 def sort_attribute_index(list, attribute, index):
     return sorted(list, key = lambda x: getattr(x, attribute)[index])
 
-def create_groupby_key(list, attribute, index):
+def create_groupby_key(list, attribute):
     for item in list:
-        item.__key = getattr(item, attribute)[index]
+        item.__key = getattr(item, attribute) if hasattr(item, attribute) else ''
 
     return list
  
 JINJA_FILTERS = {
     'get_attribute_index': get_attribute_index,
-    'sort_attribute_index': sort_attribute_index
+    'sort_attribute_index': sort_attribute_index,
+    'create_groupby_key': create_groupby_key,
+    'regex_replace': regex_replace
 }
 
 AUTHOR = u'Barry Steyn'
@@ -40,6 +45,11 @@ DEFAULT_LANG = u'en'
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
+
+# Content
+TYPOGRIFY=False
+DEFAULT_DATE_FORMAT = ('%d  %b  %Y')
+MARKUP = ('md', 'html')
 
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
@@ -69,7 +79,10 @@ MD_EXTENSIONS = [
 ]
 
 # Jinja2 Extensions
-JINJA_EXTENSIONS = ['jinja2.ext.loopcontrols']
+JINJA_EXTENSIONS = [
+  'jinja2.ext.loopcontrols',
+  'jinja2.ext.with_'
+]
 
 # Theme
 THEME = 'doctrina-pelican_theme/Output'
