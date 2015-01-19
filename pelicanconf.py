@@ -1,23 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
-import re
 
 # Custom Jinja Filters
-def get_attribute_index(list, attribute, index):
-  seen = set()
-  new_list = [getattr(list_item, attribute)[index]
-      for list_item in list if not (getattr(list_item, attribute)[index]
-      in seen or seen.add(getattr(list_item, attribute)[index]))]
- 
-  return new_list
-
-def regex_replace(item, find, replace):
-  return re.sub(find, replace, item) 
- 
-def sort_attribute_index(list, attribute, index):
-    return sorted(list, key = lambda x: getattr(x, attribute)[index])
-
 def create_groupby_key(list, attribute):
     for item in list:
         item.__key = getattr(item, attribute) if hasattr(item, attribute) else ''
@@ -25,21 +10,26 @@ def create_groupby_key(list, attribute):
     return list
  
 JINJA_FILTERS = {
-    'get_attribute_index': get_attribute_index,
-    'sort_attribute_index': sort_attribute_index,
     'create_groupby_key': create_groupby_key,
-    'regex_replace': regex_replace
 }
 
+# General
+PATH = 'content'
 AUTHOR = u'Barry Steyn'
 SITENAME = u'Doctrina'
 SITEURL = u'http://doctrina'
 
-PATH = 'content'
+# URL
+RELATIVE_URLS=False
+DEFAULT_PAGINATION=False
 
-TIMEZONE = 'Europe/Paris'
+#Category
+USE_FOLDER_AS_CATEGORY=True
+DEFAULT_CATEGORY=('misc')
 
-DEFAULT_LANG = u'en'
+# Locale
+TIMEZONE = 'Canada/Pacific'
+DEFAULT_LANG='en'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -61,13 +51,18 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
+# SAAS Services
+#GOOGLE_ANALYTICS = 'UA-33789117-1'
+DISQUS_SHORTNAME = 'doctrinalocal'
+#TWITTER_USERNAME = u'barrysteyn'
+
 DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
 #Plugins
-PLUGIN_PATHS = ['../../Programming/GitHub/pelican-plugins/']
+PLUGIN_PATHS = ['../pelican-plugins/']
 PLUGINS = [
     'extract_toc',  # extracts [TOC] to variable that can be used in template
     'render_math'   # my render math plugin :)
