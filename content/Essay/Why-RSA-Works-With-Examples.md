@@ -2,7 +2,9 @@ Date: 2012-09-03
 Title: Why RSA Works: Three Fundamental Questions Answered
 Tags: cryptography
 Slug: Why-RSA-Works-Three-Fundamental-Questions-Answered
-Category: Blog
+Subcategory: Cryptography
+
+[TOC]
 
 This is part two of a series of two blog posts about RSA ([part 1](http://doctrina.org/How-RSA-Works-With-Examples.html) explains *how* RSA works). This post examines *why* RSA works as it does by answering *three* fundamental questions:
 
@@ -26,20 +28,24 @@ If we manipulate the theorem slightly by dividing the equation by $a$, we get th
 
 Equation $\ref{bg:flt}$ is able to be divided by $a$ (i.e. $a^{-1}$ exists in $\bmod p$) because $a$ is relatively prime to $p$ (i.e. $gcd(a,p) = 1$) due to the definition of $p$ being a prime number. And any two relatively prime integers means the smaller integer has an inverse with respect to the modulus of the larger integer.
 
-**Example**: Lets stick with our previous example. $2^{5-1} = 2^4 = 16 = 1 \bmod 5$. Here is another one: $6^{13-1}= 6^{12} = 2176782336 = 1 \bmod 13$. 
+**Example**: Lets stick with our previous example:
+$$2^{5-1} = 2^4 = 16 = 1 \bmod 5$$
+
+Here is another one: 
+$$6^{13-1}= 6^{12} = 2176782336 = 1 \bmod 13$$
 
 #RSA - A brief recap
 A brief recap is in order. For RSA to work, we need the following things (these are all explained in more detail in my previous [post](http://doctrina.org/How-RSA-Works-With-Examples.html#RSA)):
 
 1. Two large randomly generated primes, denoted by $p$ and $q$.
 2. A *modulus* $n$, calculated by multiplying $p$ and $q$: $n = p \cdot q$.
-3. The *totient of* $n$, represented by $\phi(n)$ and calculated like so: $\phi(n) = \(p-1\)\cdot \(q-1\)$.
+3. The *totient of* $n$, represented by $\phi(n)$ and calculated like so: $\phi(n) = (p-1)\cdot (q-1)$.
 4. The *public exponent* $e$ which is often just chosen to be *65537* (unless it is a factor of the *totient*, in which case the next largest prime number is chosen).
 
 With the above information, the *private* exponent can be calculated (by using the [Extended Euclidean Algorithm](http://en.wikipedia.org/wiki/Extended_euclidean_algorithm)). The private exponent, denoted by $d$ is the inverse of the public exponent with respect to the *totient*. Keys in RSA are the pair consisting of the exponent and the modulus. It is represented like so:
 
->**Public Key**: $\(e,n\)$  
->**Private Key**: $\(d,n\)$
+>**Public Key**: $(e,n)$  
+>**Private Key**: $(d,n)$
 
 Encryption (denoted by $E$) and decryption (denoted by $D$) are performed by raising a plaintext message (denoted by $m$) to one of the keys, and then dividing by $n$ to obtain the remainder. Cipher text is denoted by $c$. These operations are represented like so:
 
@@ -65,14 +71,13 @@ When multiplying exponents, the commutative aspect of multiplication applies: $x
 
 Mathematically, the following must be shown:
 
-<div style="text-align: center;padding-bottom:1em;">
-$D(d,E(e,m)) = m = D(e,E(d,m))$
-</div>
+$$D(d,E(e,m)) = m = D(e,E(d,m))$$
 
 That is, decrypting a message with the private key that was encrypted with the public key is the same as decrypting a message with the public key that was encrypted with the private key. This can be easily shown:
-<div style="text-align: center;padding-bottom:1em;">
-$D(d,E(e,m)) = D(d,m^e \bmod n) = \textbf{m}^{\textbf{e}\cdot \textbf{d}} \bmod n = \textbf{m}^{\textbf{d} \cdot \textbf{e}} \bmod n = D(e,m^d\bmod n) = D(e,E(d,m))$
-</div>
+
+$$
+D(d,E(e,m)) = D(d,m^e \bmod n) = \textbf{m}^{\textbf{e}\cdot \textbf{d}} \bmod n = \textbf{m}^{\textbf{d} \cdot \textbf{e}} \bmod n = D(e,m^d\bmod n) = D(e,E(d,m))
+$$
 
 I have bold-ed the crucial part of the math above, namely the comutative property of the exponent. The math above can be stated in English like so:
 > $D(d,E(e,m)) = m$ : decrypting using the private key will only work on a message encrypted using the public key.  
@@ -104,10 +109,12 @@ $m^{(p-1)\cdot (q-1)\cdot k + 1} \bmod n = \left( m^{p-1} \right)^{(q-1)\cdot k}
 
 The above equation is almost there, but there is one glaring problem: We have proved equality to $m \bmod p$, not $m \bmod n$. To prove that is indeed equal to $1 \bmod n$, note that for equation $\ref{almost}$ above, we can substitute $p$ for $q$ so that $m^{e\cdot d}\bmod n \equiv m \bmod q$. This is easily done, as $q$ is also prime, just like $p$ and hence it will obey [Fermat's Little Theorem](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#flt). So we now have the following two equations:
 
-<div style="text-align: center;padding-bottom:1em;">
-$m^{e\cdot d}\bmod n \equiv m \bmod p$ <br/>
-$m^{e\cdot d}\bmod n \equiv m \bmod q$
-</div>
+$$
+m^{e\cdot d}\bmod n \equiv m \bmod p
+$$
+$$
+m^{e\cdot d}\bmod n \equiv m \bmod q
+$$
 
 Since $n = p\cdot q$, if an equation is equal to both $m \bmod p$ and $m \bmod q$, then it is also equal to $m \bmod p\cdot q$ which is $m \bmod n$. And thus:
 
