@@ -2,8 +2,9 @@ Date: 2013-02-17
 Title: Cryptographic Hash VS MAC: What You Need To Know
 Tags: cryptography
 Slug: Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know
-Category: Blog
-Latex:
+Subcategory: Cryptography
+
+[TOC]
 
 A MAC ([message authentication code](http://en.wikipedia.org/wiki/Message_authentication_code)) is an important part of the cryptographic arsenal. It ensures message integrity and eliminates a very dangerous type of attack - *active attacks* (whereby an atacker changes the message payload tricking both communicating parties).
 
@@ -30,7 +31,7 @@ The last two properties are known collectively as *collision resistance*.
 ###Compression
 A compression function produces an output that is vastly smaller than its input (hence the name compression). More formally, the size of the domain (i.e. input) is much larger than the size of the range (i.e. output). For those math type people out there, it is expressed like so:
 
-<center>$H: M \rightarrow x, M \in \\{0,1\\}^n, x \in \\{0,1\\}^l$ where $l \ll n$</center>
+$$H: M \rightarrow x, M \in \{0,1\}^n, x \in \{0,1\}^l \text{ where } l \ll n$$
 
 ###Pre-Image Resistance
 Pre-image resistance means that given the result of a hash, it is hard to determine the message that produced that hash. Assuming the result of hashing a message $M$ is $x$, then given only $x$, it is hard to recover $M$.

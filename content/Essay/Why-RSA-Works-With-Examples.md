@@ -8,7 +8,7 @@ This is part two of a series of two blog posts about RSA ([part 1](http://doctri
 
 1. Why opposite keys must be used.
 2. Why RSA is *correct*.
-3. Why the inverse of a key is calculated with respect to the [Totient](http://doctrina.org/How-RSA-Works-With-Examples.html#euler_totient).
+3. Why the inverse of a key is calculated with respect to the [Totient](http://doctrina/How-RSA-Works-With-Examples.html#eulers-totient).
 
 Some parts of this post will be mathematical, but I am going to give as many examples as possible to aid understanding. Before reading this post, it is essential that the background math section of the [previous post](http://doctrina.org/How-RSA-Works-With-Examples.html) is understood.
 
@@ -92,7 +92,7 @@ The correctness equation (also called the consistency equation) simply states th
 
 Recall that encrypting a message $m$ with a key exponent $e$ will result in cipher text $c$ that is $m^e \bmod n$. When raising that cipher text to the opposite key exponent $d$, the original message $m$ must result. In other words, $m = c^d = m^{e \cdot d}$. Therefore raising $m$ to $e\cdot d$ must result in $m$. If this can be proven, we have then proved the correctness property.
 
-From the section above, the private key is the inverse of the public key with respect to $\phi(n)$, multiplying them together is equivalent to $1 \bmod \phi(n)$. In my [previous post](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#irad), I showed that this means that $e\cdot d = k\cdot \phi(n) + 1, k \in \mathbb{Z}$.
+From the section above, the private key is the inverse of the public key with respect to $\phi(n)$, multiplying them together is equivalent to $1 \bmod \phi(n)$. In my [previous post](http://doctrina/How-RSA-Works-With-Examples.html#integer-remainder-after-dividing), I showed that this means that $e\cdot d = k\cdot \phi(n) + 1, k \in \mathbb{Z}$.
 
 $D(d,E(e,m)) = m^{e\cdot d} \bmod n = m^{k\cdot \phi(n) + 1} \bmod n$. Recall that $p-1$ divides $\phi(n)$ because $\phi(n) = (p-1)\cdot (q-1)$, so $m^{\phi(n)\cdot k + 1} \bmod n = m^{(p-1)\cdot (q-1)\cdot k + 1} \bmod n$. Lets concentrate on proving the equation for $p$:
 

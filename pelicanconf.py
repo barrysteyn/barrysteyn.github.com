@@ -68,9 +68,15 @@ PLUGINS = [
     'render_math'   # my render math plugin :)
 ]
 
+#Render Math Plugin
+MATH_JAX = {
+    'linebreak_automatic':True
+}
+
 #Markdown Extensions
 MD_EXTENSIONS = [
-    'toc(title=Table Of Contents, permalink=True)'  # See https://pythonhosted.org/Markdown/extensions/toc.html for options
+    'toc(title=Table Of Contents, permalink=True)',  # See https://pythonhosted.org/Markdown/extensions/toc.html for options
+    'codehilite(css_class=highlight)'  # used for applying pygments.css to code
 ]
 
 # Jinja2 Extensions
