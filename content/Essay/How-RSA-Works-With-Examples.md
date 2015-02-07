@@ -28,7 +28,7 @@ Is called the *set of integers modulo p* (or *mod p* for short). It is a set tha
 **Example**: $\mathbb{Z}_{10} =\{0,1,2,3,4,5,6,7,8,9\}$
 
 ##Integer Remainder After Dividing
-When we first learned about numbers at school, we had no notion of real numbers, only integers.  Therefore we were told that  5 divided by 2 was equal to 2 remainder 1, and not $2\frac{1}{2}$. It turns out that this type of math is absolutely vital to RSA, and is one of the reasons that secures RSA. A very formal way of stating a remainder after dividing by another number is an equivalence relationship:<br />
+When we first learned about numbers at school, we had no notion of real numbers, only integers.  Therefore we were told that  5 divided by 2 was equal to 2 remainder 1, and not $2\frac{1}{2}$. It turns out that this type of math is absolutely vital to RSA, and is one of the reasons that secures RSA. A very formal way of stating a remainder after dividing by another number is an equivalence relationship:
 
 \begin{equation}
  \label{bg:mod} \forall x,y,z,k \in \mathbb{Z}, x \equiv y \bmod z \Longrightarrow x = k\cdot z + y
@@ -53,12 +53,13 @@ The greatest common divisor (gcd) between two numbers is the largest integer tha
 The interesting thing is that if two numbers have a gcd of 1, then the smaller of the two numbers has a multiplicative inverse in the modulo of the larger number. It is expressed in the following equation:
 
 \begin{equation}
-	\label{bg:gcd}x \in \mathbb{Z}_p, x^{-1} \in \mathbb{Z}_p \Longleftrightarrow \gcd(x,p) = 1
+	\label{bg:gcd}
+	x \in \mathbb{Z}_p, x^{-1} \in \mathbb{Z}_p \Longleftrightarrow \gcd(x,p) = 1
 \end{equation}
 
 The above just says that an inverse only exists if the greatest common divisor is 1. An example should set things straight...
 
-**Example**: Lets work in the set $\mathbb{Z}_9$, then $4 \in \mathbb{Z}_9$ and $gcd(4,9)=1$. Therefore $4$ has a multiplicative inverse (written $4^{-1}$) in $\bmod 9$, which is $7$. And indeed, $4\cdot 7 = 28 = 1 \bmod 9$. But not all numbers have inverses. For instance, $3 \in \mathbb{Z}_9$ but $3^{-1}$ does not exist! This is because $gcd(3,9) = 3 \neq 1$.<br />
+**Example**: Lets work in the set $\mathbb{Z}_9$, then $4 \in \mathbb{Z}_9$ and $gcd(4,9)=1$. Therefore $4$ has a multiplicative inverse (written $4^{-1}$) in $\bmod 9$, which is $7$. And indeed, $4\cdot 7 = 28 = 1 \bmod 9$. But not all numbers have inverses. For instance, $3 \in \mathbb{Z}_9$ but $3^{-1}$ does not exist! This is because $gcd(3,9) = 3 \neq 1$.
 
 ##Euler's Totient
 [Euler's Totient](http://en.wikipedia.org/wiki/Euler%27s_totient_function) is the number of elements that have an inverse in a set of modulo integers. The totient is denoted using the Greek symbol phi $\phi$.  From $\ref{bg:gcd}$ above, we can see that the totient is just a count 
@@ -176,8 +177,11 @@ For the public key, a random prime number that has a greatest common divisor (gc
 ####Encryption/Decryption
 Lets choose our plaintext message, $m$ to be $9$:
 
-**Encryption**: $m^e \bmod n = 9^7 \bmod 143 = 48 = c$  
-**Decryption**: $c^d \bmod n = 48^{103} \bmod 143 = 9 = m$
+**Encryption**: 
+$$m^e \bmod n = 9^7 \bmod 143 = 48 = c$$
+
+**Decryption**:
+$$c^d \bmod n = 48^{103} \bmod 143 = 9 = m$$
 
 ##A Real World Example
 

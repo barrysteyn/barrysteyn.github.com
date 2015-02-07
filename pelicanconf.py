@@ -70,7 +70,8 @@ PLUGINS = [
 
 #Render Math Plugin
 MATH_JAX = {
-    'linebreak_automatic':True
+    'linebreak_automatic':True,
+    'latex_preview': '[math]'
 }
 
 #Markdown Extensions
