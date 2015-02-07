@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://web-pages.github.io/test/" rel="alternate"></link><link href="http://web-pages.github.io/test/feeds/essay.atom.xml" rel="self"></link><id>http://web-pages.github.io/test/</id><updated>2013-02-17T00:00:00-08:00</updated><entry><title>Cryptographic Hash VS MAC: What You Need To Know</title><link href="http://web-pages.github.io/test/Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know.html" rel="alternate"></link><updated>2013-02-17T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:web-pages.github.io,2013-02-17:test/Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know.html</id><summary type="html">
+&lt;p&gt;A MAC (&lt;a href="http://en.wikipedia.org/wiki/Message_authentication_code"&gt;message authentication code&lt;/a&gt;) is an important part of the cryptographic arsenal. It ensures message integrity and eliminates a very dangerous type of attack - &lt;em&gt;active attacks&lt;/em&gt; (whereby an atacker changes the message payload tricking both communicating parties).&lt;/p&gt;
+&lt;p&gt;A MAC is often confused with a cryptograhic hash (i.e. SHA256), and while they are similar, using a crytographic hash instead of a MAC will have devastatingly insecure consequences. I think it was an unfortunate choice of words to call it a &lt;em&gt;cryptographic hash&lt;/em&gt;, because as I will show , a cryptographic hash is not even designed to be secure. &lt;/p&gt;
+&lt;p&gt;This article aims to set things right. It will explain the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What a cryptographic hash is.&lt;/li&gt;
+&lt;li&gt;Why a cryptographic hash is insecure, and when it should be used.&lt;/li&gt;
+&lt;li&gt;What a MAC is.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="cryptographic-hash"&gt;Cryptographic Hash&lt;a class="headerlink" href="#cryptographic-hash" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;A hash function maps an input in a large space to an output in a small space. Known as compression, all hash functions exhibit this property. A hash function's classic use is in the creation of a hash table, where it is vital that hash outputs are indepedendent of its inputs (because inputs who are related may be assigned to the same hash bucket). &lt;/p&gt;
+&lt;p&gt;A cryptographic hash function is hash function with four properties:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Compression&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pre-Image Resistance&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Weak Collision Resistance&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;String Collision Resistance&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The last two properties are known collectively as &lt;em&gt;collision resistance&lt;/em&gt;.&lt;/p&gt;
+&lt;h3 id="compression"&gt;Compression&lt;a class="headerlink" href="#compression" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A compression function produces an output that is vastly smaller than its input (hence the name compression). More formally, the size of the domain (i.e. input) is much larger than the size of the range (i.e. output). For those math type people out there, it is expressed like so:&lt;/p&gt;
+&lt;div class="math"&gt;$$H: M \rightarrow x, M \in \{0,1\}^n, x \in \{0,1\}^l \text{ where } l \ll n$$&lt;/div&gt;
+&lt;h3 id="pre-image-resistance"&gt;Pre-Image Resistance&lt;a class="headerlink" href="#pre-image-resistance" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Pre-image resistance means that given the result of a hash, it is hard to determine the message that produced that hash. Assuming the result of hashing a message &lt;span class="math"&gt;\(M\)&lt;/span&gt; is &lt;span class="math"&gt;\(x\)&lt;/span&gt;, then given only &lt;span class="math"&gt;\(x\)&lt;/span&gt;, it is hard to recover &lt;span class="math"&gt;\(M\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h3 id="weak-collision-resistance"&gt;Weak Collision Resistance&lt;a class="headerlink" href="#weak-collision-resistance" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Weak collision resistance means that given the result of a hash, it is hard to find &lt;em&gt;another&lt;/em&gt; message that hashes to that same result. Therefore given &lt;span class="math"&gt;\(x \leftarrow H(M_0)\)&lt;/span&gt;, it is hard to find &lt;span class="math"&gt;\(M_1 \neq M_0\)&lt;/span&gt; such that &lt;span class="math"&gt;\(x \leftarrow H(M_1)\)&lt;/span&gt;. This is in some way similar to pre-image resistance, and weak collision resistance implies a form of pre-image resistance. But they are not the same thing.&lt;/p&gt;
+&lt;h3 id="strong-collision-resistance"&gt;Strong Collision Resistance&lt;a class="headerlink" href="#strong-collision-resistance" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Strong collision resistance means that is hard to find any two messages that hash to the same value. That is, it is hard to find &lt;span class="math"&gt;\(M_0\)&lt;/span&gt; and &lt;span class="math"&gt;\(M_1\)&lt;/span&gt; such that &lt;span class="math"&gt;\(H(M_0) = H(M_1)\)&lt;/span&gt;. &lt;/p&gt;
+&lt;h2 id="dont-get-confused"&gt;Don't Get Confused!&lt;a class="headerlink" href="#dont-get-confused" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If a weak collision is found, then one has also automatically found a strong collision (and vice-versa). So its easy to get confused and think they are the same thing, but they are not. A weak collision implies a hash collision for a message that has already been chosen. A strong collision implies a hash collision between any two messages. It is more difficult to achieve strong collision resistance due to the &lt;a href="http://en.wikipedia.org/wiki/Birthday_paradox"&gt;Birthday Paradox&lt;/a&gt;, hence the names strong and weak.&lt;/p&gt;
+&lt;h1 id="message-integrity"&gt;Message Integrity&lt;a class="headerlink" href="#message-integrity" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Message integrity ensures a message is not altered during transmission. In short, the same message that was sent is the same that was received. For networking, various protocols have been built to ensure message integrity, like the ever popular and ubiquitous TCP protocol that ensures the message that was sent is the message that was received by using various mechanism including &lt;a href="http://en.wikipedia.org/wiki/Cyclic_redundancy_check"&gt;cyclic redundancy checking&lt;/a&gt; (CRC). CRC works well against message integrity being compromised by a network error, but it cannot defend against something more sinister: A hacker who is determined to alter the message payload during transmission (i.e. an active attack).&lt;/p&gt;
+&lt;p&gt;Message integrity is defended against an active attack by transmitting the message along with what is known as a message tag. The receiving party computes their own tag on the received message, and if it matches the transmitted tag, message integrity is assured. &lt;/p&gt;
+&lt;h2 id="tag-security-existential-forgery"&gt;Tag Security: Existential Forgery&lt;a class="headerlink" href="#tag-security-existential-forgery" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The mechanism used to build a tag needs to be secure. There are many rigorous security definitions for a tag, but an informal security definition would be to make it impossible for an attacker (i.e. anyone besides the person who created the original valid message tag pair) to produce a new message with a valid tag. Being able to produce a new message with a valid tag is called an &lt;em&gt;existential forgery&lt;/em&gt;, and any tag worth its weight must defend against existential forgery.&lt;/p&gt;
+&lt;h1 id="a-cryptrographic-hash-is-not-secure"&gt;A Cryptrographic Hash Is Not Secure&lt;a class="headerlink" href="#a-cryptrographic-hash-is-not-secure" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;A crypgtographic hash (like the &lt;a href="http://en.wikipedia.org/wiki/Sha256"&gt;SHA-2&lt;/a&gt; family of hashes - e.g. SHA256) is susceptible to an existential forgery. To see this, one needs to have knowledge about how a cryptographic hash is produced. I will therefore give a very brief overview of this process, but I encourage the interested reader to read up more about this topic, I am really only skimming the surface.&lt;/p&gt;
+&lt;h2 id="merkledamgard-and-davies-meyer-construction"&gt;Merkle–Damgård And Davies-Meyer Construction&lt;a class="headerlink" href="#merkledamgard-and-davies-meyer-construction" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A block cipher is an encryption mechanism that takes a fixed input of size n bytes, and produces an encrypted output also of size n bytes. There are many block ciphers, and the field has been studied intensely (&lt;a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard"&gt;AES&lt;/a&gt; is an example). Block ciphers exhibit many of the properties of a crytographic hash, therefore it woulb be nice if a block cipher could be used to construct a cryptographic hash. And it turns out that it can: Any &lt;em&gt;secure&lt;/em&gt; block cipher can be quickly altered (normally by a method called &lt;a href="http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer"&gt;Davies-Meyer&lt;/a&gt;) to have all the properties of a cryptographic hash function except &lt;em&gt;compression&lt;/em&gt;. Block ciphers need two inputs which are kept secret: A &lt;em&gt;key&lt;/em&gt; and a &lt;em&gt;message&lt;/em&gt;. Therefore a cryptographic hash function made from a block cipher also needs two inputs, but unlike a block cipher, neither input is kept secret (read up more on &lt;a href="http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer"&gt;Davies-Meyer&lt;/a&gt; to understand these inputs). So how does one get the compression property? It is done using a construction called &lt;em&gt;Merkle–Damgård&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The Merkle–Damgård construction takes as input a message of arbitrary length and produces a cryptographic hash of fixed output. It does this by breaking the message up into blocks, then feeding the blocks iteratively into a smaller cryptographic hash function (such as the one discussed in the above paragraph). The output of each function is fed as one of the inputs into the next function. The very first function just has a non-random set initialisation vector (IV) set as one of the inputs.&lt;/p&gt;
+&lt;p&gt;The image below demonstrates the Merkle–Damgård construction. In this image, &lt;strong&gt;h&lt;/strong&gt; is the cryptographic hash created from the block cipher, and &lt;span class="math"&gt;\(H_n\)&lt;/span&gt; is the resulting outputs of each stage. Note how the output of one function is chained to one of the inputs of the other.&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://doctrina.org/static/images/merkle-damgard.png"/&gt;&lt;/p&gt;
+&lt;h2 id="merkledamgard-is-not-secure"&gt;Merkle–Damgård Is Not Secure&lt;a class="headerlink" href="#merkledamgard-is-not-secure" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;All our popular cryptographic hash functions are constructed using Merkle–Damgård, but it is very easy to mount an existential forgery attack on anything constructed using the Merkle–Damgård. This is because cryptographic hash functions created with Merkle–Damgård are not designed to be protected from existential forgery (more about this a little later). To see how an existential forgery can happen, study the Merkle–Damgård construction picture. An existential forgery can happen by doing the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Obtain a valid message tag pair, say &lt;span class="math"&gt;\((M, t_0)\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Create a new block called &lt;span class="math"&gt;\(b\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Now, using a cryptographic hash function (like a Davies-Meyer construction), feed it both &lt;span class="math"&gt;\(t_0\)&lt;/span&gt; and &lt;span class="math"&gt;\(b\)&lt;/span&gt; as inputs, and record the output as &lt;span class="math"&gt;\(t_1\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;The pair &lt;span class="math"&gt;\((M||b, t_1)\)&lt;/span&gt; is a valid message tag pair (&lt;span class="math"&gt;\(M||b\)&lt;/span&gt; means &lt;span class="math"&gt;\(M\)&lt;/span&gt; concatenated with &lt;span class="math"&gt;\(b\)&lt;/span&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;And so we can very easily make an existential forgery attack for any cryptographic hash function. &lt;strong&gt;NOTE&lt;/strong&gt;: For any cryptographer who reads this, I have purposefully ignored padding in Merkle–Damgård (so in reality, the valid message tag pair should be &lt;span class="math"&gt;\((M||pad||b, t_1)\)&lt;/span&gt;).&lt;/p&gt;
+&lt;h2 id="the-purpose-of-cryptographic-hashes"&gt;The Purpose Of Cryptographic Hashes&lt;a class="headerlink" href="#the-purpose-of-cryptographic-hashes" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A Cryptographic hash's purpose is not to provide message integrity. As will be shown shortly, one needs to have a secret in order to attain message integrity. A cryptographic hash is just a compression function with the extra properties as defined above. This is a very unfortunate choice of name, because most people think that anything with the name crypto means it is secure. In this case, it is not! I think it was named &lt;em&gt;cryptographic hash&lt;/em&gt; because the crypto guys made the machinery in order to make it possible.&lt;/p&gt;
+&lt;p&gt;So if it is not secure, does it have any use? Yes, it has tonnes of uses. Just not for message integrity. Here are three uses:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A function to assign inputs to buckets of a hash table. If I have to guess (and this is just a guess), I would say that this is why cryptographic hash functions were invented in the first place - as hash table functions (hence the name &lt;em&gt;hash&lt;/em&gt;). A cryptographic hash function is in many ways the perfect hash function, as it exhibits secure psuedo-randomness and therefore it is very difficult to determine a pathalogical input data-set for the hash table. Unfortunately, it is quite slow compared to what is needed of hash table functions.&lt;/li&gt;
+&lt;li&gt;Integrity from a &lt;strong&gt;trusted source&lt;/strong&gt; - note, the source must be trusted. For example, you download a file from a website you &lt;strong&gt;trust&lt;/strong&gt;. This trusted website has a SHA crytographic hash signature. You calculate your own hash on the file you have just downloaded, and then compare. If they match (again, it is so important that you trust the web site), then you know your code has not been altered.&lt;/li&gt;
+&lt;li&gt;A means to discover changes in files. Due to collision resistance, if a file changes, its hash will also change (with high probability). This is used to detect changes in such applications as &lt;a href="http://en.wikipedia.org/wiki/Git_%28software%29"&gt;git&lt;/a&gt; (and others, I am sure).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="secure-cryptographic-hash"&gt;Secure Cryptographic Hash&lt;a class="headerlink" href="#secure-cryptographic-hash" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;How does one achieve message integrtity? The answer: A &lt;strong&gt;secure&lt;/strong&gt; cryptogrphic hash. This is an example of a &lt;a href="http://en.wikipedia.org/wiki/Message_authentication_code"&gt;MAC&lt;/a&gt; and since MAC sounds so different to cryptographic hash, cryptograhers don't get confused (A MAC is more general than a secure cryptographic hash, but a secure cryptographic hash is definitely an example of a MAC). &lt;/p&gt;
+&lt;p&gt;A secure cryptogrpahic hash is a cryptographic hash that also involves a secret, and this secret is used to &lt;em&gt;"lock"&lt;/em&gt; the final tag value in place. Remember when describing the function used in Merkle–Damgård (normally created with Davies-Meyer construction), there is no secret involved. And this is achilles heel for Merkle–Damgård with respect to existential forgery.&lt;/p&gt;
+&lt;p&gt;Merkle–Damgård is adapted to use secret keys resulting in &lt;a href="http://en.wikipedia.org/wiki/Hmac"&gt;HMAC&lt;/a&gt; (which short for hashed based message authenticating code). An attacker would need to know the value of the secret key in order to mount an existential forgery attack. However, the key is a secret shared only between the two communicating parties (there is a whole class of study that is devoted to sharing a key securely between two parties - the interested reader can read about &lt;a href="http://en.wikipedia.org/wiki/Diffie_hellman"&gt;Diffie-Hellman&lt;/a&gt;). This makes an existential forgery attack impossible.&lt;/p&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;A cryptographic hash is not secure! In order for any hash to be secure, there needs to be a secret known only to the sender and the recipient. This secret is used as a key to lock the hash compression function in place.&lt;/p&gt;
+&lt;p&gt;So your cryptographic hash is not secure and cannot be used for message integrity without a shared secret!&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: '[math]'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: true, width: '80% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="cryptography"></category></entry><entry><title>Why RSA Works: Three Fundamental Questions Answered</title><link href="http://web-pages.github.io/test/Why-RSA-Works-Three-Fundamental-Questions-Answered.html" rel="alternate"></link><updated>2012-09-03T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:web-pages.github.io,2012-09-03:test/Why-RSA-Works-Three-Fundamental-Questions-Answered.html</id><summary type="html">
+&lt;p&gt;This is part two of a series of two blog posts about RSA (&lt;a href="http://doctrina.org/How-RSA-Works-With-Examples.html"&gt;part 1&lt;/a&gt; explains &lt;em&gt;how&lt;/em&gt; RSA works). This post examines &lt;em&gt;why&lt;/em&gt; RSA works as it does by answering &lt;em&gt;three&lt;/em&gt; fundamental questions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Why opposite keys must be used.&lt;/li&gt;
+&lt;li&gt;Why RSA is &lt;em&gt;correct&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Why the inverse of a key is calculated with respect to the &lt;a href="http://doctrina/How-RSA-Works-With-Examples.html#eulers-totient"&gt;Totient&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Some parts of this post will be mathematical, but I am going to give as many examples as possible to aid understanding. Before reading this post, it is essential that the background math section of the &lt;a href="http://doctrina.org/How-RSA-Works-With-Examples.html"&gt;previous post&lt;/a&gt; is understood.&lt;/p&gt;
+&lt;h1 id="background-mathematics"&gt;Background Mathematics&lt;a class="headerlink" href="#background-mathematics" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="fermats-little-theorem"&gt;Fermat's Little Theorem &lt;a id="flt"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#fermats-little-theorem" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Pierre_de_Fermat"&gt;Pierre de Fermat&lt;/a&gt; can only be described as an absolute legend! This theorem of his was made sometime in the 17th century. He could not have fathomed how useful it would be to RSA encryption. &lt;/p&gt;
+&lt;p&gt;It is actually very simple: For any prime number &lt;span class="math"&gt;\(p\)&lt;/span&gt; and any integer &lt;span class="math"&gt;\(a\)&lt;/span&gt;, &lt;span class="math"&gt;\(a^p \equiv a \bmod p\)&lt;/span&gt;. In English, this says that an integer &lt;span class="math"&gt;\(a\)&lt;/span&gt; raised to the power of a prime number &lt;span class="math"&gt;\(p\)&lt;/span&gt; will result in a number that when divided by the prime number &lt;span class="math"&gt;\(p\)&lt;/span&gt; produces a remainder that is &lt;span class="math"&gt;\(a\)&lt;/span&gt;. &lt;strong&gt;Example&lt;/strong&gt;: Let &lt;span class="math"&gt;\(p=2\)&lt;/span&gt; and &lt;span class="math"&gt;\(a=5\)&lt;/span&gt;. Then &lt;span class="math"&gt;\(2^5 = 32 = 2 \bmod 5\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;If we manipulate the theorem slightly by dividing the equation by &lt;span class="math"&gt;\(a\)&lt;/span&gt;, we get the form that is most useful to RSA:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{bg:flt} a^{p-1} \equiv 1 \bmod p
+\end{equation}&lt;/div&gt;
+&lt;p&gt;Equation &lt;span class="math"&gt;\(\ref{bg:flt}\)&lt;/span&gt; is able to be divided by &lt;span class="math"&gt;\(a\)&lt;/span&gt; (i.e. &lt;span class="math"&gt;\(a^{-1}\)&lt;/span&gt; exists in &lt;span class="math"&gt;\(\bmod p\)&lt;/span&gt;) because &lt;span class="math"&gt;\(a\)&lt;/span&gt; is relatively prime to &lt;span class="math"&gt;\(p\)&lt;/span&gt; (i.e. &lt;span class="math"&gt;\(gcd(a,p) = 1\)&lt;/span&gt;) due to the definition of &lt;span class="math"&gt;\(p\)&lt;/span&gt; being a prime number. And any two relatively prime integers means the smaller integer has an inverse with respect to the modulus of the larger integer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Lets stick with our previous example:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$2^{5-1} = 2^4 = 16 = 1 \bmod 5$$&lt;/div&gt;
+&lt;p&gt;Here is another one: 
+&lt;/p&gt;
+&lt;div class="math"&gt;$$6^{13-1}= 6^{12} = 2176782336 = 1 \bmod 13$$&lt;/div&gt;
+&lt;h1 id="rsa-a-brief-recap"&gt;RSA - A brief recap&lt;a class="headerlink" href="#rsa-a-brief-recap" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;A brief recap is in order. For RSA to work, we need the following things (these are all explained in more detail in my previous &lt;a href="http://doctrina.org/How-RSA-Works-With-Examples.html#RSA"&gt;post&lt;/a&gt;):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Two large randomly generated primes, denoted by &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;A &lt;em&gt;modulus&lt;/em&gt; &lt;span class="math"&gt;\(n\)&lt;/span&gt;, calculated by multiplying &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;: &lt;span class="math"&gt;\(n = p \cdot q\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;em&gt;totient of&lt;/em&gt; &lt;span class="math"&gt;\(n\)&lt;/span&gt;, represented by &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; and calculated like so: &lt;span class="math"&gt;\(\phi(n) = (p-1)\cdot (q-1)\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;em&gt;public exponent&lt;/em&gt; &lt;span class="math"&gt;\(e\)&lt;/span&gt; which is often just chosen to be &lt;em&gt;65537&lt;/em&gt; (unless it is a factor of the &lt;em&gt;totient&lt;/em&gt;, in which case the next largest prime number is chosen).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;With the above information, the &lt;em&gt;private&lt;/em&gt; exponent can be calculated (by using the &lt;a href="http://en.wikipedia.org/wiki/Extended_euclidean_algorithm"&gt;Extended Euclidean Algorithm&lt;/a&gt;). The private exponent, denoted by &lt;span class="math"&gt;\(d\)&lt;/span&gt; is the inverse of the public exponent with respect to the &lt;em&gt;totient&lt;/em&gt;. Keys in RSA are the pair consisting of the exponent and the modulus. It is represented like so:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Public Key&lt;/strong&gt;: &lt;span class="math"&gt;\((e,n)\)&lt;/span&gt;&lt;br/&gt;
+&lt;strong&gt;Private Key&lt;/strong&gt;: &lt;span class="math"&gt;\((d,n)\)&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Encryption (denoted by &lt;span class="math"&gt;\(E\)&lt;/span&gt;) and decryption (denoted by &lt;span class="math"&gt;\(D\)&lt;/span&gt;) are performed by raising a plaintext message (denoted by &lt;span class="math"&gt;\(m\)&lt;/span&gt;) to one of the keys, and then dividing by &lt;span class="math"&gt;\(n\)&lt;/span&gt; to obtain the remainder. Cipher text is denoted by &lt;span class="math"&gt;\(c\)&lt;/span&gt;. These operations are represented like so:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt; (With Public Key): &lt;span class="math"&gt;\(E(e,m) = m^e \bmod n = c\)&lt;/span&gt;&lt;br/&gt;
+&lt;strong&gt;Decryption&lt;/strong&gt; (With Private Key): &lt;span class="math"&gt;\(D(d,c) = c^d \bmod n = m\)&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="rsa-why-it-works"&gt;RSA - Why It Works&lt;a class="headerlink" href="#rsa-why-it-works" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="why-opposite-keys-must-be-used"&gt;Why opposite keys must be used&lt;a class="headerlink" href="#why-opposite-keys-must-be-used" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;It is sometimes misunderstood that encryption can only happen with the &lt;em&gt;public key&lt;/em&gt; and decryption with the &lt;em&gt;private key&lt;/em&gt;. This statement is not true. In RSA, both the &lt;em&gt;public&lt;/em&gt; and the &lt;em&gt;private&lt;/em&gt; keys will encrypt a message. If that message is to be decrypted, then the opposite key that was used to encrypt it must be used to decrypt it. Underlying this statement is this fundamental equation:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+e\cdot d = 1 \bmod \phi(n)
+\end{equation}&lt;/div&gt;
+&lt;p&gt;That is, the public key &lt;span class="math"&gt;\(e\)&lt;/span&gt; is the inverse of the private key &lt;span class="math"&gt;\(d\)&lt;/span&gt; with respect to &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, so multiplying them together will produce &lt;span class="math"&gt;\(1 \bmod \phi(n)\)&lt;/span&gt;. Multiplication is commutative, which means it can happen in any order. Both &lt;span class="math"&gt;\(e\cdot d\)&lt;/span&gt; and &lt;span class="math"&gt;\(d\cdot e\)&lt;/span&gt; will produce the same &lt;span class="math"&gt;\(1 \bmod \phi(n)\)&lt;/span&gt;. Why is this important? I will give a correct (and more formal) proof &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#correctness"&gt;below&lt;/a&gt;, but for the sake of what follows, consider these arguments: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If one raises a message to one of the keys (lets choose the private key &lt;span class="math"&gt;\(d\)&lt;/span&gt;), then the cipher &lt;span class="math"&gt;\(c\)&lt;/span&gt; will be &lt;span class="math"&gt;\( m^d \bmod n\)&lt;/span&gt;. &lt;/li&gt;
+&lt;li&gt;In order to get the original message back, note that raising a number to &lt;span class="math"&gt;\(1\)&lt;/span&gt; will result in the original number. &lt;/li&gt;
+&lt;li&gt;So to get &lt;span class="math"&gt;\(m\)&lt;/span&gt;, we raise &lt;span class="math"&gt;\(c\)&lt;/span&gt; to &lt;span class="math"&gt;\(e\)&lt;/span&gt;, which gets us &lt;span class="math"&gt;\(c^e = m^{d\cdot e} = m^1 = m\)&lt;/span&gt;, our original message (again, this is not entirely correct, but it will suffice in understanding this concept).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When multiplying exponents, the commutative aspect of multiplication applies: &lt;span class="math"&gt;\(x^{a\cdot b} = x^{b\cdot a}\)&lt;/span&gt;. For example, &lt;span class="math"&gt;\(2^{3\cdot 2} = 2^{2\cdot 3} = 2^6 = 64\)&lt;/span&gt;. With respect to the public and private keys, when carrying out a RSA operation (either encryption or decryption), all that really happens is that the message is raised to an exponent value of the key. Therefore if one of the key exponents is used to encrypt a message, it necessary to use the other key in order to obtain the &lt;em&gt;exponent value of &lt;span class="math"&gt;\(1\)&lt;/span&gt;&lt;/em&gt; that is necessary to get our original message.&lt;/p&gt;
+&lt;p&gt;Mathematically, the following must be shown:&lt;/p&gt;
+&lt;div class="math"&gt;$$D(d,E(e,m)) = m = D(e,E(d,m))$$&lt;/div&gt;
+&lt;p&gt;That is, decrypting a message with the private key that was encrypted with the public key is the same as decrypting a message with the public key that was encrypted with the private key. This can be easily shown:&lt;/p&gt;
+&lt;div class="math"&gt;$$
+D(d,E(e,m)) = D(d,m^e \bmod n) = \textbf{m}^{\textbf{e}\cdot \textbf{d}} \bmod n = \textbf{m}^{\textbf{d} \cdot \textbf{e}} \bmod n = D(e,m^d\bmod n) = D(e,E(d,m))
+$$&lt;/div&gt;
+&lt;p&gt;I have bold-ed the crucial part of the math above, namely the comutative property of the exponent. The math above can be stated in English like so:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(D(d,E(e,m)) = m\)&lt;/span&gt; : decrypting using the private key will only work on a message encrypted using the public key.&lt;br/&gt;
+&lt;span class="math"&gt;\(D(e,E(d,m)) = m\)&lt;/span&gt; : decrypting using the public key will only work on a message encrypted using the private key.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This may seem simple and obvious when reading, but it is the reason behind RSA's two atomic uses:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Encryption&lt;/strong&gt;: The public key, which anyone can gain access to, can be used to encrypt information that only the recipient with the private key can decrypt.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Identity&lt;/strong&gt;: If one needs to prove that a message originated from someone, then if the message can be decrypted using the person's public key, it must originate from that person because that person is the only one who has the private key.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It is the second use in my opinion that makes RSA so useful. Things like &lt;em&gt;electronic voting&lt;/em&gt;, &lt;em&gt;digital signatures&lt;/em&gt;, &lt;em&gt;mix nets&lt;/em&gt; etc become possible because of this. This is not to play down the importance of the first use, which is critical for things like SSL.&lt;/p&gt;
+&lt;h2 id="why-rsa-satisfies-the-correctness-equation"&gt;Why RSA Satisfies The Correctness Equation &lt;a id="correctness"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#why-rsa-satisfies-the-correctness-equation" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The correctness equation (also called the consistency equation) simply states that ciphertext &lt;span class="math"&gt;\(c\)&lt;/span&gt; originating from a message &lt;span class="math"&gt;\(m\)&lt;/span&gt; must equal to &lt;span class="math"&gt;\(m\)&lt;/span&gt; when decrypted. In other words, decrypting the ciphertext must produce the original message: &lt;span class="math"&gt;\(D(d,E(e,m)) = m\)&lt;/span&gt;. It is not only fundamental to RSA, but to any encryption atomic. In fact, I would say that the first thing a person would have to prove if they invent a new cryptographic algorithm is that it conforms to the correctness equation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Helpful hint&lt;/strong&gt;: I would advise the reader who is serious about this topic to get a pen and paper and work through the below math as I present it. It is not difficult math, but it can get quite confusing if you are just reading this. I also think that this topic can be explained more succinctly than I have presented it, but for the sake of clarity, I have gone into great detail.&lt;/p&gt;
+&lt;p&gt;Recall that encrypting a message &lt;span class="math"&gt;\(m\)&lt;/span&gt; with a key exponent &lt;span class="math"&gt;\(e\)&lt;/span&gt; will result in cipher text &lt;span class="math"&gt;\(c\)&lt;/span&gt; that is &lt;span class="math"&gt;\(m^e \bmod n\)&lt;/span&gt;. When raising that cipher text to the opposite key exponent &lt;span class="math"&gt;\(d\)&lt;/span&gt;, the original message &lt;span class="math"&gt;\(m\)&lt;/span&gt; must result. In other words, &lt;span class="math"&gt;\(m = c^d = m^{e \cdot d}\)&lt;/span&gt;. Therefore raising &lt;span class="math"&gt;\(m\)&lt;/span&gt; to &lt;span class="math"&gt;\(e\cdot d\)&lt;/span&gt; must result in &lt;span class="math"&gt;\(m\)&lt;/span&gt;. If this can be proven, we have then proved the correctness property.&lt;/p&gt;
+&lt;p&gt;From the section above, the private key is the inverse of the public key with respect to &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, multiplying them together is equivalent to &lt;span class="math"&gt;\(1 \bmod \phi(n)\)&lt;/span&gt;. In my &lt;a href="http://doctrina/How-RSA-Works-With-Examples.html#integer-remainder-after-dividing"&gt;previous post&lt;/a&gt;, I showed that this means that &lt;span class="math"&gt;\(e\cdot d = k\cdot \phi(n) + 1, k \in \mathbb{Z}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(D(d,E(e,m)) = m^{e\cdot d} \bmod n = m^{k\cdot \phi(n) + 1} \bmod n\)&lt;/span&gt;. Recall that &lt;span class="math"&gt;\(p-1\)&lt;/span&gt; divides &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; because &lt;span class="math"&gt;\(\phi(n) = (p-1)\cdot (q-1)\)&lt;/span&gt;, so &lt;span class="math"&gt;\(m^{\phi(n)\cdot k + 1} \bmod n = m^{(p-1)\cdot (q-1)\cdot k + 1} \bmod n\)&lt;/span&gt;. Lets concentrate on proving the equation for &lt;span class="math"&gt;\(p\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(m^{(p-1)\cdot (q-1)\cdot k + 1} \bmod n = \left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m \bmod n\)&lt;/span&gt;. From &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#flt"&gt;Fermat's Little Theorem&lt;/a&gt;, since &lt;span class="math"&gt;\(p\)&lt;/span&gt; is prime, &lt;span class="math"&gt;\(m^{p-1} = 1 \bmod p\)&lt;/span&gt;. Therefore &lt;span class="math"&gt;\(\left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m = (1 \bmod p)^{(q-1)\cdot k}\cdot m \bmod n\)&lt;/span&gt;. But because &lt;span class="math"&gt;\(p\)&lt;/span&gt; divides &lt;span class="math"&gt;\(n\)&lt;/span&gt;, we can write the previous equation like so: &lt;span class="math"&gt;\(\left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m = 1\cdot m \bmod p\)&lt;/span&gt;. Thus the following equation holds:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+\label{almost} m^{e\cdot d}\bmod n \equiv m \bmod p
+\end{equation}&lt;/div&gt;
+&lt;p&gt;The above equation is almost there, but there is one glaring problem: We have proved equality to &lt;span class="math"&gt;\(m \bmod p\)&lt;/span&gt;, not &lt;span class="math"&gt;\(m \bmod n\)&lt;/span&gt;. To prove that is indeed equal to &lt;span class="math"&gt;\(1 \bmod n\)&lt;/span&gt;, note that for equation &lt;span class="math"&gt;\(\ref{almost}\)&lt;/span&gt; above, we can substitute &lt;span class="math"&gt;\(p\)&lt;/span&gt; for &lt;span class="math"&gt;\(q\)&lt;/span&gt; so that &lt;span class="math"&gt;\(m^{e\cdot d}\bmod n \equiv m \bmod q\)&lt;/span&gt;. This is easily done, as &lt;span class="math"&gt;\(q\)&lt;/span&gt; is also prime, just like &lt;span class="math"&gt;\(p\)&lt;/span&gt; and hence it will obey &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#flt"&gt;Fermat's Little Theorem&lt;/a&gt;. So we now have the following two equations:&lt;/p&gt;
+&lt;div class="math"&gt;$$
+m^{e\cdot d}\bmod n \equiv m \bmod p
+$$&lt;/div&gt;
+&lt;div class="math"&gt;$$
+m^{e\cdot d}\bmod n \equiv m \bmod q
+$$&lt;/div&gt;
+&lt;p&gt;Since &lt;span class="math"&gt;\(n = p\cdot q\)&lt;/span&gt;, if an equation is equal to both &lt;span class="math"&gt;\(m \bmod p\)&lt;/span&gt; and &lt;span class="math"&gt;\(m \bmod q\)&lt;/span&gt;, then it is also equal to &lt;span class="math"&gt;\(m \bmod p\cdot q\)&lt;/span&gt; which is &lt;span class="math"&gt;\(m \bmod n\)&lt;/span&gt;. And thus:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+\label{wearethere} m^{e\cdot d}\bmod n \equiv m \bmod n
+\end{equation}&lt;/div&gt;
+&lt;p&gt;And this proves the correctness of RSA:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+D(d,E(e,m)) = m
+\end{equation}&lt;/div&gt;
+&lt;h2 id="why-rsa-uses-inverses-with-respect-to-the-totient"&gt;Why RSA uses inverses with respect to the Totient &lt;a id="wruiwrtt"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#why-rsa-uses-inverses-with-respect-to-the-totient" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The private key &lt;span class="math"&gt;\(d\)&lt;/span&gt; is the inverse of the public key &lt;span class="math"&gt;\(e\)&lt;/span&gt; with respect to &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. But why choose &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; to calculate the private key? It was proven above that using &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; gives an algorithm that will satisfy correctness. But this is not the only reason why &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; is used! Before answering this question, lets state what is &lt;em&gt;public&lt;/em&gt; and what is &lt;em&gt;secret&lt;/em&gt; in RSA:&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;
+&lt;table style="border-style: solid; border-width:1px; border-color: #000000;"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;b&gt;Public&lt;/b&gt;&lt;/td&gt;
+&lt;td&gt;&lt;b&gt;Secret&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;ul&gt;
+&lt;li&gt; &lt;span class="math"&gt;\(n\)&lt;/span&gt; - the modulus&lt;/li&gt;
+&lt;li&gt; &lt;span class="math"&gt;\(e\)&lt;/span&gt; - the public exponent&lt;/li&gt;
+&lt;li&gt; &lt;span class="math"&gt;\(c\)&lt;/span&gt; - the cipher text&lt;/li&gt;
+&lt;/ul&gt;&lt;/td&gt;
+&lt;td&gt;&lt;ul&gt;
+&lt;li&gt; &lt;span class="math"&gt;\(p\)&lt;/span&gt; - the prime factor of &lt;span class="math"&gt;\(n\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt; &lt;span class="math"&gt;\(q\)&lt;/span&gt; - the other prime factor of &lt;span class="math"&gt;\(n\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt; &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; - the totient of &lt;span class="math"&gt;\(n\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt; &lt;span class="math"&gt;\(d\)&lt;/span&gt; - the private exponent
+        &lt;/li&gt;&lt;/ul&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;RSA's security lies in the fact that it is difficult to deduce what is secret given what is public. When describing RSA's security, the word &lt;em&gt;difficult&lt;/em&gt; is used a lot. The reason being that deducing what is secret from what is public cannot be proven to be impossible! This is because the security relies upon a problem that is considered &lt;em&gt;hard&lt;/em&gt;: Given &lt;span class="math"&gt;\(n\)&lt;/span&gt;, find its prime factors, &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;. This cannot be proven to be impossibly difficult and therefore it may seem scary and odd that we place so much vital information in the trust of an algorithm that cannot be proven secure. Solace is taken in the fact that very clever people in the present and the past have all tried and failed to quickly factorise large numbers into their prime constituents. Also, there is some evidence to believe that whilst we can never prove security, it is in fact &lt;a href="http://en.wikipedia.org/wiki/Integer_factorization#Difficulty_and_complexity"&gt;secure&lt;/a&gt;. But if one can find the prime factors of &lt;span class="math"&gt;\(n\)&lt;/span&gt;, then it is easy to calculate &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; which is &lt;span class="math"&gt;\((p-1)\cdot (q-1)\)&lt;/span&gt;. With &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; at your disposal, calculating &lt;span class="math"&gt;\(d\)&lt;/span&gt; given &lt;span class="math"&gt;\(e\)&lt;/span&gt; is simple (use the &lt;a href="http://en.wikipedia.org/wiki/Extended_euclidean_algorithm"&gt;Extended Euclidean Algorithm&lt;/a&gt; to do this).&lt;/p&gt;
+&lt;p&gt;So we use &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; to calculate the inverse because it is hard for anyone to determine it given the public information, and therefore calculate the private key.&lt;/p&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;RSA works! There are many more interesting things to discuss about RSA, and books can be (and &lt;a href="http://www.amazon.com/The-Mathematics-Ciphers-Number-Cryptography/dp/1568810822/ref=sr_1_3?ie=UTF8&amp;amp;qid=1346693118&amp;amp;sr=8-3&amp;amp;keywords=RSA"&gt;have been&lt;/a&gt;) written about this subject. But hopefully with my &lt;a href="http://doctrina.org/How-RSA-Works-With-Examples.html"&gt;previous post&lt;/a&gt; and this post combined, the reader will have a solid understanding of this wonderful cryptographic algorithm.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: '[math]'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: true, width: '80% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="cryptography"></category></entry><entry><title>How RSA Works With Examples</title><link href="http://web-pages.github.io/test/How-RSA-Works-With-Examples.html" rel="alternate"></link><updated>2012-05-26T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:web-pages.github.io,2012-05-26:test/How-RSA-Works-With-Examples.html</id><summary type="html">
+&lt;h2 id="introduction"&gt;Introduction&lt;a class="headerlink" href="#introduction" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This is part 1 of a series of two blog posts about RSA (&lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html"&gt;part 2&lt;/a&gt; will explain &lt;em&gt;why&lt;/em&gt; RSA works). In this post, I am going to explain exactly how RSA public key encryption works. One of the &lt;a href="http://doctrina.org/The-3-Seminal-Events-In-Cryptography.html"&gt;3 seminal events in cryptography&lt;/a&gt; of the 20th century, RSA opens the world to a host of various cryptographic protocols (like &lt;em&gt;digital signatures, cryptographic voting&lt;/em&gt; etc). All discussions on this topic (including this one) are very &lt;em&gt;mathematical&lt;/em&gt;, but the difference here is that I am going to go out of my way to explain each concept with a concrete example. The reader who only has a beginner level of mathematical knowledge should be able to understand exactly how RSA works after reading this post along with the examples.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PLEASE PLEASE PLEASE&lt;/strong&gt;: Do not use these examples (specially the real world example) and implement this yourself. What we are talking about in this blog post is actually referred to by cryptographers as &lt;em&gt;plain old RSA&lt;/em&gt;, and it needs to be randomly padded with &lt;a href="http://en.wikipedia.org/wiki/OAEP"&gt;OAEP&lt;/a&gt; to make it secure. In fact, you should never ever implement any type of cryptography by yourself, rather use a library. You have been warned!&lt;/p&gt;
+&lt;h1 id="background-mathematics"&gt;Background Mathematics&lt;a class="headerlink" href="#background-mathematics" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="the-set-of-integers-modulo-p"&gt;The Set Of Integers Modulo P&lt;a class="headerlink" href="#the-set-of-integers-modulo-p" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The set:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{bg:intmod} \mathbb{Z}_p = \{ 0,1,2,...,p-1 \}
+\end{equation}&lt;/div&gt;
+&lt;p&gt;Is called the &lt;em&gt;set of integers modulo p&lt;/em&gt; (or &lt;em&gt;mod p&lt;/em&gt; for short). It is a set that contains Integers from &lt;span class="math"&gt;\(0\)&lt;/span&gt; up until &lt;span class="math"&gt;\(p-1\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: &lt;span class="math"&gt;\(\mathbb{Z}_{10} =\{0,1,2,3,4,5,6,7,8,9\}\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id="integer-remainder-after-dividing"&gt;Integer Remainder After Dividing&lt;a class="headerlink" href="#integer-remainder-after-dividing" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When we first learned about numbers at school, we had no notion of real numbers, only integers.  Therefore we were told that  5 divided by 2 was equal to 2 remainder 1, and not &lt;span class="math"&gt;\(2\frac{1}{2}\)&lt;/span&gt;. It turns out that this type of math is absolutely vital to RSA, and is one of the reasons that secures RSA. A very formal way of stating a remainder after dividing by another number is an equivalence relationship:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+ \label{bg:mod} \forall x,y,z,k \in \mathbb{Z}, x \equiv y \bmod z \Longrightarrow x = k\cdot z + y
+\end{equation}&lt;/div&gt;
+&lt;p&gt;Equation &lt;span class="math"&gt;\(\ref{bg:mod}\)&lt;/span&gt; states that if &lt;span class="math"&gt;\(x\)&lt;/span&gt; is equivalent to the remainder (in this case &lt;span class="math"&gt;\(y\)&lt;/span&gt;) after dividing by an integer (in this case &lt;span class="math"&gt;\(z\)&lt;/span&gt;), then &lt;span class="math"&gt;\(x\)&lt;/span&gt; can be written like so: &lt;span class="math"&gt;\(x = k\cdot z + y\)&lt;/span&gt; where &lt;span class="math"&gt;\(k\)&lt;/span&gt; is an integer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: If &lt;span class="math"&gt;\(y=4\)&lt;/span&gt; and &lt;span class="math"&gt;\(z=10\)&lt;/span&gt;, then the following values of &lt;span class="math"&gt;\(x\)&lt;/span&gt; will satisfy the above equation: &lt;span class="math"&gt;\(x=4, x=14, x=24,...\)&lt;/span&gt;. In fact, there are an infinite amount of values that &lt;span class="math"&gt;\(x\)&lt;/span&gt; can take on to satisfy the above equation (that is why I used the equivalence relationship &lt;span class="math"&gt;\(\equiv\)&lt;/span&gt; instead of equals). Therefore, &lt;span class="math"&gt;\(x\)&lt;/span&gt; can be written like so: &lt;span class="math"&gt;\(x = k\cdot 10 + 4\)&lt;/span&gt;, where &lt;span class="math"&gt;\(k\)&lt;/span&gt; can be any of the infinite amount of integers.&lt;/p&gt;
+&lt;p&gt;There are two important things to note:  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The remainder &lt;span class="math"&gt;\(y\)&lt;/span&gt; stays constant, whatever value &lt;span class="math"&gt;\(x\)&lt;/span&gt; takes on to satisfy quation &lt;span class="math"&gt;\(\ref{bg:mod}\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Due to the above fact, &lt;span class="math"&gt;\(y \in \mathbb{Z}_z\)&lt;/span&gt; (&lt;span class="math"&gt;\(y\)&lt;/span&gt; is in the set of integers modulo &lt;span class="math"&gt;\(z\)&lt;/span&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="multiplicative-inverse-and-the-greatest-common-divisor"&gt;Multiplicative Inverse And The Greatest Common Divisor&lt;a class="headerlink" href="#multiplicative-inverse-and-the-greatest-common-divisor" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A multiplicative inverse for &lt;span class="math"&gt;\(x\)&lt;/span&gt; is a number that when multiplied by &lt;span class="math"&gt;\(x\)&lt;/span&gt;, will equal &lt;span class="math"&gt;\(1\)&lt;/span&gt;. For example, the multiplicative inverse of &lt;span class="math"&gt;\(x\)&lt;/span&gt; is written as &lt;span class="math"&gt;\(x^{-1}\)&lt;/span&gt; and is defined as so:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}x\cdot x^{-1} = 1\end{equation}&lt;/div&gt;
+&lt;p&gt;The greatest common divisor (gcd) between two numbers is the largest integer that will divide both numbers. For example, &lt;span class="math"&gt;\(gcd(4,10) = 2\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;The interesting thing is that if two numbers have a gcd of 1, then the smaller of the two numbers has a multiplicative inverse in the modulo of the larger number. It is expressed in the following equation:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{bg:gcd}
+    x \in \mathbb{Z}_p, x^{-1} \in \mathbb{Z}_p \Longleftrightarrow \gcd(x,p) = 1
+\end{equation}&lt;/div&gt;
+&lt;p&gt;The above just says that an inverse only exists if the greatest common divisor is 1. An example should set things straight...&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Lets work in the set &lt;span class="math"&gt;\(\mathbb{Z}_9\)&lt;/span&gt;, then &lt;span class="math"&gt;\(4 \in \mathbb{Z}_9\)&lt;/span&gt; and &lt;span class="math"&gt;\(gcd(4,9)=1\)&lt;/span&gt;. Therefore &lt;span class="math"&gt;\(4\)&lt;/span&gt; has a multiplicative inverse (written &lt;span class="math"&gt;\(4^{-1}\)&lt;/span&gt;) in &lt;span class="math"&gt;\(\bmod 9\)&lt;/span&gt;, which is &lt;span class="math"&gt;\(7\)&lt;/span&gt;. And indeed, &lt;span class="math"&gt;\(4\cdot 7 = 28 = 1 \bmod 9\)&lt;/span&gt;. But not all numbers have inverses. For instance, &lt;span class="math"&gt;\(3 \in \mathbb{Z}_9\)&lt;/span&gt; but &lt;span class="math"&gt;\(3^{-1}\)&lt;/span&gt; does not exist! This is because &lt;span class="math"&gt;\(gcd(3,9) = 3 \neq 1\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id="eulers-totient"&gt;Euler's Totient&lt;a class="headerlink" href="#eulers-totient" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Euler%27s_totient_function"&gt;Euler's Totient&lt;/a&gt; is the number of elements that have an inverse in a set of modulo integers. The totient is denoted using the Greek symbol phi &lt;span class="math"&gt;\(\phi\)&lt;/span&gt;.  From &lt;span class="math"&gt;\(\ref{bg:gcd}\)&lt;/span&gt; above, we can see that the totient is just a count 
+of number of elements that have their &lt;span class="math"&gt;\(\gcd\)&lt;/span&gt; with the modulus equal to 1. Now for any prime number &lt;span class="math"&gt;\(p\)&lt;/span&gt;, every number from &lt;span class="math"&gt;\(1\)&lt;/span&gt; up to &lt;span class="math"&gt;\(p-1\)&lt;/span&gt; has a &lt;span class="math"&gt;\(\gcd\)&lt;/span&gt; of 1 with &lt;span class="math"&gt;\(p\)&lt;/span&gt;. This brings us to an important equation regarding the totient and prime numbers:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{bg:totient} p \in \mathbb{P}, \phi(p) = p-1
+\end{equation}&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: &lt;span class="math"&gt;\(\phi(7) = \left|\{1,2,3,4,5,6\}\right| = 6\)&lt;/span&gt;&lt;br/&gt;
+&lt;span style="font-size:0.8em"&gt;(&lt;strong&gt;Note&lt;/strong&gt;: In set theory, anything between |{...}| just means the amount of elements in {...} - called cardinality for those who are interested)&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id="rsa"&gt;RSA&lt;a class="headerlink" href="#rsa" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;With the above background, we have enough tools to describe RSA and show how it works. RSA is actually a set of two algorithms:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Key Generation&lt;/strong&gt;: A key generation algorithm.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RSA Function Evaluation&lt;/strong&gt;: A function &lt;span class="math"&gt;\(F\)&lt;/span&gt;, that takes as input a point &lt;span class="math"&gt;\(x\)&lt;/span&gt; and a key &lt;span class="math"&gt;\(k\)&lt;/span&gt; and produces either an encrypted result or plaintext, depending on the input and the key.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="key-generation"&gt;Key Generation&lt;a class="headerlink" href="#key-generation" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The key generation algorithm is the most complex part of RSA. The aim of the key generation algorithm is to generate both the &lt;em&gt;public&lt;/em&gt; and the &lt;em&gt;private&lt;/em&gt; RSA keys. Sounds simple enough! Unfortunately, weak key generation makes RSA very vulnerable to attack. So it has to be done correctly. Here is what has to happen in order to generate secure RSA keys:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Large Prime Number Generation&lt;/strong&gt;: Two large prime numbers &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt; need to be generated. These numbers are very large: At least 512 digits, but 1024 digits is considered safe.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Modulus&lt;/strong&gt;: From the two large numbers, a modulus &lt;span class="math"&gt;\(n\)&lt;/span&gt; is generated by multiplying &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Totient&lt;/strong&gt;: The totient of &lt;span class="math"&gt;\(n, \phi(n)\)&lt;/span&gt; is calculated.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Public Key&lt;/strong&gt;: A &lt;em&gt;prime number&lt;/em&gt; is calculated from the range &lt;span class="math"&gt;\([3,\phi(n))\)&lt;/span&gt; that has a greatest common divisor of &lt;span class="math"&gt;\(1\)&lt;/span&gt; with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Private Key&lt;/strong&gt;: Because the prime in step 4 has a gcd of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, we are able to determine it's inverse with respect to &lt;span class="math"&gt;\(\bmod \phi(n)\)&lt;/span&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;After the five steps above, we will have our keys. Lets go over each step.&lt;/p&gt;
+&lt;h3 id="large-prime-number-generation"&gt;Large Prime Number Generation&lt;a class="headerlink" href="#large-prime-number-generation" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;It is vital for RSA security that two very large prime numbers be generated that are quite far apart. Generating composite numbers, or even prime numbers that are close together makes RSA totally insecure.&lt;/p&gt;
+&lt;p&gt;How does one generate large prime numbers? The answer is to pick a large random number (a very large random number) and test for primeness. If that number fails the prime test, then add 1 and start over again until we have a number that passes a prime test. The problem is now: How do we test a number in order to determine if it is prime?&lt;/p&gt;
+&lt;p&gt;The answer: An incredibly fast prime number tester called the &lt;a href="http://en.wikipedia.org/wiki/Rabin-Miller"&gt;Rabin-Miller primality tester&lt;/a&gt; is able to accomplish this. Give it a very large number, it is able to very quickly determine with a high probability if its input is prime.  But there is a catch (and readers may have spotted the catch in the last sentence): The Rabin-Miller test is a probability test, not a definite test. Given the fact that RSA absolutely relies upon generating large prime numbers, why would anyone want to use a probabilistic test? The answer: With Rabin-Miller, we make the result as accurate as we want. In other words, Rabin-Miller is setup with parameters that produces a result that determines if a number is prime with a probability of our choosing. Normally, the test is performed by iterating &lt;span class="math"&gt;\(64\)&lt;/span&gt; times and produces a result on a number that has a &lt;span class="math"&gt;\(\frac{1}{2^{128}}\)&lt;/span&gt; chance of not being prime. The probability of a number passing the Rabin-Miller test and not being prime is so low, that it is okay to use it with RSA.  In fact, &lt;span class="math"&gt;\(\frac{1}{2^{128}}\)&lt;/span&gt; is such a small number that I would suspect that nobody would ever get a false positive.&lt;/p&gt;
+&lt;p&gt;So with Rabin-Miller, we generate two large prime numbers: &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h3 id="modulus"&gt;Modulus&lt;a class="headerlink" href="#modulus" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Once we have our two prime numbers, we can generate a modulus very easily:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{rsa:modulus}n=p\cdot q
+\end{equation}&lt;/div&gt;
+&lt;p&gt;RSA's main security foundation relies upon the fact that given two large prime numbers, a composite number (in this case &lt;span class="math"&gt;\(n\)&lt;/span&gt;) can very easily be deduced by multiplying the two primes together. But, given just &lt;span class="math"&gt;\(n\)&lt;/span&gt;, there is no known algorithm to efficiently determining &lt;span class="math"&gt;\(n\)&lt;/span&gt;'s prime 
+factors. In fact, it is considered a hard problem. I am going to bold this next statement for effect: &lt;strong&gt;The foundation of RSA's security relies upon the fact that given a composite number, it is considered a hard problem to determine it's prime factors&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The bold-ed statement above cannot be proved. That is why I used the term &lt;em&gt;"considered a hard problem"&lt;/em&gt; and not &lt;em&gt;"is a hard problem"&lt;/em&gt;. This is a little bit disturbing: Basing the security of one of the most used cryptographic atomics on something that is not provably difficult.  The only solace one can take is that throughout history, numerous people have tried, but failed to find a solution to this.&lt;/p&gt;
+&lt;h3 id="totient"&gt;Totient&lt;a class="headerlink" href="#totient" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;With the prime factors of &lt;span class="math"&gt;\(n\)&lt;/span&gt;, the totient can be very quickly calculated:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{RSA:totient}\phi(n) = (p-1)\cdot (q-1)
+\end{equation}&lt;/div&gt;
+&lt;p&gt;This is directly from equation &lt;span class="math"&gt;\(\ref{bg:totient}\)&lt;/span&gt; above. It is derived like so: 
+&lt;/p&gt;
+&lt;div class="math"&gt;$$\phi(n) = \phi(p\cdot q) = \phi(p) \cdot \phi(q) = (p-1)\cdot (q-1)$$&lt;/div&gt;
+&lt;p&gt;
+The reason why the RSA becomes vulnerable if one can determine the prime factors of the modulus is because then one can easily determine the totient.&lt;/p&gt;
+&lt;h3 id="public-key"&gt;Public Key&lt;a class="headerlink" href="#public-key" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Next, the &lt;em&gt;public key&lt;/em&gt; is determined. Normally expressed as &lt;span class="math"&gt;\(e\)&lt;/span&gt;, it is a prime number chosen in the range &lt;span class="math"&gt;\([3,\phi(n))\)&lt;/span&gt;. The discerning reader may think that &lt;span class="math"&gt;\(3\)&lt;/span&gt; is a little small, and yes, I agree, if &lt;span class="math"&gt;\(3\)&lt;/span&gt; is chosen, it could lead to security flaws. So in practice, the public key is normally set at &lt;span class="math"&gt;\(65537\)&lt;/span&gt;. Note that because the public key is prime, it has a high chance of a &lt;em&gt;gcd&lt;/em&gt; equal to &lt;span class="math"&gt;\(1\)&lt;/span&gt; with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. If this is not the case, then we must use another prime number that is &lt;em&gt;not&lt;/em&gt; &lt;span class="math"&gt;\(65537\)&lt;/span&gt;, but this will only occur if &lt;span class="math"&gt;\(65537\)&lt;/span&gt; is a multiple of &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, something that is quite unlikely, but must still be checked for.&lt;/p&gt;
+&lt;p&gt;An interesting observation: If in practice, the number above is set at &lt;span class="math"&gt;\(65537\)&lt;/span&gt;, then it is not picked at random; surely this is a problem?  Actually, no, it isn't. As the name implies, this key is public, and therefore is shared with everyone. As long as the &lt;em&gt;private key&lt;/em&gt; cannot be deduced from the public key, we are happy. The reason why the public key is not randomly chosen in practice is because it is desirable not to have a large number. This is because it is more efficient to encrypt with smaller numbers than larger numbers.&lt;/p&gt;
+&lt;p&gt;The public key is actually a key pair of the exponent &lt;span class="math"&gt;\(e\)&lt;/span&gt; and the modulus &lt;span class="math"&gt;\(n\)&lt;/span&gt; and is present as follows&lt;/p&gt;
+&lt;div class="math"&gt;$$(e,n)$$&lt;/div&gt;
+&lt;h3 id="private-key"&gt;Private Key&lt;a class="headerlink" href="#private-key" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Because the public key has a &lt;em&gt;gcd&lt;/em&gt; of &lt;span class="math"&gt;\(1\)&lt;/span&gt; with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, the multiplicative inverse of the public key with respect to &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; can be efficiently and quickly determined using the &lt;a href="http://en.wikipedia.org/wiki/Extended_euclidean_algorithm"&gt;Extended Euclidean Algorithm&lt;/a&gt;. This multiplicative inverse is the &lt;em&gt;private key&lt;/em&gt;. The common notation for expressing the private key is &lt;span class="math"&gt;\(d\)&lt;/span&gt;. So in effect, we have the following equation (one of the most important equations in RSA):&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+    \label{RSA:ed} e\cdot d = 1 \bmod \phi(n) 
+\end{equation}&lt;/div&gt;
+&lt;p&gt;Just like the public key, the private key is also a key pair of the exponent &lt;span class="math"&gt;\(d\)&lt;/span&gt; and modulus &lt;span class="math"&gt;\(n\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$(d,n)$$&lt;/div&gt;
+&lt;p&gt;One of the absolute fundamental security assumptions behind RSA is that given a public key, one cannot efficiently determine the private key. I have written a follow up to this post explaining &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html"&gt;why RSA works&lt;/a&gt;, in which I discuss &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#wruiwrtt"&gt;why one can't efficiently determine the private key given a public key&lt;/a&gt;. &lt;/p&gt;
+&lt;h2 id="rsa-function-evaluation"&gt;RSA Function Evaluation&lt;a class="headerlink" href="#rsa-function-evaluation" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This is the process of transforming a plaintext message into ciphertext, or vice-versa. The RSA function, for message &lt;span class="math"&gt;\(m\)&lt;/span&gt; and key &lt;span class="math"&gt;\(k\)&lt;/span&gt; is evaluated as follows:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+    F(m,k) = m^k \bmod n
+\end{equation}&lt;/div&gt;
+&lt;p&gt;There are obviously two cases:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Encrypting with the &lt;em&gt;public key&lt;/em&gt;, and then decrypting with the &lt;em&gt;private key&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Encrypting with the &lt;em&gt;private key&lt;/em&gt;, and then decrypting with the &lt;em&gt;public key&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The two cases above are mirrors. I will explain the first case, the second follows from the first&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt;: &lt;span class="math"&gt;\(F(m,e) = m^e \bmod n = c\)&lt;/span&gt;, where &lt;span class="math"&gt;\(m\)&lt;/span&gt; is the message, &lt;span class="math"&gt;\(e\)&lt;/span&gt; is the public key and &lt;span class="math"&gt;\(c\)&lt;/span&gt; is the cipher.&lt;br/&gt;
+&lt;strong&gt;Decryption&lt;/strong&gt;: &lt;span class="math"&gt;\(F(c,d) = c^d \bmod n = m\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;And there you have it: RSA!&lt;/p&gt;
+&lt;h1 id="final-example-rsa-from-scratch"&gt;Final Example: RSA From Scratch&lt;a class="headerlink" href="#final-example-rsa-from-scratch" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This is the part that everyone has been waiting for: an example of RSA from the ground up. I am first going to give an academic example, and then a real world example.&lt;/p&gt;
+&lt;h3 id="calculation-of-modulus-and-totient"&gt;Calculation of Modulus And Totient&lt;a class="headerlink" href="#calculation-of-modulus-and-totient" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Lets choose two primes: &lt;span class="math"&gt;\(p=11\)&lt;/span&gt; and &lt;span class="math"&gt;\(q=13\)&lt;/span&gt;. Hence the modulus is &lt;span class="math"&gt;\(n = p \times q = 143\)&lt;/span&gt;. The totient of n &lt;span class="math"&gt;\(\phi(n) = (p-1)\cdot (q-1) = 120\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h3 id="key-generation_1"&gt;Key Generation&lt;a class="headerlink" href="#key-generation_1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;For the public key, a random prime number that has a greatest common divisor (gcd) of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; and is less than &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; is chosen. Let's choose &lt;span class="math"&gt;\(7\)&lt;/span&gt; (note: both &lt;span class="math"&gt;\(3\)&lt;/span&gt; and &lt;span class="math"&gt;\(5\)&lt;/span&gt; do not have a gcd of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. So &lt;span class="math"&gt;\(e=7\)&lt;/span&gt;, and to determine &lt;span class="math"&gt;\(d\)&lt;/span&gt;, the secret key, we need to find the inverse of &lt;span class="math"&gt;\(7\)&lt;/span&gt; with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. This can be done very easily and quickly with the &lt;em&gt;Extended Euclidean Algorithm&lt;/em&gt;, and hence &lt;span class="math"&gt;\(d=103\)&lt;/span&gt;. This can be easily verified: &lt;span class="math"&gt;\(e\cdot d = 1 \bmod \phi(n)\)&lt;/span&gt; and &lt;span class="math"&gt;\(7\cdot 103 = 721 = 1 \bmod 120\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h4 id="encryptiondecryption"&gt;Encryption/Decryption&lt;a class="headerlink" href="#encryptiondecryption" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Lets choose our plaintext message, &lt;span class="math"&gt;\(m\)&lt;/span&gt; to be &lt;span class="math"&gt;\(9\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt;: 
+&lt;/p&gt;
+&lt;div class="math"&gt;$$m^e \bmod n = 9^7 \bmod 143 = 48 = c$$&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Decryption&lt;/strong&gt;:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$c^d \bmod n = 48^{103} \bmod 143 = 9 = m$$&lt;/div&gt;
+&lt;h2 id="a-real-world-example"&gt;A Real World Example&lt;a class="headerlink" href="#a-real-world-example" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Now for a real world example, lets encrypt the message "attack at dawn". The first thing that must be done is to convert the message into a numeric format. Each letter is represented by an ascii character, therefore it can be accomplished quite easily. I am not going to dive into converting strings to numbers or vice-versa, but just to note that it can be done very easily. How I will do it here is to convert the string to a bit array, and then the bit array to a large number. This can very easily be reversed to get back the original string given the large number. Using this method, "attack at dawn" becomes 1976620216402300889624482718775150 (for those interested, &lt;a href="https://gist.github.com/4184435#file_convert_text_to_decimal.py"&gt;here&lt;/a&gt; is the code that I used to make this conversion).&lt;/p&gt;
+&lt;h3 id="key-generation_2"&gt;Key Generation&lt;a class="headerlink" href="#key-generation_2" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Now to pick two large primes, &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;. These numbers must be random and not too close to each other. Here are the numbers that I generated:
+using Rabin-Miller primality tests:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;p&lt;/strong&gt;&lt;br/&gt;
+12131072439211271897323671531612440428472427633701410925634549312301964373042085619324197365322416866541017057361365214171711713797974299334871062829803541&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;q&lt;/strong&gt;&lt;br/&gt;
+12027524255478748885956220793734512128733387803682075433653899983955179850988797899869146900809131611153346817050832096022160146366346391812470987105415233&lt;/p&gt;
+&lt;p&gt;With these two large numbers, we can calculate n and &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;n&lt;/strong&gt;&lt;br/&gt;
+145906768007583323230186939349070635292401872375357164399581871019873438799005358938369571402670149802121818086292467422828157022922076746906543401224889672472407926969987100581290103199317858753663710862357656510507883714297115637342788911463535102712032765166518411726859837988672111837205085526346618740053&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;&lt;/strong&gt;&lt;br/&gt;
+145906768007583323230186939349070635292401872375357164399581871019873438799005358938369571402670149802121818086292467422828157022922076746906543401224889648313811232279966317301397777852365301547848273478871297222058587457152891606459269718119268971163555070802643999529549644116811947516513938184296683521280&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;e&lt;/strong&gt; - the public key&lt;br/&gt;
+&lt;span class="math"&gt;\(65537\)&lt;/span&gt; has a gcd of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, so lets use it as the public key. To calculate the private key, use extended euclidean algorithm to find the multiplicative inverse with respect to &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;d&lt;/strong&gt; - the private key&lt;br/&gt;
+89489425009274444368228545921773093919669586065884257445497854456487674839629818390934941973262879616797970608917283679875499331574161113854088813275488110588247193077582527278437906504015680623423550067240042466665654232383502922215493623289472138866445818789127946123407807725702626644091036502372545139713&lt;/p&gt;
+&lt;h3 id="encryptiondecryption_1"&gt;Encryption/Decryption&lt;a class="headerlink" href="#encryptiondecryption_1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt;: 197662021640230088962448271877515&lt;span class="math"&gt;\(0^e \bmod n\)&lt;/span&gt;&lt;br/&gt;
+&lt;p style="border-style: solid; border-width: 1px"&gt;
+35052111338673026690212423937053328511880760811579981620642802346685810623109850235943049080973386241113784040794704193978215378499765413083646438784740952306932534945195080183861574225226218879827232453912820596886440377536082465681750074417459151485407445862511023472235560823053497791518928820272257787786
+&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Decryption&lt;/strong&gt;:&lt;br/&gt;
+&lt;p style="border-style: solid; border-width: 1px"&gt;
+35052111338673026690212423937053328511880760811579981620642802346685810623109850235943049080973386241113784040794704193978215378499765413083646438784740952306932534945195080183861574225226218879827232453912820596886440377536082465681750074417459151485407445862511023472235560823053497791518928820272257787786&lt;span class="math"&gt;\(^d \bmod n\)&lt;/span&gt;
+&lt;/p&gt;&lt;/p&gt;
+&lt;p style="background: #F0F0F0; border-style: solid; border-width: 1px;"&gt;
+1976620216402300889624482718775150 (which is our plaintext "attack at dawn")
+&lt;/p&gt;
+&lt;p&gt;This real world example shows how large the numbers are that is used in the real world.&lt;/p&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;RSA is the single most useful tool for building cryptographic protocols (in my humble opinion). In this post, I have shown &lt;em&gt;how&lt;/em&gt; RSA works, I will &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html"&gt;follow this up&lt;/a&gt; with another post explaining &lt;em&gt;why&lt;/em&gt; it works.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: '[math]'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: true, width: '80% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="cryptography"></category></entry></feed>

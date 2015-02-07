@@ -1,0 +1,326 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Presense Of Barry Steyn - Software Engineer, Entrepreneur">
+    <meta name="author" content="Barry Steyn">
+    <link rel="shortcut icon" href="theme/img/doctrina-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="theme/img/apple-touch-icon-144-precomposed.png">
+
+    <title>Doctrina - 	Dictionaries
+</title>
+
+    <!-- Bootstrap Base CSS -->
+    <link href="http://web-pages.github.io/test/theme/css/base.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="http://web-pages.github.io/test/theme/css/main.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <!-- Top Nav Bar -->
+    <nav id="navbar-top" class="navbar navbar-fixed-top navbar-offset-start " role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand " href="/index.html#page-top">
+                    <img alt="brand for doctrina" src="http://web-pages.github.io/test/theme/img/apple-touch-icon-144-precomposed.png" style="float: left; max-height:100%;" />
+                    <span style="padding-left: 0.5em;">Doctrina</span>
+                </a>
+                
+                <button type="button" class="navbar-toggle" style="" data-toggle="collapse" data-target="#navigation-menu">
+<i class="fa fa-bars"></i>                </button>
+
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
+                        <div>
+                            <ul class="nav navbar-nav">
+                                <li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>
+                                <li><a href="category/notes.html"><span>Notes</span></a></li> 
+                                <li><a href="#comments"><span>Comments</span></a></li> 
+                                <li><a href="#footer"><span>Connect</span></a></li> 
+                            </ul>
+                        </div>
+            </div>
+
+
+        </div>
+    </nav>
+    <!-- End Top Nav Bar -->
+
+    <!-- User Defined Sections -->
+	<section class="container-fluid title">
+	<div class="row">
+		<div class="col-md-12">
+			<h1><a href="" rel="bookmark" title="Permalink to Dictionaries">	Dictionaries
+</a></h1>
+			<span>
+				<a href="http://web-pages.github.io/test/index.html#about"><img src="http://web-pages.github.io/test/theme/img/me.jpg" class="img-rounded"></img></a>
+			</span>
+		</div>
+	</div>
+</section>
+
+<section class="content">
+	<div class="container">
+		<div class="row">
+				<div class="col-xs-12 text-center metadata">
+					<ul class="center-list">
+						<li><b>Published</b>: 22  Apr  2013</li>
+					</ul>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col-xs-12 col-md-1 col-md-push-10 text-center">
+<div id="share">
+	<div>
+		<span class="toctitle">Share</span>
+	</div>
+	<div>
+	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Dictionaries&url=http%3A//web-pages.github.io/test/drafts/Dictionaries.html&via=">
+	        <i class="fa fa-circle fa-stack-2x"></i>
+	        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	    </a>
+	</div>
+	<div>
+		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//web-pages.github.io/test/drafts/Dictionaries.html">
+		    <i class="fa fa-circle fa-stack-2x"></i>
+		    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+		</a>
+	</div>
+	<div>
+		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//web-pages.github.io/test/drafts/Dictionaries.html">
+		    <i class="fa fa-circle fa-stack-2x"></i>
+		    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+		</a>
+	</div>
+	<div>
+	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//web-pages.github.io/test/drafts/Dictionaries.html&title=Dictionaries">
+	        <i class="fa fa-circle fa-stack-2x"></i>
+	        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+	    </a>
+	</div>
+</div>				</div>				
+
+
+			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
+	<p>A Dictionary is a very useful data-structure to maintain a possibly evolving set of <em>"stuff"</em>. Dictionaries have three supported operations:</p>
+<ol>
+<li>Insert</li>
+<li>Delete</li>
+<li>Lookup</li>
+</ol>
+<p>Dictionaries are distinguished by using <em>keys</em> as index values for the above operations.</p>
+<h1 id="hash-tables">Hash Tables<a class="headerlink" href="#hash-tables" title="Permanent link">&para;</a></h1>
+<p>Hash tables are the most famous form of a dictionary. It is based on an array and exploits the ability of array random access. </p>
+<p>Hash tables guarantee that <em>insertion</em>, <em>deletion</em> and <em>lookup</em> will all happen in O(1) time with the following caveats:</p>
+<ol>
+<li>The hash table must be properly implemented.</li>
+<li>The data must be non-pathological</li>
+</ol>
+<p><strong>Key Concepts</strong>:</p>
+<ul>
+<li>Based on an array</li>
+<li>Exploits random access property of an array</li>
+</ul>
+<h2 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link">&para;</a></h2>
+<h3 id="de-duplication">De-Duplication<a class="headerlink" href="#de-duplication" title="Permanent link">&para;</a></h3>
+<p>Removes duplicates. In a stream of objects, use a hash-table to remove duplicates.</p>
+<h3 id="2-sum-problem">2 Sum Problem<a class="headerlink" href="#2-sum-problem" title="Permanent link">&para;</a></h3>
+<p><strong>input</strong>: Integer list in <em>no-particular order</em>. A target sum <em>t</em>.
+You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> that sum to <em>t</em>.</p>
+<p><strong>Solution</strong>: Add each element to a hash table. Then, for each element <em>x</em>, search for <em>t-x</em> in the hash table.</p>
+<h3 id="more-examples">More examples<a class="headerlink" href="#more-examples" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Compilers</strong>. To support super fast lookups to for symbols.</li>
+<li><strong>Block network traffic</strong>. Have a blacklist to drop things.</li>
+<li><strong>Speed up search algorithms</strong>. Use hash table to avoid looking up things you have already looked up.</li>
+</ol>
+<h2 id="hash-implementation">Hash Implementation<a class="headerlink" href="#hash-implementation" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Choose size of array (the number of buckets)</li>
+<li>A hash function, which maps a key to a bucket.</li>
+</ol>
+<p>What do when a <strong>collision happens</strong>. Two solutions:</p>
+<ol>
+<li><strong>Separate chaining</strong>. Each bucket contains a linked-list, in which case, insert, delete and lookup is done on the list.</li>
+<li><strong>Open addressing</strong>. If collision occurs, we probe the table in some other location. Therefore hash function produces hash sequence. There are various strategies: (1) Linear probing (2) double hash function.</li>
+</ol>
+<p>Open addressing is more difficult to implement deletion.</p>
+<h3 id="properties-of-a-good-hash-function">Properties of a good hash function<a class="headerlink" href="#properties-of-a-good-hash-function" title="Permanent link">&para;</a></h3>
+<ol>
+<li>It should lead to good performance. This is done by spreading data out as evenly as possible.</li>
+<li>It is important that the hash function can be evaluated quickly.</li>
+</ol>
+<p>The gold standard would be a completely random function.</p>
+<p>Hash functions are really easy to implement <em>badly</em>. With this in mind, here is a quick and dirty hash function that should produce acceptable results:</p>
+<ul>
+<li>Choose <em>n</em> (the number of buckets) as a prime number.</li>
+<li>The prime should not be too close to <em>patterns</em> in the data.</li>
+</ul>
+<h3 id="universal-hashing-function-introduction">Universal Hashing Function - Introduction<a class="headerlink" href="#universal-hashing-function-introduction" title="Permanent link">&para;</a></h3>
+<p>The load factor <span class="math">\(\alpha\)</span> of a hash table:</p>
+<div class="math">$$\alpha = \frac{\text{# of objects in a hash table}}{\text{# of buckets}}$$</div>
+<p>The load needs to be constant <span class="math">\(O(1)\)</span> to run in constant time. For <em>open addressing</em>, the load must be less than 1, but even for <em>chaining</em>, the load better not much bigger than a factor of 1.</p>
+<p>A perfect hash function cannot exist! This is because for every hash function, there is a pathological data that will make the function perform badly. This is because of the compression property of the hash function: By the pidgeon principle, there will always be data clashes.</p>
+<p><strong>How to address the fact that a hash function always has a patholgical data set</strong>:</p>
+<ol>
+<li>Use a cryptographic hash function - but it is slow. This is good because it is difficult to figure out the pathological data set</li>
+<li>Use randomization. Design a family of hash functions and then pick one at run time at random.</li>
+</ol>
+<p>2 above implies that for each data set, choosing a random hash function will make it difficult to find the pathological data set to destroy the function.</p>
+<h3 id="universal-hash-function-implementation">Universal Hash Function - Implementation<a class="headerlink" href="#universal-hash-function-implementation" title="Permanent link">&para;</a></h3>
+<p>Let <span class="math">\(H\)</span> be a set of hash functions from <span class="math">\(u\)</span> to <span class="math">\(\{0,1,2,\ldots,n-1\}\)</span>. <span class="math">\(H\)</span> is universal <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\forall x,y \in u\)</span>, pr that <span class="math">\(h(x) = h(y)\)</span> is <span class="math">\(\frac{1}{n}\)</span> where <span class="math">\(h \in H\)</span>.</p>
+<p><strong>Example</strong>: Creating a universal hash function for ip addresses.</p>
+<ol>
+<li>Ip addresses of the form <span class="math">\(\(x_0, x_1, x_2, x_3\)\)</span> where <span class="math">\(x_n \in \{ 0,1,\ldots,256 \}\)</span>.</li>
+<li>Choose <span class="math">\(n\)</span> to be a prime number that that is some small multiple of the number of objects you want to store. For example, assuming you want to store 500 object, then <span class="math">\(n\)</span> can be 997.</li>
+<li>Choose a random 4-tuple <span class="math">\(\(a_0, a_1, a_2, a_3\)\)</span> where <span class="math">\(a_n \in \{0, 1, 2, \ldots, n-1\}\)</span>.</li>
+<li>Define a set of hash functions <span class="math">\(h_a\(x_0, x_1, x_2, x_3\) = \left(a_0\cdot x_0+a_1\cdot x_1+a_2\cdot x_2+a_3\cdot x_3\right) \bmod n\)</span></li>
+</ol>
+<p>The set of hash functions defined by <span class="math">\(a\)</span> above is a universal hash function set.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: '[math]'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: true, width: '80% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<section class="content screen-height" id="comments">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="content-border">
+						<h2>Comments</h2>
+        				<div class="divider-grey"></div>
+						<a id="disqus" href="http://web-pages.github.io/test/drafts/Dictionaries.html#disqus_thread">0 Comments</a>
+						<div id="disqus_thread"></div>
+					</div>
+			    </div>
+			</div>
+    	</div>
+	</section>
+    <!-- End Sections -->
+
+    <!-- Connect -->
+    <section id="connect" class="text-center title">
+        <div class="container">
+            <h1>Connect</h1>
+            
+            <div class="row" style="padding: 1.0em 0;">
+                Found anything useful on this site? Drop me a line, I'd love to hear about it.
+            </div>
+            
+            <div class="divider-grey"></div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                    <div>
+                        <a class="fa-stack fa-lg x" id="x" tabindex="0">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg twitter" href="https://twitter.com/barrysteyn" target="_blank">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg linkedin" href="https://www.linkedin.com/in/barrysteyn" target="_blank">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg github" href="https://github.com/barrysteyn" target="_blank">
+                            <i class="fa fa-github fa-stack-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div id="footer" class="row">
+                <div class="col-xs-12">
+                    <p>&copy; <script>document.write(new Date().getFullYear());</script> Barry Steyn. All Rights Reserved.
+                </div>
+            </div>
+            <!-- End Footer -->
+        </div>
+    </section>
+    <!-- End Connect -->
+
+    <!-- JavaScript -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var scrollspies = {};
+        scrollspies.body = {
+            'target': '#navigation-menu'
+        };
+
+		//Do not remove navbar-offset-start class
+	var navbarOffset = false;
+
+	//Scrollspy object
+    scrollspies.body = {
+        'target': '.toc'
+    };
+
+
+	$(function() {
+		var disqus = {
+			shortname: 'doctrina',
+			identifier: 'http://web-pages.github.io/test/drafts/Dictionaries.html',
+			url: 'http://web-pages.github.io/test/drafts/Dictionaries.html',
+			developer: 0
+		};
+
+		disqus_comments(disqus);
+	});
+    </script>
+    <script src="http://web-pages.github.io/test/theme/js/main.js"></script>
+    <!-- End JavaScript -->
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-33789117-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+</body>
+
+</html>

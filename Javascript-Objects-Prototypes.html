@@ -1,0 +1,425 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Presense Of Barry Steyn - Software Engineer, Entrepreneur">
+    <meta name="author" content="Barry Steyn">
+    <link rel="shortcut icon" href="theme/img/doctrina-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="theme/img/apple-touch-icon-144-precomposed.png">
+
+    <title>Doctrina - 	Javascript: Object Prototypes
+</title>
+
+    <!-- Bootstrap Base CSS -->
+    <link href="http://web-pages.github.io/test/theme/css/base.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="http://web-pages.github.io/test/theme/css/main.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <!-- Top Nav Bar -->
+    <nav id="navbar-top" class="navbar navbar-fixed-top navbar-offset-start " role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand " href="/index.html#page-top">
+                    <img alt="brand for doctrina" src="http://web-pages.github.io/test/theme/img/apple-touch-icon-144-precomposed.png" style="float: left; max-height:100%;" />
+                    <span style="padding-left: 0.5em;">Doctrina</span>
+                </a>
+                
+                <button type="button" class="navbar-toggle" style="" data-toggle="collapse" data-target="#navigation-menu">
+<i class="fa fa-bars"></i>                </button>
+
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
+                        <div>
+                            <ul class="nav navbar-nav">
+                                <li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>
+                                <li><a href="category/blog.html"><span>Blog</span></a></li> 
+                                <li><a href="#comments"><span>Comments</span></a></li> 
+                                <li><a href="#footer"><span>Connect</span></a></li> 
+                            </ul>
+                        </div>
+            </div>
+
+
+        </div>
+    </nav>
+    <!-- End Top Nav Bar -->
+
+    <!-- User Defined Sections -->
+	<section class="container-fluid title">
+	<div class="row">
+		<div class="col-md-12">
+			<h1><a href="" rel="bookmark" title="Permalink to Javascript: Object Prototypes">	Javascript: Object Prototypes
+</a></h1>
+			<span>
+				<a href="http://web-pages.github.io/test/index.html#about"><img src="http://web-pages.github.io/test/theme/img/me.jpg" class="img-rounded"></img></a>
+			</span>
+		</div>
+	</div>
+</section>
+
+<section class="content">
+	<div class="container">
+		<div class="row">
+				<div class="col-xs-12 text-center metadata">
+					<ul class="center-list">
+						<li><b>Published</b>: 12  Oct  2012</li>
+					</ul>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col-xs-12 col-md-1 col-md-push-10 text-center">
+<div id="share">
+	<div>
+		<span class="toctitle">Share</span>
+	</div>
+	<div>
+	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Javascript%3A%20Object%20Prototypes&url=http%3A//web-pages.github.io/test/Javascript-Objects-Prototypes.html&via=">
+	        <i class="fa fa-circle fa-stack-2x"></i>
+	        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	    </a>
+	</div>
+	<div>
+		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//web-pages.github.io/test/Javascript-Objects-Prototypes.html">
+		    <i class="fa fa-circle fa-stack-2x"></i>
+		    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+		</a>
+	</div>
+	<div>
+		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//web-pages.github.io/test/Javascript-Objects-Prototypes.html">
+		    <i class="fa fa-circle fa-stack-2x"></i>
+		    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+		</a>
+	</div>
+	<div>
+	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//web-pages.github.io/test/Javascript-Objects-Prototypes.html&title=Javascript%3A%20Object%20Prototypes">
+	        <i class="fa fa-circle fa-stack-2x"></i>
+	        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+	    </a>
+	</div>
+</div>				</div>				
+
+
+			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
+	<p>This post discusses JavaScript objects with emphasis on its prototype linkings. After reading this post, you should understand the following:</p>
+<ul>
+<li>Object creation in JavaScript.</li>
+<li>Prototype linkings.</li>
+<li>What <code>Object.prototype</code> and <code>Function.prototype</code> are used for.</li>
+</ul>
+<p><a href="http://en.wikipedia.org/wiki/Douglas_Crockford">Douglas Crockford's</a> wonderful book <a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?ie=UTF8&amp;qid=1346978272&amp;sr=8-1&amp;keywords=javascript+the+good+parts">JavaScript: The Good Parts</a> does a fanastic job of explaining this topic, and I urge the interested reader to buy his book.</p>
+<h1 id="javascript-objects">JavaScript Objects<a class="headerlink" href="#javascript-objects" title="Permanent link">&para;</a></h1>
+<p>In JavaScript the simple types are <em>numbers</em>, <em>strings</em>, <em>booleans</em> (<em>true</em> and <em>false</em>), <em>null</em> and <em>undefined</em>. All other values are objects. Even though there are multiple ways to create objects, there are really only two <em>atomic</em> mechanisms that are used:</p>
+<ol>
+<li>Literals. </li>
+<li>Functions.</li>
+</ol>
+<h2 id="creating-objects-from-literals">Creating Objects From Literals <a id="cofl"></a><a class="headerlink" href="#creating-objects-from-literals" title="Permanent link">&para;</a></h2>
+<p>Creating objects from literals is very simple. The following is an <em>object literal</em>:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>  
+    <span class="s2">&quot;First_Name&quot;</span><span class="o">:</span> <span class="s2">&quot;Barry&quot;</span><span class="p">,</span>  
+    <span class="s2">&quot;Last_Name&quot;</span><span class="o">:</span> <span class="s2">&quot;Steyn&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;do_Something&quot;</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;something&#39;</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Object Literals do not look like traditional objects. In fact, Object Literals look more like a structure that can hold things.  There is however one difference between a JavaScript object and a structure that can hold things: All JavaScript objects have a <em>prototype</em> linking.</p>
+<h2 id="the-prototype-link">The Prototype Link<a class="headerlink" href="#the-prototype-link" title="Permanent link">&para;</a></h2>
+<p>Every Object has a <em>hidden</em> link to another object called a <em>prototype link</em>. Objects by default are linked to the object <code>Object.prototype</code>. The prototype link is only used when retrieving property values from an object (it is not touched when updating an object). When retrieving a property value from an object, if it cannot be found, it will look for it in the prototype object that it is linked to. For example:</p>
+<div class="highlight"><pre><span class="n">person</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="c1">// undefined - property age does not exist</span>
+</pre></div>
+
+
+<p>JavaScript tried to find the property age on person, and it could not. So then it tried to find it on <code>Object.prototype</code> and it could not find it either. So it returned "<em>undefined</em>".</p>
+<div class="highlight"><pre><span class="n">Object</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">56</span><span class="p">;</span> <span class="c1">// Every object is linked to Object.prototype by default</span>
+<span class="n">person</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="c1">// 56</span>
+</pre></div>
+
+
+<p>JavaScript could not find age on person, but it did find it on <code>Object.prototype</code>, which is linked to person. Therefore the prototype linkage is used to <em>augment</em> an object with additional properties. In a classical object oriented language like Java or C++, augmentation is performed using inheritance. And so a prototype link can be considered as providing the property augmentation feature of object inheritance.</p>
+<h2 id="creating-function-objects">Creating Function Objects <a id="cfo"></a><a class="headerlink" href="#creating-function-objects" title="Permanent link">&para;</a></h2>
+<p>Functions in JavaScript are objects and are <a href="http://en.wikipedia.org/wiki/First-class_citizen">first class citizens</a>. A variable can be assigned a function object like so:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">addNum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">typeof</span> <span class="nx">addNum</span><span class="p">;</span> <span class="c1">//function - which is an object in JavaScript</span>
+</pre></div>
+
+
+<p>Since functions are objects, they too have a prototype link. But where object literals are by default linked to <code>Object.prototype</code>, function objects are linked to <code>Function.prototype</code>. There is one other difference that function objects have (and this is where it starts get confusing); function objects have in addition to a prototype link a <em>property</em> called <em>prototype</em>. This property (again, the <em>prototype</em> property <strong>is not</strong> the prototype link) can be manipulated (its use will be explained in the next section).</p>
+<p>Just like <code>Object.prototype</code> is used to augment objects with properties, so <code>Function.prototype</code> is used to augment functions with properties.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">addNum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// 7</span>
+
+<span class="c1">//Add a function to Function.prototype</span>
+<span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">substract</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">num1</span> <span class="o">-</span> <span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//We can now use subtract on any function object</span>
+<span class="nx">result</span> <span class="o">=</span> <span class="nx">addNum</span><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//3</span>
+</pre></div>
+
+
+<p><code>Function.prototype</code> is itself an object (big surprise there), and therefore it is linked to <code>Object.prototype</code>. If something cannot be found in <code>Function.prototype</code>, it will be searched for on <code>Function.prototype</code>'s linked prototype object, which is <code>Object.prototype</code>.</p>
+<div class="highlight"><pre><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">denominator</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">divide</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">num1</span> <span class="o">/</span> <span class="nx">denominator</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">addNum</span><span class="p">.</span><span class="nx">divide</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span> <span class="c1">// 5</span>
+</pre></div>
+
+
+<p>In the above example, <em>addNum</em> was searched for <em>divide</em>. Then <code>Function.prototype</code> was searched, after which, <code>Object.prototype</code> was searched, where it was eventually found. Therefore prototype links are chained together, whereby if a property is not found in the current object, it then searches for it in its linked prototype object. And if that object does not have the property, it is then searched for in that object's linked prototype object, and so on, until the process ends with <code>Object.prototype</code>.</p>
+<p>The process described above is the mainstay of <a href="http://en.wikipedia.org/wiki/Prototype-based_programming">Prototype Based Programming</a>, and it is called <em>prototype chaining</em>.</p>
+<h2 id="creating-objects-from-functions">Creating Objects From Functions <a id="coff"></a><a class="headerlink" href="#creating-objects-from-functions" title="Permanent link">&para;</a></h2>
+<p>This section should not be confused with the previous section. Their titles share similar wording, but in this section, we are going to talk about how to create a new object using a function, and last section we talked about creating function objects.</p>
+<p>To recap from the last section, this is how a <em>function object</em> is created:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>The variable <code>Animal</code>:</p>
+<ul>
+<li>Is a function and an object (remember, everything is an object in JavaScript).  </li>
+<li>It has a <em>prototype property</em>, and its prototype link is to set to <code>Function.prototype</code> by default.</li>
+</ul>
+<p>But something special happens here if the function is invoked with the reserved word <code>new</code> (called the <a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci">constructor invocation pattern</a>):</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animal</span><span class="p">(</span><span class="s1">&#39;fluffy&#39;</span><span class="p">);</span> <span class="c1">//Using new to invoke the function</span>
+</pre></div>
+
+
+<p>What happens here is that <code>new</code> creates an object from the function object <code>Animal</code>. Its power comes in because it will use <code>Animal</code>'s <em>prototype property</em> as the <em>prototype link</em> for the new object. And since <code>Animal</code> can set the value of its prototype property, objects constructed in this way do not have to be linked to <code>Object.prototype</code>. Got that? If not, here is an example which should explain things:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">species</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;species&quot;</span><span class="o">:</span><span class="s2">&quot;human&quot;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">Entity</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">alien</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Entity</span><span class="p">(</span><span class="s2">&quot;Yoda&quot;</span><span class="p">);</span>
+
+<span class="nx">Entity</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">species</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">human</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Entity</span><span class="p">(</span><span class="s2">&quot;Jason&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>In the above, the <code>alien</code> and <code>human</code> objects are constructed from the function <code>Entity</code> via the <em>constructor invocation pattern</em> that is initiated by putting the <code>new</code> keyword in front of the function name. When <code>alien</code> is constructed, <code>Entity</code>'s prototype property has not been altered, and so <code>alien</code> is linked to <code>Object.prototype</code>. But when constructing <code>human</code>, <code>Entity</code>'s prototype property was altered to species, and so the prototype object linked to <code>human</code> is <code>species</code>, which in turn is itself linked to <code>Object.prototype</code>:</p>
+<div class="highlight"><pre><span class="n">alien</span><span class="p">.</span><span class="n">species</span><span class="p">;</span> <span class="c1">// undefined</span>
+<span class="n">human</span><span class="p">.</span><span class="n">species</span><span class="p">;</span> <span class="c1">// human</span>
+</pre></div>
+
+
+<h3 id="the-problem-with-using-the-constructor-invocation-pattern">The problem with using the "constructor invocation pattern" <a id="pcip"></a><a class="headerlink" href="#the-problem-with-using-the-constructor-invocation-pattern" title="Permanent link">&para;</a></h3>
+<p>Using <code>new</code> is one of four ways in which to invoke a function, the most popular way being to call the function. For example:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Vehicle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="nx">type</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">type</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">car</span> <span class="o">=</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="s2">&quot;Toyota&quot;</span><span class="p">);</span> <span class="c1">// Normal function call</span>
+<span class="kd">var</span> <span class="nx">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="s2">&quot;Boeing&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>In the example above, <code>car</code> was assigned the result of invoking <code>Vehicle</code> as a normal function, which in this case was <em>Toyota</em>. But <code>plane</code> on the other was assigned the result of using the <em>constructor invocation pattern</em> which is an object (the return is ignored). This is terrible, and it is very easy to make a mistake.</p>
+<p>One recommended approach is to always start functions that are to be invoked with <code>new</code> with <em>capital letters</em>. This should help for readability, but when someone is spending days trying to hunt for a bug, this will be little compensation. <a id="remedy"></a>Instead, a much better way would be to augment <code>Object</code> with a create method if it does not exist:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span> <span class="o">!==</span> <span class="s1">&#39;function&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//If working with a version of JavaScript prior to 1.8.5</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">F</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{};</span>
+        <span class="nx">F</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">F</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Objects can now be created with a chosen prototype link by doing the following:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">animal</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;make_sound&quot;</span><span class="o">:</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;purrrr&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">cat</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">animal</span><span class="p">);</span>
+<span class="nx">cat</span><span class="p">.</span><span class="nx">make_sound</span><span class="p">();</span> <span class="c1">//purrrr</span>
+<span class="nx">cat</span><span class="p">.</span><span class="nx">type</span><span class="p">;</span> <span class="c1">//cat</span>
+</pre></div>
+
+
+<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<p>Object orientation in JavaScript is a bit of a mess. This is because JavaScript is quite unsure about what it is, and ends up being a mix of a classical object oriented language and a prototype based language. Hence we get the <code>new</code> keyword, which makes JavaScript look like a classical object oriented language, even though it is not.</p>
+<p>To summarise, here are the three objects this blog discusses:</p>
+<div class="highlight"><pre><span class="c1">//Object Literal</span>
+<span class="k">var</span> <span class="n">objectLiteral</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&quot;property1&quot;</span><span class="o">:</span><span class="s">&quot;value1&quot;</span>
+<span class="p">};</span>
+
+<span class="c1">//Function Object</span>
+<span class="k">var</span> <span class="n">functionObject</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="c1">//Object From Function</span>
+<span class="k">var</span> <span class="n">objectFromFunction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">functionObject</span><span class="p">();</span>
+</pre></div>
+
+
+<p>And to summarise, the prototype linkings and properties available to each object:
+<center>
+    <table style="border-style: solid; border-width:1px; border-color: #000000;">
+        <tr>
+            <td><b>Object Literal</b></td>
+            <td><b>Function Object</b></td>
+            <td><b>Object From Function</b></td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li> <em>Construction</em> - via curly braces <code>{}</code></li>
+                    <li> <em>Prototype Link</em> - Object.prototype</li>
+                    <li> <em>Prototype Property</em> - does not exist</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li> <em>Construction</em> - via the <code>function</code> keyword </li>
+                    <li> <em>Prototype Link</em> - Function.prototype</li>
+                    <li> <em>Prototype Property</em> - exists</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li> <em>Construction</em> - via <code>new</code> keyword with function object</li>
+                    <li> <em>Prototype Link</em> - Whatever the function's (that was invoked by <code>new</code>) prototype property is set to (<code>Object.prototype</code> by default)</li>
+                    <li> <em>Prototype Property</em> - does not exist</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</center></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<section class="content screen-height" id="comments">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="content-border">
+						<h2>Comments</h2>
+        				<div class="divider-grey"></div>
+						<a id="disqus" href="http://web-pages.github.io/test/Javascript-Objects-Prototypes.html#disqus_thread">0 Comments</a>
+						<div id="disqus_thread"></div>
+					</div>
+			    </div>
+			</div>
+    	</div>
+	</section>
+    <!-- End Sections -->
+
+    <!-- Connect -->
+    <section id="connect" class="text-center title">
+        <div class="container">
+            <h1>Connect</h1>
+            
+            <div class="row" style="padding: 1.0em 0;">
+                Found anything useful on this site? Drop me a line, I'd love to hear about it.
+            </div>
+            
+            <div class="divider-grey"></div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                    <div>
+                        <a class="fa-stack fa-lg x" id="x" tabindex="0">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg twitter" href="https://twitter.com/barrysteyn" target="_blank">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg linkedin" href="https://www.linkedin.com/in/barrysteyn" target="_blank">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg github" href="https://github.com/barrysteyn" target="_blank">
+                            <i class="fa fa-github fa-stack-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div id="footer" class="row">
+                <div class="col-xs-12">
+                    <p>&copy; <script>document.write(new Date().getFullYear());</script> Barry Steyn. All Rights Reserved.
+                </div>
+            </div>
+            <!-- End Footer -->
+        </div>
+    </section>
+    <!-- End Connect -->
+
+    <!-- JavaScript -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var scrollspies = {};
+        scrollspies.body = {
+            'target': '#navigation-menu'
+        };
+
+		//Do not remove navbar-offset-start class
+	var navbarOffset = false;
+
+	//Scrollspy object
+    scrollspies.body = {
+        'target': '.toc'
+    };
+
+
+	$(function() {
+		var disqus = {
+			shortname: 'doctrina',
+			identifier: 'http://web-pages.github.io/test/Javascript-Objects-Prototypes.html',
+			url: 'http://web-pages.github.io/test/Javascript-Objects-Prototypes.html',
+			developer: 0
+		};
+
+		disqus_comments(disqus);
+	});
+    </script>
+    <script src="http://web-pages.github.io/test/theme/js/main.js"></script>
+    <!-- End JavaScript -->
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-33789117-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+</body>
+
+</html>

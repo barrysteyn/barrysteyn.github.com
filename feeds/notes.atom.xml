@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://web-pages.github.io/test/" rel="alternate"></link><link href="http://web-pages.github.io/test/feeds/notes.atom.xml" rel="self"></link><id>http://web-pages.github.io/test/</id><updated>2013-02-27T00:00:00-08:00</updated><entry><title>The Master Method</title><link href="http://web-pages.github.io/test/The-Master-Method.html" rel="alternate"></link><updated>2013-02-27T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:web-pages.github.io,2013-02-27:test/The-Master-Method.html</id><summary type="html">&lt;h1 id="the-master-method"&gt;The Master Method&lt;a class="headerlink" href="#the-master-method" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;The master method is a way to analyse the worst case running times of a recursive function. Assume the recursive function is of the following form:&lt;/p&gt;
+&lt;div class="math"&gt;$$ T(n) = a\cdot T\left(\frac{n}{b}\right) + O(n)^d$$&lt;/div&gt;
+&lt;p&gt;Where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;a&lt;/strong&gt; is the number of subproblems created. &lt;u&gt;Known as the &lt;em&gt;rate of subproblem proliferation&lt;/em&gt; (RSP).&lt;/u&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;b&lt;/strong&gt; is the constant dividing factor that controls the size of each subproblem's input. &lt;u&gt;Known as the rate of work shrinkage (RWS).&lt;/u&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;d&lt;/strong&gt; is the exponent for the amount of work done on each recursive level.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then&lt;/p&gt;
+&lt;div class="math"&gt;$$ T(n) = \begin{cases} O(n^d\cdot log n) &amp;amp; \text{if}\ a = b^d\ \text{case 1} \cr O(n^d) &amp;amp; \text{if}\ a &amp;lt; b^d\ \text{case 2}\cr O(n^{log_ba}) &amp;amp; \text{if}\ a &amp;gt; b^d\ \text{case 3}\end{cases}$$&lt;/div&gt;
+&lt;h2 id="canonical-example-merge-sort"&gt;Canonical Example: Merge Sort&lt;a class="headerlink" href="#canonical-example-merge-sort" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Merge sort is the classic divide-and-conquer algorithm. It is a comparison based sort that achieves the best time possible for comparison base sorts: &lt;span class="math"&gt;\(O(n\cdot log(n))\)&lt;/span&gt;. For merge sort, the recursive function would be the following:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$ T(n) = 2\cdot T\left(\frac{n}{2}\right) + O(n)$$&lt;/div&gt;
+&lt;p&gt; To spell things out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;a&lt;/strong&gt; is 2. Merge sort divides its input into two, and then recursively works on each sub problem. Therefore there are two sub problems and hence a=2.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;b&lt;/strong&gt; is 2. Each subproblem's input is divided by 2, hence b=2.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;d&lt;/strong&gt; is 1. This is the work done at each level after the recursive calls. For merge sort, the work is merging each of the two &lt;span class="math"&gt;\(\frac{n}{2}\)&lt;/span&gt; input of the subproblem.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It is easy to see via a recursion tree that Merge sort takes &lt;span class="math"&gt;\(O(n\cdot logn)\)&lt;/span&gt; time. The master method totally agrees with this, as merge sort falls into case 1, with &lt;span class="math"&gt;\(a=2\)&lt;/span&gt;, &lt;span class="math"&gt;\(b=2\)&lt;/span&gt; and &lt;span class="math"&gt;\(d=1\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id="the-work-done-at-each-level"&gt;The Work Done At Each Level&lt;a class="headerlink" href="#the-work-done-at-each-level" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;At any level &lt;span class="math"&gt;\(j\)&lt;/span&gt; in the recursive subtree, there are &lt;span class="math"&gt;\(a^j\)&lt;/span&gt; subproblems of size &lt;span class="math"&gt;\(\frac{n}{b^j}\)&lt;/span&gt;. Therefore at any one particular level, the work at level &lt;span class="math"&gt;\(j\)&lt;/span&gt; is: 
+&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+\text{Work done at level j} \leq a^j \cdot c\cdot \left( \frac{n}{b^j} \right)^d = c\cdot n^d \left(\frac{a}{b^d}\right)^j \label{wdael}
+\end{equation}&lt;/div&gt;
+&lt;h2 id="total-work-done"&gt;Total Work Done&lt;a class="headerlink" href="#total-work-done" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;At any recursion tree, the leaves are at level &lt;span class="math"&gt;\(log_b(n)\)&lt;/span&gt;, where &lt;em&gt;b&lt;/em&gt; is the rate of work shrinkage. The merge sort canonical example demonstrates this - &lt;em&gt;b&lt;/em&gt; is 2 (problem is halved at each level of the recursion tree), and so there are &lt;span class="math"&gt;\(log_2(n)\)&lt;/span&gt; before the leaves are hit.&lt;/p&gt;
+&lt;p&gt;If the work done at each level is dominated by inequality &lt;span class="math"&gt;\(\ref{wdael}\)&lt;/span&gt;, then the total work done is the sum of up to &lt;span class="math"&gt;\(log_b(n)\)&lt;/span&gt;:
+&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation}
+\text{Total work done} \leq c\cdot n^d \sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \label{twd}
+\end{equation}&lt;/div&gt;
+&lt;h3 id="intuition-for-the-three-cases"&gt;Intuition For The Three Cases&lt;a class="headerlink" href="#intuition-for-the-three-cases" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;When the master method was first explained to me, my lecturer humorously called the rate of work shrinkage (RWS - denoted by &lt;em&gt;b&lt;/em&gt;) the &lt;em&gt;"force of good"&lt;/em&gt; and the rate of subproblem proliferation (RSP - denoted by &lt;em&gt;a&lt;/em&gt;) the &lt;em&gt;"force of evil"&lt;/em&gt;. The following paragraphs perhaps explain this humour.&lt;/p&gt;
+&lt;h4 id="rws-rsp"&gt;RWS = RSP&lt;a class="headerlink" href="#rws-rsp" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;When rate of work shrinkage is equal to rate of subproblem proliferation, then the same amount of work is being done for each level of the recursion. Therefore work done is calculated by multiplying the number of levels by the work done at every level (Case 1: &lt;span class="math"&gt;\(O(n^d\cdot log(n))\)&lt;/span&gt;).&lt;/p&gt;
+&lt;p&gt;Again, the canonical merge sort example: There are &lt;span class="math"&gt;\(log_2n\)&lt;/span&gt; levels, with each level doing &lt;span class="math"&gt;\(O(n)\)&lt;/span&gt; work. Therefore total is &lt;span class="math"&gt;\(n\cdot log(n)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h4 id="rws-rsp_1"&gt;RWS &amp;gt; RSP&lt;a class="headerlink" href="#rws-rsp_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;When rate of work shrinkage is greater than rate of subproblem proliferation, then work done is &lt;em&gt;decreasing&lt;/em&gt; at each level (btw: This is very rare but when it happens is very good). Work done will therefore be dominated by the root of the recursion tree (Case 2: &lt;span class="math"&gt;\(O(n^d)\)&lt;/span&gt;).&lt;/p&gt;
+&lt;h4 id="rws-rsp_2"&gt;RWS &amp;lt; RSP&lt;a class="headerlink" href="#rws-rsp_2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;When rate of work shrinkage is less than rate of subproblem proliferation, work is &lt;em&gt;increasing&lt;/em&gt; at each level of the recursion. Work done will therefore be dominated by the leaves of the recursion tree (Case 3: expect O(#number of leaves)).&lt;/p&gt;
+&lt;h1 id="master-method-proof"&gt;Master Method Proof&lt;a class="headerlink" href="#master-method-proof" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="lemma"&gt;Lemma&lt;a class="headerlink" href="#lemma" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The following lemma will help with the proof.&lt;/p&gt;
+&lt;p&gt;For &lt;span class="math"&gt;\(r \neq 1\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$ 1 + r + r^2 + r^3 + \ldots + r^k = \frac{r^{k+1}-1}{r-1}$$&lt;/div&gt;
+&lt;p&gt;The above can be proved by induction, and &lt;a href="http://doctrina.org/Mathematical_Nonsense_-Inifinite-Sum-Series.html"&gt;I have done this just&lt;/a&gt; for fun. From the above, two facts follow:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;If &lt;span class="math"&gt;\(r &amp;lt; 1\)&lt;/span&gt;, then the sum is bounded above by &lt;span class="math"&gt;\(\frac{1}{1-r}\)&lt;/span&gt;. This means that the first term in the sum is the dominant term. Therefore the sum can be bounded above by some constant.&lt;/li&gt;
+&lt;li&gt;If &lt;span class="math"&gt;\(r &amp;gt; 1\)&lt;/span&gt;, then the sum is bounded above bt &lt;span class="math"&gt;\(r^k\cdot\left(1 + \frac{1}{1-r} \right)\)&lt;/span&gt;. This means that the last term (i.e. &lt;span class="math"&gt;\(r^k\)&lt;/span&gt;) is the dominant term, and in fact, the sum will always be less then &lt;span class="math"&gt;\(2\cdot r^k\)&lt;/span&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="proof-for-case-1"&gt;Proof For Case 1&lt;a class="headerlink" href="#proof-for-case-1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Assume &lt;span class="math"&gt;\(a=b^d\)&lt;/span&gt;, then &lt;span class="math"&gt;\(\left(\frac{a}{b^d}\right) = 1\)&lt;/span&gt;, and so &lt;span class="math"&gt;\(\sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j = log_b(n) + 1\)&lt;/span&gt;. With this in mind: &lt;span class="math"&gt;\(c\cdot n^d \sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j = c\cdot n^d \cdot log_b(n) + 1 = O(n^d\cdot log n)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id="proof-for-case-2"&gt;Proof For Case 2&lt;a class="headerlink" href="#proof-for-case-2" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If &lt;span class="math"&gt;\(a &amp;lt; b^d\)&lt;/span&gt;, then &lt;span class="math"&gt;\(\left(\frac{a}{b^d}\right) &amp;lt; 1\)&lt;/span&gt;. This is where the above lemma comes into play, because &lt;span class="math"&gt;\(\sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \leq f\)&lt;/span&gt;. Why do I use the constant &lt;em&gt;f&lt;/em&gt;? It is because in the lemma above, there is a constant that will always be greater than &lt;span class="math"&gt;\(\frac{1}{1-r}\)&lt;/span&gt; if &lt;span class="math"&gt;\(r &amp;lt; 1\)&lt;/span&gt;. Therefore &lt;span class="math"&gt;\(c\cdot n^d \sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \leq f\cdot c\cdot n^d = O(n^d)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id="proof-for-case-3"&gt;Proof For Case 3&lt;a class="headerlink" href="#proof-for-case-3" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Before I begin the proof for case 3, in a recursion tree, how many leaves are there? The answer: &lt;span class="math"&gt;\(a^{log_bn}\)&lt;/span&gt;. This is because there are &lt;span class="math"&gt;\(log_b(n)\)&lt;/span&gt; levels in the recursion tree, with each level splitting into &lt;em&gt;a&lt;/em&gt; subproblems.&lt;/p&gt;
+&lt;p&gt;If &lt;span class="math"&gt;\(a &amp;gt; b^d\)&lt;/span&gt;, then &lt;span class="math"&gt;\(\left(\frac{a}{b^d}\right) &amp;gt; 1\)&lt;/span&gt;. Again, the above lemma comes into play: &lt;span class="math"&gt;\(\sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \leq 2\cdot \left(\frac{a}{b^d}\right)^{log_bn}\)&lt;/span&gt;. Therefore &lt;span class="math"&gt;\(c\cdot n^d \sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \leq 2\cdot c\cdot n^d \cdot \left(\frac{a}{b^d}\right)^{log_bn}\)&lt;/span&gt;. Note that &lt;span class="math"&gt;\(b^{-dlog_bn} = \left(b^{log_bn}\right)^{-d} = n^{-d}\)&lt;/span&gt;. So &lt;span class="math"&gt;\(2\cdot c\cdot n^d \cdot \left(\frac{a}{b^d}\right)^{log_bn} = 2\cdot c\cdot a^{log_bn} = O(a^{log_bn})\)&lt;/span&gt;. As shown above, this is the number of recursion leaves.&lt;/p&gt;
+&lt;p&gt;The more astute of you out there may notice that &lt;em&gt;case 3&lt;/em&gt; was presented as &lt;span class="math"&gt;\(O(n^{log_ba})\)&lt;/span&gt;. This is because &lt;span class="math"&gt;\(n^{log_ba} = a^{log_bn}\)&lt;/span&gt; (I did not believe this at first, and had to &lt;a href="http://doctrina.org/Mathematical_Nonsense_Lemma-For-Logarithm-Equality.html"&gt;prove&lt;/a&gt; it to myself). Even though it is more intuitive to understand &lt;span class="math"&gt;\(a^{log_bn}\)&lt;/span&gt; (i.e. the leaves of the recursion sub tree), it is more consistent with the other cases to calculate &lt;span class="math"&gt;\(n^{log_ba}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: '[math]'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: true, width: '80% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="Software"></category><category term="Computer Science"></category><category term="Algorithms"></category></entry></feed>

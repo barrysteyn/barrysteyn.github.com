@@ -1,0 +1,563 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Presense Of Barry Steyn - Software Engineer, Entrepreneur">
+    <meta name="author" content="Barry Steyn">
+    <link rel="shortcut icon" href="theme/img/doctrina-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="theme/img/apple-touch-icon-144-precomposed.png">
+
+    <title>Doctrina - 	Scrypt Authentiction For Node
+</title>
+
+    <!-- Bootstrap Base CSS -->
+    <link href="http://web-pages.github.io/test/theme/css/base.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="http://web-pages.github.io/test/theme/css/main.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <!-- Top Nav Bar -->
+    <nav id="navbar-top" class="navbar navbar-fixed-top navbar-offset-start " role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand " href="/index.html#page-top">
+                    <img alt="brand for doctrina" src="http://web-pages.github.io/test/theme/img/apple-touch-icon-144-precomposed.png" style="float: left; max-height:100%;" />
+                    <span style="padding-left: 0.5em;">Doctrina</span>
+                </a>
+                
+                <button type="button" class="navbar-toggle" style="" data-toggle="collapse" data-target="#navigation-menu">
+<i class="fa fa-bars"></i>                </button>
+
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
+                        <div>
+                            <ul class="nav navbar-nav">
+                                <li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>
+                                <li><a href="category/software-projects.html"><span>Software Projects</span></a></li> 
+                                <li><a href="#comments"><span>Comments</span></a></li> 
+                                <li><a href="#footer"><span>Connect</span></a></li> 
+                            </ul>
+                        </div>
+            </div>
+
+
+        </div>
+    </nav>
+    <!-- End Top Nav Bar -->
+
+    <!-- User Defined Sections -->
+	<section class="container-fluid title">
+	<div class="row">
+		<div class="col-md-12">
+			<h1><a href="" rel="bookmark" title="Permalink to Scrypt Authentiction For Node">	Scrypt Authentiction For Node
+</a></h1>
+			<span>
+				<a href="http://web-pages.github.io/test/index.html#about"><img src="http://web-pages.github.io/test/theme/img/me.jpg" class="img-rounded"></img></a>
+			</span>
+		</div>
+	</div>
+</section>
+
+<section class="content">
+	<div class="container">
+		<div class="row">
+				<div class="col-xs-12 text-center metadata">
+					<ul class="center-list">
+						<li><b>Published</b>: 18  Dec  2012</li>
+					</ul>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col-xs-12 col-md-1 col-md-push-10 text-center">
+<div id="share">
+	<div>
+		<span class="toctitle">Share</span>
+	</div>
+	<div>
+	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Scrypt%20Authentiction%20For%20Node&url=http%3A//web-pages.github.io/test/Scrypt-Authentication-For-Node.html&via=">
+	        <i class="fa fa-circle fa-stack-2x"></i>
+	        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	    </a>
+	</div>
+	<div>
+		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//web-pages.github.io/test/Scrypt-Authentication-For-Node.html">
+		    <i class="fa fa-circle fa-stack-2x"></i>
+		    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+		</a>
+	</div>
+	<div>
+		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//web-pages.github.io/test/Scrypt-Authentication-For-Node.html">
+		    <i class="fa fa-circle fa-stack-2x"></i>
+		    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+		</a>
+	</div>
+	<div>
+	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//web-pages.github.io/test/Scrypt-Authentication-For-Node.html&title=Scrypt%20Authentiction%20For%20Node">
+	        <i class="fa fa-circle fa-stack-2x"></i>
+	        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+	    </a>
+	</div>
+</div>				</div>				
+
+
+			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
+	<h1 id="scrypt-for-nodejs">Scrypt For NodeJS<a class="headerlink" href="#scrypt-for-nodejs" title="Permanent link">&para;</a></h1>
+<p>node-scrypt is a native node C++ wrapper for Colin Percival's scrypt <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation</a> utility.</p>
+<h2 id="what-is-scrypt">What Is Scrypt?<a class="headerlink" href="#what-is-scrypt" title="Permanent link">&para;</a></h2>
+<p>Scrypt is an advanced crypto library used mainly for <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation</a> (i.e. password authenticator). More information can be found here:</p>
+<ul>
+<li><a href="http://www.tarsnap.com/scrypt.html">Tarsnap blurb about scrypt</a> - Colin Percival (the author of scrypt) explains a bit about it.</li>
+<li><a href="http://www.tarsnap.com/scrypt/scrypt.pdf">Academic paper explaining scrypt</a>.</li>
+<li><a href="http://en.wikipedia.org/wiki/Scrypt">Wikipedia Article on scrypt</a>.</li>
+</ul>
+<p>For additional interest, read the article on wikipedias about the <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation function</a>.</p>
+<h3 id="the-three-essential-properties-of-password-key-derivation">The Three Essential Properties Of Password Key Derivation<a class="headerlink" href="#the-three-essential-properties-of-password-key-derivation" title="Permanent link">&para;</a></h3>
+<p>Password key derivation requires three properties:</p>
+<ul>
+<li>The password must not be stored in plaintext. (Therefore it is hashed).</li>
+<li>The password hash must be salted. (Making a rainbow table attack very difficult to pull off).</li>
+<li>The salted hash function must not be fast. (If someone does get hold of the salted hashes, their only option will be brute force which will be very slow).</li>
+</ul>
+<p>This scrypt library automatically handles the above properties. The last item seems strange: Computer scientists are normally pre-occupied with making things fast. Yet it is this property that sets Scrypt apart from the competition. As computers evolve and get more powerful, they are able to attack this property more efficiently. This has become especially apparent with the rise of parallel programming. Scrypt aims to defend against all types of attacks, not matter the attackers power now or in the future.</p>
+<h3 id="what-this-module-provides">What This Module Provides<a class="headerlink" href="#what-this-module-provides" title="Permanent link">&para;</a></h3>
+<p>This module implements the following:</p>
+<ul>
+<li><strong>Scrypt password key derivation</strong><ul>
+<li>All three essential properties of password key derivation are implemented (as described above).</li>
+<li>Both <em>asynchronous</em> and <em>synchronous</em> versions are available.</li>
+</ul>
+</li>
+<li><strong>Scrypt encryption</strong><ul>
+<li>Both <em>asynchronous</em> and <em>synchronous</em> versions are available.</li>
+</ul>
+</li>
+</ul>
+<p>I suspect scrypt will be used mainly as a password key derivation function (its author's intended use), but I have also ported the scrypt encryption and decryption functions as implementations for them were available from the author. Performing scrypt cryptography is done if you value security over speed. Scrypt is more secure than a vanilla block cipher (e.g. AES) but it is much slower. It is also the basis for the key derivation functions.</p>
+<h2 id="why-use-scrypt">Why Use Scrypt?<a class="headerlink" href="#why-use-scrypt" title="Permanent link">&para;</a></h2>
+<p>It is probably the most advanced key derivation function available. This is is quote taken from a comment in hacker news:</p>
+<blockquote>
+<p>Passwords hashed with scrypt with sufficiently-high strength values (there are 3 tweakable input numbers) are fundamentally impervious to being cracked. I use the word "fundamental" in the literal sense, here; even if you had the resources of a large country, you would not be able to design any hardware (whether it be GPU hardware, custom-designed hardware, or otherwise) which could crack these hashes. Ever. (For sufficiently-small definitions of "ever". At the very least "within your lifetime"; probably far longer.)</p>
+</blockquote>
+<p>The <em>three tweakable</em> inputs mentioned above are as follows (Quoting from the author):</p>
+<p><strong>maxtime</strong></p>
+<blockquote>
+<p>maxtime will instruct scrypt to spend at most maxtime seconds computing the derived encryption key from the password; [If using scrypt] for encryption, this value will determine how secure the encrypted data is, while for decryption this value is used as an upper limit (if scrypt detects that it would take too long to decrypt the data, it will exit with an error message).</p>
+</blockquote>
+<p><strong>maxmemfrac</strong></p>
+<blockquote>
+<p>maxmemfrac instructs scrypt to use at most the specified fraction of the available RAM for computing the derived encryption key. For encryption, increasing this value might increase the security of the encrypted data, depending on the maxtime value; for decryption, this value is used as an upper limit and may cause scrypt to exit with an error.</p>
+</blockquote>
+<p><strong>maxmem</strong></p>
+<blockquote>
+<p>maxmem instructs scrypt to use at most the specified number of bytes of RAM when computing the derived encryption key. </p>
+</blockquote>
+<p><strong>A Note On How Memory Is Calculated</strong>: <code>maxmem</code> is often defaulted to <code>0</code>. This does not mean that <code>0</code> RAM is used. Instead, memory used is calculated like so (quote from Colin Percival):</p>
+<blockquote>
+<p>the system [will use] the amount of RAM which [is] specified [as the] fraction of the available RAM, but no more than maxmem, and no less than 1MiB</p>
+</blockquote>
+<p>Therefore at the very least, 1MiB of ram will be used.</p>
+<h3 id="the-three-tweakable-inputs">The Three Tweakable Inputs<a class="headerlink" href="#the-three-tweakable-inputs" title="Permanent link">&para;</a></h3>
+<p><u><strong>Note</strong>: This is a very important section to understand</u>. The three tweakable inputs mentioned above are actually just <em>human understandable</em> inputs into a translation function that produces the inputs required for the internal scrypt cryptographic function. These inputs (as defined in the <a href="http://www.tarsnap.com/scrypt/scrypt.pdf">scrypt paper</a>) are as follows:</p>
+<ol>
+<li><strong>N</strong> - general work factor, iteration count.</li>
+<li><strong>r</strong> - blocksize in use for underlying hash; fine-tunes the relative memory-cost.</li>
+<li><strong>p</strong> - parallelization factor; fine-tunes the relative cpu-cost.</li>
+</ol>
+<p>Values for <em>maxtime</em>, <em>maxmemfrac</em> and <em>maxmem</em> are translated into the above values, which are then fed to the scrypt function. The translation function also takes into account the CPU and Memory capabilities of a machine. Therefore values of <em>N</em>, <em>r</em> and <em>p</em> may differ for different machines that have different specs.</p>
+<h2 id="pros-and-cons">Pros And Cons<a class="headerlink" href="#pros-and-cons" title="Permanent link">&para;</a></h2>
+<p>Here are some pros and cons for using it:</p>
+<h3 id="pros">Pros<a class="headerlink" href="#pros" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The scrypt algorithm has been published by <a href="http://en.wikipedia.org/wiki/IETF">IETF</a> as an <a href="http://en.wikipedia.org/wiki/Internet_Draft">Internet Draft</a> and is thus on track to becoming a standard. See <a href="https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00">here</a> for the draft.</li>
+<li>It is being actively used in production at <a href="http://www.tarsnap.com/">Tarsnap</a>.</li>
+<li>It is much more secure than bcrypt.</li>
+<li>It is designed to be future proof against attacks with future (and more advanced) hardware.</li>
+<li>It is designed to defend against large scale custom hardware attacks.</li>
+<li>It is production ready.</li>
+<li>There is a scrypt library for most major scripting languages (Python, Ruby etc). Now this module provides the library for NodeJS :)</li>
+</ul>
+<p>I will end this section with a quote from Colin Percival (author of scrypt):</p>
+<blockquote>
+<p>We estimate that on modern (2009) hardware, if 5 seconds are spent computing a derived key, the cost of a hardware brute-force attack against scrypt is roughly 4000 times greater than the cost of a similar attack against bcrypt (to find the same password), and 20000 times greater than a similar attack against PBKDF2.</p>
+</blockquote>
+<h3 id="cons">Cons<a class="headerlink" href="#cons" title="Permanent link">&para;</a></h3>
+<p>There is just one con I can think of: It is a relatively new library (only been around since 2009). Cryptographers don't really like new libraries for production deployment as it has not been <em>battle tested</em>. That being said, it is being actively used in <a href="http://www.tarsnap.com/">Tarsnap</a> (as mentioned above) and the author is very active.</p>
+<h1 id="security-issuesconcerns">Security Issues/Concerns<a class="headerlink" href="#security-issuesconcerns" title="Permanent link">&para;</a></h1>
+<p>As should be the case with any security tool, this library should be scrutinized by anyone using it. If you find or suspect an issue with the code- please bring it to my attention and I'll spend some time trying to make sure that this tool is as secure as possible.</p>
+<h1 id="platforms">Platforms<a class="headerlink" href="#platforms" title="Permanent link">&para;</a></h1>
+<p>This library works on the following platforms:</p>
+<ul>
+<li>Linux</li>
+<li>MAC OS</li>
+</ul>
+<p>Windows support is coming very soon.</p>
+<h1 id="installation-instructions">Installation Instructions<a class="headerlink" href="#installation-instructions" title="Permanent link">&para;</a></h1>
+<p>This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to <a href="https://github.com/kelvinwong-ca">Kelvin Wong</a>).</p>
+<h2 id="from-npm">From NPM<a class="headerlink" href="#from-npm" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span class="n">npm</span> <span class="n">install</span> <span class="n">scrypt</span>
+</pre></div>
+
+
+<h2 id="from-source">From Source<a class="headerlink" href="#from-source" title="Permanent link">&para;</a></h2>
+<p>You will need <code>node-gyp</code> to get this to work (install it if you don't have it: <code>npm install -g node-gyp</code>):</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/barrysteyn/node-scrypt.git</span>
+<span class="n">cd</span> <span class="n">node</span><span class="o">-</span><span class="n">scrypt</span>
+<span class="n">node</span><span class="o">-</span><span class="n">gyp</span> <span class="n">configure</span> <span class="n">build</span>
+</pre></div>
+
+
+<h1 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h1>
+<p>Testing is accomplished with the <a href="https://github.com/isaacs/node-tap">node tap module</a>.</p>
+<h2 id="if-installed-via-npm">If installed via NPM<a class="headerlink" href="#if-installed-via-npm" title="Permanent link">&para;</a></h2>
+<p>To test, go to the folder where scrypt was installed, and type:</p>
+<div class="highlight"><pre><span class="n">cd</span> <span class="n">node_modules</span><span class="o">/</span><span class="n">scrypt</span>
+<span class="n">npm</span> <span class="n">install</span>
+<span class="n">node</span> <span class="n">tests</span><span class="o">/</span><span class="n">scrypt</span><span class="o">-</span><span class="n">tests</span>
+</pre></div>
+
+
+<h2 id="if-installed-via-source">If installed via source<a class="headerlink" href="#if-installed-via-source" title="Permanent link">&para;</a></h2>
+<p>Go to the folder where scrypt was installed and type:</p>
+<div class="highlight"><pre><span class="n">cd</span> <span class="n">node</span><span class="o">-</span><span class="n">scrypt</span>
+<span class="n">npm</span> <span class="n">install</span>
+<span class="n">node</span> <span class="n">tests</span><span class="o">/</span><span class="n">scrypt</span><span class="o">-</span><span class="n">tests</span>
+</pre></div>
+
+
+<h1 id="hash-info">Hash Info<a class="headerlink" href="#hash-info" title="Permanent link">&para;</a></h1>
+<p>All scrypt output is encoded into Base64 using <a href="http://www.adp-gmbh.ch/">René Nyffenegger</a> <a href="http://www.adp-gmbh.ch/cpp/common/base64.html">library</a>. The character sets that compromises all output are <code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/</code>.</p>
+<h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h1>
+<p>There are both asynchronous and synchronous functions available. It is highly recommended not to use the synchronous version unless necessary due to the fact that Node's event loop will be blocked for the duration of these purposefully slow functions.</p>
+<h2 id="asynchronous-authentication">Asynchronous Authentication<a class="headerlink" href="#asynchronous-authentication" title="Permanent link">&para;</a></h2>
+<p>For interactive authentication, set <code>maxtime</code> to <code>0.1</code> - 100 milliseconds. </p>
+<h3 id="to-create-a-password-hash">To create a password hash<a class="headerlink" href="#to-create-a-password-hash" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">scrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="s2">&quot;This is a password&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maxtime</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+<span class="nx">scrypt</span><span class="p">.</span><span class="nx">passwordHash</span><span class="p">(</span><span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">pwdhash</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//pwdhash should now be stored in the database</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>Note: <code>maxmem</code> and <code>maxmemfrac</code> can also be passed to hash function. If they are not passed, then <code>maxmem</code> defaults to <code>0</code> and <code>maxmemfrac</code> defaults to <code>0.5</code>. If these values are to be passed, then they must be passed after <code>maxtime</code>  and before the callback function like so:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">scrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="s2">&quot;This is a password&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maxtime</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maxmem</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">maxmemfrac</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+
+<span class="nx">scrypt</span><span class="p">.</span><span class="nx">passwordHash</span><span class="p">(</span><span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="nx">maxmem</span><span class="p">,</span> <span class="nx">maxmemfrac</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">pwdhash</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//pwdhash should now be stored in the database</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h3 id="to-verify-a-password-hash">To verify a password hash<a class="headerlink" href="#to-verify-a-password-hash" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">scrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="s2">&quot;This is a password&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">hash</span><span class="p">;</span> <span class="c1">//This should be obtained from the database</span>
+
+<span class="nx">scrypt</span><span class="p">.</span><span class="nx">verifyHash</span><span class="p">(</span><span class="nx">hash</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nx">result</span><span class="p">;</span> <span class="c1">//Will be True</span>
+
+    <span class="k">return</span> <span class="nx">False</span><span class="p">;</span>    
+<span class="p">});</span>
+</pre></div>
+
+
+<h2 id="synchronous-authentication">Synchronous Authentication<a class="headerlink" href="#synchronous-authentication" title="Permanent link">&para;</a></h2>
+<p>Again, for interactive authentication, set <code>maxtime</code> to <code>0.1</code> - 100 milliseconds. </p>
+<h3 id="to-create-a-password-hash_1">To create a password hash<a class="headerlink" href="#to-create-a-password-hash_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="n">var</span> <span class="n">scrypt</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;This is a password&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxtime</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">hash</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">passwordHashSync</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Note: <code>maxmem</code> and <code>maxmemfrac</code> can also be passed to hash function. If they are not passed, then <code>maxmem</code> defaults to <code>0</code> and <code>maxmemfrac</code> defaults to <code>0.5</code>. If these values are to be passed, then they must be passed after <code>maxtime</code>  and before the callback function like so:</p>
+<div class="highlight"><pre><span class="n">var</span> <span class="n">scrypt</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;This is a password&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxtime</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxmem</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxmemfrac</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">hash</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">passwordHashSync</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">,</span> <span class="n">maxmem</span><span class="p">,</span> <span class="n">maxmemfrac</span><span class="p">);</span>
+</pre></div>
+
+
+<h3 id="to-verify-a-password-hash_1">To verify a password hash<a class="headerlink" href="#to-verify-a-password-hash_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span class="n">var</span> <span class="n">scrypt</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;This is a password&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">hash</span><span class="p">;</span> <span class="c1">//This should be obtained from the database</span>
+
+<span class="n">var</span> <span class="n">result</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">verifyHashSync</span><span class="p">(</span><span class="n">hash</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Note: There is no error description for the synchronous version. Therefore, if an error occurs, it will just return its result as <code>false</code>.</p>
+<h2 id="asynchronous-encryption-and-decryption">Asynchronous Encryption and Decryption<a class="headerlink" href="#asynchronous-encryption-and-decryption" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">scrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="s2">&quot;Pass&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maxtime</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+
+<span class="nx">scrypt</span><span class="p">.</span><span class="nx">encrypt</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">cipher</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cipher</span><span class="p">);</span>
+    <span class="nx">scrypt</span><span class="p">.</span><span class="nx">decrypt</span><span class="p">(</span><span class="nx">cipher</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>Note that <code>maxmem</code> and <code>maxmemfrac</code> can also be passed to the functions. If they are not passed, then <code>maxmem</code> defaults to <code>0</code> and <code>maxmemfrac</code> defaults to <code>0.5</code>. If these values are to be passed, then they must be passed after <code>maxtime</code>  and before the callback function like so:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">scrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="s2">&quot;Pass&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maxtime</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maxmem</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//Defaults to 0 if not set</span>
+<span class="kd">var</span> <span class="nx">maxmemfrac</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span> <span class="c1">//Defaults to 0.5 if not set</span>
+
+<span class="nx">scrypt</span><span class="p">.</span><span class="nx">encrypt</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="nx">maxmem</span><span class="p">,</span> <span class="nx">maxmemfrac</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">cipher</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cipher</span><span class="p">);</span>
+    <span class="nx">scrypt</span><span class="p">.</span><span class="nx">decrypt</span><span class="p">(</span><span class="nx">cipher</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="nx">maxmem</span><span class="p">,</span> <span class="nx">maxmemfrac</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h2 id="synchronous-encryption-and-decryption">Synchronous Encryption and Decryption<a class="headerlink" href="#synchronous-encryption-and-decryption" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span class="n">var</span> <span class="n">scrypt</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;Pass&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxtime</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">cipher</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">encryptSync</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">plainText</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">decryptSync</span><span class="p">(</span><span class="n">cipher</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Note: that <code>maxmem</code> and <code>maxmemfrac</code> can also be passed to the functions. If they are not passed, then <code>maxmem</code> defaults to <code>0</code> and <code>maxmemfrac</code> defaults to <code>0.5</code>. If these values are to be passed, then they must be passed after <code>maxtime</code>  and before the callback function like so:</p>
+<div class="highlight"><pre><span class="n">var</span> <span class="n">scrypt</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;Pass&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxtime</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxmem</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//Defaults to 0 if not set</span>
+<span class="n">var</span> <span class="n">maxmemfrac</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span> <span class="c1">//Defaults to 0.5 if not set</span>
+
+<span class="n">var</span> <span class="n">cipher</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">encryptSync</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">,</span> <span class="n">maxmem</span><span class="p">,</span> <span class="n">maxmemfrac</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">plainText</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">decryptSync</span><span class="p">(</span><span class="n">cipher</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">,</span> <span class="n">maxmem</span><span class="p">,</span> <span class="n">maxmemfrac</span><span class="p">);</span>
+</pre></div>
+
+
+<h1 id="api">Api<a class="headerlink" href="#api" title="Permanent link">&para;</a></h1>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
+<h3 id="asynchronous">Asynchronous<a class="headerlink" href="#asynchronous" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>passwordHash(password, maxtime, maxmem, maxmemfrac, callback_function)</code><ul>
+<li><code>password</code> - [REQUIRED] - a password string.</li>
+<li><code>maxtime</code> - [REQUIRED] - a decimal (double) representing the maxtime in seconds for running scrypt. Use 0.1 (100 milliseconds) for interactive logins.</li>
+<li><code>maxmem</code> - [OPTIONAL] - instructs scrypt to use the specified number of bytes of RAM (default 0).</li>
+<li><code>maxmemfrac</code> - [OPTIONAL] - instructs scrypt to use the specified fracion of RAM (defaults 0.5).</li>
+<li><code>callback_function</code> - [REQUIRED] - a callback function that will handle processing when result is ready.</li>
+</ul>
+</li>
+<li><code>verifyHash(hash, password, callback_function)</code> <ul>
+<li><code>hash</code> - [REQUIRED] - the password created with the above <code>passwordHash</code> function.</li>
+<li><code>password</code> - [REQUIRED] - a password string.</li>
+<li><code>callback_function</code> - [REQUIRED] - a callback function that will handle processing when result is ready.</li>
+</ul>
+</li>
+</ul>
+<h3 id="synchronous">Synchronous<a class="headerlink" href="#synchronous" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>passwordHashSync(password, maxtime, maxmem, maxmemfrac)</code><ul>
+<li><code>password</code> - [REQUIRED] - a password string.</li>
+<li><code>maxtime</code> - [REQUIRED] - a decimal (double) representing the maxtime in seconds for running scrypt. Use 0.1 (100 milliseconds) for interactive logins.</li>
+<li><code>maxmem</code> - [OPTIONAL] - instructs scrypt to use the specified number of bytes of RAM (default 0).</li>
+<li><code>maxmemfrac</code> - [OPTIONAL] - instructs scrypt to use the specified fracion of RAM (defaults 0.5).</li>
+</ul>
+</li>
+<li><code>verifyHashSync(hash, password)</code><ul>
+<li><code>hash</code> - [REQUIRED] - the password created with the above <code>passwordHash</code> function.</li>
+<li><code>password</code> - [REQUIRED] - a password string.</li>
+</ul>
+</li>
+</ul>
+<h2 id="encryptiondecryption">Encryption/Decryption<a class="headerlink" href="#encryptiondecryption" title="Permanent link">&para;</a></h2>
+<h3 id="asynchronous_1">Asynchronous<a class="headerlink" href="#asynchronous_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>encrypt(message, password, maxtime, maxmem, maxmemfrac, callback_function)</code><ul>
+<li><code>message</code> - [REQUIRED] - the message data to be encrypted.</li>
+<li><code>password</code> - [REQUIRED] - a password string.</li>
+<li><code>maxtime</code> - [REQUIRED] - a decimal (double) representing the maxtime in seconds for running scrypt.</li>
+<li><code>maxmem</code> - [OPTIONAL] - instructs scrypt to use the specified number of bytes of RAM (default 0).</li>
+<li><code>maxmemfrac</code> - [OPTIONAL] - instructs scrypt to use the specified fracion of RAM (defaults 0.5).</li>
+<li><code>callback_function</code> - [REQUIRED] - a callback function that will handle processing when result is ready.</li>
+</ul>
+</li>
+<li><code>decrypt(cipher, password, maxtime, maxmem, maxmemfrac, callback_function)</code><ul>
+<li><code>cipher</code> - [REQUIRED] - the cipher to be decrypted.</li>
+<li><code>password</code> - [REQUIRED] - a password string.</li>
+<li><code>maxtime</code> - [REQUIRED] - a decimal (double) representing the maxtime in seconds for running scrypt.</li>
+<li><code>maxmem</code> - [OPTIONAL] - instructs scrypt to use the specified number of bytes of RAM (default 0).</li>
+<li><code>maxmemfrac</code> - [OPTIONAL] - instructs scrypt to use the specified fracion of RAM (defaults 0.5).</li>
+<li><code>callback_function</code> - [REQUIRED] - a callback function that will handle processing when result is ready.</li>
+</ul>
+</li>
+</ul>
+<h3 id="synchronous_1">Synchronous<a class="headerlink" href="#synchronous_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>encryptSync(message, password, maxtime, maxmem, maxmemfrac)</code><ul>
+<li><code>message</code> - [REQUIRED] - the message data to be encrypted.</li>
+<li><code>password</code> - [REQUIRED] - a password string.</li>
+<li><code>maxtime</code> - [REQUIRED] - a decimal (double) representing the maxtime in seconds for running scrypt.</li>
+<li><code>maxmem</code> - [OPTIONAL] - instructs scrypt to use the specified number of bytes of RAM (default 0).</li>
+<li><code>maxmemfrac</code> - [OPTIONAL] - instructs scrypt to use the specified fracion of RAM (defaults 0.5).</li>
+</ul>
+</li>
+<li><code>decryptSync(cipher, password, maxtime, maxmem, maxmemfrac)</code><ul>
+<li><code>cipher</code> - [REQUIRED] - the cipher to be decrypted.</li>
+<li><code>password</code> - [REQUIRED] - a password string.</li>
+<li><code>maxtime</code> - [REQUIRED] - a decimal (double) representing the maxtime in seconds for running scrypt.</li>
+<li><code>maxmem</code> - [OPTIONAL] - instructs scrypt to use the specified number of bytes of RAM (default 0).</li>
+<li><code>maxmemfrac</code> - [OPTIONAL] - instructs scrypt to use the specified fracion of RAM (defaults 0.5).</li>
+</ul>
+</li>
+</ul>
+<h1 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link">&para;</a></h1>
+<p>The scrypt library is Colin Percival's <a href="http://www.tarsnap.com/scrypt.html">scrypt</a> project. This includes the encryption/decryption functions which are basically just wrappers into this library.</p>
+<p>The password hash and verify functions are also very heavily influenced by the scrypt source code, with most functionality being copied from various placed within scrypt.</p>
+<h1 id="contributors">Contributors<a class="headerlink" href="#contributors" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="http://www.adp-gmbh.ch/">René Nyffenegger</a> - produced original Base64 encoding code.</li>
+<li><a href="https://github.com/kelvinwong-ca">Kelvin Wong</a> - MAC OS compilation and testing.</li>
+</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<section class="content screen-height" id="comments">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="content-border">
+						<h2>Comments</h2>
+        				<div class="divider-grey"></div>
+						<a id="disqus" href="http://web-pages.github.io/test/Scrypt-Authentication-For-Node.html#disqus_thread">0 Comments</a>
+						<div id="disqus_thread"></div>
+					</div>
+			    </div>
+			</div>
+    	</div>
+	</section>
+    <!-- End Sections -->
+
+    <!-- Connect -->
+    <section id="connect" class="text-center title">
+        <div class="container">
+            <h1>Connect</h1>
+            
+            <div class="row" style="padding: 1.0em 0;">
+                Found anything useful on this site? Drop me a line, I'd love to hear about it.
+            </div>
+            
+            <div class="divider-grey"></div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                    <div>
+                        <a class="fa-stack fa-lg x" id="x" tabindex="0">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg twitter" href="https://twitter.com/barrysteyn" target="_blank">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg linkedin" href="https://www.linkedin.com/in/barrysteyn" target="_blank">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg github" href="https://github.com/barrysteyn" target="_blank">
+                            <i class="fa fa-github fa-stack-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div id="footer" class="row">
+                <div class="col-xs-12">
+                    <p>&copy; <script>document.write(new Date().getFullYear());</script> Barry Steyn. All Rights Reserved.
+                </div>
+            </div>
+            <!-- End Footer -->
+        </div>
+    </section>
+    <!-- End Connect -->
+
+    <!-- JavaScript -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var scrollspies = {};
+        scrollspies.body = {
+            'target': '#navigation-menu'
+        };
+
+		//Do not remove navbar-offset-start class
+	var navbarOffset = false;
+
+	//Scrollspy object
+    scrollspies.body = {
+        'target': '.toc'
+    };
+
+
+	$(function() {
+		var disqus = {
+			shortname: 'doctrina',
+			identifier: 'http://web-pages.github.io/test/Scrypt-Authentication-For-Node.html',
+			url: 'http://web-pages.github.io/test/Scrypt-Authentication-For-Node.html',
+			developer: 0
+		};
+
+		disqus_comments(disqus);
+	});
+    </script>
+    <script src="http://web-pages.github.io/test/theme/js/main.js"></script>
+    <!-- End JavaScript -->
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-33789117-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+</body>
+
+</html>
