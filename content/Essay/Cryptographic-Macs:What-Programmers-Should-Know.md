@@ -63,7 +63,7 @@ The Merkle–Damgård construction takes as input a message of arbitrary length 
 
 The image below demonstrates the Merkle–Damgård construction. In this image, **h** is the cryptographic hash created from the block cipher, and $H_n$ is the resulting outputs of each stage. Note how the output of one function is chained to one of the inputs of the other.
 
-<center><img style="margin-left:4px; padding: 4px; background-color: #fff; border: 1px solid #ccc; border: 1px solid rgba(0, 0, 0, 0.2);" src ="http://doctrina.org/static/images/merkle-damgard.png"></img></center>
+<img src ="http://doctrina.org/static/images/merkle-damgard.png"></img>
 
 ##Merkle–Damgård Is Not Secure
 All our popular cryptographic hash functions are constructed using Merkle–Damgård, but it is very easy to mount an existential forgery attack on anything constructed using the Merkle–Damgård. This is because cryptographic hash functions created with Merkle–Damgård are not designed to be protected from existential forgery (more about this a little later). To see how an existential forgery can happen, study the Merkle–Damgård construction picture. An existential forgery can happen by doing the following:

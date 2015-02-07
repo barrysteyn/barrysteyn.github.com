@@ -2,9 +2,7 @@ Date: 2013-03-16
 Title: Merge Sort And Inversions
 Slug: Merge-Sort-And-Inversions
 Author: Barry Steyn
-Category: Notes
 Tags: Software, Computer Science, Algorithms
-latex: {'color':'green'}
 
 #Merge Sort
 Merge sort is the classic divide and conquor algorithm, and is used as a canonical example for explaining the topic. It is quite easy to implement (specially in Python) but I wanted to see a C implementation. Google found me some [stack overflow](http://www.stackoverflow.com) links as well as several blog sites that listed code. And oh my god, the code was terrible. Most code that I have seen is a mixture of [Quick Sort](http://en.wikipedia.org/wiki/Quick_sort). And there are several untruths, for instance, that one can implement merge sort in place!

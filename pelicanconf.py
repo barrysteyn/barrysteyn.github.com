@@ -52,26 +52,37 @@ SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
 # SAAS Services
-#GOOGLE_ANALYTICS = 'UA-33789117-1'
 DISQUS_SHORTNAME = 'doctrinalocal'
-#TWITTER_USERNAME = u'barrysteyn'
 
 DEFAULT_PAGINATION = False
-
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
 
 #Plugins
 PLUGIN_PATHS = ['../pelican-plugins/']
 PLUGINS = [
     'extract_toc',  # extracts [TOC] to variable that can be used in template
-    'render_math'   # my render math plugin :)
+    'render_math',   # my render math plugin :)
+    'sitemap'  # For SEO
 ]
 
 #Render Math Plugin
 MATH_JAX = {
     'linebreak_automatic':True,
     'latex_preview': '[math]'
+}
+
+#Sitemap plugin
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.75,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'weekly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
 }
 
 #Markdown Extensions
@@ -88,3 +99,10 @@ JINJA_EXTENSIONS = [
 
 # Theme
 THEME = 'doctrina-pelican_theme/Output'
+
+# Template
+STATIC_PATHS = ['images','static/robots.txt', 'static/CNAME']
+EXTRA_PATH_METADATA = {
+    'static/robots.txt': {'path': 'robots.txt'},
+    'static/CNAME': {'path': 'CNAME'},
+}
