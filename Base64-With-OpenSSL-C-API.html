@@ -126,8 +126,8 @@
 <p><script src="https://gist.github.com/4409525.js?file=Base64Encode.c"></script></p>
 <p>Note the following:</p>
 <ul>
-<li>Given a string of length <code>n</code>, the resulting Base64 string is length $4 *\lceil \frac{n}{3} \rceil $. This is performed on line 12.</li>
-<li>On line 13, <code>*buffer</code> is malloc'd to <code>encodedSize+1</code>. The <code>+1</code> is because an extra character is needed for the <code>NULL</code> character (<code>'\0'</code>) at the end of the string.</li>
+<li>Given a string of length <code>n</code>, the resulting Base64 string is length <span class="math">\(4 \times \lceil \frac{n}{3} \rceil\)</span>. This is performed on lines 11.</li>
+<li>On line 12, <code>*buffer</code> is malloc'd to <code>encodedSize+1</code>. The <code>+1</code> is because an extra character is needed for the <code>NULL</code> character (<code>'\0'</code>) at the end of the string.</li>
 </ul>
 <h1 id="base64-decoding">Base64 Decoding<a class="headerlink" href="#base64-decoding" title="Permanent link">&para;</a></h1>
 <p><script src="https://gist.github.com/4409525.js?file=Base64Decode.c"></script></p>
@@ -237,6 +237,7 @@
         </div>
     </section>
     <!-- End Connect -->
+
 
     <!-- JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

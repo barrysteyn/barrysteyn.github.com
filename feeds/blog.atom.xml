@@ -174,8 +174,8 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;p&gt;&lt;script src="https://gist.github.com/4409525.js?file=Base64Encode.c"&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;p&gt;Note the following:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Given a string of length &lt;code&gt;n&lt;/code&gt;, the resulting Base64 string is length $4 *\lceil \frac{n}{3} \rceil $. This is performed on line 12.&lt;/li&gt;
-&lt;li&gt;On line 13, &lt;code&gt;*buffer&lt;/code&gt; is malloc'd to &lt;code&gt;encodedSize+1&lt;/code&gt;. The &lt;code&gt;+1&lt;/code&gt; is because an extra character is needed for the &lt;code&gt;NULL&lt;/code&gt; character (&lt;code&gt;'\0'&lt;/code&gt;) at the end of the string.&lt;/li&gt;
+&lt;li&gt;Given a string of length &lt;code&gt;n&lt;/code&gt;, the resulting Base64 string is length &lt;span class="math"&gt;\(4 \times \lceil \frac{n}{3} \rceil\)&lt;/span&gt;. This is performed on lines 11.&lt;/li&gt;
+&lt;li&gt;On line 12, &lt;code&gt;*buffer&lt;/code&gt; is malloc'd to &lt;code&gt;encodedSize+1&lt;/code&gt;. The &lt;code&gt;+1&lt;/code&gt; is because an extra character is needed for the &lt;code&gt;NULL&lt;/code&gt; character (&lt;code&gt;'\0'&lt;/code&gt;) at the end of the string.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="base64-decoding"&gt;Base64 Decoding&lt;a class="headerlink" href="#base64-decoding" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;script src="https://gist.github.com/4409525.js?file=Base64Decode.c"&gt;&lt;/script&gt;&lt;/p&gt;
