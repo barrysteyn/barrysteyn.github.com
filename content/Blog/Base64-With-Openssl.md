@@ -22,8 +22,8 @@ You can download this entire gist [here](https://gist.github.com/4409525/downloa
 
 Note the following:
 
-* Given a string of length `n`, the resulting Base64 string is length $4 *\lceil \frac{n}{3} \rceil $. This is performed on line 12.
-* On line 13, `*buffer` is malloc'd to `encodedSize+1`. The `+1` is because an extra character is needed for the `NULL` character (`'\0'`) at the end of the string.
+* Given a string of length `n`, the resulting Base64 string is length $4 \times \lceil \frac{n}{3} \rceil$. This is performed on lines 11.
+* On line 12, `*buffer` is malloc'd to `encodedSize+1`. The `+1` is because an extra character is needed for the `NULL` character (`'\0'`) at the end of the string.
 
 #Base64 Decoding
 <script src="https://gist.github.com/4409525.js?file=Base64Decode.c"></script>
