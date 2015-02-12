@@ -62,6 +62,16 @@
 &lt;p&gt;If &lt;span class="math"&gt;\(a &amp;gt; b^d\)&lt;/span&gt;, then &lt;span class="math"&gt;\(\left(\frac{a}{b^d}\right) &amp;gt; 1\)&lt;/span&gt;. Again, the above lemma comes into play: &lt;span class="math"&gt;\(\sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \leq 2\cdot \left(\frac{a}{b^d}\right)^{log_bn}\)&lt;/span&gt;. Therefore &lt;span class="math"&gt;\(c\cdot n^d \sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \leq 2\cdot c\cdot n^d \cdot \left(\frac{a}{b^d}\right)^{log_bn}\)&lt;/span&gt;. Note that &lt;span class="math"&gt;\(b^{-dlog_bn} = \left(b^{log_bn}\right)^{-d} = n^{-d}\)&lt;/span&gt;. So &lt;span class="math"&gt;\(2\cdot c\cdot n^d \cdot \left(\frac{a}{b^d}\right)^{log_bn} = 2\cdot c\cdot a^{log_bn} = O(a^{log_bn})\)&lt;/span&gt;. As shown above, this is the number of recursion leaves.&lt;/p&gt;
 &lt;p&gt;The more astute of you out there may notice that &lt;em&gt;case 3&lt;/em&gt; was presented as &lt;span class="math"&gt;\(O(n^{log_ba})\)&lt;/span&gt;. This is because &lt;span class="math"&gt;\(n^{log_ba} = a^{log_bn}\)&lt;/span&gt; (I did not believe this at first, and had to &lt;a href="http://doctrina.org/Mathematical_Nonsense_Lemma-For-Logarithm-Equality.html"&gt;prove&lt;/a&gt; it to myself). Even though it is more intuitive to understand &lt;span class="math"&gt;\(a^{log_bn}\)&lt;/span&gt; (i.e. the leaves of the recursion sub tree), it is more consistent with the other cases to calculate &lt;span class="math"&gt;\(n^{log_ba}\)&lt;/span&gt;.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "true";
+
+    if (true) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -72,8 +82,8 @@
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: 'center'," +
-        "    displayIndent: '0em'," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -83,7 +93,7 @@
         "    }, " +
         "    'HTML-CSS': { " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: true, width: '80% container' }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
