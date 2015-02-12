@@ -30,16 +30,6 @@
 &lt;script src="https://gist.github.com/barrysteyn/5177637.js?file=merge-sort-with-split-inversion-count.c"&gt;&lt;/script&gt;
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "true";
-
-    if (true) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -50,8 +40,8 @@
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -60,35 +50,42 @@
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;</summary><category term="Software"></category><category term="Computer Science"></category><category term="Algorithms"></category></entry><entry><title>JavaScript Lecture: Cryptography In The Browser</title><link href="http://doctrina.org/JavaScript_Lecture:Cryptography_In_The_Browser.html" rel="alternate"></link><updated>2013-03-14T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-03-14:JavaScript_Lecture:Cryptography_In_The_Browser.html</id><summary type="html">&lt;p&gt;I was recently asked to lecture the local Toronto JavaScript meetup about Cryptography in the browser. Here are my lecture slides. Apparently, there is a video of my talk that will be put up. When I get, I will link to it over here.&lt;/p&gt;
 &lt;p&gt;Enjoy, and I would grateful for any feedback. Do note that the audience was not hard-core cryptographers.&lt;/p&gt;
 &lt;p&gt;&lt;center&gt;&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/17424793" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;</summary><category term="JavaScript"></category><category term="Cryptography"></category><category term="Lecture"></category></entry><entry><title>Mathematical Nonsense - Inifinte Sum Series</title><link href="http://doctrina.org/Mathematical_Nonsense_-Inifinite-Sum-Series.html" rel="alternate"></link><updated>2013-03-02T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-03-02:Mathematical_Nonsense_-Inifinite-Sum-Series.html</id><summary type="html">&lt;p&gt;The following fact for infinite series crops up all the time:&lt;/p&gt;
+&lt;p&gt;
 &lt;div class="math"&gt;$$ r\neq 1, 1+r+r^2+r^3+\ldots +r^k = \frac{r^{k+1}-1}{r-1} $$&lt;/div&gt;
+&lt;/p&gt;
 &lt;h1 id="proof"&gt;Proof&lt;a class="headerlink" href="#proof" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The proof is by induction:&lt;/p&gt;
 &lt;h3 id="base-case-k1"&gt;Base Case: k=1&lt;a class="headerlink" href="#base-case-k1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;For the base case, where k=1, the left hand side of the above sum is &lt;span class="math"&gt;\(1+r\)&lt;/span&gt;, and the right hand side is &lt;span class="math"&gt;\(\frac{r^2-1}{1-r}\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;
 &lt;div class="math"&gt;\begin{aligned}
  1+r &amp;amp;= (1+r)\cdot \frac{1-r}{1-r} \cr
  &amp;amp;= \frac{(1+r)(1-r)}{1-r} \cr
  &amp;amp;= \frac{r^2-1}{1-r} \cr
 \end{aligned}&lt;/div&gt;
+&lt;/p&gt;
 &lt;h3 id="inductive-case-kn"&gt;Inductive Case: k=n&lt;a class="headerlink" href="#inductive-case-kn" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Assume the above holds for &lt;span class="math"&gt;\(k=n-1\)&lt;/span&gt;, then &lt;span class="math"&gt;\(1+r+r^2+r^3+\ldots +r^{n-1} = \frac{r^n-1}{r-1}\)&lt;/span&gt;. &lt;/p&gt;
+&lt;p&gt;
 &lt;div class="math"&gt;$$\left( 1+r+r^2+r^3+\ldots +r^{n-1} \right) + r^n $$&lt;/div&gt;
+&lt;/p&gt;
 &lt;p&gt;By the inductive argument:&lt;/p&gt;
+&lt;p&gt;
 &lt;div class="math"&gt;\begin{aligned}
  &amp;amp;= \frac{r^n-1}{r-1} + r^n \cr
  &amp;amp;= \frac{r^n\cdot(r-1)+r^n-1}{r-1} \cr
  &amp;amp;= \frac{r^{n+1} - r^n + r^n -1}{r-1} \cr
  &amp;amp;= \frac{r^{n+1} -1}{r-1} \cr
 \end{aligned}&lt;/div&gt;
+&lt;/p&gt;
 &lt;h1 id="some-useful-facts"&gt;Some useful facts&lt;a class="headerlink" href="#some-useful-facts" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;h3 id="assume-r-1-then-the-sum-is-bounded-by-frac11-r"&gt;Assume r &amp;lt; 1, then the sum is bounded by &lt;span class="math"&gt;\(\frac{1}{1-r}\)&lt;/span&gt;&lt;a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-frac11-r" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If &lt;span class="math"&gt;\(r &amp;lt; 1\)&lt;/span&gt;, then: &lt;span class="math"&gt;\(1+r+r^2+r^3+\ldots +r^k \leq \frac{1}{1-r}\)&lt;/span&gt;&lt;/p&gt;
@@ -97,7 +94,6 @@
 &lt;h3 id="assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right"&gt;Assume r &amp;gt; 1, then the sum is bounded by &lt;span class="math"&gt;\(r^k\cdot \left(1+\frac{1}{r-1} \right)\)&lt;/span&gt;&lt;a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If &lt;span class="math"&gt;\(r &amp;gt; 1\)&lt;/span&gt;, then: &lt;span class="math"&gt;\( 1+r+r^2+r^3+\ldots +r^k \leq r^k\cdot \left(1+\frac{1}{r-1} \right)\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;The proof:
-&lt;/p&gt;
 &lt;div class="math"&gt;\begin{aligned}
  \frac{r^{k+1}-1}{r-1} &amp;amp;\leq \frac{r^{k+1}+1}{r-1}\cr
  &amp;amp;= \frac{r^{k+1}}{r-1} + \frac{1}{r-1} \cr
@@ -106,18 +102,9 @@
  &amp;amp;\leq r^k + \frac{r^k}{r-1} \cr
  &amp;amp;= r^k \cdot \left(1 + \frac{1}{r-1} \right) \cr
 \end{aligned}&lt;/div&gt;
+&lt;/p&gt;
 &lt;p&gt;In this case, the series sum is dominated by the last term (e.g. &lt;span class="math"&gt;\(r^k\)&lt;/span&gt;), and is bounded above by &lt;span class="math"&gt;\(2\cdot r^k\)&lt;/span&gt;.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "true";
-
-    if (true) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -128,8 +115,8 @@
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -138,14 +125,14 @@
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;</summary><category term="Math"></category><category term="Mathematical_Nonsense"></category></entry><entry><title>Mathematical Nonsense - Logarithm Equality</title><link href="http://doctrina.org/Mathematical_Nonsense_Lemma-For-Logarithm-Equality.html" rel="alternate"></link><updated>2013-02-06T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-02-06:Mathematical_Nonsense_Lemma-For-Logarithm-Equality.html</id><summary type="html">&lt;p&gt;It's been many years since I was first taught &lt;a href="http://en.wikipedia.org/wiki/Logarithm"&gt;logarithms&lt;/a&gt;. So when looking at a proof that hinged on the fact that &lt;span class="math"&gt;\(a^{log_b n} = n^{log_b a}\)&lt;/span&gt;, I thought that the proof was wrong. Actually, it was my fault: &lt;span class="math"&gt;\(a^{log_b n}\)&lt;/span&gt; is indeed equal to &lt;span class="math"&gt;\(n^{log_b a}\)&lt;/span&gt;, I just forgot.&lt;/p&gt;
 &lt;p&gt;And so, I thought I would prove this fact. I am going to call it mathematical nonense, and its just short little lemmas that give me pleasure to prove and to reread.&lt;/p&gt;
+&lt;p&gt;
 &lt;div class="math"&gt;\begin{aligned}
 a^{log_b n} &amp;amp;= X &amp;amp; \cr
 log_b (a^{log_b n}) &amp;amp;= log_b (X) \cr
@@ -154,17 +141,8 @@ log_b a \cdot log_b n&amp;amp;= log_b(X) \cr
 log_b n^{log_b a}&amp;amp;= log_b(X) &amp;amp; \cr
 n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 \end{aligned}&lt;/div&gt;
+&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "true";
-
-    if (true) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -175,8 +153,8 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -185,9 +163,8 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
@@ -224,16 +201,6 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The above functions should perform better error checking if used in production. It also only works for encoding and decoding of a strings (although it is not too difficult to get it to work for files as well). This should give the inquisitive (and frustrated) programmer a base from which to work from.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "true";
-
-    if (true) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -244,8 +211,8 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -254,9 +221,8 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
@@ -281,11 +247,11 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;h1 id="scope"&gt;Scope&lt;a class="headerlink" href="#scope" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;C implements scope using the block operators: &lt;code&gt;{}&lt;/code&gt;. The type of scope it implements is called &lt;em&gt;block scope&lt;/em&gt; and where ever the block operators &lt;code&gt;{}&lt;/code&gt; are declared, the compiler will create scope. Languages (besides JavaScript) that copy this notation follow more-or-less the same block scope rules (e.g. Java).&lt;/p&gt;
 &lt;p&gt;JavaScript uses block operators &lt;code&gt;{}&lt;/code&gt; but it does &lt;strong&gt;not&lt;/strong&gt; implement block scope. Coming from C/C++, the following code makes perfect sense (&lt;em&gt;please do not try run this JavaScript code&lt;/em&gt;):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;//Outer loop&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;//Inner loop&lt;/span&gt;
-        &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;for (i=0; i &amp;lt; 4; i++) { //Outer loop
+    for (i=0; i &amp;lt; 2; i++) { //Inner loop
+        document.write(&amp;quot;Hello World&amp;quot;); 
+    }
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -505,7 +471,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;p&gt;Method invocation is identified when a function is preceded by &lt;code&gt;object.&lt;/code&gt;, where &lt;code&gt;object&lt;/code&gt; is the name of some object. JavaScript will set the &lt;code&gt;this&lt;/code&gt; parameter to the object where the method was invoked on. In the example above, &lt;code&gt;this&lt;/code&gt; would be set to &lt;code&gt;obj&lt;/code&gt;. JavaScript binds &lt;code&gt;this&lt;/code&gt; at execution (also known as &lt;em&gt;late binding&lt;/em&gt;).&lt;/p&gt;
 &lt;h2 id="function-invocation"&gt;Function Invocation &lt;a id="fi"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#function-invocation" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Function invocation is performed by invoking a function using &lt;code&gt;()&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//5&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;add(2,3); //5
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -645,13 +611,13 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;p&gt;Object Literals do not look like traditional objects. In fact, Object Literals look more like a structure that can hold things.  There is however one difference between a JavaScript object and a structure that can hold things: All JavaScript objects have a &lt;em&gt;prototype&lt;/em&gt; linking.&lt;/p&gt;
 &lt;h2 id="the-prototype-link"&gt;The Prototype Link&lt;a class="headerlink" href="#the-prototype-link" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Every Object has a &lt;em&gt;hidden&lt;/em&gt; link to another object called a &lt;em&gt;prototype link&lt;/em&gt;. Objects by default are linked to the object &lt;code&gt;Object.prototype&lt;/code&gt;. The prototype link is only used when retrieving property values from an object (it is not touched when updating an object). When retrieving a property value from an object, if it cannot be found, it will look for it in the prototype object that it is linked to. For example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// undefined - property age does not exist&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;person.age; // undefined - property age does not exist
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;JavaScript tried to find the property age on person, and it could not. So then it tried to find it on &lt;code&gt;Object.prototype&lt;/code&gt; and it could not find it either. So it returned "&lt;em&gt;undefined&lt;/em&gt;".&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prototype&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;56&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Every object is linked to Object.prototype by default&lt;/span&gt;
-&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// 56&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Object.prototype.age = 56; // Every object is linked to Object.prototype by default
+person.age; // 56
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -728,8 +694,8 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 
 
 &lt;p&gt;In the above, the &lt;code&gt;alien&lt;/code&gt; and &lt;code&gt;human&lt;/code&gt; objects are constructed from the function &lt;code&gt;Entity&lt;/code&gt; via the &lt;em&gt;constructor invocation pattern&lt;/em&gt; that is initiated by putting the &lt;code&gt;new&lt;/code&gt; keyword in front of the function name. When &lt;code&gt;alien&lt;/code&gt; is constructed, &lt;code&gt;Entity&lt;/code&gt;'s prototype property has not been altered, and so &lt;code&gt;alien&lt;/code&gt; is linked to &lt;code&gt;Object.prototype&lt;/code&gt;. But when constructing &lt;code&gt;human&lt;/code&gt;, &lt;code&gt;Entity&lt;/code&gt;'s prototype property was altered to species, and so the prototype object linked to &lt;code&gt;human&lt;/code&gt; is &lt;code&gt;species&lt;/code&gt;, which in turn is itself linked to &lt;code&gt;Object.prototype&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;alien&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;species&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// undefined&lt;/span&gt;
-&lt;span class="n"&gt;human&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;species&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// human&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;alien.species; // undefined
+human.species; // human
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -775,16 +741,16 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;p&gt;Object orientation in JavaScript is a bit of a mess. This is because JavaScript is quite unsure about what it is, and ends up being a mix of a classical object oriented language and a prototype based language. Hence we get the &lt;code&gt;new&lt;/code&gt; keyword, which makes JavaScript look like a classical object oriented language, even though it is not.&lt;/p&gt;
 &lt;p&gt;To summarise, here are the three objects this blog discusses:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;//Object Literal&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;objectLiteral&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;property1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;value1&amp;quot;&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;objectLiteral&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;property1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;value1&amp;quot;&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 
 &lt;span class="c1"&gt;//Function Object&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;functionObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;functionObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="c1"&gt;//Object From Function&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;objectFromFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;functionObject&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;objectFromFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;functionObject&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

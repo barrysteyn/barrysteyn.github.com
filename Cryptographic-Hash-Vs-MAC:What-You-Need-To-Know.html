@@ -194,7 +194,9 @@
 <p>The last two properties are known collectively as <em>collision resistance</em>.</p>
 <h3 id="compression">Compression<a class="headerlink" href="#compression" title="Permanent link">¶</a></h3>
 <p>A compression function produces an output that is vastly smaller than its input (hence the name compression). More formally, the size of the domain (i.e. input) is much larger than the size of the range (i.e. output). For those math type people out there, it is expressed like so:</p>
+<p>
 <div class="math">$$H: M \rightarrow x, M \in \{0,1\}^n, x \in \{0,1\}^l \text{ where } l \ll n$$</div>
+</p>
 <h3 id="pre-image-resistance">Pre-Image Resistance<a class="headerlink" href="#pre-image-resistance" title="Permanent link">¶</a></h3>
 <p>Pre-image resistance means that given the result of a hash, it is hard to determine the message that produced that hash. Assuming the result of hashing a message <span class="math">\(M\)</span> is <span class="math">\(x\)</span>, then given only <span class="math">\(x\)</span>, it is hard to recover <span class="math">\(M\)</span>.</p>
 <h3 id="weak-collision-resistance">Weak Collision Resistance<a class="headerlink" href="#weak-collision-resistance" title="Permanent link">¶</a></h3>
@@ -240,16 +242,6 @@
 <p>A cryptographic hash is not secure! In order for any hash to be secure, there needs to be a secret known only to the sender and the recipient. This secret is used as a key to lock the hash compression function in place.</p>
 <p>So your cryptographic hash is not secure and cannot be used for message integrity without a shared secret!</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "true";
-
-    if (true) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -260,8 +252,8 @@
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -270,9 +262,8 @@
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }

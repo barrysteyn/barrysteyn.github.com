@@ -170,16 +170,18 @@
 <p><a href="http://en.wikipedia.org/wiki/Pierre_de_Fermat">Pierre de Fermat</a> can only be described as an absolute legend! This theorem of his was made sometime in the 17th century. He could not have fathomed how useful it would be to RSA encryption. </p>
 <p>It is actually very simple: For any prime number <span class="math">\(p\)</span> and any integer <span class="math">\(a\)</span>, <span class="math">\(a^p \equiv a \bmod p\)</span>. In English, this says that an integer <span class="math">\(a\)</span> raised to the power of a prime number <span class="math">\(p\)</span> will result in a number that when divided by the prime number <span class="math">\(p\)</span> produces a remainder that is <span class="math">\(a\)</span>. <strong>Example</strong>: Let <span class="math">\(p=2\)</span> and <span class="math">\(a=5\)</span>. Then <span class="math">\(2^5 = 32 = 2 \bmod 5\)</span>.</p>
 <p>If we manipulate the theorem slightly by dividing the equation by <span class="math">\(a\)</span>, we get the form that is most useful to RSA:</p>
+<p>
 <div class="math">\begin{equation}
     \label{bg:flt} a^{p-1} \equiv 1 \bmod p
 \end{equation}</div>
+</p>
 <p>Equation <span class="math">\(\ref{bg:flt}\)</span> is able to be divided by <span class="math">\(a\)</span> (i.e. <span class="math">\(a^{-1}\)</span> exists in <span class="math">\(\bmod p\)</span>) because <span class="math">\(a\)</span> is relatively prime to <span class="math">\(p\)</span> (i.e. <span class="math">\(gcd(a,p) = 1\)</span>) due to the definition of <span class="math">\(p\)</span> being a prime number. And any two relatively prime integers means the smaller integer has an inverse with respect to the modulus of the larger integer.</p>
 <p><strong>Example</strong>: Lets stick with our previous example:
-</p>
 <div class="math">$$2^{5-1} = 2^4 = 16 = 1 \bmod 5$$</div>
-<p>Here is another one: 
 </p>
+<p>Here is another one: 
 <div class="math">$$6^{13-1}= 6^{12} = 2176782336 = 1 \bmod 13$$</div>
+</p>
 <h1 id="rsa-a-brief-recap">RSA - A brief recap<a class="headerlink" href="#rsa-a-brief-recap" title="Permanent link">¶</a></h1>
 <p>A brief recap is in order. For RSA to work, we need the following things (these are all explained in more detail in my previous <a href="http://doctrina.org/How-RSA-Works-With-Examples.html#RSA">post</a>):</p>
 <ol>
@@ -201,9 +203,11 @@
 <h1 id="rsa-why-it-works">RSA - Why It Works<a class="headerlink" href="#rsa-why-it-works" title="Permanent link">¶</a></h1>
 <h2 id="why-opposite-keys-must-be-used">Why opposite keys must be used<a class="headerlink" href="#why-opposite-keys-must-be-used" title="Permanent link">¶</a></h2>
 <p>It is sometimes misunderstood that encryption can only happen with the <em>public key</em> and decryption with the <em>private key</em>. This statement is not true. In RSA, both the <em>public</em> and the <em>private</em> keys will encrypt a message. If that message is to be decrypted, then the opposite key that was used to encrypt it must be used to decrypt it. Underlying this statement is this fundamental equation:</p>
+<p>
 <div class="math">\begin{equation}
 e\cdot d = 1 \bmod \phi(n)
 \end{equation}</div>
+</p>
 <p>That is, the public key <span class="math">\(e\)</span> is the inverse of the private key <span class="math">\(d\)</span> with respect to <span class="math">\(\phi(n)\)</span>, so multiplying them together will produce <span class="math">\(1 \bmod \phi(n)\)</span>. Multiplication is commutative, which means it can happen in any order. Both <span class="math">\(e\cdot d\)</span> and <span class="math">\(d\cdot e\)</span> will produce the same <span class="math">\(1 \bmod \phi(n)\)</span>. Why is this important? I will give a correct (and more formal) proof <a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#correctness">below</a>, but for the sake of what follows, consider these arguments: </p>
 <ul>
 <li>If one raises a message to one of the keys (lets choose the private key <span class="math">\(d\)</span>), then the cipher <span class="math">\(c\)</span> will be <span class="math">\( m^d \bmod n\)</span>. </li>
@@ -212,11 +216,15 @@ e\cdot d = 1 \bmod \phi(n)
 </ul>
 <p>When multiplying exponents, the commutative aspect of multiplication applies: <span class="math">\(x^{a\cdot b} = x^{b\cdot a}\)</span>. For example, <span class="math">\(2^{3\cdot 2} = 2^{2\cdot 3} = 2^6 = 64\)</span>. With respect to the public and private keys, when carrying out a RSA operation (either encryption or decryption), all that really happens is that the message is raised to an exponent value of the key. Therefore if one of the key exponents is used to encrypt a message, it necessary to use the other key in order to obtain the <em>exponent value of <span class="math">\(1\)</span></em> that is necessary to get our original message.</p>
 <p>Mathematically, the following must be shown:</p>
+<p>
 <div class="math">$$D(d,E(e,m)) = m = D(e,E(d,m))$$</div>
+</p>
 <p>That is, decrypting a message with the private key that was encrypted with the public key is the same as decrypting a message with the public key that was encrypted with the private key. This can be easily shown:</p>
+<p>
 <div class="math">$$
 D(d,E(e,m)) = D(d,m^e \bmod n) = \textbf{m}^{\textbf{e}\cdot \textbf{d}} \bmod n = \textbf{m}^{\textbf{d} \cdot \textbf{e}} \bmod n = D(e,m^d\bmod n) = D(e,E(d,m))
 $$</div>
+</p>
 <p>I have bold-ed the crucial part of the math above, namely the comutative property of the exponent. The math above can be stated in English like so:</p>
 <blockquote>
 <p><span class="math">\(D(d,E(e,m)) = m\)</span> : decrypting using the private key will only work on a message encrypted using the public key.<br/>
@@ -235,24 +243,32 @@ $$</div>
 <p>From the section above, the private key is the inverse of the public key with respect to <span class="math">\(\phi(n)\)</span>, multiplying them together is equivalent to <span class="math">\(1 \bmod \phi(n)\)</span>. In my <a href="http://doctrina/How-RSA-Works-With-Examples.html#integer-remainder-after-dividing">previous post</a>, I showed that this means that <span class="math">\(e\cdot d = k\cdot \phi(n) + 1, k \in \mathbb{Z}\)</span>.</p>
 <p><span class="math">\(D(d,E(e,m)) = m^{e\cdot d} \bmod n = m^{k\cdot \phi(n) + 1} \bmod n\)</span>. Recall that <span class="math">\(p-1\)</span> divides <span class="math">\(\phi(n)\)</span> because <span class="math">\(\phi(n) = (p-1)\cdot (q-1)\)</span>, so <span class="math">\(m^{\phi(n)\cdot k + 1} \bmod n = m^{(p-1)\cdot (q-1)\cdot k + 1} \bmod n\)</span>. Lets concentrate on proving the equation for <span class="math">\(p\)</span>:</p>
 <p><span class="math">\(m^{(p-1)\cdot (q-1)\cdot k + 1} \bmod n = \left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m \bmod n\)</span>. From <a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#flt">Fermat's Little Theorem</a>, since <span class="math">\(p\)</span> is prime, <span class="math">\(m^{p-1} = 1 \bmod p\)</span>. Therefore <span class="math">\(\left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m = (1 \bmod p)^{(q-1)\cdot k}\cdot m \bmod n\)</span>. But because <span class="math">\(p\)</span> divides <span class="math">\(n\)</span>, we can write the previous equation like so: <span class="math">\(\left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m = 1\cdot m \bmod p\)</span>. Thus the following equation holds:</p>
+<p>
 <div class="math">\begin{equation}
 \label{almost} m^{e\cdot d}\bmod n \equiv m \bmod p
 \end{equation}</div>
+</p>
 <p>The above equation is almost there, but there is one glaring problem: We have proved equality to <span class="math">\(m \bmod p\)</span>, not <span class="math">\(m \bmod n\)</span>. To prove that is indeed equal to <span class="math">\(1 \bmod n\)</span>, note that for equation <span class="math">\(\ref{almost}\)</span> above, we can substitute <span class="math">\(p\)</span> for <span class="math">\(q\)</span> so that <span class="math">\(m^{e\cdot d}\bmod n \equiv m \bmod q\)</span>. This is easily done, as <span class="math">\(q\)</span> is also prime, just like <span class="math">\(p\)</span> and hence it will obey <a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#flt">Fermat's Little Theorem</a>. So we now have the following two equations:</p>
+<p>
 <div class="math">$$
 m^{e\cdot d}\bmod n \equiv m \bmod p
 $$</div>
 <div class="math">$$
 m^{e\cdot d}\bmod n \equiv m \bmod q
 $$</div>
+</p>
 <p>Since <span class="math">\(n = p\cdot q\)</span>, if an equation is equal to both <span class="math">\(m \bmod p\)</span> and <span class="math">\(m \bmod q\)</span>, then it is also equal to <span class="math">\(m \bmod p\cdot q\)</span> which is <span class="math">\(m \bmod n\)</span>. And thus:</p>
+<p>
 <div class="math">\begin{equation}
 \label{wearethere} m^{e\cdot d}\bmod n \equiv m \bmod n
 \end{equation}</div>
+</p>
 <p>And this proves the correctness of RSA:</p>
+<p>
 <div class="math">\begin{equation}
 D(d,E(e,m)) = m
 \end{equation}</div>
+</p>
 <h2 id="why-rsa-uses-inverses-with-respect-to-the-totient">Why RSA uses inverses with respect to the Totient <a id="wruiwrtt"></a><a class="headerlink" href="#why-rsa-uses-inverses-with-respect-to-the-totient" title="Permanent link">¶</a></h2>
 <p>The private key <span class="math">\(d\)</span> is the inverse of the public key <span class="math">\(e\)</span> with respect to <span class="math">\(\phi(n)\)</span>. But why choose <span class="math">\(\phi(n)\)</span> to calculate the private key? It was proven above that using <span class="math">\(\phi(n)\)</span> gives an algorithm that will satisfy correctness. But this is not the only reason why <span class="math">\(\phi(n)\)</span> is used! Before answering this question, lets state what is <em>public</em> and what is <em>secret</em> in RSA:</p>
 <p><center>
@@ -281,16 +297,6 @@ D(d,E(e,m)) = m
 <h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
 <p>RSA works! There are many more interesting things to discuss about RSA, and books can be (and <a href="http://www.amazon.com/The-Mathematics-Ciphers-Number-Cryptography/dp/1568810822/ref=sr_1_3?ie=UTF8&amp;qid=1346693118&amp;sr=8-3&amp;keywords=RSA">have been</a>) written about this subject. But hopefully with my <a href="http://doctrina.org/How-RSA-Works-With-Examples.html">previous post</a> and this post combined, the reader will have a solid understanding of this wonderful cryptographic algorithm.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "true";
-
-    if (true) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -301,8 +307,8 @@ D(d,E(e,m)) = m
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -311,9 +317,8 @@ D(d,E(e,m)) = m
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }

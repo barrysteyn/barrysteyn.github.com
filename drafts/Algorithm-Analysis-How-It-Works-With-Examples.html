@@ -122,10 +122,10 @@
 <p>Computer science was originally a branch of Mathematics. The founding fathers of Computer Science (<a href="">Alan Turing</a>, <a href="">John von Neuman</a> etc) were mathematicians. In addition, <a href="">Donald Knuth</a>, the person who some consider the greatest living Computer Scientist, is first and foremost a mathemetician. These people have used math to both invent the computer and algorithms. So it was natural that these people would use a branch of math to forumlate a metric for an algorithm's efficiency.</p>
 <h1 id="mathematical-background">Mathematical Background<a class="headerlink" href="#mathematical-background" title="Permanent link">&para;</a></h1>
 <p>A mathematical function <span class="math">\(f(n)\)</span> is equal to <span class="math">\(O(g(n))\)</span> if there exists constants <span class="math">\(c &gt; 0,n_0 &gt; 0\)</span> such that <span class="math">\(0 \leq f(n) \leq c\cdot g(n)\)</span> for all <span class="math">\(n \geq n_0\)</span>. Stating this again for emphasis:
-</p>
 <div class="math">\begin{equation}
     \label{BIGODEF} f(n) = O(g(n)) \implies 0 \leq f(n) \leq c\cdot g(n) \forall n \geq n_0, c,n_0 \in \mathbb{N}
 \end{equation}</div>
+</p>
 <p>For example, <span class="math">\(2n^2 = O(n^3)\)</span>, because by setting <span class="math">\(c=1,n_0=2\)</span>, <span class="math">\(0 \leq 2n^2 \leq n^3\)</span>. In this instant, <span class="math">\(2n^2\)</span> is also equal to <span class="math">\(O(n^4)\)</span>. While this is confusing to algorithm analysis, it does make sense: Big O is an upper bound, but it is not the least upper bound, therefore any upper bound will apply to Big O. However, in algorithm analysis, it is normally taken for granted that the Big O of an algorithm is the least upper bound (anything else would not make much sense).</p>
 <h2 id="warning-big-o-is-not-a-symmetric-relationship">Warning: Big O Is Not A Symmetric Relationship<a class="headerlink" href="#warning-big-o-is-not-a-symmetric-relationship" title="Permanent link">&para;</a></h2>
 <p>Normally when two variables are equal, it is a symmetric relationship. For example, if <span class="math">\(a=b\)</span>, then <span class="math">\(b=a\)</span>. This is not the case for Big O!</p>
@@ -143,10 +143,10 @@
 </ol>
 <h3 id="array-lookup-given-an-index">Array lookup given an index<a class="headerlink" href="#array-lookup-given-an-index" title="Permanent link">&para;</a></h3>
 <p>An array lookup (via an index into the array) takes a constant time, no matter the size or the element that is accessed. An array is a <em>contiguous</em> piece equally sized memory. The variable that stores the array points to where the array begins. Accessing an element in the array via an index only requires a simple calculation: The array index multiplied by the space each portion of the array takes up and then added to the original memory address. If <span class="math">\(a\)</span> is the start memory address, <span class="math">\(b\)</span> is the size of each data structure in the array and <span class="math">\(i\)</span> is the index being accessed, then the element's address in the array is calculated like so:
-</p>
 <div class="math">\begin{equation}
     (b\times i) + a
 \end{equation}</div>
+</p>
 <p>Obtaining an element given an index always takes the <em>same constant amount of time</em> defined by the above formula, no matter the array size of element being accessed. Therefore an array lookup via an index is <span class="math">\(O(1)\)</span> and has the following implications:</p>
 <ol>
 <li>The algorithm's performance is independent from its input size.</li>
@@ -181,9 +181,11 @@
 </ul>
 <h1 id="background-mathematics">Background Mathematics<a class="headerlink" href="#background-mathematics" title="Permanent link">&para;</a></h1>
 <p>A formal definition for <span class="math">\(f(n) = O(g(n)\)</span> is as follows:</p>
+<p>
 <div class="math">\begin{equation}
     f(n) = O(g(n)) \implies \exists c &gt; 0, n_0 &gt; 0 s.t 0 
 \end{equation}</div>
+</p>
 <h1 id="algorithms-to-analyse">Algorithms To Analyse<a class="headerlink" href="#algorithms-to-analyse" title="Permanent link">&para;</a></h1>
 <p>The following algorithms will be analysed:</p>
 <ol>
@@ -194,16 +196,6 @@
 <h2 id="quick-sort">Quick Sort<a class="headerlink" href="#quick-sort" title="Permanent link">&para;</a></h2>
 <h1 id="conclusion_1">Conclusion<a class="headerlink" href="#conclusion_1" title="Permanent link">&para;</a></h1>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "true";
-
-    if (true) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -214,8 +206,8 @@
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -224,9 +216,8 @@
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }

@@ -92,15 +92,15 @@
 &lt;h1 id="installation-instructions"&gt;Installation Instructions&lt;a class="headerlink" href="#installation-instructions" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to &lt;a href="https://github.com/kelvinwong-ca"&gt;Kelvin Wong&lt;/a&gt;).&lt;/p&gt;
 &lt;h2 id="from-npm"&gt;From NPM&lt;a class="headerlink" href="#from-npm" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;npm install scrypt
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2 id="from-source"&gt;From Source&lt;a class="headerlink" href="#from-source" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;You will need &lt;code&gt;node-gyp&lt;/code&gt; to get this to work (install it if you don't have it: &lt;code&gt;npm install -g node-gyp&lt;/code&gt;):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/barrysteyn/node-scrypt.git&lt;/span&gt;
-&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;scrypt&lt;/span&gt;
-&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;gyp&lt;/span&gt; &lt;span class="n"&gt;configure&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/barrysteyn/node-scrypt.git
+cd node-scrypt
+node-gyp configure build
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -108,17 +108,17 @@
 &lt;p&gt;Testing is accomplished with the &lt;a href="https://github.com/isaacs/node-tap"&gt;node tap module&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="if-installed-via-npm"&gt;If installed via NPM&lt;a class="headerlink" href="#if-installed-via-npm" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To test, go to the folder where scrypt was installed, and type:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;node_modules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;scrypt&lt;/span&gt;
-&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
-&lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="n"&gt;tests&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tests&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cd node_modules/scrypt
+npm install
+node tests/scrypt-tests
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2 id="if-installed-via-source"&gt;If installed via source&lt;a class="headerlink" href="#if-installed-via-source" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Go to the folder where scrypt was installed and type:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;scrypt&lt;/span&gt;
-&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
-&lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="n"&gt;tests&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tests&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cd node-scrypt
+npm install
+node tests/scrypt-tests
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -172,30 +172,30 @@
 &lt;h2 id="synchronous-authentication"&gt;Synchronous Authentication&lt;a class="headerlink" href="#synchronous-authentication" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Again, for interactive authentication, set &lt;code&gt;maxtime&lt;/code&gt; to &lt;code&gt;0.1&lt;/code&gt; - 100 milliseconds. &lt;/p&gt;
 &lt;h3 id="to-create-a-password-hash_1"&gt;To create a password hash&lt;a class="headerlink" href="#to-create-a-password-hash_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;This is a password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
+var password = &amp;quot;This is a password&amp;quot;;
+var maxtime = 0.1;
 
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;hash&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;passwordHashSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+var hash = scrypt.passwordHashSync(password, maxtime);
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Note: &lt;code&gt;maxmem&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; can also be passed to hash function. If they are not passed, then &lt;code&gt;maxmem&lt;/code&gt; defaults to &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; defaults to &lt;code&gt;0.5&lt;/code&gt;. If these values are to be passed, then they must be passed after &lt;code&gt;maxtime&lt;/code&gt;  and before the callback function like so:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;This is a password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxmem&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmemfrac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
+var password = &amp;quot;This is a password&amp;quot;;
+var maxtime = 0.1;
+var maxmem = 0, maxmemfrac = 0.5;
 
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;hash&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;passwordHashSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmemfrac&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+var hash = scrypt.passwordHashSync(password, maxtime, maxmem, maxmemfrac);
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3 id="to-verify-a-password-hash_1"&gt;To verify a password hash&lt;a class="headerlink" href="#to-verify-a-password-hash_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;This is a password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;hash&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//This should be obtained from the database&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
+var password = &amp;quot;This is a password&amp;quot;;
+var hash; //This should be obtained from the database
 
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;verifyHashSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hash&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+var result = scrypt.verifyHashSync(hash, password);
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -233,26 +233,26 @@
 
 
 &lt;h2 id="synchronous-encryption-and-decryption"&gt;Synchronous Encryption and Decryption&lt;a class="headerlink" href="#synchronous-encryption-and-decryption" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Pass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
+var message = &amp;quot;Hello World&amp;quot;;
+var password = &amp;quot;Pass&amp;quot;;
+var maxtime = 1.0;
 
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;cipher&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encryptSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;plainText&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decryptSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cipher&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+var cipher = scrypt.encryptSync(message, password, maxtime);
+var plainText = scrypt.decryptSync(cipher, password, maxtime);
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Note: that &lt;code&gt;maxmem&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; can also be passed to the functions. If they are not passed, then &lt;code&gt;maxmem&lt;/code&gt; defaults to &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; defaults to &lt;code&gt;0.5&lt;/code&gt;. If these values are to be passed, then they must be passed after &lt;code&gt;maxtime&lt;/code&gt;  and before the callback function like so:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Pass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxmem&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Defaults to 0 if not set&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxmemfrac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Defaults to 0.5 if not set&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
+var message = &amp;quot;Hello World&amp;quot;;
+var password = &amp;quot;Pass&amp;quot;;
+var maxtime = 1.0;
+var maxmem = 1; //Defaults to 0 if not set
+var maxmemfrac = 1.5; //Defaults to 0.5 if not set
 
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;cipher&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encryptSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmemfrac&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;plainText&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decryptSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cipher&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmemfrac&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+var cipher = scrypt.encryptSync(message, password, maxtime, maxmem, maxmemfrac);
+var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac);
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -346,7 +346,7 @@ writing equations in by using &lt;code&gt;\begin{equation}...\end{equation}&lt;/
 &lt;h2 id="installation"&gt;Installation&lt;a class="headerlink" href="#installation" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To enable, ensure that &lt;code&gt;latex.py&lt;/code&gt; is put somewhere that is accessible.
 Then use as follows by adding the following to your settings.py:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;latex&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;PLUGINS = [&amp;quot;latex&amp;quot;]
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -356,7 +356,7 @@ there. An easy way to find where pelican is installed is to verbose list the
 available themes by typing &lt;code&gt;pelican-themes -l -v&lt;/code&gt;. &lt;/p&gt;
 &lt;p&gt;Once the pelican folder is found, copy &lt;code&gt;latex.py&lt;/code&gt; to the &lt;code&gt;plugins&lt;/code&gt; folder. Then 
 add to settings.py like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;pelican.plugins.latex&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;PLUGINS = [&amp;quot;pelican.plugins.latex&amp;quot;]
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -371,7 +371,7 @@ between the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; parameters (for the No
 &lt;h2 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Latex will be embedded in every article. If however you want latex only for
 selected articles, then in settings.py, add&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;LATEX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;article&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;LATEX = &amp;#39;article&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
 
 

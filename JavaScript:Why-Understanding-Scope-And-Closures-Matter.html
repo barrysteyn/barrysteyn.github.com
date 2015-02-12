@@ -118,11 +118,11 @@
 <h1 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h1>
 <p>C implements scope using the block operators: <code>{}</code>. The type of scope it implements is called <em>block scope</em> and where ever the block operators <code>{}</code> are declared, the compiler will create scope. Languages (besides JavaScript) that copy this notation follow more-or-less the same block scope rules (e.g. Java).</p>
 <p>JavaScript uses block operators <code>{}</code> but it does <strong>not</strong> implement block scope. Coming from C/C++, the following code makes perfect sense (<em>please do not try run this JavaScript code</em>):</p>
-<div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//Outer loop</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//Inner loop</span>
-        <span class="n">document</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span> 
-    <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre>for (i=0; i &lt; 4; i++) { //Outer loop
+    for (i=0; i &lt; 2; i++) { //Inner loop
+        document.write(&quot;Hello World&quot;); 
+    }
+}
 </pre></div>
 
 

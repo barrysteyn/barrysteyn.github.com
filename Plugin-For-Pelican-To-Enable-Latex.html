@@ -121,7 +121,7 @@ writing equations in by using <code>\begin{equation}...\end{equation}</code>.</p
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>To enable, ensure that <code>latex.py</code> is put somewhere that is accessible.
 Then use as follows by adding the following to your settings.py:</p>
-<div class="highlight"><pre><span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;latex&quot;</span><span class="p">]</span>
+<div class="highlight"><pre>PLUGINS = [&quot;latex&quot;]
 </pre></div>
 
 
@@ -131,7 +131,7 @@ there. An easy way to find where pelican is installed is to verbose list the
 available themes by typing <code>pelican-themes -l -v</code>. </p>
 <p>Once the pelican folder is found, copy <code>latex.py</code> to the <code>plugins</code> folder. Then 
 add to settings.py like this:</p>
-<div class="highlight"><pre><span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;pelican.plugins.latex&quot;</span><span class="p">]</span>
+<div class="highlight"><pre>PLUGINS = [&quot;pelican.plugins.latex&quot;]
 </pre></div>
 
 
@@ -146,7 +146,7 @@ between the <code>&lt;head&gt;</code> parameters (for the NotMyIdea template, th
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>Latex will be embedded in every article. If however you want latex only for
 selected articles, then in settings.py, add</p>
-<div class="highlight"><pre><span class="n">LATEX</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">article</span><span class="err">&#39;</span>
+<div class="highlight"><pre>LATEX = &#39;article&#39;
 </pre></div>
 
 

@@ -169,7 +169,9 @@ You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> 
 </ul>
 <h3 id="universal-hashing-function-introduction">Universal Hashing Function - Introduction<a class="headerlink" href="#universal-hashing-function-introduction" title="Permanent link">&para;</a></h3>
 <p>The load factor <span class="math">\(\alpha\)</span> of a hash table:</p>
+<p>
 <div class="math">$$\alpha = \frac{\text{# of objects in a hash table}}{\text{# of buckets}}$$</div>
+</p>
 <p>The load needs to be constant <span class="math">\(O(1)\)</span> to run in constant time. For <em>open addressing</em>, the load must be less than 1, but even for <em>chaining</em>, the load better not much bigger than a factor of 1.</p>
 <p>A perfect hash function cannot exist! This is because for every hash function, there is a pathological data that will make the function perform badly. This is because of the compression property of the hash function: By the pidgeon principle, there will always be data clashes.</p>
 <p><strong>How to address the fact that a hash function always has a patholgical data set</strong>:</p>
@@ -189,16 +191,6 @@ You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> 
 </ol>
 <p>The set of hash functions defined by <span class="math">\(a\)</span> above is a universal hash function set.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "true";
-
-    if (true) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -209,8 +201,8 @@ You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> 
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -219,9 +211,8 @@ You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> 
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
