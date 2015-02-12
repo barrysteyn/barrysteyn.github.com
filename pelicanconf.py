@@ -67,7 +67,8 @@ PLUGINS = [
 #Render Math Plugin
 MATH_JAX = {
     'linebreak_automatic':True,
-    'latex_preview': '[math]'
+    'latex_preview': '[math]',
+    'responsive': True
 }
 
 #Sitemap plugin

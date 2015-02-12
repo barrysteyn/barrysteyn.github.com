@@ -7,9 +7,9 @@ Tags: Software, Computer Science, Algorithms
 #Merge Sort
 Merge sort is the classic divide and conquor algorithm, and is used as a canonical example for explaining the topic. It is quite easy to implement (specially in Python) but I wanted to see a C implementation. Google found me some [stack overflow](http://www.stackoverflow.com) links as well as several blog sites that listed code. And oh my god, the code was terrible. Most code that I have seen is a mixture of [Quick Sort](http://en.wikipedia.org/wiki/Quick_sort). And there are several untruths, for instance, that one can implement merge sort in place!
 
-Merge sort is $O(n\cdot log(n))$, and in fact, it is proven that for a comparison based sort, one cannot achieve better results. So then why is Quick Sort so popular when it is $O(n^2)$? It is because Quick Sort has average complexity of $O(n\cdot log(n))$ (one has to choose very unlicky random pivots for it to be $O(n^2)$) but also, Quick Sort can be accomplished in place. Merge Sort cannot! In fact, merge sort's space complexity is always going to be $2\cdot n$ - there is no getting around this and still guaranteeing $O(n\cdot log(n))$ performance.
+Merge sort is $O(n\cdot log(n))$, and in fact, it is proven that for a comparison based sort, one cannot achieve better results. So then why is Quick Sort so popular when it is $O(n^2)$? It is because Quick Sort has average complexity of $O(n\cdot log(n))$ (one has to choose very unlucky random pivots for it to be $O(n^2)$) but also, Quick Sort can be accomplished in place. Merge Sort cannot! In fact, merge sort's space complexity is always going to be $2\cdot n$ - there is no getting around this and still guaranteeing $O(n\cdot log(n))$ performance.
 
-To Summarise:
+To Summarize:
 
  * Merge Sort is $O(n\cdot log(n))$.
  * Merge Sort cannot sort in place.
