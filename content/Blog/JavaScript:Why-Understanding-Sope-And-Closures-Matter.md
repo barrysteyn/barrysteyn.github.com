@@ -82,7 +82,7 @@ A variable that is assigned to a function is a *structure* in memory that is use
 
 Having access to the referencing environment means access to certain non-local variables. Normally, a function has access to its own local variables and to the global variables. With the *referencing environment* at the structure's disposal, calls to certain non-local variables (i.e. variables that were not declared in the function, but were declared in the function where it was defined) are possible. JavaScript implementors refer to the *referencing environment* as the function's *context*. When the *structure* that points to a function also contains its original context (*referencing environment*), it is called a closure. The image below demonstrates the concept, whereby the *context* points to the original function (outer) that the function variable inner was declared in:
 
-<center><img style="margin-left:4px; padding: 4px; background-color: #fff; border: 1px solid #ccc; border: 1px solid rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);"src ="http://doctrina.org/static/images/closure.png"></img></center>
+<img src ="images/closure.png" />
 
 ##How Closures Work And Are Used (Not Too Technical)
 In more laymen's terms, an inner function defined within an outer function has access to all variables within the outer function. In JavaScript, the inner function is a closure because JavaScript includes its *context*. Both the inner and outer functions are scoped.
