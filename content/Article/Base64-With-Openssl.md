@@ -2,10 +2,8 @@ Date: 19-12-2012
 Title: Base64 With OpenSSL C API
 Slug: Base64-With-OpenSSL-C-API
 Author: Barry Steyn
-Category: Blog
 Tags: Development,OpenSSL
 Github: https://gist.github.com/4409525
-Latex:
 
 OpenSSL has the ability to perform [Base64](http://en.wikipedia.org/wiki/Base64) encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the [example](http://www.openssl.org/docs/crypto/BIO_f_base64.html) on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some [working code](https://gist.github.com/4409525/download). Enjoy!
 

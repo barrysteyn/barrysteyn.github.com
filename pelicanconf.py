@@ -4,13 +4,20 @@ from __future__ import unicode_literals
 
 # Custom Jinja Filters
 def create_groupby_key(list, attribute):
+    # Create a group
     for item in list:
         item.__key = getattr(item, attribute) if hasattr(item, attribute) else ''
 
     return list
- 
+
+def pluralize(word):
+    # pluralize a word
+    import inflect
+    return inflect.engine().plural(word)
+
 JINJA_FILTERS = {
     'create_groupby_key': create_groupby_key,
+    'pluralize': pluralize,
 }
 
 # General

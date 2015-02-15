@@ -2,7 +2,6 @@ Date: 2012-10-26
 Title: JavaScript: Why Understanding Scope And Closures Matter 
 Tags: development, JavaScript
 Slug: JavaScript:Why-Understanding-Scope-And-Closures-Matter
-Category: Blog
 
 When first learning how to program, a fundamental aspect is to learn about scope. Many languages copy the C *syntax* for scope, including JavaScript. But while these language copy the C rules for scope, JavaScript does not. This results in frustration and potentially problematic code. JavaScript instead implements scope in a way that forces programmers to think a little differently.
 

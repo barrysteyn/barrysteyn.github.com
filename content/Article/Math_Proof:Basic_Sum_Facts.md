@@ -2,8 +2,6 @@ Date: 2013-03-02
 Title: Mathematical Nonsense - Inifinte Sum Series
 Tags: Math, Mathematical_Nonsense
 Slug: Mathematical_Nonsense_-Inifinite-Sum-Series
-Category: Blog
-Latex:
 
 The following fact for infinite series crops up all the time:
 

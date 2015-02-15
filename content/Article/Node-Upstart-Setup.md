@@ -2,7 +2,6 @@ Date: 5-12-2012
 Title: Upstart With NodeJS And NVM
 Slug: NodeJS-Under-NVM-With-Upstart
 Author: Barry Steyn
-Category: Blog
 Tags: System Administration
 
 Yet another very short blog article to help anyone who wants to setup an upstart process that runs a [NodeJS](http://nodejs.org/) app under [nvm](https://github.com/creationix/nvm). Unlike the [uwsgi setup](http://doctrina.org/VirtualEnv-With-Upstart.html), there is no specific argument switch to give Node that will make it use nvm environment variables. In fact, since Node is single threaded, there is no special server process that must run in the background to interact with it (unlike [uwsgi](http://projects.unbit.it/uwsgi/) that is needed for Python). This means that whatever executes Node must also introduce the environment variables manually. But doesn't that defeat the purpose of [nvm](https://github.com/creationix/nvm)? Yes, it does! So lets just use [nvm](https://github.com/creationix/nvm) to *manually introduce those environment variables*.

@@ -2,7 +2,6 @@ Date: 2013-03-14
 Title: JavaScript Lecture: Cryptography In The Browser
 Tags: JavaScript, Cryptography, Lecture
 Slug: JavaScript_Lecture:Cryptography_In_The_Browser
-Category: Blog
 
 I was recently asked to lecture the local Toronto JavaScript meetup about Cryptography in the browser. Here are my lecture slides. Apparently, there is a video of my talk that will be put up. When I get, I will link to it over here.
 

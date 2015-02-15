@@ -2,7 +2,6 @@ Date: 2012-10-12
 Title: Javascript: Object Prototypes
 Tags: development, JavaScript
 Slug: Javascript-Objects-Prototypes
-Category: Blog
 
 This post discusses JavaScript objects with emphasis on its prototype linkings. After reading this post, you should understand the following:
 

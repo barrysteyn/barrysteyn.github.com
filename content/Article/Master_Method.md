@@ -4,7 +4,6 @@ Slug: The-Master-Method
 Author: Barry Steyn
 Category: Notes
 Tags: Software, Computer Science, Algorithms
-Latex:
 
 #The Master Method
 The master method is a way to analyse the worst case running times of a recursive function. Assume the recursive function is of the following form:

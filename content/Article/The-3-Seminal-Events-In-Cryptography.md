@@ -2,7 +2,6 @@ Date: 2012-05-20
 Title: The 3 Seminal Events In Cryptography
 Slug: The-3-Seminal-Events-In-Cryptography
 Author: Barry Steyn
-Category: Blog
 Tags: cryptography
 
 Cryptography is the art/science of keeping a secret. This need has been present since prerecorded human history, but we have some very famous early examples such as the [Caesar Cipher](http://en.wikipedia.org/wiki/Caesar_cipher). Yet these early examples were very easy to break. It took until the twentieth century for cryptography to be rigorously defined and useful to a wider audience, and it was largely done so in three seminal papers:

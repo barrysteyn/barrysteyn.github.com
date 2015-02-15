@@ -2,8 +2,6 @@ Date: 2013-02-06
 Title: Mathematical Nonsense - Logarithm Equality
 Tags: Math, Mathematical_Nonsense
 Slug: Mathematical_Nonsense_Lemma-For-Logarithm-Equality
-Category: Blog
-Latex:
 
 It's been many years since I was first taught [logarithms](http://en.wikipedia.org/wiki/Logarithm). So when looking at a proof that hinged on the fact that $a^{log_b n} = n^{log_b a}$, I thought that the proof was wrong. Actually, it was my fault: $a^{log_b n}$ is indeed equal to $n^{log_b a}$, I just forgot.
 

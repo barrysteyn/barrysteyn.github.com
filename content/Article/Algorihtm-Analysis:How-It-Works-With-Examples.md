@@ -2,9 +2,7 @@ Date: 2012-10-12
 Title: Algorithm Analysis:How It Works With Examples
 Tags: theory
 Slug: Algorithm-Analysis-How-It-Works-With-Examples
-Category: Blog
 Status: draft
-Latex:
 
 Algorithm analysis is the science (or art) of measuring comparable efficiencies of algorithm. It provides a theoretical reason why [bubble sort]() is not very popular while [quick sort]() is. Devices that run algorithms have neither infinite storage/memory space nor infinite processing power. Due to these limitation, it becomes necessary to provide a metric that will relate an algorithm's input length to the number of processing steps or storage space needed. Algorithm analysis provides this metric.
 

@@ -2,7 +2,6 @@ Date: 2012-10-19
 Title: JavaScript: Function Invocation Patterns
 Tags: development, JavaScript
 Slug: Javascript-Function-Invocation-Patterns
-Category: Blog
 
 JavaScript has been described as a *Functional Oriented Language* (this as opposed to Object Oriented Language). The reason is because functions in JavaScript do more than just separate logic into execution units, functions are first class citizens that also provide [scope](http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html) and the ability to create objects. Having such a heavy reliance upon functions is both a blessing and a curse: It's a blessing because it makes the language light weight and fast (the main goal of its original development), but it is a curse because you can very easily shoot yourself in the foot if you don't know what you are doing.
 

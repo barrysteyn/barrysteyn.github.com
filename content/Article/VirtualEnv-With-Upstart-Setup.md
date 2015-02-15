@@ -2,7 +2,6 @@ Date: 29-11-2012
 Title: Upstart With Python VirtualEnv
 Slug: VirtualEnv-With-Upstart
 Author: Barry Steyn
-Category: Blog
 Tags: System Administration
 
 I thought I would write this very short blog article to help anyone who would who wants to launch a [uwsgi](http://projects.unbit.it/uwsgi/) server that refers to a python script in a virtual environment via upstart.
