@@ -15,10 +15,10 @@ This is part two of a series of two blog posts about RSA ([part 1](http://doctri
 Some parts of this post will be mathematical, but I am going to give as many examples as possible to aid understanding. Before reading this post, it is essential that the background math section of the [previous post](http://doctrina.org/How-RSA-Works-With-Examples.html) is understood.
 
 #Background Mathematics
-##Fermat's Little Theorem <a id="flt"></a>
+##Fermat's Little Theorem
 [Pierre de Fermat](http://en.wikipedia.org/wiki/Pierre_de_Fermat) can only be described as an absolute legend! This theorem of his was made sometime in the 17th century. He could not have fathomed how useful it would be to RSA encryption. 
 
-It is actually very simple: For any prime number $p$ and any integer $a$, $a^p \equiv a \bmod p$. In English, this says that an integer $a$ raised to the power of a prime number $p$ will result in a number that when divided by the prime number $p$ produces a remainder that is $a$. **Example**: Let $p=2$ and $a=5$. Then $2^5 = 32 = 2 \bmod 5$.
+It is actually very simple: For any prime number $p$ and any integer $a$, $a^p \equiv a \bmod p$. In English, this says that an integer $a$ raised to the power of a prime number $p$ will result in a number that when divided by the prime number $p$ produces a remainder that is $a$. **Example**: Let $a=2$ and $p=5$. Then $2^5 = 32 = 2 \bmod 5$.
 
 If we manipulate the theorem slightly by dividing the equation by $a$, we get the form that is most useful to RSA:
 
@@ -101,13 +101,13 @@ From the section above, the private key is the inverse of the public key with re
 
 $D(d,E(e,m)) = m^{e\cdot d} \bmod n = m^{k\cdot \phi(n) + 1} \bmod n$. Recall that $p-1$ divides $\phi(n)$ because $\phi(n) = (p-1)\cdot (q-1)$, so $m^{\phi(n)\cdot k + 1} \bmod n = m^{(p-1)\cdot (q-1)\cdot k + 1} \bmod n$. Lets concentrate on proving the equation for $p$:
 
-$m^{(p-1)\cdot (q-1)\cdot k + 1} \bmod n = \left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m \bmod n$. From [Fermat's Little Theorem](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#flt), since $p$ is prime, $m^{p-1} = 1 \bmod p$. Therefore $\left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m = (1 \bmod p)^{(q-1)\cdot k}\cdot m \bmod n$. But because $p$ divides $n$, we can write the previous equation like so: $\left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m = 1\cdot m \bmod p$. Thus the following equation holds:
+$m^{(p-1)\cdot (q-1)\cdot k + 1} \bmod n = \left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m \bmod n$. From [Fermat's Little Theorem](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#fermats-little-theorem), since $p$ is prime, $m^{p-1} = 1 \bmod p$. Therefore $\left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m = (1 \bmod p)^{(q-1)\cdot k}\cdot m \bmod n$. But because $p$ divides $n$, we can write the previous equation like so: $\left( m^{p-1} \right)^{(q-1)\cdot k}\cdot m = 1\cdot m \bmod p$. Thus the following equation holds:
 
 \begin{equation}
 \label{almost} m^{e\cdot d}\bmod n \equiv m \bmod p
 \end{equation}
 
-The above equation is almost there, but there is one glaring problem: We have proved equality to $m \bmod p$, not $m \bmod n$. To prove that is indeed equal to $1 \bmod n$, note that for equation $\ref{almost}$ above, we can substitute $p$ for $q$ so that $m^{e\cdot d}\bmod n \equiv m \bmod q$. This is easily done, as $q$ is also prime, just like $p$ and hence it will obey [Fermat's Little Theorem](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#flt). So we now have the following two equations:
+The above equation is almost there, but there is one glaring problem: We have proved equality to $m \bmod p$, not $m \bmod n$. To prove that is indeed equal to $1 \bmod n$, note that for equation $\ref{almost}$ above, we can substitute $p$ for $q$ so that $m^{e\cdot d}\bmod n \equiv m \bmod q$. This is easily done, as $q$ is also prime, just like $p$ and hence it will obey [Fermat's Little Theorem](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#fermats-little-theorem). So we now have the following two equations:
 
 $$
 m^{e\cdot d}\bmod n \equiv m \bmod p
