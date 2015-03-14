@@ -96,7 +96,7 @@ SITEMAP = {
 
 #Markdown Extensions
 MD_EXTENSIONS = [
-    'toc(title=Table Of Contents, permalink=True)',  # See https://pythonhosted.org/Markdown/extensions/toc.html for options
+    'toc(title=Table Of Contents, permalink=§)',  # See https://pythonhosted.org/Markdown/extensions/toc.html for options
     'codehilite(css_class=highlight, linenums=True)'  # used for applying pygments.css to code
 ]
 
