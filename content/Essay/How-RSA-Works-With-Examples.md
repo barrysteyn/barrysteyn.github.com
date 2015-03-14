@@ -69,8 +69,7 @@ of number of elements that have their $\gcd$ with the modulus equal to 1. Now fo
 	\label{bg:totient} p \in \mathbb{P}, \phi(p) = p-1
 \end{equation}
 
-**Example**: $\phi(7) = \left|\{1,2,3,4,5,6\}\right| = 6$  
-<span style='font-size:0.8em'>(**Note**: In set theory, anything between |{...}| just means the amount of elements in {...} - called cardinality for those who are interested)</span>
+**Example**: $\phi(7) = \left|\{1,2,3,4,5,6\}\right| = 6$[ref]In set theory, anything between |{...}| just means the amount of elements in {...} - called [cardinality](http://en.wikipedia.org/wiki/Cardinality) for those who are interested[/ref].
 
 RSA
 ===

@@ -12,9 +12,9 @@ Using the image above as an example, the aim would be to find the orange node.
 
 #Algorithm
 <img src ="http://doctrina.org/images/ll-cycle-intersection.png" />
-Use two iterators both starting at the first node, but make one move at twice the speed of the other. These iterators will meet at the red colored node. Now set one iterator to the first node and leave the other at the red node. Moving both iterators at normal speed where they meet for the second time will be the orange node.
+Use two iterators, but make one move at twice the speed of the other. Starting from the head (first) node of the list, these iterators will meet at the red colored node. Now set one iterator back to the head node and leave the other at the red node. Moving both iterators at normal speed where they meet for the second time will be the orange node.
 
-Go through this algorithm yourself with the above image, and it can easily be seen be seen that the algorithm works for this example. Ever wondered why it worked? I did, but I never really thought of it until I was chatting to my colleague [Reza Jooyandeh](http://www.jooyandeh.info/). Reza immediately saw a nice way to explain and prove that this algorithm, I am just formalizing it here.
+Go through this algorithm yourself with the above image, and it can easily be that the algorithm works for this example. Ever wondered why it worked? I did, but I never really thought of it until I was chatting to my colleague [Reza Jooyandeh](http://www.jooyandeh.com/). Reza immediately saw a nice way to prove this algorithm, I am just formalizing it here.
 
 ##History
 This algorithm actually has a formal name: It is called [Floyd's cycle-finding algorithm](http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare) and can be used to find cycles in a graph (a linked-list is also a graph) without using extra space in linear time. It is named after [Robert W. Floyd](http://en.wikipedia.org/wiki/Robert_W._Floyd).
