@@ -68,6 +68,7 @@ PLUGIN_PATHS = ['../pelican-plugins/']
 PLUGINS = [
     'extract_toc',  # extracts [TOC] to variable that can be used in template
     'render_math',   # my render math plugin :)
+    'simple_footnotes',  # footnotes
     'sitemap'  # For SEO
 ]
 
@@ -96,7 +97,7 @@ SITEMAP = {
 #Markdown Extensions
 MD_EXTENSIONS = [
     'toc(title=Table Of Contents, permalink=True)',  # See https://pythonhosted.org/Markdown/extensions/toc.html for options
-    'codehilite(css_class=highlight)'  # used for applying pygments.css to code
+    'codehilite(css_class=highlight, linenums=True)'  # used for applying pygments.css to code
 ]
 
 # Jinja2 Extensions
