@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="theme/img/doctrina-icon.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="theme/img/apple-touch-icon-144-precomposed.png">
 
-    <title>Doctrina - 	How Diffie Hellman Key Exchange Works With Examples
+    <title>Doctrina - 	The Starting Node Of A Cycle In A Linked List
 </title>
 
     <!-- Bootstrap Base CSS -->
@@ -46,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/blog.html"><span>Blogs</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/article.html"><span>Articles</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -62,7 +62,7 @@
 	<section class="container-fluid title">
 	<div class="row">
 		<div class="col-md-12">
-			<h1><a href="" rel="bookmark" title="Permalink to How Diffie Hellman Key Exchange Works With Examples">	How Diffie Hellman Key Exchange Works With Examples
+			<h1><a href="" rel="bookmark" title="Permalink to The Starting Node Of A Cycle In A Linked List">	The Starting Node Of A Cycle In A Linked List
 </a></h1>
 			<span>
 				<a href="http://doctrina.org/index.html#about"><img src="http://doctrina.org/theme/img/me.jpg" class="img-rounded"></img></a>
@@ -76,7 +76,7 @@
 		<div class="row">
 				<div class="col-xs-12 text-center metadata">
 					<ul class="center-list">
-						<li><b>Published</b>: 26  May  2012</li>
+						<li><b>Published</b>: 18  Feb  2015</li>
 					</ul>
 				</div>
 		</div>
@@ -87,25 +87,25 @@
 		<span class="toctitle">Share</span>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=How%20Diffie%20Hellman%20Key%20Exchange%20Works%20With%20Examples&url=http%3A//doctrina.org/drafts/How-Diffie-Hellman-Key-Exchange-Works-With-Examples.html&via=">
+	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=The%20Starting%20Node%20Of%20A%20Cycle%20In%20A%20Linked%20List&url=http%3A//doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html&via=">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
 	    </a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/drafts/How-Diffie-Hellman-Key-Exchange-Works-With-Examples.html">
+		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/drafts/How-Diffie-Hellman-Key-Exchange-Works-With-Examples.html">
+		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/drafts/How-Diffie-Hellman-Key-Exchange-Works-With-Examples.html&title=How%20Diffie%20Hellman%20Key%20Exchange%20Works%20With%20Examples">
+	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html&title=The%20Starting%20Node%20Of%20A%20Cycle%20In%20A%20Linked%20List">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
 	    </a>
@@ -115,21 +115,51 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<p>In order to attain secure cryptographic communication between two parties, a shared secret key is needed. The shared secret key will most commonly be used to encrypt/decrypt a block cipher (like <a href="">AES</a>). Most commonly, communication happens over the Internet, which is a very insecure medium. The Internet is combination of public and private equipment that neither of the two communicating parties control. So how can two parties agree upon a unique session key over an insecure medium and guarantee that an evesdropper will not be able to learn the key. The answer: By using <em>Diffie-Hellman key exchange</em>.</p>
-<h1 id="the-diffie-hellman-key-exchange-protocol">The Diffie-Hellman Key Exchange Protocol<a class="headerlink" href="#the-diffie-hellman-key-exchange-protocol" title="Permanent link">§</a></h1>
-<h2 id="pick-two-large-prime-numbers-numbers">Pick Two Large Prime Numbers Numbers<a class="headerlink" href="#pick-two-large-prime-numbers-numbers" title="Permanent link">§</a></h2>
-<p>The Diffie-Hellman key exchange protocol is quite simple. It starts with one of the communicating parties (it does not matter who) picking two numbers. There are only two requirements for these numbers:</p>
+		<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">§</a></h1>
+<p>Given a <a href="http://en.wikipedia.org/wiki/Linked_list#Singly_linked_list">singly linked list</a> that has a cycle, how can one determine the first node in the cycle?</p>
+<p><img src ="http://doctrina.org/images/ll-cycle-problem.png" /></p>
+<p>Using the image above as an example, the aim would be to find the orange node.</p>
+<h1 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">§</a></h1>
+<p><img src ="http://doctrina.org/images/ll-cycle-intersection.png" />
+Use two iterators, but make one move at twice the speed of the other. Starting from the head (first) node of the list, these iterators will meet at the red colored node. Now set one iterator back to the head node and leave the other at the red node. Moving both iterators at normal speed where they meet for the second time will be the orange node.</p>
+<p>Go through this algorithm yourself with the above image, and it can easily be that the algorithm works for this example. Ever wondered why it worked? I did, but I never really thought of it until I was chatting to my colleague <a href="http://www.jooyandeh.com/">Reza Jooyandeh</a>. Reza immediately saw a nice way to prove this algorithm, I am just formalizing it here.</p>
+<h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">§</a></h2>
+<p>This algorithm actually has a formal name: It is called <a href="http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare">Floyd's cycle-finding algorithm</a> and can be used to find cycles in a graph (a linked-list is also a graph) without using extra space in linear time. It is named after <a href="http://en.wikipedia.org/wiki/Robert_W._Floyd">Robert W. Floyd</a>.</p>
+<h1 id="proof-of-the-algorithm">Proof Of The Algorithm<a class="headerlink" href="#proof-of-the-algorithm" title="Permanent link">§</a></h1>
+<p><img src ="http://doctrina.org/images/ll-cycle-definition.png" /></p>
+<p>Assume the following (refer to the above image):</p>
+<ul>
+<li>The node that starts the cycle is colored orange.</li>
+<li>There are <span class="math">\(X\)</span> number of nodes up to and including the orange node.</li>
+<li>The cycle contains <span class="math">\(Y\)</span> number of nodes where <span class="math">\(Y \geq 2\)</span> (since by definition, a cycle must contain at least two nodes).</li>
+<li>The two iterators first meet after <span class="math">\(Z\)</span> nodes from the start of the cycle (these nodes are colored red in the above image).</li>
+</ul>
+<h2 id="aim-of-the-proof">Aim Of The Proof<a class="headerlink" href="#aim-of-the-proof" title="Permanent link">§</a></h2>
+<p>The aim is to prove that the starting node of the cycle will be reached after advancing <span class="math">\(X\)</span> number of nodes from where the iterators first meet (<span class="math">\(Z\)</span> nodes into the cycle). Why does this suffice? Because we assume that there are <span class="math">\(X\)</span> number of nodes leading up to the start of the cycle, so advancing <span class="math">\(X\)</span> number of nodes inside the cycle to get to the start implies that the two iterators will meet at the beginning of the cycle.</p>
+<h2 id="proof">Proof<a class="headerlink" href="#proof" title="Permanent link">§</a></h2>
+<p>The proof is done in two parts. It is proved that:</p>
 <ol>
-<li>They must be prime.</li>
-<li>They must be very large.</li>
+<li>The fast iterator cannot "jump" over the slow iterator in the cycle. </li>
+<li>Advancing by <span class="math">\(X\)</span> nodes from <span class="math">\(Z\)</span> nodes into the cycle will yield the beginning of the cycle.</li>
 </ol>
-<p>The first number that is needed is a very large random prime number, normally ??? ??? digits, which translates into ???? ???? bits. How does one pick such a large prime number in a relatively short time? The answer: a very large number is chosen at random and then tested for primality. If it passes the test, it is prime. If not, 1 is added onto the large number which is then tested for primality again. This procedure carries on until a large prime number is found. The test for primality is a <em>probablistic</em> test called the <a href="">Rabin-Miller primality tester</a> which I have described in a <a href="">previous post explaining RSA</a>. I quote from that post:</p>
-<blockquote>
-<blockquote>
-<p>[Given to the Rabin-Miller probabilistic tester] a very large number, it is able to quickly determine with a high probability if its input is prime.  But there is a catch (and readers may have spotted the catch in the last sentence): The Rabin-Miller test is a probability test, not a definite test. Given the fact that [Diffie-Hellman] absolutely relies upon generating large prime numbers, why would anyone want to use a probabilistic test? The answer: With Rabin-Miller, we make the result as accurate as we want. In other words, Rabin-Miller is setup with parameters that produces a result that determines if a number is prime with a probability of our choosing. Normally, the test is performed by iterating <span class="math">\(64\)</span> times and produces a result on a number that has a <span class="math">\(\frac{1}{2^{128}}\)</span> chance of not being prime. The probability of a number passing the Rabin-Miller test and not being prime is so low, that it is okay to use it with RSA.  In fact, <span class="math">\(\frac{1}{2^{128}}\)</span> is such a small number that I would suspect that nobody would ever get a false positive.</p>
-</blockquote>
-</blockquote>
-<p>The large prime number chosen is denoted by <span class="math">\(G\)</span>. Another prime number </p>
+<h3 id="the-fast-iterator-cannot-jump-over-the-slow-iterator-in-the-cycle">The fast iterator cannot "jump" over the slow iterator in the cycle<a class="headerlink" href="#the-fast-iterator-cannot-jump-over-the-slow-iterator-in-the-cycle" title="Permanent link">§</a></h3>
+<p>This proved by contradiction. Assume the fast iterator will always jump over the slow iterator. Then if the slow iterator ends at position <span class="math">\((x+1)\)</span>, the fast iterator will end at <span class="math">\((x+2)\)</span>. But this can only happen if both iterators started at position <span class="math">\(x\)</span>, which is a contracdiction.</p>
+<p>This has three implications:</p>
+<ol>
+<li>The iterators will <em>always</em> meet in the cycle.</li>
+<li>The slow iterator cannot complete more than one cycle before the intersection occurs.</li>
+<li>By the above implication, this algorithm is linear in the number of nodes present: <span class="math">\(O(n)\)</span></li>
+</ol>
+<p>The second implication above may need some explaining. The cycle has <span class="math">\(Y\)</span> nodes, and while the slow iterator advances over those nodes, the fast iterator will catch up to it. As shown above, the fast iterator cannot jump over the slow iterator and therefore they will meet (I leave this as an exercise to the reader to prove more formally).</p>
+<h3 id="advancing-by-x-nodes-from-z-nodes-into-the-cycle-will-yield-the-beginning-of-the-cycle">Advancing by <span class="math">\(X\)</span> nodes from <span class="math">\(Z\)</span> nodes into the cycle will yield the beginning of the cycle.<a class="headerlink" href="#advancing-by-x-nodes-from-z-nodes-into-the-cycle-will-yield-the-beginning-of-the-cycle" title="Permanent link">§</a></h3>
+<p>To start the proof, note that the two iterators first meet after <span class="math">\(Z\)</span> nodes from the start of the cycle. The iterator that advances at normal speed would have progressed <span class="math">\(X+Z\)</span>. The iterator that advances at double speed could potentially have gone round the cycle many times, so it would have progressed <span class="math">\(X+n\cdot Y+Z\)</span> nodes, where <span class="math">\(n \in \mathbb{N}\)</span>. The proof starts by establishing a relationship between these iterators: The number of nodes progressed by the normal iterator at double speed (i.e. <span class="math">\(2\cdot (X+Y)\)</span>) is equal to the number of nodes progressed by the fast iterator (i.e. <span class="math">\(X+n\cdot Y+Z\)</span>).</p>
+<div class="math">\begin{array}{ll}
+X+n\cdot Y+Z &amp; = &amp; 2\cdot (X+Z) \text{ where } n \in \mathbb{N} \\
+Z+X &amp; = &amp; n\cdot Y \\
+Z+X &amp; = &amp; 0\bmod Y \\
+\end{array}</div>
+<p>
+This proves that advancing by <span class="math">\(X\)</span> nodes from <span class="math">\(Z\)</span> will get to the start of the cylce.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -181,7 +211,7 @@
 					<div class="content-border">
 						<h2>Comments</h2>
         				<div class="divider-grey"></div>
-						<a id="disqus" href="http://doctrina.org/drafts/How-Diffie-Hellman-Key-Exchange-Works-With-Examples.html#disqus_thread">0 Comments</a>
+						<a id="disqus" href="http://doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html#disqus_thread">0 Comments</a>
 						<div id="disqus_thread"></div>
 					</div>
 			    </div>
@@ -257,8 +287,8 @@
 
 		var disqus = {
 			shortname: 'doctrina',
-			identifier: 'http://doctrina.org/drafts/How-Diffie-Hellman-Key-Exchange-Works-With-Examples.html',
-			url: 'http://doctrina.org/drafts/How-Diffie-Hellman-Key-Exchange-Works-With-Examples.html',
+			identifier: 'http://doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html',
+			url: 'http://doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html',
 			developer: 0
 		};
 

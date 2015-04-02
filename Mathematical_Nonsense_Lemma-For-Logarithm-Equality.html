@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/blog.html"><span>Blog</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/article.html"><span>Articles</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,9 +114,9 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<p>It's been many years since I was first taught <a href="http://en.wikipedia.org/wiki/Logarithm">logarithms</a>. So when looking at a proof that hinged on the fact that <span class="math">\(a^{log_b n} = n^{log_b a}\)</span>, I thought that the proof was wrong. Actually, it was my fault: <span class="math">\(a^{log_b n}\)</span> is indeed equal to <span class="math">\(n^{log_b a}\)</span>, I just forgot.</p>
+	<div class="article-content">
+		<p>It's been many years since I was first taught <a href="http://en.wikipedia.org/wiki/Logarithm">logarithms</a>. So when looking at a proof that hinged on the fact that <span class="math">\(a^{log_b n} = n^{log_b a}\)</span>, I thought that the proof was wrong. Actually, it was my fault: <span class="math">\(a^{log_b n}\)</span> is indeed equal to <span class="math">\(n^{log_b a}\)</span>, I just forgot.</p>
 <p>And so, I thought I would prove this fact. I am going to call it mathematical nonense, and its just short little lemmas that give me pleasure to prove and to reread.</p>
-<p>
 <div class="math">\begin{aligned}
 a^{log_b n} &amp;= X &amp; \cr
 log_b (a^{log_b n}) &amp;= log_b (X) \cr
@@ -124,8 +125,17 @@ log_b a \cdot log_b n&amp;= log_b(X) \cr
 log_b n^{log_b a}&amp;= log_b(X) &amp; \cr
 n^{log_b a}&amp;= X = a^{log_b n} &amp; \cr
 \end{aligned}</div>
-</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "true";
+
+    if (true) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -136,8 +146,8 @@ n^{log_b a}&amp;= X = a^{log_b n} &amp; \cr
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: 'center'," +
-        "    displayIndent: '0em'," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -146,18 +156,20 @@ n^{log_b a}&amp;= X = a^{log_b n} &amp; \cr
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-        "    } " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -236,6 +248,8 @@ n^{log_b a}&amp;= X = a^{log_b n} &amp; \cr
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/Mathematical_Nonsense_Lemma-For-Logarithm-Equality.html',

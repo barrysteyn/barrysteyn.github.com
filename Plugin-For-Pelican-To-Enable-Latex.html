@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/software-projects.html"><span>Software Projects</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/software-projects.html"><span>Software Projectss</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,17 +114,18 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<h1 id="latex-plugin-for-pelican">Latex Plugin For Pelican<a class="headerlink" href="#latex-plugin-for-pelican" title="Permanent link">&para;</a></h1>
+	<div class="article-content">
+		<h1 id="latex-plugin-for-pelican">Latex Plugin For Pelican<a class="headerlink" href="#latex-plugin-for-pelican" title="Permanent link">§</a></h1>
 <p>This plugin allows you to write mathematical equations in your articles using Latex.
 It uses the MathJax Latex JavaScript library to render latex that is embedded in
 between <code>$..$</code> for inline math and <code>$$..$$</code> for displayed math. It also allows for 
 writing equations in by using <code>\begin{equation}...\end{equation}</code>.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">§</a></h2>
 <p>To enable, ensure that <code>latex.py</code> is put somewhere that is accessible.
 Then use as follows by adding the following to your settings.py:</p>
-<div class="highlight"><pre>PLUGINS = [&quot;latex&quot;]
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>PLUGINS = [&quot;latex&quot;]
 </pre></div>
-
+</td></tr></table>
 
 <p>Be careful: Not loading the plugin is easy to do, and difficult to detect. To
 make life easier, find where pelican is installed, and then copy the plugin
@@ -131,59 +133,64 @@ there. An easy way to find where pelican is installed is to verbose list the
 available themes by typing <code>pelican-themes -l -v</code>. </p>
 <p>Once the pelican folder is found, copy <code>latex.py</code> to the <code>plugins</code> folder. Then 
 add to settings.py like this:</p>
-<div class="highlight"><pre>PLUGINS = [&quot;pelican.plugins.latex&quot;]
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>PLUGINS = [&quot;pelican.plugins.latex&quot;]
 </pre></div>
-
+</td></tr></table>
 
 <p>Now all that is left to do is to embed the following to your template file 
 between the <code>&lt;head&gt;</code> parameters (for the NotMyIdea template, this file is base.html)</p>
-<div class="highlight"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">article</span> <span class="k">and</span> <span class="nv">article.latex</span> <span class="cp">%}</span><span class="x"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">article</span> <span class="k">and</span> <span class="nv">article.latex</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    </span><span class="cp">{{</span> <span class="nv">article.latex</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
+</td></tr></table>
 
-
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">§</a></h2>
 <p>Latex will be embedded in every article. If however you want latex only for
 selected articles, then in settings.py, add</p>
-<div class="highlight"><pre>LATEX = &#39;article&#39;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>LATEX = &#39;article&#39;
 </pre></div>
-
+</td></tr></table>
 
 <p>And in each article, add the metadata key <code>latex:</code>. For example, with the above
 settings, creating an article that I want to render latex math, I would just 
 include 'Latex' as part of the metadata without any value:</p>
-<div class="highlight"><pre><span class="n">Date</span><span class="o">:</span> <span class="mi">1</span> <span class="n">sep</span> <span class="mi">2012</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">Date</span><span class="o">:</span> <span class="mi">1</span> <span class="n">sep</span> <span class="mi">2012</span>
 <span class="n">Status</span><span class="o">:</span> <span class="n">draft</span>
 <span class="n">Latex</span><span class="o">:</span>
 </pre></div>
+</td></tr></table>
 
-
-<h2 id="latex-examples">Latex Examples<a class="headerlink" href="#latex-examples" title="Permanent link">&para;</a></h2>
-<h3 id="inline">Inline<a class="headerlink" href="#inline" title="Permanent link">&para;</a></h3>
+<h2 id="latex-examples">Latex Examples<a class="headerlink" href="#latex-examples" title="Permanent link">§</a></h2>
+<h3 id="inline">Inline<a class="headerlink" href="#inline" title="Permanent link">§</a></h3>
 <p>Latex between <code>$</code>..<code>$</code>, for example, <code>$</code>x^2<code>$</code>, will be rendered inline 
 with respect to the current html block.</p>
-<h3 id="displayed-math">Displayed Math<a class="headerlink" href="#displayed-math" title="Permanent link">&para;</a></h3>
+<h3 id="displayed-math">Displayed Math<a class="headerlink" href="#displayed-math" title="Permanent link">§</a></h3>
 <p>Latex between <code>$$</code>..<code>$$</code>, for example, <code>$$</code>x^2<code>$$</code>, will be rendered centered in a 
 new paragraph.</p>
-<h3 id="equations">Equations<a class="headerlink" href="#equations" title="Permanent link">&para;</a></h3>
+<h3 id="equations">Equations<a class="headerlink" href="#equations" title="Permanent link">§</a></h3>
 <p>Latex between <code>\begin</code> and <code>\end</code>, for example, <code>begin{equation}</code> x^2 <code>\end{equation}</code>, 
 will be rendered centered in a new paragraph with a right justified equation number 
 at the top of the paragraph. This equation number can be referenced in the document. 
 To do this, use a <code>label</code> inside of the equation format and then refer to that label 
 using <code>ref</code>. For example: <code>begin{equation} \label{eq} X^2 \end{equation}</code>. Now 
 refer to that equation number by <code>$</code>\ref{eq}<code>$</code>.</p>
-<h2 id="template-and-article-examples">Template And Article Examples<a class="headerlink" href="#template-and-article-examples" title="Permanent link">&para;</a></h2>
+<h2 id="template-and-article-examples">Template And Article Examples<a class="headerlink" href="#template-and-article-examples" title="Permanent link">§</a></h2>
 <p>To see an example of this plugin in action, look at 
 <a href="http://doctrina.org/How-RSA-Works-With-Examples.html">this article</a>. To see how 
 this plugin works with a template, look at 
 <a href="https://github.com/barrysteyn/pelican_theme-personal_blog">this template</a>.</p>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -262,6 +269,8 @@ this plugin works with a template, look at
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html',

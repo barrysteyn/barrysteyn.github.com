@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Notes</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Noteses</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,17 +114,32 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<h1 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h1>
+	<div class="article-content">
+		<h1 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">§</a></h1>
 <ul>
 <li>Encapsulation - hiding infor</li>
 </ul>
-<h1 id="classes-and-objects">Classes And Objects<a class="headerlink" href="#classes-and-objects" title="Permanent link">&para;</a></h1>
+<h1 id="classes-and-objects">Classes And Objects<a class="headerlink" href="#classes-and-objects" title="Permanent link">§</a></h1>
 <ul>
 <li>Class is an abstract definition of something that has <em>attributes</em> and <em>actions</em>. </li>
 <li>An object is a specific instance of a class.</li>
 </ul>
 <p>In C++:</p>
-<div class="highlight"><pre><span class="nt">class</span> <span class="nt">Point</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">class</span> <span class="nt">Point</span> <span class="p">{</span>
     <span class="n">private</span><span class="o">:</span>
         <span class="k">float</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="p">;</span>
     <span class="n">public</span><span class="o">:</span>
@@ -139,10 +155,21 @@
 <span class="nt">void</span> <span class="nt">Point</span><span class="o">:</span><span class="nd">:setX</span><span class="o">(</span><span class="nt">const</span> <span class="nt">float</span> <span class="o">&amp;</span><span class="nt">x</span><span class="o">)</span> <span class="p">{</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;}</span>
 <span class="nt">void</span> <span class="nt">Point</span><span class="o">:</span><span class="nd">:setY</span><span class="o">(</span><span class="nt">const</span> <span class="nt">float</span> <span class="o">&amp;</span><span class="nt">y</span><span class="o">)</span> <span class="p">{</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;}</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>In Java:</p>
-<div class="highlight"><pre>public class Point {
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre>public class Point {
     private float x=0, y=0;
     public Point(float X, float Y) {
         x = X;
@@ -155,14 +182,14 @@
     public void setY(float y) { this.y = Y;}
 }
 </pre></div>
-
+</td></tr></table>
 
 <p><strong>Some Key Differences</strong></p>
 <ul>
 <li>In Java, the class and business logic is <em>'mixed'</em> together. In C++, they are separated.</li>
 <li>In Java, an access modifier (normally public) is specified before a class.</li>
 </ul>
-<h1 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h1>
+<h1 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">§</a></h1>
 <p>Assume Class B inherits from Class A. Class B has all <em>public</em> and <em>protected</em> attributes from Class A. Class B defines an <em>'is a'</em> relationship, whereby Class B <em>is a</em> Class A. This means that Class B can be used anywhere Class A is used. </p>
 <p>The following access modifiers apply to inheritance:</p>
 <ul>
@@ -173,7 +200,26 @@
 <p>The difference between public and protected: Protected acts like <em>private</em> to everything except inherited classes.</p>
 <p>A base class can also be abstract, meaning that it cannot be instantiated.</p>
 <p>In C++</p>
-<div class="highlight"><pre><span class="nt">class</span> <span class="nt">Shape</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">class</span> <span class="nt">Shape</span> <span class="p">{</span>
     <span class="n">protected</span><span class="o">:</span>
         <span class="n">Point</span> <span class="k">center</span><span class="p">;</span>
         <span class="n">Shape</span> <span class="p">(</span><span class="n">Point</span> <span class="o">&amp;</span> <span class="n">Center</span><span class="p">)</span> <span class="o">:</span> <span class="k">center</span><span class="p">(</span><span class="n">Center</span><span class="p">)</span> <span class="err">{</span><span class="p">}</span>
@@ -194,7 +240,7 @@
 
 <span class="nt">public</span> <span class="nt">void</span> <span class="nt">Rectangle</span><span class="o">:</span><span class="nd">:draw</span><span class="o">()</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 </pre></div>
-
+</td></tr></table>
 
 <p><strong>Note:</strong></p>
 <ul>
@@ -204,7 +250,25 @@
 <li>Can have multiple inheritance.</li>
 </ul>
 <p>In Java</p>
-<div class="highlight"><pre>public abstract class Shape {
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre>public abstract class Shape {
     protected Point center;
     protected Shape(Point center) {this.center = center;}
 
@@ -224,18 +288,30 @@ public class Rectangle extends Shape {
     }
 }
 </pre></div>
-
+</td></tr></table>
 
 <p><strong>Note:</strong></p>
-<div class="highlight"><pre>* Inheritance accomplished by `extends` key word.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre>* Inheritance accomplished by `extends` key word.
 * Can only have a single inheritance.
 * Java uses the `super` keyword to call parent constructors explicitly. It must be the first statement in a child constructor.
 </pre></div>
+</td></tr></table>
 
-
-<h1 id="multiple-inheritance">Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Permanent link">&para;</a></h1>
+<h1 id="multiple-inheritance">Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Permanent link">§</a></h1>
 <p>C++ allows it, Java (and C#) disallow it! This is because of the classic case known as the <a href="http://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem">diamond problem</a>:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="n">A</span> {
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="n">A</span> {
 }
 
 <span class="k">class</span> <span class="n">B</span> : <span class="n">A</span> {
@@ -247,27 +323,28 @@ public class Rectangle extends Shape {
 <span class="k">class</span> <span class="n">D</span> : <span class="n">B</span>,<span class="n">C</span> {
 }
 </pre></div>
-
+</td></tr></table>
 
 <p>In the above, class D has two copies of A. This leads to ambiguity (for instance, what destructor to call or what method to call). This is such a profound problem that Java (and C#) disallow multiple inheritance.</p>
 <p>In C++, one can alleviate the problem by using <a href="http://www.learncpp.com/cpp-tutorial/118-virtual-base-classes/">virtual base classes</a>.</p>
-<h1 id="inheritance-vs-interface">Inheritance VS Interface<a class="headerlink" href="#inheritance-vs-interface" title="Permanent link">&para;</a></h1>
+<h1 id="inheritance-vs-interface">Inheritance VS Interface<a class="headerlink" href="#inheritance-vs-interface" title="Permanent link">§</a></h1>
 <p>An interface is a contract whereby the class that implements the interface will implement the methods defined in the interface. Interfaces can be thought of a abstract class without any state (i.e. variables). In fact, this is how they are implemented in C++. An interface is vital for languages that do not allow multiple inheritance (e.g. Java or C#) as a class can implement multiple interfaces.</p>
 <p>The difference between an interface and an inherited class: Use inheritance when the class is tightly coupled to the base class and forms an <em>is-a</em> relationship (e.g. square is-a shape), but use interfaces when the connection is loosely defined (e.g. square implements the svg-draw interface).</p>
-<h1 id="polymorphism">Polymorphism<a class="headerlink" href="#polymorphism" title="Permanent link">&para;</a></h1>
+<h1 id="polymorphism">Polymorphism<a class="headerlink" href="#polymorphism" title="Permanent link">§</a></h1>
 <p>Polymorphism is the ability to provide <em>multiple implementations</em> for a particular method and <em>select the correct implementation</em> based on its surrounding context. This implies that polymorphic functions can be bound at run time (known as <em>late binding</em>). Polymorphism is accomplished using two mechanisms:</p>
 <ul>
 <li><em>Overloading</em> - multiple versions of the same function, but with different input parameters. </li>
 <li><em>Overriding</em> - a multiple definitions of the same function in a parent class and in its child class.</li>
 </ul>
 <p>Late binding applies to function <em>overriding</em>. A child class can be up-casted to its parent, yet when a parent invokes a method, the child's definition will be run. This is called a <em>virtual</em> function. In Java, all functions are virtual by default, and one must use the keyword <code>final</code> to make them non-virtual. In C++, all functions are by default non-virtual, and functions must be marked by the keyword <code>virtual</code> to make them virtual.</p>
-<h1 id="polymorphism_1">Polymorphism<a class="headerlink" href="#polymorphism_1" title="Permanent link">&para;</a></h1>
+<h1 id="polymorphism_1">Polymorphism<a class="headerlink" href="#polymorphism_1" title="Permanent link">§</a></h1>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -346,6 +423,8 @@ public class Rectangle extends Shape {
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/drafts/Object-Orientation:C++_And_Java.html',

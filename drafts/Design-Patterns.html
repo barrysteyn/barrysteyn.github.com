@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Notes</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Noteses</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,14 +114,26 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<h1 id="design-patterns">Design Patterns<a class="headerlink" href="#design-patterns" title="Permanent link">&para;</a></h1>
+	<div class="article-content">
+		<h1 id="design-patterns">Design Patterns<a class="headerlink" href="#design-patterns" title="Permanent link">§</a></h1>
 <p>The classic design pattern book is the <a href="http://en.wikipedia.org/wiki/Design_Patterns">gang-of-four</a> book. Design patterns are simply guidelines for identifying and solving certain problems. They are abstract in nature, and hence are not implemented as a core language feature. Also, the word anti-pattern crops up: It is a pattern that is detrimental to the outcome of the task.</p>
-<h1 id="common-design-patterns">Common Design Patterns<a class="headerlink" href="#common-design-patterns" title="Permanent link">&para;</a></h1>
-<h2 id="creational-patterns">Creational Patterns<a class="headerlink" href="#creational-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="singleton">Singleton<a class="headerlink" href="#singleton" title="Permanent link">&para;</a></h3>
+<h1 id="common-design-patterns">Common Design Patterns<a class="headerlink" href="#common-design-patterns" title="Permanent link">§</a></h1>
+<h2 id="creational-patterns">Creational Patterns<a class="headerlink" href="#creational-patterns" title="Permanent link">§</a></h2>
+<h3 id="singleton">Singleton<a class="headerlink" href="#singleton" title="Permanent link">§</a></h3>
 <p>A singleton patterns ensures at most one instance of any class is available at any one time. Applications cannot create a new instance of a singleton.</p>
 <p>C++:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="n">ClassicSingleton</span> {
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="n">ClassicSingleton</span> {
     <span class="n">protected:</span>
         <span class="n">ClassicSingleton</span>();
     <span class="n">public:</span>
@@ -133,10 +146,21 @@
     <span class="k">return</span> <span class="n">instance</span>;
 }
 </pre></div>
-
+</td></tr></table>
 
 <p>Java:</p>
-<div class="highlight"><pre>public class ClassicSingleton {
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre>public class ClassicSingleton {
    private static ClassicSingleton instance = null;
    protected ClassicSingleton() {
       // Exists only to defeat instantiation.
@@ -149,17 +173,28 @@
    }
 }
 </pre></div>
-
+</td></tr></table>
 
 <p>Note:</p>
 <ul>
 <li>That the constructor is protected. If the constructor is private, then inheritance is not possible.</li>
 <li>Lazy instantiation: Both the C++ and Java versions implement lazy instantiation, meaning that an instance is only produced when first needed.</li>
 </ul>
-<h3 id="builder">Builder<a class="headerlink" href="#builder" title="Permanent link">&para;</a></h3>
+<h3 id="builder">Builder<a class="headerlink" href="#builder" title="Permanent link">§</a></h3>
 <p>A builder pattern is used to create complex objects. Complex in this sense could be an object that has a very complex constructor:</p>
 <p>Java:</p>
-<div class="highlight"><pre>public class Complex {
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre>public class Complex {
     public Complex(int first, bool second, char third, int fourth, bool fifth, float sixth, bool seventh, bool eighth) {
     }
 }
@@ -172,12 +207,31 @@ public class ComplexBuilder {
     }
 }
 </pre></div>
+</td></tr></table>
 
-
-<h3 id="factory-method">Factory Method<a class="headerlink" href="#factory-method" title="Permanent link">&para;</a></h3>
+<h3 id="factory-method">Factory Method<a class="headerlink" href="#factory-method" title="Permanent link">§</a></h3>
 <p>The factory method is a method that creates an object. Unlike the builder pattern, it is not a class. Technically, it can be any method that is used to create an object. It is used in conjunction with inheritance: A base class will define a factory method and <strong>always</strong> uses it to create objects. A derived class can inherit from the base class and can override the method.</p>
 <p>The classic example (used in the GOF book) is a class that creates a two kinds of maze games:</p>
-<div class="highlight"><pre>1. A normal maze game, where each room is connected to each other.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre>1. A normal maze game, where each room is connected to each other.
 2. A magic maze game, where each room is not only connected to each other, but it also has the ability to magically teleport.
 
 public class Maze {
@@ -198,18 +252,19 @@ public class MagicMaze extends Maze {
     }
 }
 </pre></div>
+</td></tr></table>
 
-
-<h3 id="abstract-factory">Abstract Factory<a class="headerlink" href="#abstract-factory" title="Permanent link">&para;</a></h3>
-<h2 id="behavioral-patterns">Behavioral Patterns<a class="headerlink" href="#behavioral-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="iterator">Iterator<a class="headerlink" href="#iterator" title="Permanent link">&para;</a></h3>
-<h3 id="observer">Observer<a class="headerlink" href="#observer" title="Permanent link">&para;</a></h3>
+<h3 id="abstract-factory">Abstract Factory<a class="headerlink" href="#abstract-factory" title="Permanent link">§</a></h3>
+<h2 id="behavioral-patterns">Behavioral Patterns<a class="headerlink" href="#behavioral-patterns" title="Permanent link">§</a></h2>
+<h3 id="iterator">Iterator<a class="headerlink" href="#iterator" title="Permanent link">§</a></h3>
+<h3 id="observer">Observer<a class="headerlink" href="#observer" title="Permanent link">§</a></h3>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -288,6 +343,8 @@ public class MagicMaze extends Maze {
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/drafts/Design-Patterns.html',

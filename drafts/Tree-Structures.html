@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Notes</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Noteses</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,24 +114,26 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<h1 id="binary-tree">Binary Tree<a class="headerlink" href="#binary-tree" title="Permanent link">&para;</a></h1>
-<h2 id="binary-search-tree">Binary Search Tree<a class="headerlink" href="#binary-search-tree" title="Permanent link">&para;</a></h2>
-<h2 id="balanced-binary-search-tree">Balanced Binary Search Tree<a class="headerlink" href="#balanced-binary-search-tree" title="Permanent link">&para;</a></h2>
-<h1 id="n-ary-tree">N-Ary Tree<a class="headerlink" href="#n-ary-tree" title="Permanent link">&para;</a></h1>
-<h2 id="trie">Trie<a class="headerlink" href="#trie" title="Permanent link">&para;</a></h2>
-<h1 id="b-tree">B-Tree<a class="headerlink" href="#b-tree" title="Permanent link">&para;</a></h1>
+	<div class="article-content">
+		<h1 id="binary-tree">Binary Tree<a class="headerlink" href="#binary-tree" title="Permanent link">§</a></h1>
+<h2 id="binary-search-tree">Binary Search Tree<a class="headerlink" href="#binary-search-tree" title="Permanent link">§</a></h2>
+<h2 id="balanced-binary-search-tree">Balanced Binary Search Tree<a class="headerlink" href="#balanced-binary-search-tree" title="Permanent link">§</a></h2>
+<h1 id="n-ary-tree">N-Ary Tree<a class="headerlink" href="#n-ary-tree" title="Permanent link">§</a></h1>
+<h2 id="trie">Trie<a class="headerlink" href="#trie" title="Permanent link">§</a></h2>
+<h1 id="b-tree">B-Tree<a class="headerlink" href="#b-tree" title="Permanent link">§</a></h1>
 <p>A B-Tree is used when data is to be stored and retrieved in a sorted fashion when there is not enough space on RAM. Classically used an index for databases, B-Trees are an abstraction of a binary search tree.</p>
 <p>See:</p>
 <ul>
 <li><a href="http://www.kylescousin.com/2010/09/a-simple-explanation-on-how-b-tree-database-indexes-work/">B-Tree Explanation</a></li>
 <li><a href="http://ats.oka.nu/b-tree/b-tree.html">B-Tree Animation</a></li>
 </ul>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -209,6 +212,8 @@
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/drafts/Tree-Structures.html',

@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/blog.html"><span>Blog</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/article.html"><span>Articles</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,7 +114,8 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<p>JavaScript has been described as a <em>Functional Oriented Language</em> (this as opposed to Object Oriented Language). The reason is because functions in JavaScript do more than just separate logic into execution units, functions are first class citizens that also provide <a href="http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html">scope</a> and the ability to create objects. Having such a heavy reliance upon functions is both a blessing and a curse: It's a blessing because it makes the language light weight and fast (the main goal of its original development), but it is a curse because you can very easily shoot yourself in the foot if you don't know what you are doing.</p>
+	<div class="article-content">
+		<p>JavaScript has been described as a <em>Functional Oriented Language</em> (this as opposed to Object Oriented Language). The reason is because functions in JavaScript do more than just separate logic into execution units, functions are first class citizens that also provide <a href="http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html">scope</a> and the ability to create objects. Having such a heavy reliance upon functions is both a blessing and a curse: It's a blessing because it makes the language light weight and fast (the main goal of its original development), but it is a curse because you can very easily shoot yourself in the foot if you don't know what you are doing.</p>
 <p>One concern with JavaScript functions is how different invocation patterns can produce vastly different results. This post explains the four patterns, how to use them and what to watch out for. The four invocation patterns are:</p>
 <ol>
 <li><strong>Method Invocation</strong></li>
@@ -121,14 +123,21 @@
 <li><strong>Constructor Invocation</strong></li>
 <li><strong>Apply And Call Invocation</strong></li>
 </ol>
-<h1 id="function-execution">Function Execution<a class="headerlink" href="#function-execution" title="Permanent link">&para;</a></h1>
+<h1 id="function-execution">Function Execution<a class="headerlink" href="#function-execution" title="Permanent link">§</a></h1>
 <p>JavaScript (like all languages these days) has the ability to modularise logic in <code>functions</code> which can be invoked at any point within the execution. Invoking a function suspends execution of the current function, passing controls and parameters to the invoked function. In addition, a parameter called <code>this</code> is also passed to the function. The invocation operator is a pair of round brackets <code>()</code>, that can contain zero or more expressions separated by a comma.</p>
 <p>Unfortunately, there is more than one pattern that can be used to invoke functions. These patterns are not <em>nice-to-know</em>: They are absolutely essential to know. This is because invoking a function with a different pattern can produce a vastly different result. I believe that this is a language design error in JavaScript, and had the language been designed with more thought (and less haste), this would not have been such a big issue.</p>
-<h1 id="the-four-invocation-patterns">The Four Invocation Patterns<a class="headerlink" href="#the-four-invocation-patterns" title="Permanent link">&para;</a></h1>
+<h1 id="the-four-invocation-patterns">The Four Invocation Patterns<a class="headerlink" href="#the-four-invocation-patterns" title="Permanent link">§</a></h1>
 <p>Even though there are is only one <em>invocation operator</em> <code>()</code>, there are four <em>invocation patterns</em>. Each pattern differs in how the <code>this</code> parameter is initialised. </p>
-<h2 id="method-invocation">Method Invocation<a class="headerlink" href="#method-invocation" title="Permanent link">&para;</a></h2>
+<h2 id="method-invocation">Method Invocation<a class="headerlink" href="#method-invocation" title="Permanent link">§</a></h2>
 <p>When a function is part of an object, it is called a <em>method</em>. Method invocation is the pattern of invoking a function that is part of an object. For example:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">value</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="nx">increment</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
@@ -137,17 +146,30 @@
 
 <span class="nx">obj</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span> <span class="c1">//Method invocation</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>Method invocation is identified when a function is preceded by <code>object.</code>, where <code>object</code> is the name of some object. JavaScript will set the <code>this</code> parameter to the object where the method was invoked on. In the example above, <code>this</code> would be set to <code>obj</code>. JavaScript binds <code>this</code> at execution (also known as <em>late binding</em>).</p>
-<h2 id="function-invocation">Function Invocation <a id="fi"></a><a class="headerlink" href="#function-invocation" title="Permanent link">&para;</a></h2>
+<h2 id="function-invocation">Function Invocation <a id="fi"></a><a class="headerlink" href="#function-invocation" title="Permanent link">§</a></h2>
 <p>Function invocation is performed by invoking a function using <code>()</code>:</p>
-<div class="highlight"><pre>add(2,3); //5
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>add(2,3); //5
 </pre></div>
-
+</td></tr></table>
 
 <p>When using the function invocation pattern, <code>this</code> is set to the global object. This was a mistake in the JavaScript language! Blindly binding <code>this</code> to the global object can destroy its current context. It is noticable when using an <em>inner function</em> within a method function. An example should explain things better: </p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">//Global variable</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">//Global variable</span>
 <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">value</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="nx">increment</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -162,11 +184,25 @@
 <span class="p">}</span>
 <span class="nx">obj</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span> <span class="c1">//Method invocation pattern</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>What do you think will be printed to screen? For those that answered <em>1</em>, you are wrong (but don't be too hard on yourselves, this is because JavaScript does not do things very well). The real answer is <em>500</em>. Note that <code>innerFunction</code> is called using the function invocation pattern, therefore <code>this</code> is set to the global object. The result is that <em>innerFunction</em> (again, it is important to note that it is invoked with function pattern) will not have <code>this</code> set to current object. Instead, it is set to the global object, where <code>value</code> is defined as <em>500</em>. I stress that this is bad language design; the increment function was invoked with the method invocation pattern, and so it is natural to assume the <code>this</code> should always point to the current function when used inside it.</p>
 <p><a id="standardfix"></a>There is an easy way to get round this problem, but it is in my opinion a hack. One gets around this problem by assigning a variable (by convention, it is named <code>that</code>) to <code>this</code> inside the function (aside: This works because functions in JavaScript are <a href="http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html#closures">closures</a>):</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">//Global variable</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">//Global variable</span>
 <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">value</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="nx">increment</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -182,21 +218,26 @@
 <span class="p">}</span>
 <span class="nx">obj</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>If <code>this</code> could be bound to the current object whose scope it is called in, function and method invocations would be identical.</p>
-<h2 id="constructor-invocation">Constructor Invocation <a id="ci"></a><a class="headerlink" href="#constructor-invocation" title="Permanent link">&para;</a></h2>
+<h2 id="constructor-invocation">Constructor Invocation <a id="ci"></a><a class="headerlink" href="#constructor-invocation" title="Permanent link">§</a></h2>
 <p><em>Warning</em>: This is another JavaScript peculiarity! JavaScript is not a classical object oriented language. Instead, it is a prototypical object oriented language, but the creators of JavaScript felt that people with classical object orientation experience (the vast majority) may be unhappy with a purely prototype aproach. This resulted in JavaScript being unsure of its prototypical nature and the worst thing happened: It mixed classical object orientation syntax with its prototypical nature. The result: A mess!</p>
 <p>In classical object orientation, an object is an instantiation of a class. In C++ and Java, this instantiation is performed by using the <code>new</code> operator. This seems to be the inspiration behind the constructor invocation pattern...</p>
 <p>The constructor invocation pattern involves putting the <code>new</code> operator just before the function is invoked. For example:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Cheese</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Cheese</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">cheeseType</span> <span class="o">=</span> <span class="nx">type</span><span class="p">;</span>
     <span class="k">return</span> <span class="nx">cheeseType</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nx">cheddar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cheese</span><span class="p">(</span><span class="s2">&quot;cheddar&quot;</span><span class="p">);</span> <span class="c1">//new object returned, not the type.</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>Even though <code>Cheese</code> is a function object (and intuitively, one thinks of functions as running modularised pieces of code), we have created a new object by invoking the function with <code>new</code> in front of it. The <code>this</code> parameter will be set to the newly created object and the <code>return</code> operator of the function will have its behaviour altered. Regarding the behaviour of the <code>return</code> operator in constructor invocation, there are two cases: </p>
 <ol>
@@ -204,7 +245,20 @@
 <li>If the function returns an instance of <code>Object</code> (anything other than a simple type), then that object will be returned instead of returning <code>this</code>. This pattern is not used that often, but it may have utility when used with <a href="http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html#closures">closures</a>.</li>
 </ol>
 <p>For example:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">data</span> <span class="o">:</span> <span class="s2">&quot;Hello World&quot;</span>
 <span class="p">}</span>
 
@@ -219,23 +273,37 @@
 <span class="kd">var</span> <span class="nx">f1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Func1</span><span class="p">();</span> <span class="c1">//f1 is set to obj</span>
 <span class="kd">var</span> <span class="nx">f2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Func2</span><span class="p">();</span> <span class="c1">//f2 is set to a new object</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>We might ignore the constructor invocation pattern, and just use <a href="http://doctrina.org/Javascript-Objects-Prototypes.html#cofl">object literals</a> to make objects, except that the makers of JavaScript have enabled a key feature of their language by using this pattern: Object creation with an arbitrary prototype link (see <a href="http://doctrina.org/Javascript-Objects-Prototypes.html">previous post</a> for more details). This pattern is unintuitive and also <a href="http://doctrina.org/Javascript-Objects-Prototypes.html#pcip">potentially problematic</a>. There is a <a href="http://doctrina.org/Javascript-Objects-Prototypes.html#remedy">remedy</a> which was championed by Douglas Crockford: Augment <code>Object</code> with a create method that accomplishes what the constructor invocation pattern tries to do. I am happy to note that as of JavaScript 1.8.5, <code>Object.create</code> is a reality and can be used. Due to legacy, the constructor invocation is still used often, and for backward compatability, will crop up quite frequently.</p>
-<h2 id="apply-and-call-invocation">Apply And Call Invocation<a class="headerlink" href="#apply-and-call-invocation" title="Permanent link">&para;</a></h2>
+<h2 id="apply-and-call-invocation">Apply And Call Invocation<a class="headerlink" href="#apply-and-call-invocation" title="Permanent link">§</a></h2>
 <p>The apply pattern is not as badly thought out as the two preceding patterns. The <code>apply</code> method allows manual invocation of a function with a means to pass the function an array of parameters and explicitly set the <code>this</code> parameter. Because functions are first class citizens, they are also objects and hence can have methods (functions) run on it. In fact, every function is linked to <code>Function.prototype</code> (see <a href="http://doctrina.org/Javascript-Objects-Prototypes.html#cfo">here</a> for more details), and so methods can very easily be augmented to any function. The apply method is just an augmentation to every function as - I presume - it is defined on <code>Function.prototype</code>. </p>
 <p>Apply takes two parameters: the first parameter is an object to bind the <code>this</code> parameter to, the second is an array which is mapped to the parameters:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">num1</span><span class="o">+</span><span class="nx">num2</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nx">array</span> <span class="o">=</span> <span class="cp">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="cp">]</span><span class="p">;</span>
 <span class="nx">add</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="nx">array</span><span class="p">);</span> <span class="c1">//7</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>In the example above, <code>this</code> is bound to null (the function is not an object, so it is not needed) and array is bound to <code>num1</code> and <code>num2</code>. More interesting things can be done with the first parameter:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">data</span><span class="o">:</span><span class="s1">&#39;Hello World&#39;</span>
 <span class="p">}</span>
 
@@ -246,23 +314,24 @@
 <span class="nx">displayData</span><span class="p">();</span> <span class="c1">//undefined</span>
 <span class="nx">displayData</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">//Hello World</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>The example above uses <code>apply</code> to bind <code>this</code> to <code>obj</code>. This results in being able to produce a value for <code>this.data</code>. Being able to expicitly assign a value to <code>this</code> is where the real value of apply comes about. Without this feature, we might as well use <code>()</code> to invoke functions.</p>
 <p>JavaScript also has another invoker called <code>call</code>, that is identical to <code>apply</code> except that instead of taking an array of parameters, it takes an argument list. If JavaScript would implement function overriding, I think that <code>call</code> would be an overridden variant of <code>apply</code>. Therefore one talks about <code>apply</code> and <code>call</code> in the same vein.</p>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">§</a></h1>
 <p>For better or worse, JavaScript is about to take over the world. It is therefore very important that the peculiarities of the language be known and avoided. Learning how the four function invocation methods differ and how to avoid their pitfalls is fundamental to anyone who wants to use JavaScript. I hope this post has helped people when it comes to invoking functions.</p>
-<h2 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h2>
+<h2 id="update">Update<a class="headerlink" href="#update" title="Permanent link">§</a></h2>
 <ul>
 <li>Wow, this has <a href='http://doctrina.org/static/images/TopOfHackerNews.png'>reached top of Hacker News</a>. Thanks for upvoting it everybody.</li>
 <li>Now its also gonna be <a href='http://hackermonthly.com/issue-32.html'>published</a> :)</li>
 </ul>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -341,6 +410,8 @@
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/Javascript-Function-Invocation-Patterns.html',

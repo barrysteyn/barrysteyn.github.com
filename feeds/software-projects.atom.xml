@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/software-projects.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2012-12-18T00:00:00-08:00</updated><entry><title>Scrypt Authentiction For Node</title><link href="http://doctrina.org/Scrypt-Authentication-For-Node.html" rel="alternate"></link><updated>2012-12-18T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-12-18:Scrypt-Authentication-For-Node.html</id><summary type="html">&lt;h1 id="scrypt-for-nodejs"&gt;Scrypt For NodeJS&lt;a class="headerlink" href="#scrypt-for-nodejs" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/software-projects.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2012-12-18T00:00:00-08:00</updated><entry><title>Scrypt Authentiction For Node</title><link href="http://doctrina.org/Scrypt-Authentication-For-Node.html" rel="alternate"></link><updated>2012-12-18T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-12-18:Scrypt-Authentication-For-Node.html</id><summary type="html">&lt;h1 id="scrypt-for-nodejs"&gt;Scrypt For NodeJS&lt;a class="headerlink" href="#scrypt-for-nodejs" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;node-scrypt is a native node C++ wrapper for Colin Percival's scrypt &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation&lt;/a&gt; utility.&lt;/p&gt;
-&lt;h2 id="what-is-scrypt"&gt;What Is Scrypt?&lt;a class="headerlink" href="#what-is-scrypt" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="what-is-scrypt"&gt;What Is Scrypt?&lt;a class="headerlink" href="#what-is-scrypt" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Scrypt is an advanced crypto library used mainly for &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation&lt;/a&gt; (i.e. password authenticator). More information can be found here:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.tarsnap.com/scrypt.html"&gt;Tarsnap blurb about scrypt&lt;/a&gt; - Colin Percival (the author of scrypt) explains a bit about it.&lt;/li&gt;
@@ -9,7 +9,7 @@
 &lt;li&gt;&lt;a href="http://en.wikipedia.org/wiki/Scrypt"&gt;Wikipedia Article on scrypt&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;For additional interest, read the article on wikipedias about the &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation function&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id="the-three-essential-properties-of-password-key-derivation"&gt;The Three Essential Properties Of Password Key Derivation&lt;a class="headerlink" href="#the-three-essential-properties-of-password-key-derivation" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="the-three-essential-properties-of-password-key-derivation"&gt;The Three Essential Properties Of Password Key Derivation&lt;a class="headerlink" href="#the-three-essential-properties-of-password-key-derivation" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Password key derivation requires three properties:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The password must not be stored in plaintext. (Therefore it is hashed).&lt;/li&gt;
@@ -17,7 +17,7 @@
 &lt;li&gt;The salted hash function must not be fast. (If someone does get hold of the salted hashes, their only option will be brute force which will be very slow).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This scrypt library automatically handles the above properties. The last item seems strange: Computer scientists are normally pre-occupied with making things fast. Yet it is this property that sets Scrypt apart from the competition. As computers evolve and get more powerful, they are able to attack this property more efficiently. This has become especially apparent with the rise of parallel programming. Scrypt aims to defend against all types of attacks, not matter the attackers power now or in the future.&lt;/p&gt;
-&lt;h3 id="what-this-module-provides"&gt;What This Module Provides&lt;a class="headerlink" href="#what-this-module-provides" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="what-this-module-provides"&gt;What This Module Provides&lt;a class="headerlink" href="#what-this-module-provides" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;This module implements the following:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Scrypt password key derivation&lt;/strong&gt;&lt;ul&gt;
@@ -31,7 +31,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I suspect scrypt will be used mainly as a password key derivation function (its author's intended use), but I have also ported the scrypt encryption and decryption functions as implementations for them were available from the author. Performing scrypt cryptography is done if you value security over speed. Scrypt is more secure than a vanilla block cipher (e.g. AES) but it is much slower. It is also the basis for the key derivation functions.&lt;/p&gt;
-&lt;h2 id="why-use-scrypt"&gt;Why Use Scrypt?&lt;a class="headerlink" href="#why-use-scrypt" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="why-use-scrypt"&gt;Why Use Scrypt?&lt;a class="headerlink" href="#why-use-scrypt" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;It is probably the most advanced key derivation function available. This is is quote taken from a comment in hacker news:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Passwords hashed with scrypt with sufficiently-high strength values (there are 3 tweakable input numbers) are fundamentally impervious to being cracked. I use the word "fundamental" in the literal sense, here; even if you had the resources of a large country, you would not be able to design any hardware (whether it be GPU hardware, custom-designed hardware, or otherwise) which could crack these hashes. Ever. (For sufficiently-small definitions of "ever". At the very least "within your lifetime"; probably far longer.)&lt;/p&gt;
@@ -54,7 +54,7 @@
 &lt;p&gt;the system [will use] the amount of RAM which [is] specified [as the] fraction of the available RAM, but no more than maxmem, and no less than 1MiB&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Therefore at the very least, 1MiB of ram will be used.&lt;/p&gt;
-&lt;h3 id="the-three-tweakable-inputs"&gt;The Three Tweakable Inputs&lt;a class="headerlink" href="#the-three-tweakable-inputs" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="the-three-tweakable-inputs"&gt;The Three Tweakable Inputs&lt;a class="headerlink" href="#the-three-tweakable-inputs" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;u&gt;&lt;strong&gt;Note&lt;/strong&gt;: This is a very important section to understand&lt;/u&gt;. The three tweakable inputs mentioned above are actually just &lt;em&gt;human understandable&lt;/em&gt; inputs into a translation function that produces the inputs required for the internal scrypt cryptographic function. These inputs (as defined in the &lt;a href="http://www.tarsnap.com/scrypt/scrypt.pdf"&gt;scrypt paper&lt;/a&gt;) are as follows:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;N&lt;/strong&gt; - general work factor, iteration count.&lt;/li&gt;
@@ -62,9 +62,9 @@
 &lt;li&gt;&lt;strong&gt;p&lt;/strong&gt; - parallelization factor; fine-tunes the relative cpu-cost.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Values for &lt;em&gt;maxtime&lt;/em&gt;, &lt;em&gt;maxmemfrac&lt;/em&gt; and &lt;em&gt;maxmem&lt;/em&gt; are translated into the above values, which are then fed to the scrypt function. The translation function also takes into account the CPU and Memory capabilities of a machine. Therefore values of &lt;em&gt;N&lt;/em&gt;, &lt;em&gt;r&lt;/em&gt; and &lt;em&gt;p&lt;/em&gt; may differ for different machines that have different specs.&lt;/p&gt;
-&lt;h2 id="pros-and-cons"&gt;Pros And Cons&lt;a class="headerlink" href="#pros-and-cons" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="pros-and-cons"&gt;Pros And Cons&lt;a class="headerlink" href="#pros-and-cons" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Here are some pros and cons for using it:&lt;/p&gt;
-&lt;h3 id="pros"&gt;Pros&lt;a class="headerlink" href="#pros" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="pros"&gt;Pros&lt;a class="headerlink" href="#pros" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;The scrypt algorithm has been published by &lt;a href="http://en.wikipedia.org/wiki/IETF"&gt;IETF&lt;/a&gt; as an &lt;a href="http://en.wikipedia.org/wiki/Internet_Draft"&gt;Internet Draft&lt;/a&gt; and is thus on track to becoming a standard. See &lt;a href="https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00"&gt;here&lt;/a&gt; for the draft.&lt;/li&gt;
 &lt;li&gt;It is being actively used in production at &lt;a href="http://www.tarsnap.com/"&gt;Tarsnap&lt;/a&gt;.&lt;/li&gt;
@@ -78,58 +78,72 @@
 &lt;blockquote&gt;
 &lt;p&gt;We estimate that on modern (2009) hardware, if 5 seconds are spent computing a derived key, the cost of a hardware brute-force attack against scrypt is roughly 4000 times greater than the cost of a similar attack against bcrypt (to find the same password), and 20000 times greater than a similar attack against PBKDF2.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id="cons"&gt;Cons&lt;a class="headerlink" href="#cons" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="cons"&gt;Cons&lt;a class="headerlink" href="#cons" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;There is just one con I can think of: It is a relatively new library (only been around since 2009). Cryptographers don't really like new libraries for production deployment as it has not been &lt;em&gt;battle tested&lt;/em&gt;. That being said, it is being actively used in &lt;a href="http://www.tarsnap.com/"&gt;Tarsnap&lt;/a&gt; (as mentioned above) and the author is very active.&lt;/p&gt;
-&lt;h1 id="security-issuesconcerns"&gt;Security Issues/Concerns&lt;a class="headerlink" href="#security-issuesconcerns" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="security-issuesconcerns"&gt;Security Issues/Concerns&lt;a class="headerlink" href="#security-issuesconcerns" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;As should be the case with any security tool, this library should be scrutinized by anyone using it. If you find or suspect an issue with the code- please bring it to my attention and I'll spend some time trying to make sure that this tool is as secure as possible.&lt;/p&gt;
-&lt;h1 id="platforms"&gt;Platforms&lt;a class="headerlink" href="#platforms" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="platforms"&gt;Platforms&lt;a class="headerlink" href="#platforms" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This library works on the following platforms:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Linux&lt;/li&gt;
 &lt;li&gt;MAC OS&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Windows support is coming very soon.&lt;/p&gt;
-&lt;h1 id="installation-instructions"&gt;Installation Instructions&lt;a class="headerlink" href="#installation-instructions" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="installation-instructions"&gt;Installation Instructions&lt;a class="headerlink" href="#installation-instructions" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to &lt;a href="https://github.com/kelvinwong-ca"&gt;Kelvin Wong&lt;/a&gt;).&lt;/p&gt;
-&lt;h2 id="from-npm"&gt;From NPM&lt;a class="headerlink" href="#from-npm" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;npm install scrypt
+&lt;h2 id="from-npm"&gt;From NPM&lt;a class="headerlink" href="#from-npm" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;npm install scrypt
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h2 id="from-source"&gt;From Source&lt;a class="headerlink" href="#from-source" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="from-source"&gt;From Source&lt;a class="headerlink" href="#from-source" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;You will need &lt;code&gt;node-gyp&lt;/code&gt; to get this to work (install it if you don't have it: &lt;code&gt;npm install -g node-gyp&lt;/code&gt;):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/barrysteyn/node-scrypt.git
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/barrysteyn/node-scrypt.git
 cd node-scrypt
 node-gyp configure build
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h1 id="testing"&gt;Testing&lt;a class="headerlink" href="#testing" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="testing"&gt;Testing&lt;a class="headerlink" href="#testing" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Testing is accomplished with the &lt;a href="https://github.com/isaacs/node-tap"&gt;node tap module&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="if-installed-via-npm"&gt;If installed via NPM&lt;a class="headerlink" href="#if-installed-via-npm" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="if-installed-via-npm"&gt;If installed via NPM&lt;a class="headerlink" href="#if-installed-via-npm" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To test, go to the folder where scrypt was installed, and type:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;cd node_modules/scrypt
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;cd node_modules/scrypt
 npm install
 node tests/scrypt-tests
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h2 id="if-installed-via-source"&gt;If installed via source&lt;a class="headerlink" href="#if-installed-via-source" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="if-installed-via-source"&gt;If installed via source&lt;a class="headerlink" href="#if-installed-via-source" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Go to the folder where scrypt was installed and type:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;cd node-scrypt
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;cd node-scrypt
 npm install
 node tests/scrypt-tests
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h1 id="hash-info"&gt;Hash Info&lt;a class="headerlink" href="#hash-info" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="hash-info"&gt;Hash Info&lt;a class="headerlink" href="#hash-info" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;All scrypt output is encoded into Base64 using &lt;a href="http://www.adp-gmbh.ch/"&gt;René Nyffenegger&lt;/a&gt; &lt;a href="http://www.adp-gmbh.ch/cpp/common/base64.html"&gt;library&lt;/a&gt;. The character sets that compromises all output are &lt;code&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&lt;/code&gt;.&lt;/p&gt;
-&lt;h1 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;There are both asynchronous and synchronous functions available. It is highly recommended not to use the synchronous version unless necessary due to the fact that Node's event loop will be blocked for the duration of these purposefully slow functions.&lt;/p&gt;
-&lt;h2 id="asynchronous-authentication"&gt;Asynchronous Authentication&lt;a class="headerlink" href="#asynchronous-authentication" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="asynchronous-authentication"&gt;Asynchronous Authentication&lt;a class="headerlink" href="#asynchronous-authentication" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;For interactive authentication, set &lt;code&gt;maxtime&lt;/code&gt; to &lt;code&gt;0.1&lt;/code&gt; - 100 milliseconds. &lt;/p&gt;
-&lt;h3 id="to-create-a-password-hash"&gt;To create a password hash&lt;a class="headerlink" href="#to-create-a-password-hash" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;h3 id="to-create-a-password-hash"&gt;To create a password hash&lt;a class="headerlink" href="#to-create-a-password-hash" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This is a password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
@@ -139,10 +153,19 @@ node tests/scrypt-tests
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;});&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Note: &lt;code&gt;maxmem&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; can also be passed to hash function. If they are not passed, then &lt;code&gt;maxmem&lt;/code&gt; defaults to &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; defaults to &lt;code&gt;0.5&lt;/code&gt;. If these values are to be passed, then they must be passed after &lt;code&gt;maxtime&lt;/code&gt;  and before the callback function like so:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This is a password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;maxmem&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;maxmemfrac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -153,10 +176,19 @@ node tests/scrypt-tests
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;});&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h3 id="to-verify-a-password-hash"&gt;To verify a password hash&lt;a class="headerlink" href="#to-verify-a-password-hash" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;h3 id="to-verify-a-password-hash"&gt;To verify a password hash&lt;a class="headerlink" href="#to-verify-a-password-hash" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This is a password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;hash&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//This should be obtained from the database&lt;/span&gt;
 
@@ -167,41 +199,64 @@ node tests/scrypt-tests
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;False&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;    
 &lt;span class="p"&gt;});&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h2 id="synchronous-authentication"&gt;Synchronous Authentication&lt;a class="headerlink" href="#synchronous-authentication" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="synchronous-authentication"&gt;Synchronous Authentication&lt;a class="headerlink" href="#synchronous-authentication" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Again, for interactive authentication, set &lt;code&gt;maxtime&lt;/code&gt; to &lt;code&gt;0.1&lt;/code&gt; - 100 milliseconds. &lt;/p&gt;
-&lt;h3 id="to-create-a-password-hash_1"&gt;To create a password hash&lt;a class="headerlink" href="#to-create-a-password-hash_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
+&lt;h3 id="to-create-a-password-hash_1"&gt;To create a password hash&lt;a class="headerlink" href="#to-create-a-password-hash_1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
 var password = &amp;quot;This is a password&amp;quot;;
 var maxtime = 0.1;
 
 var hash = scrypt.passwordHashSync(password, maxtime);
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Note: &lt;code&gt;maxmem&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; can also be passed to hash function. If they are not passed, then &lt;code&gt;maxmem&lt;/code&gt; defaults to &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; defaults to &lt;code&gt;0.5&lt;/code&gt;. If these values are to be passed, then they must be passed after &lt;code&gt;maxtime&lt;/code&gt;  and before the callback function like so:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
 var password = &amp;quot;This is a password&amp;quot;;
 var maxtime = 0.1;
 var maxmem = 0, maxmemfrac = 0.5;
 
 var hash = scrypt.passwordHashSync(password, maxtime, maxmem, maxmemfrac);
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h3 id="to-verify-a-password-hash_1"&gt;To verify a password hash&lt;a class="headerlink" href="#to-verify-a-password-hash_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
+&lt;h3 id="to-verify-a-password-hash_1"&gt;To verify a password hash&lt;a class="headerlink" href="#to-verify-a-password-hash_1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
 var password = &amp;quot;This is a password&amp;quot;;
 var hash; //This should be obtained from the database
 
 var result = scrypt.verifyHashSync(hash, password);
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Note: There is no error description for the synchronous version. Therefore, if an error occurs, it will just return its result as &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id="asynchronous-encryption-and-decryption"&gt;Asynchronous Encryption and Decryption&lt;a class="headerlink" href="#asynchronous-encryption-and-decryption" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;h2 id="asynchronous-encryption-and-decryption"&gt;Asynchronous Encryption and Decryption&lt;a class="headerlink" href="#asynchronous-encryption-and-decryption" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Pass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -213,10 +268,22 @@ var result = scrypt.verifyHashSync(hash, password);
     &lt;span class="p"&gt;});&lt;/span&gt;
 &lt;span class="p"&gt;});&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Note that &lt;code&gt;maxmem&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; can also be passed to the functions. If they are not passed, then &lt;code&gt;maxmem&lt;/code&gt; defaults to &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; defaults to &lt;code&gt;0.5&lt;/code&gt;. If these values are to be passed, then they must be passed after &lt;code&gt;maxtime&lt;/code&gt;  and before the callback function like so:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Pass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -230,10 +297,16 @@ var result = scrypt.verifyHashSync(hash, password);
     &lt;span class="p"&gt;});&lt;/span&gt;
 &lt;span class="p"&gt;});&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h2 id="synchronous-encryption-and-decryption"&gt;Synchronous Encryption and Decryption&lt;a class="headerlink" href="#synchronous-encryption-and-decryption" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
+&lt;h2 id="synchronous-encryption-and-decryption"&gt;Synchronous Encryption and Decryption&lt;a class="headerlink" href="#synchronous-encryption-and-decryption" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
 var message = &amp;quot;Hello World&amp;quot;;
 var password = &amp;quot;Pass&amp;quot;;
 var maxtime = 1.0;
@@ -241,10 +314,18 @@ var maxtime = 1.0;
 var cipher = scrypt.encryptSync(message, password, maxtime);
 var plainText = scrypt.decryptSync(cipher, password, maxtime);
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Note: that &lt;code&gt;maxmem&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; can also be passed to the functions. If they are not passed, then &lt;code&gt;maxmem&lt;/code&gt; defaults to &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;maxmemfrac&lt;/code&gt; defaults to &lt;code&gt;0.5&lt;/code&gt;. If these values are to be passed, then they must be passed after &lt;code&gt;maxtime&lt;/code&gt;  and before the callback function like so:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
 var message = &amp;quot;Hello World&amp;quot;;
 var password = &amp;quot;Pass&amp;quot;;
 var maxtime = 1.0;
@@ -254,11 +335,11 @@ var maxmemfrac = 1.5; //Defaults to 0.5 if not set
 var cipher = scrypt.encryptSync(message, password, maxtime, maxmem, maxmemfrac);
 var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac);
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h1 id="api"&gt;Api&lt;a class="headerlink" href="#api" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id="authentication"&gt;Authentication&lt;a class="headerlink" href="#authentication" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id="asynchronous"&gt;Asynchronous&lt;a class="headerlink" href="#asynchronous" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h1 id="api"&gt;Api&lt;a class="headerlink" href="#api" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="authentication"&gt;Authentication&lt;a class="headerlink" href="#authentication" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="asynchronous"&gt;Asynchronous&lt;a class="headerlink" href="#asynchronous" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;passwordHash(password, maxtime, maxmem, maxmemfrac, callback_function)&lt;/code&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;password&lt;/code&gt; - [REQUIRED] - a password string.&lt;/li&gt;
@@ -275,7 +356,7 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="synchronous"&gt;Synchronous&lt;a class="headerlink" href="#synchronous" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="synchronous"&gt;Synchronous&lt;a class="headerlink" href="#synchronous" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;passwordHashSync(password, maxtime, maxmem, maxmemfrac)&lt;/code&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;password&lt;/code&gt; - [REQUIRED] - a password string.&lt;/li&gt;
@@ -290,8 +371,8 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="encryptiondecryption"&gt;Encryption/Decryption&lt;a class="headerlink" href="#encryptiondecryption" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id="asynchronous_1"&gt;Asynchronous&lt;a class="headerlink" href="#asynchronous_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h2 id="encryptiondecryption"&gt;Encryption/Decryption&lt;a class="headerlink" href="#encryptiondecryption" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="asynchronous_1"&gt;Asynchronous&lt;a class="headerlink" href="#asynchronous_1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;encrypt(message, password, maxtime, maxmem, maxmemfrac, callback_function)&lt;/code&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;message&lt;/code&gt; - [REQUIRED] - the message data to be encrypted.&lt;/li&gt;
@@ -312,7 +393,7 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="synchronous_1"&gt;Synchronous&lt;a class="headerlink" href="#synchronous_1" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="synchronous_1"&gt;Synchronous&lt;a class="headerlink" href="#synchronous_1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;encryptSync(message, password, maxtime, maxmem, maxmemfrac)&lt;/code&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;message&lt;/code&gt; - [REQUIRED] - the message data to be encrypted.&lt;/li&gt;
@@ -331,24 +412,24 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id="credits"&gt;Credits&lt;a class="headerlink" href="#credits" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="credits"&gt;Credits&lt;a class="headerlink" href="#credits" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The scrypt library is Colin Percival's &lt;a href="http://www.tarsnap.com/scrypt.html"&gt;scrypt&lt;/a&gt; project. This includes the encryption/decryption functions which are basically just wrappers into this library.&lt;/p&gt;
 &lt;p&gt;The password hash and verify functions are also very heavily influenced by the scrypt source code, with most functionality being copied from various placed within scrypt.&lt;/p&gt;
-&lt;h1 id="contributors"&gt;Contributors&lt;a class="headerlink" href="#contributors" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="contributors"&gt;Contributors&lt;a class="headerlink" href="#contributors" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.adp-gmbh.ch/"&gt;René Nyffenegger&lt;/a&gt; - produced original Base64 encoding code.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/kelvinwong-ca"&gt;Kelvin Wong&lt;/a&gt; - MAC OS compilation and testing.&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Software"></category><category term="Projects"></category><category term="Development"></category></entry><entry><title>Plugin For Pelican To Enable Latex</title><link href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html" rel="alternate"></link><updated>2012-11-08T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-11-08:Plugin-For-Pelican-To-Enable-Latex.html</id><summary type="html">&lt;h1 id="latex-plugin-for-pelican"&gt;Latex Plugin For Pelican&lt;a class="headerlink" href="#latex-plugin-for-pelican" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;/ul&gt;</summary><category term="Software"></category><category term="Projects"></category><category term="Development"></category></entry><entry><title>Plugin For Pelican To Enable Latex</title><link href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html" rel="alternate"></link><updated>2012-11-08T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-11-08:Plugin-For-Pelican-To-Enable-Latex.html</id><summary type="html">&lt;h1 id="latex-plugin-for-pelican"&gt;Latex Plugin For Pelican&lt;a class="headerlink" href="#latex-plugin-for-pelican" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This plugin allows you to write mathematical equations in your articles using Latex.
 It uses the MathJax Latex JavaScript library to render latex that is embedded in
 between &lt;code&gt;$..$&lt;/code&gt; for inline math and &lt;code&gt;$$..$$&lt;/code&gt; for displayed math. It also allows for 
 writing equations in by using &lt;code&gt;\begin{equation}...\end{equation}&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id="installation"&gt;Installation&lt;a class="headerlink" href="#installation" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="installation"&gt;Installation&lt;a class="headerlink" href="#installation" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To enable, ensure that &lt;code&gt;latex.py&lt;/code&gt; is put somewhere that is accessible.
 Then use as follows by adding the following to your settings.py:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;PLUGINS = [&amp;quot;latex&amp;quot;]
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;PLUGINS = [&amp;quot;latex&amp;quot;]
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Be careful: Not loading the plugin is easy to do, and difficult to detect. To
 make life easier, find where pelican is installed, and then copy the plugin
@@ -356,49 +437,53 @@ there. An easy way to find where pelican is installed is to verbose list the
 available themes by typing &lt;code&gt;pelican-themes -l -v&lt;/code&gt;. &lt;/p&gt;
 &lt;p&gt;Once the pelican folder is found, copy &lt;code&gt;latex.py&lt;/code&gt; to the &lt;code&gt;plugins&lt;/code&gt; folder. Then 
 add to settings.py like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;PLUGINS = [&amp;quot;pelican.plugins.latex&amp;quot;]
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;PLUGINS = [&amp;quot;pelican.plugins.latex&amp;quot;]
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Now all that is left to do is to embed the following to your template file 
 between the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; parameters (for the NotMyIdea template, this file is base.html)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;article&lt;/span&gt; &lt;span class="k"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;article.latex&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;article&lt;/span&gt; &lt;span class="k"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;article.latex&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;span class="x"&gt;    &lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;article.latex&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h2 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Latex will be embedded in every article. If however you want latex only for
 selected articles, then in settings.py, add&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;LATEX = &amp;#39;article&amp;#39;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;LATEX = &amp;#39;article&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;And in each article, add the metadata key &lt;code&gt;latex:&lt;/code&gt;. For example, with the above
 settings, creating an article that I want to render latex math, I would just 
 include 'Latex' as part of the metadata without any value:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;sep&lt;/span&gt; &lt;span class="mi"&gt;2012&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;sep&lt;/span&gt; &lt;span class="mi"&gt;2012&lt;/span&gt;
 &lt;span class="n"&gt;Status&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;draft&lt;/span&gt;
 &lt;span class="n"&gt;Latex&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-
-&lt;h2 id="latex-examples"&gt;Latex Examples&lt;a class="headerlink" href="#latex-examples" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id="inline"&gt;Inline&lt;a class="headerlink" href="#inline" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h2 id="latex-examples"&gt;Latex Examples&lt;a class="headerlink" href="#latex-examples" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="inline"&gt;Inline&lt;a class="headerlink" href="#inline" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Latex between &lt;code&gt;$&lt;/code&gt;..&lt;code&gt;$&lt;/code&gt;, for example, &lt;code&gt;$&lt;/code&gt;x^2&lt;code&gt;$&lt;/code&gt;, will be rendered inline 
 with respect to the current html block.&lt;/p&gt;
-&lt;h3 id="displayed-math"&gt;Displayed Math&lt;a class="headerlink" href="#displayed-math" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="displayed-math"&gt;Displayed Math&lt;a class="headerlink" href="#displayed-math" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Latex between &lt;code&gt;$$&lt;/code&gt;..&lt;code&gt;$$&lt;/code&gt;, for example, &lt;code&gt;$$&lt;/code&gt;x^2&lt;code&gt;$$&lt;/code&gt;, will be rendered centered in a 
 new paragraph.&lt;/p&gt;
-&lt;h3 id="equations"&gt;Equations&lt;a class="headerlink" href="#equations" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="equations"&gt;Equations&lt;a class="headerlink" href="#equations" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Latex between &lt;code&gt;\begin&lt;/code&gt; and &lt;code&gt;\end&lt;/code&gt;, for example, &lt;code&gt;begin{equation}&lt;/code&gt; x^2 &lt;code&gt;\end{equation}&lt;/code&gt;, 
 will be rendered centered in a new paragraph with a right justified equation number 
 at the top of the paragraph. This equation number can be referenced in the document. 
 To do this, use a &lt;code&gt;label&lt;/code&gt; inside of the equation format and then refer to that label 
 using &lt;code&gt;ref&lt;/code&gt;. For example: &lt;code&gt;begin{equation} \label{eq} X^2 \end{equation}&lt;/code&gt;. Now 
 refer to that equation number by &lt;code&gt;$&lt;/code&gt;\ref{eq}&lt;code&gt;$&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id="template-and-article-examples"&gt;Template And Article Examples&lt;a class="headerlink" href="#template-and-article-examples" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="template-and-article-examples"&gt;Template And Article Examples&lt;a class="headerlink" href="#template-and-article-examples" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To see an example of this plugin in action, look at 
 &lt;a href="http://doctrina.org/How-RSA-Works-With-Examples.html"&gt;this article&lt;/a&gt;. To see how 
 this plugin works with a template, look at 

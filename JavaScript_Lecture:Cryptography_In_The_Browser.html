@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/blog.html"><span>Blog</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/article.html"><span>Articles</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,15 +114,17 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<p>I was recently asked to lecture the local Toronto JavaScript meetup about Cryptography in the browser. Here are my lecture slides. Apparently, there is a video of my talk that will be put up. When I get, I will link to it over here.</p>
+	<div class="article-content">
+		<p>I was recently asked to lecture the local Toronto JavaScript meetup about Cryptography in the browser. Here are my lecture slides. Apparently, there is a video of my talk that will be put up. When I get, I will link to it over here.</p>
 <p>Enjoy, and I would grateful for any feedback. Do note that the audience was not hard-core cryptographers.</p>
 <p><center><iframe src="http://www.slideshare.net/slideshow/embed_code/17424793" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></center></p>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -200,6 +203,8 @@
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/JavaScript_Lecture:Cryptography_In_The_Browser.html',

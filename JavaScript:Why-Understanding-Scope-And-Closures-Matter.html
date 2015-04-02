@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/blog.html"><span>Blog</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/article.html"><span>Articles</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,25 +114,37 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<p>When first learning how to program, a fundamental aspect is to learn about scope. Many languages copy the C <em>syntax</em> for scope, including JavaScript. But while these language copy the C rules for scope, JavaScript does not. This results in frustration and potentially problematic code. JavaScript instead implements scope in a way that forces programmers to think a little differently.</p>
+	<div class="article-content">
+		<p>When first learning how to program, a fundamental aspect is to learn about scope. Many languages copy the C <em>syntax</em> for scope, including JavaScript. But while these language copy the C rules for scope, JavaScript does not. This results in frustration and potentially problematic code. JavaScript instead implements scope in a way that forces programmers to think a little differently.</p>
 <p>This post will explain how JavaScript implements scope and explains a very useful result of its scoping: Closures. It motivates the utility of JavaScript's scope model by explaining its role in asynchronous programming.</p>
-<h1 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h1>
+<h1 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">§</a></h1>
 <p>C implements scope using the block operators: <code>{}</code>. The type of scope it implements is called <em>block scope</em> and where ever the block operators <code>{}</code> are declared, the compiler will create scope. Languages (besides JavaScript) that copy this notation follow more-or-less the same block scope rules (e.g. Java).</p>
 <p>JavaScript uses block operators <code>{}</code> but it does <strong>not</strong> implement block scope. Coming from C/C++, the following code makes perfect sense (<em>please do not try run this JavaScript code</em>):</p>
-<div class="highlight"><pre>for (i=0; i &lt; 4; i++) { //Outer loop
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre>for (i=0; i &lt; 4; i++) { //Outer loop
     for (i=0; i &lt; 2; i++) { //Inner loop
         document.write(&quot;Hello World&quot;); 
     }
 }
 </pre></div>
-
+</td></tr></table>
 
 <p>Firstly, note that the above will cause an error in Java, but in C/C++ (whose scope syntax JavaScript has copied), it works fine. This looks like it will output <code>Hello World</code> eight times. It won't! It will instead loop endlessly, outputting <code>Hello World</code> forever. This is because JavaScript does not implement <em>block scope</em>; the <code>i</code> of the inner loop keeps resetting the <code>i</code> of the outer loop, and so the outer loop's end condition is never achieved. This is confusing for people experienced with block scope, and JavaScript should have copied the block scope rules if it copied the operators. JavaScript realises their mistake and so the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:let">let</a> operator, which implements block scope, has been approved for future JavaScript releases. </p>
 <p>I feel that adding block scope solves the problem in a haphazard way. Firstly, it alters the way block scope in the C style is used, and secondly, it will entice programmers with experience of block scope to use <code>let</code> instead of something better.</p>
 <p>But is there <em>something better</em>? Scope has traditionally been implemented in JavaScript via functions and is known as <em>function scope</em>. There is an argument to be made that when used correctly, function scope can be very elegant and achieve most of what block scope does. But first, an explanation of function scope is in order...</p>
-<h3 id="function-scope">Function Scope<a class="headerlink" href="#function-scope" title="Permanent link">&para;</a></h3>
+<h3 id="function-scope">Function Scope<a class="headerlink" href="#function-scope" title="Permanent link">§</a></h3>
 <p>Function scope means that everything between bracket operators <code>{}</code> is scoped <em>as long as it is part of a function</em>.</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;Goodbye&quot;</span><span class="p">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;Goodbye&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
     <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>
@@ -140,19 +153,32 @@
 <span class="nx">message</span><span class="p">();</span> <span class="c1">//Hello</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">//Goodbye</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>The code snippet above demonstrates function scoping: inside the function <code>message</code>, the variable <code>foo</code> is scoped and is distinct to the variable <code>foo</code> outside the function. <em>Function scope</em> is used heavily in JavaScript. In fact, there is a common pattern to create a function just for the purpose of scope. As an example, the standard advice for writing JQuery plugins is to use the following pattern:</p>
-<div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">//Do things here - they are scoped</span>
 <span class="p">}(</span><span class="nx">JQuery</span><span class="p">))</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>In the above example, the last line invokes the function by using the invocation operator <code>()</code> with the input parameter <code>JQuery</code>. It immediately executes code inside the function which is scoped. In JQuery, a short cut for the <code>JQuery</code> function is <code>$</code>. Unfortunately, <code>$</code> is a shortcut for other JavaScript libraries as well (e.g. ProtoTypeJS). To prevent polluting the global namespace with JQuery's <code>$</code> (and also avoiding clashes with plugins that may be written for other JavaScript libraries), <em>scope</em> is required. The above code snippet achieves the desired scope.</p>
-<h3 id="functions-within-functions">Functions Within Functions<a class="headerlink" href="#functions-within-functions" title="Permanent link">&para;</a></h3>
+<h3 id="functions-within-functions">Functions Within Functions<a class="headerlink" href="#functions-within-functions" title="Permanent link">§</a></h3>
 <p>Since functions have scope, declaring a function within another function provides another level of scope:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">func1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//outer function</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">func1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//outer function</span>
     <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
 
     <span class="kd">var</span> <span class="nx">func2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//inner function</span>
@@ -165,11 +191,18 @@
 <span class="p">}</span>
 <span class="nx">func1</span><span class="p">();</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>I will use the term <em>inner function</em> to mean a function declared within another function and <em>outer function</em> to refer to the function it is declared in (see code snippet above). </p>
 <p>In addition to its own scope, an inner function has access to the variables of the outer function as long as it does not declare variables with identical names (in which case it will overwrite the variables, but just within that function scope). For example:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">;</span>
 
     <span class="kd">var</span> <span class="nx">inner</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -178,17 +211,26 @@
 <span class="p">}</span>
 <span class="nx">foo</span><span class="p">();</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>The above seems intuitive and obvious, and I understand the reader not being <em>blown away</em> by its utility. But the pattern of having an inner function that has access to an outer function's variable is the basis of a closure, which is very useful.</p>
-<h1 id="closures">Closures <a id="closures"></a><a class="headerlink" href="#closures" title="Permanent link">&para;</a></h1>
-<h2 id="a-technical-definition">A Technical Definition<a class="headerlink" href="#a-technical-definition" title="Permanent link">&para;</a></h2>
+<h1 id="closures">Closures <a id="closures"></a><a class="headerlink" href="#closures" title="Permanent link">§</a></h1>
+<h2 id="a-technical-definition">A Technical Definition<a class="headerlink" href="#a-technical-definition" title="Permanent link">§</a></h2>
 <p>A variable that is assigned to a function is a <em>structure</em> in memory that is used to represent the function. For many languages, this <em>structure</em> is the memory address of the function, resulting in the variable only being able to invoke the function. Some languages like JavaScript implement a slightly more complex setup for the <em>structure</em>. For these languages, the <em>structure</em> holds both the address of the function and its <em>referencing environment</em>. The referencing environment means the environment the function was originally declared in. If the function was originally declared within another function, then the referencing environment will mean the function that the original function was declared in.</p>
 <p>Having access to the referencing environment means access to certain non-local variables. Normally, a function has access to its own local variables and to the global variables. With the <em>referencing environment</em> at the structure's disposal, calls to certain non-local variables (i.e. variables that were not declared in the function, but were declared in the function where it was defined) are possible. JavaScript implementors refer to the <em>referencing environment</em> as the function's <em>context</em>. When the <em>structure</em> that points to a function also contains its original context (<em>referencing environment</em>), it is called a closure. The image below demonstrates the concept, whereby the <em>context</em> points to the original function (outer) that the function variable inner was declared in:</p>
-<p><center><img style="margin-left:4px; padding: 4px; background-color: #fff; border: 1px solid #ccc; border: 1px solid rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);"src ="http://doctrina.org/static/images/closure.png"></img></center></p>
-<h2 id="how-closures-work-and-are-used-not-too-technical">How Closures Work And Are Used (Not Too Technical)<a class="headerlink" href="#how-closures-work-and-are-used-not-too-technical" title="Permanent link">&para;</a></h2>
+<p><img src ="images/closure.png" /></p>
+<h2 id="how-closures-work-and-are-used-not-too-technical">How Closures Work And Are Used (Not Too Technical)<a class="headerlink" href="#how-closures-work-and-are-used-not-too-technical" title="Permanent link">§</a></h2>
 <p>In more laymen's terms, an inner function defined within an outer function has access to all variables within the outer function. In JavaScript, the inner function is a closure because JavaScript includes its <em>context</em>. Both the inner and outer functions are scoped.</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">closureExample</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//outer function</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">closureExample</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//outer function</span>
     <span class="c1">//declare variables within the outer function</span>
 
     <span class="kd">var</span> <span class="nx">closureFunction</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//inner function</span>
@@ -199,13 +241,29 @@
 <span class="p">}</span>
 <span class="kd">var</span> <span class="nx">closure</span> <span class="o">=</span> <span class="nx">closureExample</span><span class="p">();</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>When presented like this, closures do not seem interesting. But, when the <em>inner</em> function lives longer than the <em>outer</em> function, the inner function (i.e. the closure) will have access to state from that outer function that is not accessible anywhere else. Therefore closures have the ability to implement something that is taken for granted in classical object oriented languages: <em>Private State</em>.</p>
-<h3 id="keeping-things-private">Keeping Things Private<a class="headerlink" href="#keeping-things-private" title="Permanent link">&para;</a></h3>
+<h3 id="keeping-things-private">Keeping Things Private<a class="headerlink" href="#keeping-things-private" title="Permanent link">§</a></h3>
 <p>In a classical object oriented language, it is easy to keep methods and state private: Put the <code>private</code> keyword in front of such state and methods. Modern object oriented scripting languages do not have this functionality. In that sense, JavaScript is in good company with the likes of Python and Ruby.</p>
 <p>But private state and methods are very useful at times. And it can be achieved in JavaScript by using a closure:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">closure</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">closure</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">//This is a private variable</span>
     <span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
@@ -223,7 +281,7 @@
 <span class="nx">closure</span><span class="p">.</span><span class="nx">increment</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">closure</span><span class="p">.</span><span class="nx">getCounter</span><span class="p">());</span> <span class="c1">//10</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>There is a lot of things happening in the above example:</p>
 <ol>
@@ -232,12 +290,22 @@
 </ol>
 <p>In the code snippet above, once the outer function is invoked it cannot be accessed again because it is an anonymous function. The pattern of an <em>inner</em> function living longer than the outer function <em>is the useful pattern for closures</em> because it implements private state. The two closure functions within the object assigned to <code>closure</code> have access to <code>counter</code>. <code>counter</code> is private: It cannot be altered nor accessed except through the closure functions. </p>
 <p>I will say it again: Closure functions are interesting when the <em>inner</em> functions "outlives" the <em>outer</em> object where it was declared. This is specially useful for asynchronicity.</p>
-<h1 id="why-closures-are-so-useful-the-big-picture">Why Closures Are So Useful: The Big Picture<a class="headerlink" href="#why-closures-are-so-useful-the-big-picture" title="Permanent link">&para;</a></h1>
+<h1 id="why-closures-are-so-useful-the-big-picture">Why Closures Are So Useful: The Big Picture<a class="headerlink" href="#why-closures-are-so-useful-the-big-picture" title="Permanent link">§</a></h1>
 <p>One of JavaScript's most appealing features is that it is asynchronous from "the ground up". Asynchronicity is achieved by using an <em>event driven programming model</em>: A function is executed only when an event occurs. That function is passed as an argument to the event handler. Functions used in this manner are called <em>callback</em> functions. The <em>callback</em> function, like any JavaScript function, will have access to the context where it was declared in. If the callback function is an inner function, it is a closure that is able to access variables in the outer function. As was shown above, closures can be used to maintain private state. So by using closure callback functions, you get the best of both worlds: <strong>You can implement event driven programming without having to maintain any state by passing it via the event handler</strong>. This is extremely elegant and will decrease programmer errors. And this is a killer reason (amongst others I am sure) that function scope along with closures are so useful. </p>
 <p>JavaScript should not be used like classical object oriented languages. Its power lies in the fact that it should be able to handle more load (on both the server and the client) by using an event driven approach that does not block IO. Therefore I think the JavaScript programmer should be thinking in callback functions that are closures. And for this, function scope becomes essential and in a way, elegant.</p>
-<h2 id="watch-out-callbacks-and-closures-sometimes-do-not-play-nicely">Watch Out: Callbacks And Closures Sometimes Do Not Play Nicely <a id="closureandconstructor"></a><a class="headerlink" href="#watch-out-callbacks-and-closures-sometimes-do-not-play-nicely" title="Permanent link">&para;</a></h2>
+<h2 id="watch-out-callbacks-and-closures-sometimes-do-not-play-nicely">Watch Out: Callbacks And Closures Sometimes Do Not Play Nicely <a id="closureandconstructor"></a><a class="headerlink" href="#watch-out-callbacks-and-closures-sometimes-do-not-play-nicely" title="Permanent link">§</a></h2>
 <p>Of course there are always <em>gotchas</em> with JavaScript. Lets define a callback function:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">createCallBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//First function</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">createCallBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//First function</span>
     <span class="k">return</span> <span class="k">new</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//Second function</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
 
@@ -249,7 +317,7 @@
 
 <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="nx">createCallBack</span><span class="p">();</span> <span class="c1">//Invoke the function assigned to createCallBack</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>Lets examine the above code. There are three <code>function</code> operators:</p>
 <ol>
@@ -259,7 +327,18 @@
 </ol>
 <p>When invoking the <code>createCallBack</code> variable, what gets passed to the <code>window.onload</code> event handler is the result of what is returned by the <em>seond</em> <code>function</code> operator, which is the code in the <em>third</em> <code>function</code> operator. Did you get that? Read this paragraph again until you understand, and if not, stick this code into your browser and play with it.</p>
 <p>The above code looks alright, except that <em>undefined</em> gets alerted to the screen (try it for yourself). It turns out that when an event handler invokes a callback function, the <a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#fi">function invocation pattern</a> is used. This results in the <code>this</code> parameter being bound to the <code>global object</code> (it is one of the pitfalls of the <a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#fi">function invocation pattern</a>) instead of to the object that was created with the <a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci">constructor invocation pattern</a>. To note that this problem only occurs when one uses the <a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci">constructor invocation pattern</a> with callbacks like I have illustrated above. To get around this, apply the <a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#standardfix">standard fix</a> for function invocation by declaring a <code>that</code> variable to point to <code>this</code>:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">createCallBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//First function</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">createCallBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//First function</span>
     <span class="k">return</span> <span class="k">new</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//Second function</span>
         <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
@@ -272,13 +351,25 @@
 
 <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="nx">createCallBack</span><span class="p">();</span> <span class="c1">//Invoke the function assigned to createCallBack</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>Since the function invoked by the event handler (the third function) is a closure, it has access to the <code>that</code> variable (which is private), and so it has access to the new object created by the constructor invocation pattern.</p>
-<h2 id="why-would-one-want-to-use-the-constructor-invocation-pattern-with-callbacks">Why Would One Want To Use The Constructor Invocation Pattern With Callbacks?<a class="headerlink" href="#why-would-one-want-to-use-the-constructor-invocation-pattern-with-callbacks" title="Permanent link">&para;</a></h2>
+<h2 id="why-would-one-want-to-use-the-constructor-invocation-pattern-with-callbacks">Why Would One Want To Use The Constructor Invocation Pattern With Callbacks?<a class="headerlink" href="#why-would-one-want-to-use-the-constructor-invocation-pattern-with-callbacks" title="Permanent link">§</a></h2>
 <p>To tell you the truth, there is no good reason to mix the <a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci">constructor invocation pattern</a> with a callback. I included it above as a pitfall because it is sometimes used (and misused). Using the <a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci">constructor invocation pattern</a> is necessary when one wants to be able to change the default prototype linkings (see <a href="http://doctrina.org/Javascript-Objects-Prototypes.html#coff">here</a> for an example of this). This is only necessary when one wants to create objects that are inherited from another object. It is not necessary for creating new objects because new objects can be created via a closure.</p>
 <p>For example, here is a code snippet that uses the <a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci">constructor invocation pattern</a> in order to create separate objects for each callback:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">createCallBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">init</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//First function</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">createCallBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">init</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//First function</span>
     <span class="k">return</span> <span class="k">new</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//Second function</span>
         <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="nx">init</span><span class="p">;</span>
@@ -292,10 +383,22 @@
 <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="nx">createCallBack</span><span class="p">(</span><span class="s2">&quot;First Message&quot;</span><span class="p">));</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="nx">createCallBack</span><span class="p">(</span><span class="s2">&quot;Second Message&quot;</span><span class="p">));</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>But instead of using <a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci">constructor invocation pattern</a>, the snippet can be rewritten by just using closures:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">createCallBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">init</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//First function</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">createCallBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">init</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//First function</span>
     <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">//This object is created within the first function and is accessible</span>
                 <span class="c1">//to the second function due to the closure</span>
         <span class="s1">&#39;message&#39;</span><span class="o">:</span><span class="nx">init</span>
@@ -309,17 +412,18 @@
 <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="nx">createCallBack</span><span class="p">(</span><span class="s2">&quot;First Message&quot;</span><span class="p">));</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="nx">createCallBack</span><span class="p">(</span><span class="s2">&quot;Second Message&quot;</span><span class="p">));</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>The two code snippets above are equivalent, but the latter example is so much more concise and easier to read! Each code snippet demonstrates objects that have their own internal state. The <code>load</code> event is given two callback functions, each an instance of an object with its own state (note this example may not work for Internet Explorer older than version 9).</p>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">§</a></h1>
 <p>Closures make asynchronous programming elegant. In order to understand closures, it is vital to understand <em>function scope</em>. JavaScript being functionally scoped encourages event driven programming, the mainstay of asynchronicity. </p>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -398,6 +502,8 @@
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html',

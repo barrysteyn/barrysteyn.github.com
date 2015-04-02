@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/blog.html"><span>Blog</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/article.html"><span>Articles</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,8 +114,9 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<p>OpenSSL has the ability to perform <a href="http://en.wikipedia.org/wiki/Base64">Base64</a> encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the <a href="http://www.openssl.org/docs/crypto/BIO_f_base64.html">example</a> on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some <a href="https://gist.github.com/4409525/download">working code</a>. Enjoy!</p>
-<h1 id="get-the-code">Get The Code<a class="headerlink" href="#get-the-code" title="Permanent link">&para;</a></h1>
+	<div class="article-content">
+		<p>OpenSSL has the ability to perform <a href="http://en.wikipedia.org/wiki/Base64">Base64</a> encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the <a href="http://www.openssl.org/docs/crypto/BIO_f_base64.html">example</a> on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some <a href="https://gist.github.com/4409525/download">working code</a>. Enjoy!</p>
+<h1 id="get-the-code">Get The Code<a class="headerlink" href="#get-the-code" title="Permanent link">§</a></h1>
 <p>You can download this entire gist <a href="https://gist.github.com/4409525/download">here</a>. It consists of the following files:</p>
 <ul>
 <li><a href="https://gist.github.com/4409525#file-base64decode-c">Base64Decode.c</a> - the decode function (takes Base64 encoded string as input).</li>
@@ -122,30 +124,40 @@
 <li><a href="https://gist.github.com/4409525#file-main-c">Main.c</a> - the main c file that demonstrates usage of the functionality in the two files above.</li>
 <li><a href="https://gist.github.com/4409525#file-makefile">Makefile</a> - the C makefile. Compilation has been tested on a linux ubuntu distribution, and links with <code>lcrypto</code> for <a href="http://www.openssl.org/">opensll</a> and <code>lm</code> for math.</li>
 </ul>
-<h1 id="base64-encoding">Base64 Encoding<a class="headerlink" href="#base64-encoding" title="Permanent link">&para;</a></h1>
+<h1 id="base64-encoding">Base64 Encoding<a class="headerlink" href="#base64-encoding" title="Permanent link">§</a></h1>
 <p><script src="https://gist.github.com/4409525.js?file=Base64Encode.c"></script></p>
 <p>Note the following:</p>
 <ul>
 <li>Given a string of length <code>n</code>, the resulting Base64 string is length <span class="math">\(4 \times \lceil \frac{n}{3} \rceil\)</span>. This is performed on lines 11.</li>
 <li>On line 12, <code>*buffer</code> is malloc'd to <code>encodedSize+1</code>. The <code>+1</code> is because an extra character is needed for the <code>NULL</code> character (<code>'\0'</code>) at the end of the string.</li>
 </ul>
-<h1 id="base64-decoding">Base64 Decoding<a class="headerlink" href="#base64-decoding" title="Permanent link">&para;</a></h1>
+<h1 id="base64-decoding">Base64 Decoding<a class="headerlink" href="#base64-decoding" title="Permanent link">§</a></h1>
 <p><script src="https://gist.github.com/4409525.js?file=Base64Decode.c"></script></p>
 <p>Note the following:</p>
 <ul>
 <li>It is important to set the flag <code>BIO_FLAGS_BASE64_NO_NL</code>. If this is not done, the read operation will block until a newline character (<code>\n</code>) is encountered.</li>
 <li>The function <code>calcDecodeLength</code> will, given a Base64 encoded input string, calculate the length of the decoded string. Base64 encodes a "normal" 8 bit character string by using only 6 bits (hence only <span class="math">\(2^6=64\)</span> characters are needed). Therefore every 4 characters of Base64 decodes to three decoded characters, and multiplying the length of the Base64 string by <span class="math">\(\frac{3}{4}\)</span> will typically suffice. There are however two exceptions due to padding denoted by the <code>=</code> character. For more information, read <a href="http://en.wikipedia.org/wiki/Base64#Decoding_Base64_with_padding">decoding base64 with padding</a>.</li>
 </ul>
-<h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h1>
+<h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">§</a></h1>
 <p>The above functionality is used like so:
 <script src="https://gist.github.com/4409525.js?file=Main.c"></script></p>
 <p>Compile it with this MakeFile:
 <script src="https://gist.github.com/4409525.js?file=Makefile"></script></p>
-<h1 id="memory-stuff">Memory Stuff<a class="headerlink" href="#memory-stuff" title="Permanent link">&para;</a></h1>
+<h1 id="memory-stuff">Memory Stuff<a class="headerlink" href="#memory-stuff" title="Permanent link">§</a></h1>
 <p>The memory for <code>buffer</code> in both functions is created on the heap using <a href="http://www.cplusplus.com/reference/cstdlib/malloc/">malloc</a>. Therefore, it must be managed. This is a tiny example, and the program ends before any memory leaks become a problem, but in production code, remember to free the heap memory occupied by <code>buffer</code> after it has been used. This is done with the <a href="http://www.cplusplus.com/reference/cstdlib/free/">free</a> command.</p>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">§</a></h1>
 <p>The above functions should perform better error checking if used in production. It also only works for encoding and decoding of a strings (although it is not too difficult to get it to work for files as well). This should give the inquisitive (and frustrated) programmer a base from which to work from.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "true";
+
+    if (true) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -156,8 +168,8 @@
         "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: 'center'," +
-        "    displayIndent: '0em'," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
@@ -166,18 +178,20 @@
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-        "    } " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -256,6 +270,8 @@
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/Base64-With-OpenSSL-C-API.html',

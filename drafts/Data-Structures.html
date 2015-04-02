@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Notes</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Noteses</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,31 +114,33 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<h1 id="containers-and-abstract-data-types">Containers And Abstract Data Types<a class="headerlink" href="#containers-and-abstract-data-types" title="Permanent link">&para;</a></h1>
+	<div class="article-content">
+		<h1 id="containers-and-abstract-data-types">Containers And Abstract Data Types<a class="headerlink" href="#containers-and-abstract-data-types" title="Permanent link">§</a></h1>
 <p>Data structures store data. They come in two flavours:</p>
 <ol>
 <li>Storage and/or retrieval is independent of underlying data - known as a <strong>container</strong></li>
 <li>Storage and/or retrieval requires knowledge of underlying data</li>
 </ol>
-<h3 id="canonical-examples-of-containers">Canonical Examples Of Containers<a class="headerlink" href="#canonical-examples-of-containers" title="Permanent link">&para;</a></h3>
+<h3 id="canonical-examples-of-containers">Canonical Examples Of Containers<a class="headerlink" href="#canonical-examples-of-containers" title="Permanent link">§</a></h3>
 <p>A <em>stack</em> is a container. A stack produces the last data item that was <em>pushed</em> onto it. No knowledge of this data item is needed.</p>
 <p><strong>More Examples</strong>: Queue, Priority Queue</p>
-<h3 id="canonical-examples-of-things-that-are-not-containers">Canonical Examples Of Things That Are Not Containers<a class="headerlink" href="#canonical-examples-of-things-that-are-not-containers" title="Permanent link">&para;</a></h3>
+<h3 id="canonical-examples-of-things-that-are-not-containers">Canonical Examples Of Things That Are Not Containers<a class="headerlink" href="#canonical-examples-of-things-that-are-not-containers" title="Permanent link">§</a></h3>
 <p>An <em>array</em> is not an example of an abstract data type. An array requires the index of the data item of interest in order to retrieve it.</p>
 <p><strong>More Examples</strong>: Dictionary, Binary Tree, Graph, Heap</p>
 <p>Note: Heap and Priority Queue are very interesting. They are mostly considered the same thing, but if we have to really discern, a Heap is an abstract data type while a priority queue is a container.</p>
-<h1 id="dictionaries">Dictionaries<a class="headerlink" href="#dictionaries" title="Permanent link">&para;</a></h1>
+<h1 id="dictionaries">Dictionaries<a class="headerlink" href="#dictionaries" title="Permanent link">§</a></h1>
 <p>A dictionary is an abstract data type that will ???</p>
 <p><strong>Canoncial Example</strong>: Hash Table.
 A binary tree could also be an example of a dictionary</p>
-<h1 id="binary-tree">Binary Tree<a class="headerlink" href="#binary-tree" title="Permanent link">&para;</a></h1>
+<h1 id="binary-tree">Binary Tree<a class="headerlink" href="#binary-tree" title="Permanent link">§</a></h1>
 <p>A node with left and right pointers. Optional parent pointer. Post/Pre-Order traversal make little sense with Binary Search Trees but can be useful when representing arithmetic or logical operations</p>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -216,6 +219,8 @@ A binary tree could also be an example of a dictionary</p>
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/drafts/Data-Structures.html',

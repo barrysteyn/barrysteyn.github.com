@@ -25,6 +25,7 @@
     <!-- Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Notes</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Noteses</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -113,34 +114,35 @@
 
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
-	<p>Concurrency is very prone to error if not done correctly. Even things like AJAX, which do things asynchronously, may need to access data from other parts of a program.</p>
-<h1 id="threads">Threads<a class="headerlink" href="#threads" title="Permanent link">&para;</a></h1>
+	<div class="article-content">
+		<p>Concurrency is very prone to error if not done correctly. Even things like AJAX, which do things asynchronously, may need to access data from other parts of a program.</p>
+<h1 id="threads">Threads<a class="headerlink" href="#threads" title="Permanent link">§</a></h1>
 <ul>
 <li>Is a fundamental unit of execution.</li>
 <li>Every program has at least one thread running.</li>
 <li>Each thread has its own stack and runs independently.</li>
 <li>Threads share memory and data &lt;= <strong>*This is where the danger comes in</strong></li>
 </ul>
-<h2 id="access-to-shared-data-needs-to-be-controlled">Access To Shared Data Needs To Be Controlled<a class="headerlink" href="#access-to-shared-data-needs-to-be-controlled" title="Permanent link">&para;</a></h2>
+<h2 id="access-to-shared-data-needs-to-be-controlled">Access To Shared Data Needs To Be Controlled<a class="headerlink" href="#access-to-shared-data-needs-to-be-controlled" title="Permanent link">§</a></h2>
 <p>A common side effect is data corruption.</p>
-<h3 id="monitors-and-semaphores">Monitors And Semaphores<a class="headerlink" href="#monitors-and-semaphores" title="Permanent link">&para;</a></h3>
+<h3 id="monitors-and-semaphores">Monitors And Semaphores<a class="headerlink" href="#monitors-and-semaphores" title="Permanent link">§</a></h3>
 <p>Monitors and semaphores are <em>thread synchronization</em> mechanisms.</p>
 <p><strong>Monitor</strong> - a set of routines protected by a mutual exclusion lock. A thread must wait to execute routines in a monitor - meaning only one thread at a time can execute in a monitor. A thread can suspend itself in a monitor, thus giving up its lock.</p>
 <p><strong>Semaphore</strong> - more simple than a monitor: It is just a lock that protects shared resources. Examples are a <em>mutex</em>.</p>
 <p>Monitors are much simpler to use because the sparse nature of semaphores. For example, using semaphores requires each thread to carefully release its thread (including in conditions where the thread ends unexpectedly) otherwise no other thread that needs the shared resources can begin. It also requires them to manage acquiring of locks. Monitors on the other hand handle this all automatically. </p>
-<h3 id="deadlocks">Deadlocks<a class="headerlink" href="#deadlocks" title="Permanent link">&para;</a></h3>
+<h3 id="deadlocks">Deadlocks<a class="headerlink" href="#deadlocks" title="Permanent link">§</a></h3>
 <p>This situation occurs when two threads block each other. For instance, two threads, A and B, are each waiting for a lock that the other has acquired. There is no suitable conflict resolution that is known. Some ideas are to always acquire locks in the same order, and release them in reverse order. </p>
-<h2 id="nativekernel-level-threads-vs-green-threads-vs-user-threads">Native/Kernel-level Threads Vs Green Threads Vs User Threads<a class="headerlink" href="#nativekernel-level-threads-vs-green-threads-vs-user-threads" title="Permanent link">&para;</a></h2>
+<h2 id="nativekernel-level-threads-vs-green-threads-vs-user-threads">Native/Kernel-level Threads Vs Green Threads Vs User Threads<a class="headerlink" href="#nativekernel-level-threads-vs-green-threads-vs-user-threads" title="Permanent link">§</a></h2>
 <p>Native threads are started and managed by the Kernel. Green threads are started by a software layer above the kernel (e.g. a virtual machine). Green threads cannot take advantage of multi-core processors, and therefore there is a shift away from them.</p>
 <p>Key concepts:</p>
 <ul>
 <li><strong>Native Threads</strong></li>
 <li><strong>Green Threads</strong>  </li>
 </ul>
-<h2 id="system-threads-vs-user-threads">System Threads Vs User Threads<a class="headerlink" href="#system-threads-vs-user-threads" title="Permanent link">&para;</a></h2>
+<h2 id="system-threads-vs-user-threads">System Threads Vs User Threads<a class="headerlink" href="#system-threads-vs-user-threads" title="Permanent link">§</a></h2>
 <p>System threads are created by the <strong>system</strong> (OS). For instance, the first thread that is created when a program starts. The program often exits when this thread terminates.</p>
 <p>User threads are created by an user application to perform tasks that should not be performed by the main thread. For example, the event loop is a user thread.</p>
-<h2 id="preemptive-threading">Preemptive Threading<a class="headerlink" href="#preemptive-threading" title="Permanent link">&para;</a></h2>
+<h2 id="preemptive-threading">Preemptive Threading<a class="headerlink" href="#preemptive-threading" title="Permanent link">§</a></h2>
 <p>Due to finite resources, only a certain amount of threads can run concurrently any one time. The OS therefore gives each thread a window of execution time, after which it switches to another thread. It accomplishes this by pausing the current thread's execution and then switching to the new thread. This is <strong>preemptive threading</strong>.</p>
 <p>Key concepts:</p>
 <ul>
@@ -148,22 +150,44 @@
 <li><strong>context switch</strong> - the pausing and saving of thread state in order to switch to another thread.</li>
 <li><strong>cooperative model</strong> - the opposite of preemptive threading, where a thread will inform other threads when not busy so they can run</li>
 </ul>
-<h1 id="threading-examples-in-java">Threading Examples In Java<a class="headerlink" href="#threading-examples-in-java" title="Permanent link">&para;</a></h1>
+<h1 id="threading-examples-in-java">Threading Examples In Java<a class="headerlink" href="#threading-examples-in-java" title="Permanent link">§</a></h1>
 <p>In Java, use the <code>synchronized</code> keyword to make a monitor around routines.</p>
-<h1 id="common-synchronization-problems">Common Synchronization Problems<a class="headerlink" href="#common-synchronization-problems" title="Permanent link">&para;</a></h1>
-<h2 id="busy-waiting">Busy Waiting<a class="headerlink" href="#busy-waiting" title="Permanent link">&para;</a></h2>
+<h1 id="common-synchronization-problems">Common Synchronization Problems<a class="headerlink" href="#common-synchronization-problems" title="Permanent link">§</a></h1>
+<h2 id="busy-waiting">Busy Waiting<a class="headerlink" href="#busy-waiting" title="Permanent link">§</a></h2>
 <p>Busy waiting is when a thread is waiting for another thread to complete. The first thread is performing this wait by continually polling to see if the other thread is alive. Even though the waiting thread is not doing any work, because it is not sleeping, it is stealing resources.</p>
 <p>Here is a simple example of <em>busy wait</em>:</p>
-<div class="highlight"><pre>Thread task = new TheTask();
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre>Thread task = new TheTask();
 task.start();
 while (task.isAlive()) {
     // do nothing
 }
 </pre></div>
-
+</td></tr></table>
 
 <p>This can be avoided by using a monitor or a semaphore</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="n">TheTask</span> <span class="n">extends</span> <span class="n">Thread</span> {
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="n">TheTask</span> <span class="n">extends</span> <span class="n">Thread</span> {
     <span class="n">public</span> <span class="nb">void</span> <span class="nb">run</span>() {
         <span class="n">synchronized</span>(<span class="n">this</span>) {
             //<span class="k">do</span> <span class="n">something</span>
@@ -183,11 +207,58 @@ while (task.isAlive()) {
     }
 }
 </pre></div>
+</td></tr></table>
 
-
-<h2 id="producerconsumer">Producer/Consumer<a class="headerlink" href="#producerconsumer" title="Permanent link">&para;</a></h2>
+<h2 id="producerconsumer">Producer/Consumer<a class="headerlink" href="#producerconsumer" title="Permanent link">§</a></h2>
 <p>This is a classic problem! The problem is to write a producer and consumer thread, where the producer produces numbers and the consumer consumes them.</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="n">BufferInt</span> {
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="n">BufferInt</span> {
     <span class="n">private</span> <span class="nb">int</span> <span class="n">size</span>=<span class="mi">0</span>;
     <span class="n">public</span> <span class="nb">int</span>[] <span class="n">buffer</span>;
     <span class="n">public</span> <span class="n">BufferInt</span>(<span class="nb">int</span> <span class="n">size</span>) {
@@ -236,12 +307,14 @@ while (task.isAlive()) {
     }
 }
 </pre></div>
+</td></tr></table>
+	</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-	<section class="content screen-height" id="comments">
+	<section class="content" id="comments">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -320,6 +393,8 @@ while (task.isAlive()) {
 
 
 	$(function() {
+		$('#content div.article-content a[href^="http"').attr('target','_blank');
+
 		var disqus = {
 			shortname: 'doctrina',
 			identifier: 'http://doctrina.org/drafts/Concurrency.html',

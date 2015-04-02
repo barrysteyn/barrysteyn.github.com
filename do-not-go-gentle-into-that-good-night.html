@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="theme/img/doctrina-icon.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="theme/img/apple-touch-icon-144-precomposed.png">
 
-    <title>Doctrina - 	Upstart With NodeJS And NVM
+    <title>Doctrina - 	Do Not Go Gentle Into That Good Night
 </title>
 
     <!-- Bootstrap Base CSS -->
@@ -62,7 +62,7 @@
 	<section class="container-fluid title">
 	<div class="row">
 		<div class="col-md-12">
-			<h1><a href="" rel="bookmark" title="Permalink to Upstart With NodeJS And NVM">	Upstart With NodeJS And NVM
+			<h1><a href="" rel="bookmark" title="Permalink to Do Not Go Gentle Into That Good Night">	Do Not Go Gentle Into That Good Night
 </a></h1>
 			<span>
 				<a href="http://doctrina.org/index.html#about"><img src="http://doctrina.org/theme/img/me.jpg" class="img-rounded"></img></a>
@@ -76,7 +76,7 @@
 		<div class="row">
 				<div class="col-xs-12 text-center metadata">
 					<ul class="center-list">
-						<li><b>Published</b>: 12  May  2012</li>
+						<li><b>Published</b>: 02  Apr  2015</li>
 					</ul>
 				</div>
 		</div>
@@ -87,25 +87,25 @@
 		<span class="toctitle">Share</span>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Upstart%20With%20NodeJS%20And%20NVM&url=http%3A//doctrina.org/NodeJS-Under-NVM-With-Upstart.html&via=">
+	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Do%20Not%20Go%20Gentle%20Into%20That%20Good%20Night&url=http%3A//doctrina.org/do-not-go-gentle-into-that-good-night.html&via=">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
 	    </a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/NodeJS-Under-NVM-With-Upstart.html">
+		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/do-not-go-gentle-into-that-good-night.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/NodeJS-Under-NVM-With-Upstart.html">
+		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/do-not-go-gentle-into-that-good-night.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/NodeJS-Under-NVM-With-Upstart.html&title=Upstart%20With%20NodeJS%20And%20NVM">
+	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/do-not-go-gentle-into-that-good-night.html&title=Do%20Not%20Go%20Gentle%20Into%20That%20Good%20Night">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
 	    </a>
@@ -115,27 +115,30 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<p>Yet another very short blog article to help anyone who wants to setup an upstart process that runs a <a href="http://nodejs.org/">NodeJS</a> app under <a href="https://github.com/creationix/nvm">nvm</a>. Unlike the <a href="http://doctrina.org/VirtualEnv-With-Upstart.html">uwsgi setup</a>, there is no specific argument switch to give Node that will make it use nvm environment variables. In fact, since Node is single threaded, there is no special server process that must run in the background to interact with it (unlike <a href="http://projects.unbit.it/uwsgi/">uwsgi</a> that is needed for Python). This means that whatever executes Node must also introduce the environment variables manually. But doesn't that defeat the purpose of <a href="https://github.com/creationix/nvm">nvm</a>? Yes, it does! So lets just use <a href="https://github.com/creationix/nvm">nvm</a> to <em>manually introduce those environment variables</em>.</p>
-<p>In order to run a <a href="http://nodejs.org/">Node</a> server in upstart that is under nvm, two things need to be determined:</p>
-<ol>
-<li>The folder where the node app is defined. Not only is this the path where node will execute your app, but node will also search a folder called <em>node_modules</em> under this path for <em>locally installed libraries</em></li>
-<li>The folder where you have installed your <code>nvm.sh</code> script.</li>
-</ol>
-<p><strong>NOTE</strong>: For what follows, the assumption is that the version of node that will be used for execution is the <a href="https://github.com/creationix/nvm#usage">default version of nvm</a>. This accomplished by using <code>alias</code> with nvm to set <code>default</code> (see previous link).</p>
-<h1 id="an-upstart-example">An Upstart Example<a class="headerlink" href="#an-upstart-example" title="Permanent link">§</a></h1>
-<p>Lets assume the following:</p>
-<ul>
-<li>Your app is defined in the path <code>"/home/dev/node-script"</code></li>
-<li>The <em>nvm.sh</em> script is installed in <code>"/home/dev/nvm/nvm.sh"</code></li>
-</ul>
-<p>Then an upstart script to start node that will run this script under nvm is as follows:
-<script src="https://gist.github.com/4467515.js"></script></p>
-<p>The above upstart script is very basic, so you should customize it to suit your needs. Yet it has the essential ingredients. The important bit is the <em>exec</em> command on line 11, which starts a bash shell script with the argument <code>-c</code>. This argument means that any text afterwards will be executed as a command script. The command script passed does two things that are separated by <code>&amp;&amp;</code> (the logical and operator):</p>
-<ol>
-<li><code>source /home/dev/nvm/nvm.sh</code> - this will execute the <code>nvm.sh</code> shell script that loads/creates all relevant environment variables. By using the <a href="http://ss64.com/bash/period.html">source</a> command, all these variables are put within the current shell that it is running in.</li>
-<li><code>exec node app</code> - it is essential that we use <a href="http://ss64.com/bash/exec.html">exec</a> to execute the node app. This will replace the current shell with <code>node app</code> <em>without creating a new process</em>.</li>
-</ol>
-<p>The result of the above two commands is that the node app is executed within its own process but which has access to all environment variables that results from running the nvm shell script.</p>
+		<h1 id="do-not-go-gentle-into-that-good-night">Do Not Go Gentle Into That Good Night<a class="headerlink" href="#do-not-go-gentle-into-that-good-night" title="Permanent link">§</a></h1>
+<p><small>By <a href="http://en.wikipedia.org/wiki/Dylan_Thomas">Dylan Thomas</a></small></p>
+<p>Do not go gentle into that good night,<br/>
+Old age should burn and rave at close of day;<br/>
+Rage, rage against the dying of the light.<br/></p>
+<p>Though wise men at their end know dark is right,<br/>
+Because their words had forked no lightning they<br/>
+Do not go gentle into that good night.<br/></p>
+<p>Good men, the last wave by, crying how bright<br/>
+Their frail deeds might have danced in a green bay,<br/>
+Rage, rage against the dying of the light.<br/></p>
+<p>Wild men who caught and sang the sun in flight,<br/>
+And learn, too late, they grieved it on its way,<br/>
+Do not go gentle into that good night.<br/></p>
+<p>Grave men, near death, who see with blinding sight<br/>
+Blind eyes could blaze like meteors and be gay,<br/>
+Rage, rage against the dying of the light.<br/></p>
+<p>And you, my father, there on the sad height,<br/>
+Curse, bless, me now with your fierce tears, I pray.<br/>
+Do not go gentle into that good night.<br/>
+Rage, rage against the dying of the light.<br/></p>
+<div class="embed-responsive embed-responsive-16by9" style="margin-bottom: 1.0em">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2DLqN1RvfUc"></iframe>
+</div>
 	</div>
 			</div>
 		</div>
@@ -149,7 +152,7 @@
 					<div class="content-border">
 						<h2>Comments</h2>
         				<div class="divider-grey"></div>
-						<a id="disqus" href="http://doctrina.org/NodeJS-Under-NVM-With-Upstart.html#disqus_thread">0 Comments</a>
+						<a id="disqus" href="http://doctrina.org/do-not-go-gentle-into-that-good-night.html#disqus_thread">0 Comments</a>
 						<div id="disqus_thread"></div>
 					</div>
 			    </div>
@@ -225,8 +228,8 @@
 
 		var disqus = {
 			shortname: 'doctrina',
-			identifier: 'http://doctrina.org/NodeJS-Under-NVM-With-Upstart.html',
-			url: 'http://doctrina.org/NodeJS-Under-NVM-With-Upstart.html',
+			identifier: 'http://doctrina.org/do-not-go-gentle-into-that-good-night.html',
+			url: 'http://doctrina.org/do-not-go-gentle-into-that-good-night.html',
 			developer: 0
 		};
 
