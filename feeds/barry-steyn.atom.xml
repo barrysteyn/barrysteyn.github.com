@@ -20,9 +20,13 @@ Rage, rage against the dying of the light.&lt;br/&gt;&lt;/p&gt;
 Curse, bless, me now with your fierce tears, I pray.&lt;br/&gt;
 Do not go gentle into that good night.&lt;br/&gt;
 Rage, rage against the dying of the light.&lt;br/&gt;&lt;/p&gt;
-&lt;div class="embed-responsive embed-responsive-16by9" style="margin-bottom: 1.0em"&gt;
-  &lt;iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2DLqN1RvfUc"&gt;&lt;/iframe&gt;
-&lt;/div&gt;</summary><category term="art"></category></entry><entry><title>The Starting Node Of A Cycle In A Linked List</title><link href="http://doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html" rel="alternate"></link><updated>2015-02-18T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-02-18:Starting_Node_Of_A_Cycle_In_A_Linked_List.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a class="headerlink" href="#introduction" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;div class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/2DLqN1RvfUc'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/div&gt;&lt;/p&gt;</summary><category term="art"></category></entry><entry><title>The Starting Node Of A Cycle In A Linked List</title><link href="http://doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html" rel="alternate"></link><updated>2015-02-18T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-02-18:Starting_Node_Of_A_Cycle_In_A_Linked_List.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a class="headerlink" href="#introduction" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Given a &lt;a href="http://en.wikipedia.org/wiki/Linked_list#Singly_linked_list"&gt;singly linked list&lt;/a&gt; that has a cycle, how can one determine the first node in the cycle?&lt;/p&gt;
 &lt;p&gt;&lt;img src ="http://doctrina.org/images/ll-cycle-problem.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Using the image above as an example, the aim would be to find the orange node.&lt;/p&gt;
