@@ -69,7 +69,8 @@ PLUGINS = [
     'extract_toc',  # extracts [TOC] to variable that can be used in template
     'render_math',   # my render math plugin :)
     'simple_footnotes',  # footnotes
-    'sitemap'  # For SEO
+    'sitemap',  # For SEO
+    'liquid_tags.youtube'  # liquid tags - embed youtube
 ]
 
 #Render Math Plugin
