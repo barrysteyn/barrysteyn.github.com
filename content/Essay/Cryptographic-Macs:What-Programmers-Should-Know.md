@@ -6,9 +6,10 @@ Subcategory: Cryptography
 
 [TOC]
 
-A MAC ([message authentication code](http://en.wikipedia.org/wiki/Message_authentication_code)) is an important part of the cryptographic arsenal. It ensures message integrity and eliminates a very dangerous type of attack - *active attacks* (whereby an atacker changes the message payload tricking both communicating parties).
+#Introduction
+A MAC ([message authentication code](http://en.wikipedia.org/wiki/Message_authentication_code)) plays a vital role in the world of cryptography. It ensures message integrity and combats *active attacks*[ref]An active attack is an attack whereby the message payload is changed tricking both communicating parties.[/ref].
 
-A MAC is often confused with a cryptograhic hash (i.e. SHA256), and while they are similar, using a crytographic hash instead of a MAC will have devastatingly insecure consequences. I think it was an unfortunate choice of words to call it a *cryptographic hash*, because as I will show , a cryptographic hash is not even designed to be secure. 
+A MAC is often confused with a cryptograhic hash (i.e. SHA256). I think it was an unfortunate choice of words to use *cryptographic hash*, because as I will show , a cryptographic hash is not even designed to be secure.
 
 This article aims to set things right. It will explain the following:
 
@@ -16,54 +17,55 @@ This article aims to set things right. It will explain the following:
  * Why a cryptographic hash is insecure, and when it should be used.
  * What a MAC is.
 
-#Cryptographic Hash
-A hash function maps an input in a large space to an output in a small space. Known as compression, all hash functions exhibit this property. A hash function's classic use is in the creation of a hash table, where it is vital that hash outputs are indepedendent of its inputs (because inputs who are related may be assigned to the same hash bucket). 
+#Cryptographic Hash Function
 
-A cryptographic hash function is hash function with four properties:
+A cryptographic hash function exhibits four properties:
 
  1. **Compression**
  2. **Pre-Image Resistance**
  3. **Weak Collision Resistance**
- 4. **String Collision Resistance**
+ 4. **Strong Collision Resistance**
 
-The last two properties are known collectively as *collision resistance*.
+The last two properties are known collectively as *collision resistance*. For what follows, assume a hash function $H$ takes as input a message $m$ and produces an output $x$:
 
-###Compression
-A compression function produces an output that is vastly smaller than its input (hence the name compression). More formally, the size of the domain (i.e. input) is much larger than the size of the range (i.e. output). For those math type people out there, it is expressed like so:
+\begin{equation}H(m) = x \label{hashex}\end{equation}
 
-$$H: M \rightarrow x, M \in \{0,1\}^n, x \in \{0,1\}^l \text{ where } l \ll n$$
+### Compression
+All hash functions exhibit compression, whereby an output that is much smaller than its input is produced. More formally, the size of the range (i.e. output) is much smaller than the size of the domain (i.e. input). Since computers represent everything using 0's and 1's, a mathematical description of compression in terms of computer science is:
+
+$$H: m \rightarrow x, m \in \{0,1\}^n, x \in \{0,1\}^l \text{ where } l \ll n$$
 
 ###Pre-Image Resistance
-Pre-image resistance means that given the result of a hash, it is hard to determine the message that produced that hash. Assuming the result of hashing a message $M$ is $x$, then given only $x$, it is hard to recover $M$.
+If given the output of a function, pre-image resistance implies that it is difficult to find the input which produced that output. So if only given $x$ in equation $\ref{hashex}$, it is difficult to find $m$.
 
 ###Weak Collision Resistance
-Weak collision resistance means that given the result of a hash, it is hard to find *another* message that hashes to that same result. Therefore given $x \leftarrow H(M_0)$, it is hard to find $M_1 \neq M_0$ such that $x \leftarrow H(M_1)$. This is in some way similar to pre-image resistance, and weak collision resistance implies a form of pre-image resistance. But they are not the same thing.
+Given an arbitrary message $m_1$, weak collision resistance implies that it is difficult to produce another message $m_2$ such that $H(m_1) = H(m_2)$.
 
 ###Strong Collision Resistance
-Strong collision resistance means that is hard to find any two messages that hash to the same value. That is, it is hard to find $M_0$ and $M_1$ such that $H(M_0) = H(M_1)$. 
+Strong collision resistance means that is difficult to find any two messages that hash to the same value. That is, it is hard to find $m_1$ and $m_2$ such that $H(m_1) = H(m_2)$.
 
-##Don't Get Confused!
-If a weak collision is found, then one has also automatically found a strong collision (and vice-versa). So its easy to get confused and think they are the same thing, but they are not. A weak collision implies a hash collision for a message that has already been chosen. A strong collision implies a hash collision between any two messages. It is more difficult to achieve strong collision resistance due to the [Birthday Paradox](http://en.wikipedia.org/wiki/Birthday_paradox), hence the names strong and weak.
+##Strong And Weak Collision Resistance Are Not The Same
+Even though they seem similar, there is a subtle difference between strong and weak collision resistance. Weak collision resistance is bound to a particular input, whereas strong collision resistance applies to any two arbitrary inputs. As the name implies, it is more difficult to achieve strong collision resistance than weak collision resistance. This is because strong collision resistance implies weak collision resitance, yet, having weak collision resistance *does not* imply strong collision resistance[ref]A great explanation of this concept is this [stackoverflow explanation](http://stackoverflow.com/questions/8523005/what-is-the-difference-between-weak-and-strong-resistance#8542254).[/ref].
 
 # Message Integrity
-Message integrity ensures a message is not altered during transmission. In short, the same message that was sent is the same that was received. For networking, various protocols have been built to ensure message integrity, like the ever popular and ubiquitous TCP protocol that ensures the message that was sent is the message that was received by using various mechanism including [cyclic redundancy checking](http://en.wikipedia.org/wiki/Cyclic_redundancy_check) (CRC). CRC works well against message integrity being compromised by a network error, but it cannot defend against something more sinister: A hacker who is determined to alter the message payload during transmission (i.e. an active attack).
+Message integrity is the process of ensuring that a message is not altered during transmission. For networking, various protocols have been built to ensure message integrity, like the ever popular and ubiquitous TCP protocol that ensures message integrity by using various mechanism including [cyclic redundancy checking](http://en.wikipedia.org/wiki/Cyclic_redundancy_check) (CRC). CRC works well against message integrity being compromised by a network error, but it cannot defend against an active attack: Someone purposefully trying to alter the message payload during transmission.
 
-Message integrity is defended against an active attack by transmitting the message along with what is known as a message tag. The receiving party computes their own tag on the received message, and if it matches the transmitted tag, message integrity is assured. 
+## Message Tag
+A message tag is used to defend against an active attack. A message is transmitted along with its tag to a recipient. The recipient then computes their own tag on the received message, and if it matches the transmitted tag, message integrity is assured.
 
-## Tag Security: Existential Forgery
-The mechanism used to build a tag needs to be secure. There are many rigorous security definitions for a tag, but an informal security definition would be to make it impossible for an attacker (i.e. anyone besides the person who created the original valid message tag pair) to produce a new message with a valid tag. Being able to produce a new message with a valid tag is called an *existential forgery*, and any tag worth its weight must defend against existential forgery.
+An informal security definition for a tag is to make it impossible for an attacker to produce a new message with a valid tag. Being able to produce a new message with a valid tag is called an *existential forgery*: Any successful tagging scheme must protect against existential forgery.
 
-#A Cryptrographic Hash Is Not Secure
-A crypgtographic hash (like the [SHA-2](http://en.wikipedia.org/wiki/Sha256) family of hashes - e.g. SHA256) is susceptible to an existential forgery. To see this, one needs to have knowledge about how a cryptographic hash is produced. I will therefore give a very brief overview of this process, but I encourage the interested reader to read up more about this topic, I am really only skimming the surface.
+#A Cryptrographic Hash Cannot Protect Against Existential Forgery
+A crypgtographic hash (like the [SHA-2](http://en.wikipedia.org/wiki/Sha256) family of hashes - e.g. SHA256) is susceptible to an existential forgery. This is due to its construction method that does not use any secret.
 
 ##Merkle–Damgård And Davies-Meyer Construction
-A block cipher is an encryption mechanism that takes a fixed input of size n bytes, and produces an encrypted output also of size n bytes. There are many block ciphers, and the field has been studied intensely ([AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) is an example). Block ciphers exhibit many of the properties of a crytographic hash, therefore it woulb be nice if a block cipher could be used to construct a cryptographic hash. And it turns out that it can: Any *secure* block cipher can be quickly altered (normally by a method called [Davies-Meyer](http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer)) to have all the properties of a cryptographic hash function except *compression*. Block ciphers need two inputs which are kept secret: A *key* and a *message*. Therefore a cryptographic hash function made from a block cipher also needs two inputs, but unlike a block cipher, neither input is kept secret (read up more on [Davies-Meyer](http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer) to understand these inputs). So how does one get the compression property? It is done using a construction called *Merkle–Damgård*.
+A block cipher is an encryption mechanism that takes a fixed input of size n bytes, and produces an encrypted output also of size n bytes. There are many block ciphers, and the field has been studied intensely ([AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) is an example). Block ciphers exhibit many of the properties of a crytographic hash, therefore it would be nice if they could be used to construct a cryptographic hash. And it turns out that they can: Any *secure* block cipher can be quickly altered (normally by a method called [Davies-Meyer](http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer)) to have all the properties of a cryptographic hash function except *compression*. Block ciphers need two inputs which are kept secret: A *key* and a *message*. Therefore a cryptographic hash function made from a block cipher also needs two inputs, but unlike a block cipher, neither input is kept secret (read up more on [Davies-Meyer](http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer) to understand these inputs). So how does one get the compression property? It is done using a construction called *Merkle–Damgård*.
 
 The Merkle–Damgård construction takes as input a message of arbitrary length and produces a cryptographic hash of fixed output. It does this by breaking the message up into blocks, then feeding the blocks iteratively into a smaller cryptographic hash function (such as the one discussed in the above paragraph). The output of each function is fed as one of the inputs into the next function. The very first function just has a non-random set initialisation vector (IV) set as one of the inputs.
 
 The image below demonstrates the Merkle–Damgård construction. In this image, **h** is the cryptographic hash created from the block cipher, and $H_n$ is the resulting outputs of each stage. Note how the output of one function is chained to one of the inputs of the other.
 
-<img src ="images/merkle-damgard.png" />
+{% img images/merkle-damgard.png %}
 
 ##Merkle–Damgård Is Not Secure
 All our popular cryptographic hash functions are constructed using Merkle–Damgård, but it is very easy to mount an existential forgery attack on anything constructed using the Merkle–Damgård. This is because cryptographic hash functions created with Merkle–Damgård are not designed to be protected from existential forgery (more about this a little later). To see how an existential forgery can happen, study the Merkle–Damgård construction picture. An existential forgery can happen by doing the following:
@@ -85,7 +87,7 @@ So if it is not secure, does it have any use? Yes, it has tonnes of uses. Just n
  3. A means to discover changes in files. Due to collision resistance, if a file changes, its hash will also change (with high probability). This is used to detect changes in such applications as [git](http://en.wikipedia.org/wiki/Git_%28software%29) (and others, I am sure).
 
 #Secure Cryptographic Hash
-How does one achieve message integrtity? The answer: A **secure** cryptogrphic hash. This is an example of a [MAC](http://en.wikipedia.org/wiki/Message_authentication_code) and since MAC sounds so different to cryptographic hash, cryptograhers don't get confused (A MAC is more general than a secure cryptographic hash, but a secure cryptographic hash is definitely an example of a MAC). 
+How does one achieve message integrtity? The answer: A **secure** cryptogrphic hash. This is an example of a [MAC](http://en.wikipedia.org/wiki/Message_authentication_code) and since MAC sounds so different to cryptographic hash, cryptograhers don't get confused (A MAC is more general than a secure cryptographic hash, but a secure cryptographic hash is definitely an example of a MAC).
 
 A secure cryptogrpahic hash is a cryptographic hash that also involves a secret, and this secret is used to *"lock"* the final tag value in place. Remember when describing the function used in Merkle–Damgård (normally created with Davies-Meyer construction), there is no secret involved. And this is achilles heel for Merkle–Damgård with respect to existential forgery.
 
