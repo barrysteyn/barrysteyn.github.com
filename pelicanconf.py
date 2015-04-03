@@ -70,7 +70,8 @@ PLUGINS = [
     'render_math',   # my render math plugin :)
     'simple_footnotes',  # footnotes
     'sitemap',  # For SEO
-    'liquid_tags.youtube'  # liquid tags - embed youtube
+    'liquid_tags.youtube',  # liquid tags - embed youtube
+    'liquid_tags.img'  # liquid tags - image:w
 ]
 
 #Render Math Plugin
