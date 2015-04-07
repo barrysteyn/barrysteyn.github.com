@@ -116,25 +116,25 @@
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
 		<p>Algorithm analysis is the science (or art) of measuring comparable efficiencies of algorithm. It provides a theoretical reason why <a href="">bubble sort</a> is not very popular while <a href="">quick sort</a> is. Devices that run algorithms have neither infinite storage/memory space nor infinite processing power. Due to these limitation, it becomes necessary to provide a metric that will relate an algorithm's input length to the number of processing steps or storage space needed. Algorithm analysis provides this metric.</p>
-<h2 id="assymptotic">Assymptotic<a class="headerlink" href="#assymptotic" title="Permanent link">§</a></h2>
+<h2 id="assymptotic">Assymptotic<a class="headerlink" href="#assymptotic" title="Permanent link"></a></h2>
 <p>Algorithm analysis is measured asymptoticly meaning that measurements apply to an arbitrary large input. Asymptotic measurements are vital to algorithm analyis because different implementations of an algorithm may differ in efficiency when using small inputs. However the efficienies of any two <em>reasonable</em> algorithms are comparable when using arbitrary large input values. This is the reason why implementations of <em>bubble sorts</em> are always comparable with asympotic notation, no matter the efficiency gain one can get from tweaking the algorithm.</p>
-<h2 id="big-o-notation">Big O Notation<a class="headerlink" href="#big-o-notation" title="Permanent link">§</a></h2>
+<h2 id="big-o-notation">Big O Notation<a class="headerlink" href="#big-o-notation" title="Permanent link"></a></h2>
 <p>Big O (pronounced big Oh) is the most commonly used asymptotic notation in algorithm analysis. Its symbol is <span class="math">\(O\)</span> and it describes a <em>worst case</em> performance that an algorithm could attain given an arbitrary large input. Since <span class="math">\(O\)</span> measures <em>worst case</em>, it is an upper bound: If an algorithm is considered <span class="math">\(O(g(n))\)</span>, it means that the worst case performance of that algorithm is <em>at least less than or equal</em> to <span class="math">\(g(n)\)</span>.</p>
-<h2 id="how-did-these-notations-come-about">How Did These Notations Come About<a class="headerlink" href="#how-did-these-notations-come-about" title="Permanent link">§</a></h2>
+<h2 id="how-did-these-notations-come-about">How Did These Notations Come About<a class="headerlink" href="#how-did-these-notations-come-about" title="Permanent link"></a></h2>
 <p>Computer science was originally a branch of Mathematics. The founding fathers of Computer Science (<a href="">Alan Turing</a>, <a href="">John von Neuman</a> etc) were mathematicians. In addition, <a href="">Donald Knuth</a>, the person who some consider the greatest living Computer Scientist, is first and foremost a mathemetician. These people have used math to both invent the computer and algorithms. So it was natural that these people would use a branch of math to forumlate a metric for an algorithm's efficiency.</p>
-<h1 id="mathematical-background">Mathematical Background<a class="headerlink" href="#mathematical-background" title="Permanent link">§</a></h1>
+<h1 id="mathematical-background">Mathematical Background<a class="headerlink" href="#mathematical-background" title="Permanent link"></a></h1>
 <p>A mathematical function <span class="math">\(f(n)\)</span> is equal to <span class="math">\(O(g(n))\)</span> if there exists constants <span class="math">\(c &gt; 0,n_0 &gt; 0\)</span> such that <span class="math">\(0 \leq f(n) \leq c\cdot g(n)\)</span> for all <span class="math">\(n \geq n_0\)</span>. Stating this again for emphasis:
 </p>
 <div class="math">\begin{equation}
     \label{BIGODEF} f(n) = O(g(n)) \implies 0 \leq f(n) \leq c\cdot g(n) \forall n \geq n_0, c,n_0 \in \mathbb{N}
 \end{equation}</div>
 <p>For example, <span class="math">\(2n^2 = O(n^3)\)</span>, because by setting <span class="math">\(c=1,n_0=2\)</span>, <span class="math">\(0 \leq 2n^2 \leq n^3\)</span>. In this instant, <span class="math">\(2n^2\)</span> is also equal to <span class="math">\(O(n^4)\)</span>. While this is confusing to algorithm analysis, it does make sense: Big O is an upper bound, but it is not the least upper bound, therefore any upper bound will apply to Big O. However, in algorithm analysis, it is normally taken for granted that the Big O of an algorithm is the least upper bound (anything else would not make much sense).</p>
-<h2 id="warning-big-o-is-not-a-symmetric-relationship">Warning: Big O Is Not A Symmetric Relationship<a class="headerlink" href="#warning-big-o-is-not-a-symmetric-relationship" title="Permanent link">§</a></h2>
+<h2 id="warning-big-o-is-not-a-symmetric-relationship">Warning: Big O Is Not A Symmetric Relationship<a class="headerlink" href="#warning-big-o-is-not-a-symmetric-relationship" title="Permanent link"></a></h2>
 <p>Normally when two variables are equal, it is a symmetric relationship. For example, if <span class="math">\(a=b\)</span>, then <span class="math">\(b=a\)</span>. This is not the case for Big O!</p>
 <p>When one writes: <span class="math">\(f(n) = O(g(n))\)</span>, it does not mean that <span class="math">\(O(g(n)) = f(n)\)</span>. This asymmetry is quite confusing, and to lessen confusion, we really shouldn't be using the <span class="math">\(=\)</span> sign which is commonly used in symmetric relationships. What is really meant when one writes <span class="math">\(f(n) = O(g(n))\)</span> is that <span class="math">\(f(n)\)</span> is an element of the set <span class="math">\(O(g(n))\)</span>: <span class="math">\(f(n) \in O(g(n))\)</span>. <span class="math">\(O(g(n))\)</span> is a set that holds functions which obey the equation <span class="math">\(\ref{BIGODEF}\)</span>, and therefore <span class="math">\(O(g(n)) \neq f(n)\)</span>.</p>
 <p>To recap: <span class="math">\(fn = O(g(n))\)</span> does not mean that <span class="math">\(O(g(n)) = f(n)\)</span>. Confusion can now be avoided.</p>
-<h1 id="algorithm-analysis-how-it-works">Algorithm Analysis: How It Works<a class="headerlink" href="#algorithm-analysis-how-it-works" title="Permanent link">§</a></h1>
-<h2 id="algorithms">Algorithms<a class="headerlink" href="#algorithms" title="Permanent link">§</a></h2>
+<h1 id="algorithm-analysis-how-it-works">Algorithm Analysis: How It Works<a class="headerlink" href="#algorithm-analysis-how-it-works" title="Permanent link"></a></h1>
+<h2 id="algorithms">Algorithms<a class="headerlink" href="#algorithms" title="Permanent link"></a></h2>
 <p>The following algorithms will be used to explain examples of <span class="math">\(O\)</span> efficiency:</p>
 <ol>
 <li>Array look up given an index: Will be used to explain <em>constant</em> efficiency</li>
@@ -143,7 +143,7 @@
 <li>Bubble sort: Will be used to explain <em>quadratic</em> efficiency.</li>
 <li>The travelling salesperson problem: </li>
 </ol>
-<h3 id="array-lookup-given-an-index">Array lookup given an index<a class="headerlink" href="#array-lookup-given-an-index" title="Permanent link">§</a></h3>
+<h3 id="array-lookup-given-an-index">Array lookup given an index<a class="headerlink" href="#array-lookup-given-an-index" title="Permanent link"></a></h3>
 <p>An array lookup (via an index into the array) takes a constant time, no matter the size or the element that is accessed. An array is a <em>contiguous</em> piece equally sized memory. The variable that stores the array points to where the array begins. Accessing an element in the array via an index only requires a simple calculation: The array index multiplied by the space each portion of the array takes up and then added to the original memory address. If <span class="math">\(a\)</span> is the start memory address, <span class="math">\(b\)</span> is the size of each data structure in the array and <span class="math">\(i\)</span> is the index being accessed, then the element's address in the array is calculated like so:
 </p>
 <div class="math">\begin{equation}
@@ -156,15 +156,15 @@
 <li>There is <em>no</em> notion of <span class="math">\(O(2), O(3),...,O(c)\)</span> where <span class="math">\(c \in \mathbb{N}_{&gt; 0}\)</span>. Equation <span class="math">\(\ref{BIGODEF}\)</span> implies that if a function is <span class="math">\(f\)</span> is in <span class="math">\(O(c), c \in \mathbb{N}_{&gt; 0}\)</span>, then it is also an element of <span class="math">\(O(1)\)</span>. Therefore, we make life easier by only using <span class="math">\(O(1)\)</span>.</li>
 </ol>
 <p>Constant efficiency is not really interesting in algorithm analysis due to the fact that <span class="math">\(O(1)\)</span> algorithms do not accomplish complex things.</p>
-<h3 id="binary-search">Binary Search<a class="headerlink" href="#binary-search" title="Permanent link">§</a></h3>
+<h3 id="binary-search">Binary Search<a class="headerlink" href="#binary-search" title="Permanent link"></a></h3>
 <p>Binary search is a <em>divide and conquor</em> algorithm. Given an item to be searched for, decide if </p>
-<h3 id="linear-search">Linear Search<a class="headerlink" href="#linear-search" title="Permanent link">§</a></h3>
+<h3 id="linear-search">Linear Search<a class="headerlink" href="#linear-search" title="Permanent link"></a></h3>
 <p>A linear search involves searching through a list of items for a specific item. Since the position of the desired item is not known, it involves examining each item from start to finish. Assuming the list contains <span class="math">\(n\)</span> items, the worst case scenario involves examining each of those <span class="math">\(n\)</span> items. Therefore a linear search is <span class="math">\(O(n)\)</span>.</p>
-<h3 id="bubble-sort">Bubble Sort<a class="headerlink" href="#bubble-sort" title="Permanent link">§</a></h3>
+<h3 id="bubble-sort">Bubble Sort<a class="headerlink" href="#bubble-sort" title="Permanent link"></a></h3>
 <p>There are many ways to sort a list of integers. Bubble sort is one such way, but due to its terrible performance, it is not used in practice. A bubble sort involves comparing each item of a list to every other item. During comparison, if the item compared is smaller, then a swap is intiated (this will sort in ascending order).</p>
-<h1 id="algorithm-comparison">Algorithm Comparison<a class="headerlink" href="#algorithm-comparison" title="Permanent link">§</a></h1>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">§</a></h1>
-<h1 id="a-feel-for-big-o-notation">A Feel For Big O Notation<a class="headerlink" href="#a-feel-for-big-o-notation" title="Permanent link">§</a></h1>
+<h1 id="algorithm-comparison">Algorithm Comparison<a class="headerlink" href="#algorithm-comparison" title="Permanent link"></a></h1>
+<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h1>
+<h1 id="a-feel-for-big-o-notation">A Feel For Big O Notation<a class="headerlink" href="#a-feel-for-big-o-notation" title="Permanent link"></a></h1>
 <p>What does it mean for an algorithm to equal <span class="math">\(O\)</span> of something? Assume the following:</p>
 <ol>
 <li>Constant: <span class="math">\(O(1)\)</span></li>
@@ -172,29 +172,29 @@
 <li>Polynomial in <span class="math">\(n^2\)</span>: <span class="math">\(O(n^2)\)</span></li>
 <li>Exponential <span class="math">\(O(2^n)\)</span></li>
 </ol>
-<h3 id="constant">Constant<a class="headerlink" href="#constant" title="Permanent link">§</a></h3>
+<h3 id="constant">Constant<a class="headerlink" href="#constant" title="Permanent link"></a></h3>
 <p>An algorithm that is classified as <span class="math">\(O(1)\)</span> means that its worst case performance will always be less than or equal to <span class="math">\(1\)</span>. This could perhaps be representing an internal operation of the CPU that takes this amount of time (for instance, adding two numbers). A constant <span class="math">\(O\)</span> is never represented with a specific number. The way that <span class="math">\(O\)</span> is mathematically defined (see below), all constants are equal in <span class="math">\(O\)</span>. For instance, if an algorithm <span class="math">\(f\)</span> is equal to <span class="math">\(O(1)\)</span>, then it is also equal to <span class="math">\(O(2),O(3),...O(c)\)</span> where <span class="math">\(c\)</span> is a constant. For algorithm analysis, this makes sense. If an algorithm's efficiency can represented by a constant, then the important thing to note is not how big the constant is, but that it is a constant. Computers are getting faster all the time; if an algorithm is <span class="math">\(O(10^6)\)</span>, this might seem slow, but if Google's pagerank algorithm for the entire web was represented with <span class="math">\(O(10^6)\)</span>, it would be extremely efficient. </p>
 <p>If an algorithm's efficiency is ...</p>
-<h3 id="polynomial-in-n">Polynomial in n<a class="headerlink" href="#polynomial-in-n" title="Permanent link">§</a></h3>
-<h3 id="polynomial-in-n2">Polynomial in <span class="math">\(n^2\)</span><a class="headerlink" href="#polynomial-in-n2" title="Permanent link">§</a></h3>
-<h3 id="exponential">Exponential<a class="headerlink" href="#exponential" title="Permanent link">§</a></h3>
+<h3 id="polynomial-in-n">Polynomial in n<a class="headerlink" href="#polynomial-in-n" title="Permanent link"></a></h3>
+<h3 id="polynomial-in-n2">Polynomial in <span class="math">\(n^2\)</span><a class="headerlink" href="#polynomial-in-n2" title="Permanent link"></a></h3>
+<h3 id="exponential">Exponential<a class="headerlink" href="#exponential" title="Permanent link"></a></h3>
 <ul>
 <li>describe here what it means for something to be O(n), O(n2), O(2^n)</li>
 </ul>
-<h1 id="background-mathematics">Background Mathematics<a class="headerlink" href="#background-mathematics" title="Permanent link">§</a></h1>
+<h1 id="background-mathematics">Background Mathematics<a class="headerlink" href="#background-mathematics" title="Permanent link"></a></h1>
 <p>A formal definition for <span class="math">\(f(n) = O(g(n)\)</span> is as follows:</p>
 <div class="math">\begin{equation}
     f(n) = O(g(n)) \implies \exists c &gt; 0, n_0 &gt; 0 s.t 0 
 \end{equation}</div>
-<h1 id="algorithms-to-analyse">Algorithms To Analyse<a class="headerlink" href="#algorithms-to-analyse" title="Permanent link">§</a></h1>
+<h1 id="algorithms-to-analyse">Algorithms To Analyse<a class="headerlink" href="#algorithms-to-analyse" title="Permanent link"></a></h1>
 <p>The following algorithms will be analysed:</p>
 <ol>
 <li>Bubble Sort</li>
 <li>Quick Sort</li>
 </ol>
-<h2 id="bubble-sort_1">Bubble Sort<a class="headerlink" href="#bubble-sort_1" title="Permanent link">§</a></h2>
-<h2 id="quick-sort">Quick Sort<a class="headerlink" href="#quick-sort" title="Permanent link">§</a></h2>
-<h1 id="conclusion_1">Conclusion<a class="headerlink" href="#conclusion_1" title="Permanent link">§</a></h1>
+<h2 id="bubble-sort_1">Bubble Sort<a class="headerlink" href="#bubble-sort_1" title="Permanent link"></a></h2>
+<h2 id="quick-sort">Quick Sort<a class="headerlink" href="#quick-sort" title="Permanent link"></a></h2>
+<h1 id="conclusion_1">Conclusion<a class="headerlink" href="#conclusion_1" title="Permanent link"></a></h1>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",

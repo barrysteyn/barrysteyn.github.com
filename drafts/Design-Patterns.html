@@ -115,11 +115,11 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="design-patterns">Design Patterns<a class="headerlink" href="#design-patterns" title="Permanent link">§</a></h1>
+		<h1 id="design-patterns">Design Patterns<a class="headerlink" href="#design-patterns" title="Permanent link"></a></h1>
 <p>The classic design pattern book is the <a href="http://en.wikipedia.org/wiki/Design_Patterns">gang-of-four</a> book. Design patterns are simply guidelines for identifying and solving certain problems. They are abstract in nature, and hence are not implemented as a core language feature. Also, the word anti-pattern crops up: It is a pattern that is detrimental to the outcome of the task.</p>
-<h1 id="common-design-patterns">Common Design Patterns<a class="headerlink" href="#common-design-patterns" title="Permanent link">§</a></h1>
-<h2 id="creational-patterns">Creational Patterns<a class="headerlink" href="#creational-patterns" title="Permanent link">§</a></h2>
-<h3 id="singleton">Singleton<a class="headerlink" href="#singleton" title="Permanent link">§</a></h3>
+<h1 id="common-design-patterns">Common Design Patterns<a class="headerlink" href="#common-design-patterns" title="Permanent link"></a></h1>
+<h2 id="creational-patterns">Creational Patterns<a class="headerlink" href="#creational-patterns" title="Permanent link"></a></h2>
+<h3 id="singleton">Singleton<a class="headerlink" href="#singleton" title="Permanent link"></a></h3>
 <p>A singleton patterns ensures at most one instance of any class is available at any one time. Applications cannot create a new instance of a singleton.</p>
 <p>C++:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -180,7 +180,7 @@
 <li>That the constructor is protected. If the constructor is private, then inheritance is not possible.</li>
 <li>Lazy instantiation: Both the C++ and Java versions implement lazy instantiation, meaning that an instance is only produced when first needed.</li>
 </ul>
-<h3 id="builder">Builder<a class="headerlink" href="#builder" title="Permanent link">§</a></h3>
+<h3 id="builder">Builder<a class="headerlink" href="#builder" title="Permanent link"></a></h3>
 <p>A builder pattern is used to create complex objects. Complex in this sense could be an object that has a very complex constructor:</p>
 <p>Java:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -209,7 +209,7 @@ public class ComplexBuilder {
 </pre></div>
 </td></tr></table>
 
-<h3 id="factory-method">Factory Method<a class="headerlink" href="#factory-method" title="Permanent link">§</a></h3>
+<h3 id="factory-method">Factory Method<a class="headerlink" href="#factory-method" title="Permanent link"></a></h3>
 <p>The factory method is a method that creates an object. Unlike the builder pattern, it is not a class. Technically, it can be any method that is used to create an object. It is used in conjunction with inheritance: A base class will define a factory method and <strong>always</strong> uses it to create objects. A derived class can inherit from the base class and can override the method.</p>
 <p>The classic example (used in the GOF book) is a class that creates a two kinds of maze games:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -254,10 +254,10 @@ public class MagicMaze extends Maze {
 </pre></div>
 </td></tr></table>
 
-<h3 id="abstract-factory">Abstract Factory<a class="headerlink" href="#abstract-factory" title="Permanent link">§</a></h3>
-<h2 id="behavioral-patterns">Behavioral Patterns<a class="headerlink" href="#behavioral-patterns" title="Permanent link">§</a></h2>
-<h3 id="iterator">Iterator<a class="headerlink" href="#iterator" title="Permanent link">§</a></h3>
-<h3 id="observer">Observer<a class="headerlink" href="#observer" title="Permanent link">§</a></h3>
+<h3 id="abstract-factory">Abstract Factory<a class="headerlink" href="#abstract-factory" title="Permanent link"></a></h3>
+<h2 id="behavioral-patterns">Behavioral Patterns<a class="headerlink" href="#behavioral-patterns" title="Permanent link"></a></h2>
+<h3 id="iterator">Iterator<a class="headerlink" href="#iterator" title="Permanent link"></a></h3>
+<h3 id="observer">Observer<a class="headerlink" href="#observer" title="Permanent link"></a></h3>
 	</div>
 			</div>
 		</div>

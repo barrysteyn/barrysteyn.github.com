@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/barry-steyn.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-04-02T00:00:00-07:00</updated><entry><title>Do Not Go Gentle Into That Good Night</title><link href="http://doctrina.org/do-not-go-gentle-into-that-good-night.html" rel="alternate"></link><updated>2015-04-02T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-04-02:do-not-go-gentle-into-that-good-night.html</id><summary type="html">&lt;h1 id="do-not-go-gentle-into-that-good-night"&gt;Do Not Go Gentle Into That Good Night&lt;a class="headerlink" href="#do-not-go-gentle-into-that-good-night" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/barry-steyn.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-04-02T00:00:00-07:00</updated><entry><title>Do Not Go Gentle Into That Good Night</title><link href="http://doctrina.org/do-not-go-gentle-into-that-good-night.html" rel="alternate"></link><updated>2015-04-02T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-04-02:do-not-go-gentle-into-that-good-night.html</id><summary type="html">&lt;h1 id="do-not-go-gentle-into-that-good-night"&gt;Do Not Go Gentle Into That Good Night&lt;a class="headerlink" href="#do-not-go-gentle-into-that-good-night" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;small&gt;By &lt;a href="http://en.wikipedia.org/wiki/Dylan_Thomas"&gt;Dylan Thomas&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
 &lt;p&gt;Do not go gentle into that good night,&lt;br/&gt;
 Old age should burn and rave at close of day;&lt;br/&gt;
@@ -26,17 +26,17 @@ Rage, rage against the dying of the light.&lt;br/&gt;&lt;/p&gt;
                     frameborder='0' webkitAllowFullScreen mozallowfullscreen
                     allowFullScreen&gt;
                 &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;</summary><category term="art"></category></entry><entry><title>The Starting Node Of A Cycle In A Linked List</title><link href="http://doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html" rel="alternate"></link><updated>2015-02-18T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-02-18:Starting_Node_Of_A_Cycle_In_A_Linked_List.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a class="headerlink" href="#introduction" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+            &lt;/div&gt;&lt;/p&gt;</summary><category term="art"></category></entry><entry><title>The Starting Node Of A Cycle In A Linked List</title><link href="http://doctrina.org/Starting_Node_Of_A_Cycle_In_A_Linked_List.html" rel="alternate"></link><updated>2015-02-18T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-02-18:Starting_Node_Of_A_Cycle_In_A_Linked_List.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a class="headerlink" href="#introduction" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Given a &lt;a href="http://en.wikipedia.org/wiki/Linked_list#Singly_linked_list"&gt;singly linked list&lt;/a&gt; that has a cycle, how can one determine the first node in the cycle?&lt;/p&gt;
 &lt;p&gt;&lt;img src ="http://doctrina.org/images/ll-cycle-problem.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Using the image above as an example, the aim would be to find the orange node.&lt;/p&gt;
-&lt;h1 id="algorithm"&gt;Algorithm&lt;a class="headerlink" href="#algorithm" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="algorithm"&gt;Algorithm&lt;a class="headerlink" href="#algorithm" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;img src ="http://doctrina.org/images/ll-cycle-intersection.png" /&gt;
 Use two iterators, but make one move at twice the speed of the other. Starting from the head (first) node of the list, these iterators will meet at the red colored node. Now set one iterator back to the head node and leave the other at the red node. Moving both iterators at normal speed where they meet for the second time will be the orange node.&lt;/p&gt;
 &lt;p&gt;Go through this algorithm yourself with the above image, and it can easily be that the algorithm works for this example. Ever wondered why it worked? I did, but I never really thought of it until I was chatting to my colleague &lt;a href="http://www.jooyandeh.com/"&gt;Reza Jooyandeh&lt;/a&gt;. Reza immediately saw a nice way to prove this algorithm, I am just formalizing it here.&lt;/p&gt;
-&lt;h2 id="history"&gt;History&lt;a class="headerlink" href="#history" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="history"&gt;History&lt;a class="headerlink" href="#history" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This algorithm actually has a formal name: It is called &lt;a href="http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare"&gt;Floyd's cycle-finding algorithm&lt;/a&gt; and can be used to find cycles in a graph (a linked-list is also a graph) without using extra space in linear time. It is named after &lt;a href="http://en.wikipedia.org/wiki/Robert_W._Floyd"&gt;Robert W. Floyd&lt;/a&gt;.&lt;/p&gt;
-&lt;h1 id="proof-of-the-algorithm"&gt;Proof Of The Algorithm&lt;a class="headerlink" href="#proof-of-the-algorithm" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="proof-of-the-algorithm"&gt;Proof Of The Algorithm&lt;a class="headerlink" href="#proof-of-the-algorithm" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;img src ="http://doctrina.org/images/ll-cycle-definition.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Assume the following (refer to the above image):&lt;/p&gt;
 &lt;ul&gt;
@@ -45,15 +45,15 @@ Use two iterators, but make one move at twice the speed of the other. Starting f
 &lt;li&gt;The cycle contains &lt;span class="math"&gt;\(Y\)&lt;/span&gt; number of nodes where &lt;span class="math"&gt;\(Y \geq 2\)&lt;/span&gt; (since by definition, a cycle must contain at least two nodes).&lt;/li&gt;
 &lt;li&gt;The two iterators first meet after &lt;span class="math"&gt;\(Z\)&lt;/span&gt; nodes from the start of the cycle (these nodes are colored red in the above image).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="aim-of-the-proof"&gt;Aim Of The Proof&lt;a class="headerlink" href="#aim-of-the-proof" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="aim-of-the-proof"&gt;Aim Of The Proof&lt;a class="headerlink" href="#aim-of-the-proof" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The aim is to prove that the starting node of the cycle will be reached after advancing &lt;span class="math"&gt;\(X\)&lt;/span&gt; number of nodes from where the iterators first meet (&lt;span class="math"&gt;\(Z\)&lt;/span&gt; nodes into the cycle). Why does this suffice? Because we assume that there are &lt;span class="math"&gt;\(X\)&lt;/span&gt; number of nodes leading up to the start of the cycle, so advancing &lt;span class="math"&gt;\(X\)&lt;/span&gt; number of nodes inside the cycle to get to the start implies that the two iterators will meet at the beginning of the cycle.&lt;/p&gt;
-&lt;h2 id="proof"&gt;Proof&lt;a class="headerlink" href="#proof" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="proof"&gt;Proof&lt;a class="headerlink" href="#proof" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The proof is done in two parts. It is proved that:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;The fast iterator cannot "jump" over the slow iterator in the cycle. &lt;/li&gt;
 &lt;li&gt;Advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes from &lt;span class="math"&gt;\(Z\)&lt;/span&gt; nodes into the cycle will yield the beginning of the cycle.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id="the-fast-iterator-cannot-jump-over-the-slow-iterator-in-the-cycle"&gt;The fast iterator cannot "jump" over the slow iterator in the cycle&lt;a class="headerlink" href="#the-fast-iterator-cannot-jump-over-the-slow-iterator-in-the-cycle" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="the-fast-iterator-cannot-jump-over-the-slow-iterator-in-the-cycle"&gt;The fast iterator cannot "jump" over the slow iterator in the cycle&lt;a class="headerlink" href="#the-fast-iterator-cannot-jump-over-the-slow-iterator-in-the-cycle" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;This proved by contradiction. Assume the fast iterator will always jump over the slow iterator. Then if the slow iterator ends at position &lt;span class="math"&gt;\((x+1)\)&lt;/span&gt;, the fast iterator will end at &lt;span class="math"&gt;\((x+2)\)&lt;/span&gt;. But this can only happen if both iterators started at position &lt;span class="math"&gt;\(x\)&lt;/span&gt;, which is a contracdiction.&lt;/p&gt;
 &lt;p&gt;This has three implications:&lt;/p&gt;
 &lt;ol&gt;
@@ -62,7 +62,7 @@ Use two iterators, but make one move at twice the speed of the other. Starting f
 &lt;li&gt;By the above implication, this algorithm is linear in the number of nodes present: &lt;span class="math"&gt;\(O(n)\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The second implication above may need some explaining. The cycle has &lt;span class="math"&gt;\(Y\)&lt;/span&gt; nodes, and while the slow iterator advances over those nodes, the fast iterator will catch up to it. As shown above, the fast iterator cannot jump over the slow iterator and therefore they will meet (I leave this as an exercise to the reader to prove more formally).&lt;/p&gt;
-&lt;h3 id="advancing-by-x-nodes-from-z-nodes-into-the-cycle-will-yield-the-beginning-of-the-cycle"&gt;Advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes from &lt;span class="math"&gt;\(Z\)&lt;/span&gt; nodes into the cycle will yield the beginning of the cycle.&lt;a class="headerlink" href="#advancing-by-x-nodes-from-z-nodes-into-the-cycle-will-yield-the-beginning-of-the-cycle" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="advancing-by-x-nodes-from-z-nodes-into-the-cycle-will-yield-the-beginning-of-the-cycle"&gt;Advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes from &lt;span class="math"&gt;\(Z\)&lt;/span&gt; nodes into the cycle will yield the beginning of the cycle.&lt;a class="headerlink" href="#advancing-by-x-nodes-from-z-nodes-into-the-cycle-will-yield-the-beginning-of-the-cycle" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;To start the proof, note that the two iterators first meet after &lt;span class="math"&gt;\(Z\)&lt;/span&gt; nodes from the start of the cycle. The iterator that advances at normal speed would have progressed &lt;span class="math"&gt;\(X+Z\)&lt;/span&gt;. The iterator that advances at double speed could potentially have gone round the cycle many times, so it would have progressed &lt;span class="math"&gt;\(X+n\cdot Y+Z\)&lt;/span&gt; nodes, where &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt;. The proof starts by establishing a relationship between these iterators: The number of nodes progressed by the normal iterator at double speed (i.e. &lt;span class="math"&gt;\(2\cdot (X+Y)\)&lt;/span&gt;) is equal to the number of nodes progressed by the fast iterator (i.e. &lt;span class="math"&gt;\(X+n\cdot Y+Z\)&lt;/span&gt;).&lt;/p&gt;
 &lt;div class="math"&gt;\begin{array}{ll}
 X+n\cdot Y+Z &amp;amp; = &amp;amp; 2\cdot (X+Z) \text{ where } n \in \mathbb{N} \\
@@ -108,7 +108,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary><category term="algorithms"></category><category term="math"></category></entry><entry><title>Merge Sort And Inversions</title><link href="http://doctrina.org/Merge-Sort-And-Inversions.html" rel="alternate"></link><updated>2013-03-16T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-03-16:Merge-Sort-And-Inversions.html</id><summary type="html">&lt;h1 id="merge-sort"&gt;Merge Sort&lt;a class="headerlink" href="#merge-sort" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;/script&gt;</summary><category term="algorithms"></category><category term="math"></category></entry><entry><title>Merge Sort And Inversions</title><link href="http://doctrina.org/Merge-Sort-And-Inversions.html" rel="alternate"></link><updated>2013-03-16T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-03-16:Merge-Sort-And-Inversions.html</id><summary type="html">&lt;h1 id="merge-sort"&gt;Merge Sort&lt;a class="headerlink" href="#merge-sort" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Merge sort is the classic divide and conquor algorithm, and is used as a canonical example for explaining the topic. It is quite easy to implement (specially in Python) but I wanted to see a C implementation. Google found me some &lt;a href="http://www.stackoverflow.com"&gt;stack overflow&lt;/a&gt; links as well as several blog sites that listed code. And oh my god, the code was terrible. Most code that I have seen is a mixture of &lt;a href="http://en.wikipedia.org/wiki/Quick_sort"&gt;Quick Sort&lt;/a&gt;. And there are several untruths, for instance, that one can implement merge sort in place!&lt;/p&gt;
 &lt;p&gt;Merge sort is &lt;span class="math"&gt;\(O(n\cdot log(n))\)&lt;/span&gt;, and in fact, it is proven that for a comparison based sort, one cannot achieve better results. So then why is Quick Sort so popular when it is &lt;span class="math"&gt;\(O(n^2)\)&lt;/span&gt;? It is because Quick Sort has average complexity of &lt;span class="math"&gt;\(O(n\cdot log(n))\)&lt;/span&gt; (one has to choose very unlucky random pivots for it to be &lt;span class="math"&gt;\(O(n^2)\)&lt;/span&gt;) but also, Quick Sort can be accomplished in place. Merge Sort cannot! In fact, merge sort's space complexity is always going to be &lt;span class="math"&gt;\(2\cdot n\)&lt;/span&gt; - there is no getting around this and still guaranteeing &lt;span class="math"&gt;\(O(n\cdot log(n))\)&lt;/span&gt; performance.&lt;/p&gt;
 &lt;p&gt;To Summarize:&lt;/p&gt;
@@ -116,7 +116,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;li&gt;Merge Sort is &lt;span class="math"&gt;\(O(n\cdot log(n))\)&lt;/span&gt;.&lt;/li&gt;
 &lt;li&gt;Merge Sort cannot sort in place.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="merge-sort-example-code"&gt;Merge Sort Example Code&lt;a class="headerlink" href="#merge-sort-example-code" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="merge-sort-example-code"&gt;Merge Sort Example Code&lt;a class="headerlink" href="#merge-sort-example-code" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Here is my C implementation of Merge Sort. The merge function is where the extra space is required, and although it is only required temporarily and destroyed once the stack is popped, it still makes the sort require &lt;span class="math"&gt;\(2\cdot n\)&lt;/span&gt; space.&lt;/p&gt;
 &lt;script src="https://gist.github.com/barrysteyn/5177637.js?file=mergesort.c"&gt;&lt;/script&gt;
 
@@ -129,11 +129,11 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;p&gt;It would be used like so:&lt;/p&gt;
 &lt;script src="https://gist.github.com/barrysteyn/5177637.js?file=main.c"&gt;&lt;/script&gt;
 
-&lt;h1 id="counting-split-inversions"&gt;Counting Split Inversions&lt;a class="headerlink" href="#counting-split-inversions" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="counting-split-inversions"&gt;Counting Split Inversions&lt;a class="headerlink" href="#counting-split-inversions" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Merge sort leads to interesting applications besides sorting. One of the most interesting is counting the number of split inversions between two arrays. Assuming there are two arrays, the number of split inversions counts the number of swaps one array needs to transform into the other array. A &lt;em&gt;split inversion count&lt;/em&gt; forms a &lt;a href="http://en.wikipedia.org/wiki/Metric_space"&gt;metric space&lt;/a&gt; over the two arrays, and therefore one can accomplish measurements with it. For instance, one can use the inversion count as a metric for a recommender. How? If someone ranks movies from one to five, then that ranking can be compared to other rankings. One can then find similar rankings to note that these people have the same taste and therefore recommend movies that one person likes to the other.&lt;/p&gt;
-&lt;h2 id="counting-inversions-brute-force"&gt;Counting Inversions: Brute Force&lt;a class="headerlink" href="#counting-inversions-brute-force" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="counting-inversions-brute-force"&gt;Counting Inversions: Brute Force&lt;a class="headerlink" href="#counting-inversions-brute-force" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A brute force algorithm would be to compare each element in both arrays to each other, and determine if they would need to be swapped. This is &lt;span class="math"&gt;\(O(n^2)\)&lt;/span&gt; (quadratic in &lt;span class="math"&gt;\(n\)&lt;/span&gt;). Can we do better?&lt;/p&gt;
-&lt;h2 id="counting-inversions-divide-and-conquer"&gt;Counting Inversions: Divide And Conquer&lt;a class="headerlink" href="#counting-inversions-divide-and-conquer" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="counting-inversions-divide-and-conquer"&gt;Counting Inversions: Divide And Conquer&lt;a class="headerlink" href="#counting-inversions-divide-and-conquer" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;In fact, we can do much better. The key point to note that is that we can get this information for free during the merge stage of the Merge Sort. &lt;/p&gt;
 &lt;p&gt;In the merge stage, two sorted arrays are merged into one sorted array. Lets call these arrays &lt;span class="math"&gt;\(A\)&lt;/span&gt; and &lt;span class="math"&gt;\(B\)&lt;/span&gt;. Then the number of split inversions involving an element &lt;span class="math"&gt;\(y \in B\)&lt;/span&gt; of the second array is &lt;em&gt;precisely the number elements lefts in the first array &lt;span class="math"&gt;\(A\)&lt;/span&gt; when &lt;span class="math"&gt;\(y\)&lt;/span&gt; is copied into the temporary buffer&lt;/em&gt;. Adding up these split inversions during the merge stage will result in the total number of split inversions.&lt;/p&gt;
 &lt;script src="https://gist.github.com/barrysteyn/5177637.js?file=merge-sort-with-split-inversion-count.c"&gt;&lt;/script&gt;
@@ -179,16 +179,16 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;p&gt;Enjoy, and I would grateful for any feedback. Do note that the audience was not hard-core cryptographers.&lt;/p&gt;
 &lt;p&gt;&lt;center&gt;&lt;iframe src="http://www.slideshare.net/slideshow/embed_code/17424793" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;</summary><category term="JavaScript"></category><category term="Cryptography"></category><category term="Lecture"></category></entry><entry><title>Mathematical Nonsense - Inifinte Sum Series</title><link href="http://doctrina.org/Mathematical_Nonsense_-Inifinite-Sum-Series.html" rel="alternate"></link><updated>2013-03-02T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-03-02:Mathematical_Nonsense_-Inifinite-Sum-Series.html</id><summary type="html">&lt;p&gt;The following fact for infinite series crops up all the time:&lt;/p&gt;
 &lt;div class="math"&gt;$$ r\neq 1, 1+r+r^2+r^3+\ldots +r^k = \frac{r^{k+1}-1}{r-1} $$&lt;/div&gt;
-&lt;h1 id="proof"&gt;Proof&lt;a class="headerlink" href="#proof" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="proof"&gt;Proof&lt;a class="headerlink" href="#proof" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The proof is by induction:&lt;/p&gt;
-&lt;h3 id="base-case-k1"&gt;Base Case: k=1&lt;a class="headerlink" href="#base-case-k1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="base-case-k1"&gt;Base Case: k=1&lt;a class="headerlink" href="#base-case-k1" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;For the base case, where k=1, the left hand side of the above sum is &lt;span class="math"&gt;\(1+r\)&lt;/span&gt;, and the right hand side is &lt;span class="math"&gt;\(\frac{r^2-1}{1-r}\)&lt;/span&gt;:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{aligned}
  1+r &amp;amp;= (1+r)\cdot \frac{1-r}{1-r} \cr
  &amp;amp;= \frac{(1+r)(1-r)}{1-r} \cr
  &amp;amp;= \frac{r^2-1}{1-r} \cr
 \end{aligned}&lt;/div&gt;
-&lt;h3 id="inductive-case-kn"&gt;Inductive Case: k=n&lt;a class="headerlink" href="#inductive-case-kn" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="inductive-case-kn"&gt;Inductive Case: k=n&lt;a class="headerlink" href="#inductive-case-kn" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Assume the above holds for &lt;span class="math"&gt;\(k=n-1\)&lt;/span&gt;, then &lt;span class="math"&gt;\(1+r+r^2+r^3+\ldots +r^{n-1} = \frac{r^n-1}{r-1}\)&lt;/span&gt;. &lt;/p&gt;
 &lt;div class="math"&gt;$$\left( 1+r+r^2+r^3+\ldots +r^{n-1} \right) + r^n $$&lt;/div&gt;
 &lt;p&gt;By the inductive argument:&lt;/p&gt;
@@ -198,12 +198,12 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
  &amp;amp;= \frac{r^{n+1} - r^n + r^n -1}{r-1} \cr
  &amp;amp;= \frac{r^{n+1} -1}{r-1} \cr
 \end{aligned}&lt;/div&gt;
-&lt;h1 id="some-useful-facts"&gt;Some useful facts&lt;a class="headerlink" href="#some-useful-facts" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
-&lt;h3 id="assume-r-1-then-the-sum-is-bounded-by-frac11-r"&gt;Assume r &amp;lt; 1, then the sum is bounded by &lt;span class="math"&gt;\(\frac{1}{1-r}\)&lt;/span&gt;&lt;a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-frac11-r" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h1 id="some-useful-facts"&gt;Some useful facts&lt;a class="headerlink" href="#some-useful-facts" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h3 id="assume-r-1-then-the-sum-is-bounded-by-frac11-r"&gt;Assume r &amp;lt; 1, then the sum is bounded by &lt;span class="math"&gt;\(\frac{1}{1-r}\)&lt;/span&gt;&lt;a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-frac11-r" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If &lt;span class="math"&gt;\(r &amp;lt; 1\)&lt;/span&gt;, then: &lt;span class="math"&gt;\(1+r+r^2+r^3+\ldots +r^k \leq \frac{1}{1-r}\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;This is easy to see: if &lt;span class="math"&gt;\(r&amp;lt;1\)&lt;/span&gt;, then &lt;span class="math"&gt;\(1 - r^{k+1} \leq 1\)&lt;/span&gt;, and so &lt;span class="math"&gt;\(\frac{r^{k+1}-1}{r-1} = \frac{1-r^{k+1}}{1-r}\leq \frac{1}{1-r}\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;In this case, the series sum is dominated by the first term (e.g. 1), and is bounded above by something that is independent of k.&lt;/p&gt;
-&lt;h3 id="assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right"&gt;Assume r &amp;gt; 1, then the sum is bounded by &lt;span class="math"&gt;\(r^k\cdot \left(1+\frac{1}{r-1} \right)\)&lt;/span&gt;&lt;a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right"&gt;Assume r &amp;gt; 1, then the sum is bounded by &lt;span class="math"&gt;\(r^k\cdot \left(1+\frac{1}{r-1} \right)\)&lt;/span&gt;&lt;a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If &lt;span class="math"&gt;\(r &amp;gt; 1\)&lt;/span&gt;, then: &lt;span class="math"&gt;\( 1+r+r^2+r^3+\ldots +r^k \leq r^k\cdot \left(1+\frac{1}{r-1} \right)\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;The proof:
 &lt;/p&gt;
@@ -253,7 +253,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary><category term="Math"></category><category term="Mathematical_Nonsense"></category></entry><entry><title>The Master Method</title><link href="http://doctrina.org/The-Master-Method.html" rel="alternate"></link><updated>2013-02-27T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-02-27:The-Master-Method.html</id><summary type="html">&lt;h1 id="the-master-method"&gt;The Master Method&lt;a class="headerlink" href="#the-master-method" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;/script&gt;</summary><category term="Math"></category><category term="Mathematical_Nonsense"></category></entry><entry><title>The Master Method</title><link href="http://doctrina.org/The-Master-Method.html" rel="alternate"></link><updated>2013-02-27T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-02-27:The-Master-Method.html</id><summary type="html">&lt;h1 id="the-master-method"&gt;The Master Method&lt;a class="headerlink" href="#the-master-method" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The master method is a way to analyse the worst case running times of a recursive function. Assume the recursive function is of the following form:&lt;/p&gt;
 &lt;div class="math"&gt;$$ T(n) = a\cdot T\left(\frac{n}{b}\right) + O(n)^d$$&lt;/div&gt;
 &lt;p&gt;Where:&lt;/p&gt;
@@ -264,7 +264,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;/ul&gt;
 &lt;p&gt;Then&lt;/p&gt;
 &lt;div class="math"&gt;$$ T(n) = \begin{cases} O(n^d\cdot log n) &amp;amp; \text{if}\ a = b^d\ \text{case 1} \cr O(n^d) &amp;amp; \text{if}\ a &amp;lt; b^d\ \text{case 2}\cr O(n^{log_ba}) &amp;amp; \text{if}\ a &amp;gt; b^d\ \text{case 3}\end{cases}$$&lt;/div&gt;
-&lt;h2 id="canonical-example-merge-sort"&gt;Canonical Example: Merge Sort&lt;a class="headerlink" href="#canonical-example-merge-sort" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="canonical-example-merge-sort"&gt;Canonical Example: Merge Sort&lt;a class="headerlink" href="#canonical-example-merge-sort" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Merge sort is the classic divide-and-conquer algorithm. It is a comparison based sort that achieves the best time possible for comparison base sorts: &lt;span class="math"&gt;\(O(n\cdot log(n))\)&lt;/span&gt;. For merge sort, the recursive function would be the following:
 &lt;/p&gt;
 &lt;div class="math"&gt;$$ T(n) = 2\cdot T\left(\frac{n}{2}\right) + O(n)$$&lt;/div&gt;
@@ -275,30 +275,30 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;li&gt;&lt;strong&gt;d&lt;/strong&gt; is 1. This is the work done at each level after the recursive calls. For merge sort, the work is merging each of the two &lt;span class="math"&gt;\(\frac{n}{2}\)&lt;/span&gt; input of the subproblem.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;It is easy to see via a recursion tree that Merge sort takes &lt;span class="math"&gt;\(O(n\cdot logn)\)&lt;/span&gt; time. The master method totally agrees with this, as merge sort falls into case 1, with &lt;span class="math"&gt;\(a=2\)&lt;/span&gt;, &lt;span class="math"&gt;\(b=2\)&lt;/span&gt; and &lt;span class="math"&gt;\(d=1\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id="the-work-done-at-each-level"&gt;The Work Done At Each Level&lt;a class="headerlink" href="#the-work-done-at-each-level" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="the-work-done-at-each-level"&gt;The Work Done At Each Level&lt;a class="headerlink" href="#the-work-done-at-each-level" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;At any level &lt;span class="math"&gt;\(j\)&lt;/span&gt; in the recursive subtree, there are &lt;span class="math"&gt;\(a^j\)&lt;/span&gt; subproblems of size &lt;span class="math"&gt;\(\frac{n}{b^j}\)&lt;/span&gt;. Therefore at any one particular level, the work at level &lt;span class="math"&gt;\(j\)&lt;/span&gt; is: 
 &lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
 \text{Work done at level j} \leq a^j \cdot c\cdot \left( \frac{n}{b^j} \right)^d = c\cdot n^d \left(\frac{a}{b^d}\right)^j \label{wdael}
 \end{equation}&lt;/div&gt;
-&lt;h2 id="total-work-done"&gt;Total Work Done&lt;a class="headerlink" href="#total-work-done" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="total-work-done"&gt;Total Work Done&lt;a class="headerlink" href="#total-work-done" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;At any recursion tree, the leaves are at level &lt;span class="math"&gt;\(log_b(n)\)&lt;/span&gt;, where &lt;em&gt;b&lt;/em&gt; is the rate of work shrinkage. The merge sort canonical example demonstrates this - &lt;em&gt;b&lt;/em&gt; is 2 (problem is halved at each level of the recursion tree), and so there are &lt;span class="math"&gt;\(log_2(n)\)&lt;/span&gt; before the leaves are hit.&lt;/p&gt;
 &lt;p&gt;If the work done at each level is dominated by inequality &lt;span class="math"&gt;\(\ref{wdael}\)&lt;/span&gt;, then the total work done is the sum of up to &lt;span class="math"&gt;\(log_b(n)\)&lt;/span&gt;:
 &lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
 \text{Total work done} \leq c\cdot n^d \sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \label{twd}
 \end{equation}&lt;/div&gt;
-&lt;h3 id="intuition-for-the-three-cases"&gt;Intuition For The Three Cases&lt;a class="headerlink" href="#intuition-for-the-three-cases" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="intuition-for-the-three-cases"&gt;Intuition For The Three Cases&lt;a class="headerlink" href="#intuition-for-the-three-cases" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;When the master method was first explained to me, my lecturer humorously called the rate of work shrinkage (RWS - denoted by &lt;em&gt;b&lt;/em&gt;) the &lt;em&gt;"force of good"&lt;/em&gt; and the rate of subproblem proliferation (RSP - denoted by &lt;em&gt;a&lt;/em&gt;) the &lt;em&gt;"force of evil"&lt;/em&gt;. The following paragraphs perhaps explain this humour.&lt;/p&gt;
-&lt;h4 id="rws-rsp"&gt;RWS = RSP&lt;a class="headerlink" href="#rws-rsp" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id="rws-rsp"&gt;RWS = RSP&lt;a class="headerlink" href="#rws-rsp" title="Permanent link"&gt;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;When rate of work shrinkage is equal to rate of subproblem proliferation, then the same amount of work is being done for each level of the recursion. Therefore work done is calculated by multiplying the number of levels by the work done at every level (Case 1: &lt;span class="math"&gt;\(O(n^d\cdot log(n))\)&lt;/span&gt;).&lt;/p&gt;
 &lt;p&gt;Again, the canonical merge sort example: There are &lt;span class="math"&gt;\(log_2n\)&lt;/span&gt; levels, with each level doing &lt;span class="math"&gt;\(O(n)\)&lt;/span&gt; work. Therefore total is &lt;span class="math"&gt;\(n\cdot log(n)\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h4 id="rws-rsp_1"&gt;RWS &amp;gt; RSP&lt;a class="headerlink" href="#rws-rsp_1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id="rws-rsp_1"&gt;RWS &amp;gt; RSP&lt;a class="headerlink" href="#rws-rsp_1" title="Permanent link"&gt;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;When rate of work shrinkage is greater than rate of subproblem proliferation, then work done is &lt;em&gt;decreasing&lt;/em&gt; at each level (btw: This is very rare but when it happens is very good). Work done will therefore be dominated by the root of the recursion tree (Case 2: &lt;span class="math"&gt;\(O(n^d)\)&lt;/span&gt;).&lt;/p&gt;
-&lt;h4 id="rws-rsp_2"&gt;RWS &amp;lt; RSP&lt;a class="headerlink" href="#rws-rsp_2" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id="rws-rsp_2"&gt;RWS &amp;lt; RSP&lt;a class="headerlink" href="#rws-rsp_2" title="Permanent link"&gt;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;When rate of work shrinkage is less than rate of subproblem proliferation, work is &lt;em&gt;increasing&lt;/em&gt; at each level of the recursion. Work done will therefore be dominated by the leaves of the recursion tree (Case 3: expect O(#number of leaves)).&lt;/p&gt;
-&lt;h1 id="master-method-proof"&gt;Master Method Proof&lt;a class="headerlink" href="#master-method-proof" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id="lemma"&gt;Lemma&lt;a class="headerlink" href="#lemma" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id="master-method-proof"&gt;Master Method Proof&lt;a class="headerlink" href="#master-method-proof" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="lemma"&gt;Lemma&lt;a class="headerlink" href="#lemma" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The following lemma will help with the proof.&lt;/p&gt;
 &lt;p&gt;For &lt;span class="math"&gt;\(r \neq 1\)&lt;/span&gt;:&lt;/p&gt;
 &lt;div class="math"&gt;$$ 1 + r + r^2 + r^3 + \ldots + r^k = \frac{r^{k+1}-1}{r-1}$$&lt;/div&gt;
@@ -307,11 +307,11 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;li&gt;If &lt;span class="math"&gt;\(r &amp;lt; 1\)&lt;/span&gt;, then the sum is bounded above by &lt;span class="math"&gt;\(\frac{1}{1-r}\)&lt;/span&gt;. This means that the first term in the sum is the dominant term. Therefore the sum can be bounded above by some constant.&lt;/li&gt;
 &lt;li&gt;If &lt;span class="math"&gt;\(r &amp;gt; 1\)&lt;/span&gt;, then the sum is bounded above bt &lt;span class="math"&gt;\(r^k\cdot\left(1 + \frac{1}{1-r} \right)\)&lt;/span&gt;. This means that the last term (i.e. &lt;span class="math"&gt;\(r^k\)&lt;/span&gt;) is the dominant term, and in fact, the sum will always be less then &lt;span class="math"&gt;\(2\cdot r^k\)&lt;/span&gt;.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="proof-for-case-1"&gt;Proof For Case 1&lt;a class="headerlink" href="#proof-for-case-1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="proof-for-case-1"&gt;Proof For Case 1&lt;a class="headerlink" href="#proof-for-case-1" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Assume &lt;span class="math"&gt;\(a=b^d\)&lt;/span&gt;, then &lt;span class="math"&gt;\(\left(\frac{a}{b^d}\right) = 1\)&lt;/span&gt;, and so &lt;span class="math"&gt;\(\sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j = log_b(n) + 1\)&lt;/span&gt;. With this in mind: &lt;span class="math"&gt;\(c\cdot n^d \sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j = c\cdot n^d \cdot log_b(n) + 1 = O(n^d\cdot log n)\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id="proof-for-case-2"&gt;Proof For Case 2&lt;a class="headerlink" href="#proof-for-case-2" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="proof-for-case-2"&gt;Proof For Case 2&lt;a class="headerlink" href="#proof-for-case-2" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;If &lt;span class="math"&gt;\(a &amp;lt; b^d\)&lt;/span&gt;, then &lt;span class="math"&gt;\(\left(\frac{a}{b^d}\right) &amp;lt; 1\)&lt;/span&gt;. This is where the above lemma comes into play, because &lt;span class="math"&gt;\(\sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \leq f\)&lt;/span&gt;. Why do I use the constant &lt;em&gt;f&lt;/em&gt;? It is because in the lemma above, there is a constant that will always be greater than &lt;span class="math"&gt;\(\frac{1}{1-r}\)&lt;/span&gt; if &lt;span class="math"&gt;\(r &amp;lt; 1\)&lt;/span&gt;. Therefore &lt;span class="math"&gt;\(c\cdot n^d \sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \leq f\cdot c\cdot n^d = O(n^d)\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id="proof-for-case-3"&gt;Proof For Case 3&lt;a class="headerlink" href="#proof-for-case-3" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="proof-for-case-3"&gt;Proof For Case 3&lt;a class="headerlink" href="#proof-for-case-3" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Before I begin the proof for case 3, in a recursion tree, how many leaves are there? The answer: &lt;span class="math"&gt;\(a^{log_bn}\)&lt;/span&gt;. This is because there are &lt;span class="math"&gt;\(log_b(n)\)&lt;/span&gt; levels in the recursion tree, with each level splitting into &lt;em&gt;a&lt;/em&gt; subproblems.&lt;/p&gt;
 &lt;p&gt;If &lt;span class="math"&gt;\(a &amp;gt; b^d\)&lt;/span&gt;, then &lt;span class="math"&gt;\(\left(\frac{a}{b^d}\right) &amp;gt; 1\)&lt;/span&gt;. Again, the above lemma comes into play: &lt;span class="math"&gt;\(\sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \leq 2\cdot \left(\frac{a}{b^d}\right)^{log_bn}\)&lt;/span&gt;. Therefore &lt;span class="math"&gt;\(c\cdot n^d \sum_{j=0}^{log_bn} \left(\frac{a}{b^d}\right)^j \leq 2\cdot c\cdot n^d \cdot \left(\frac{a}{b^d}\right)^{log_bn}\)&lt;/span&gt;. Note that &lt;span class="math"&gt;\(b^{-dlog_bn} = \left(b^{log_bn}\right)^{-d} = n^{-d}\)&lt;/span&gt;. So &lt;span class="math"&gt;\(2\cdot c\cdot n^d \cdot \left(\frac{a}{b^d}\right)^{log_bn} = 2\cdot c\cdot a^{log_bn} = O(a^{log_bn})\)&lt;/span&gt;. As shown above, this is the number of recursion leaves.&lt;/p&gt;
 &lt;p&gt;The more astute of you out there may notice that &lt;em&gt;case 3&lt;/em&gt; was presented as &lt;span class="math"&gt;\(O(n^{log_ba})\)&lt;/span&gt;. This is because &lt;span class="math"&gt;\(n^{log_ba} = a^{log_bn}\)&lt;/span&gt; (I did not believe this at first, and had to &lt;a href="http://doctrina.org/Mathematical_Nonsense_Lemma-For-Logarithm-Equality.html"&gt;prove&lt;/a&gt; it to myself). Even though it is more intuitive to understand &lt;span class="math"&gt;\(a^{log_bn}\)&lt;/span&gt; (i.e. the leaves of the recursion sub tree), it is more consistent with the other cases to calculate &lt;span class="math"&gt;\(n^{log_ba}\)&lt;/span&gt;.&lt;/p&gt;
@@ -361,7 +361,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;li&gt;Why a cryptographic hash is insecure, and when it should be used.&lt;/li&gt;
 &lt;li&gt;What a MAC is.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id="cryptographic-hash"&gt;Cryptographic Hash&lt;a class="headerlink" href="#cryptographic-hash" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="cryptographic-hash"&gt;Cryptographic Hash&lt;a class="headerlink" href="#cryptographic-hash" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;A hash function maps an input in a large space to an output in a small space. Known as compression, all hash functions exhibit this property. A hash function's classic use is in the creation of a hash table, where it is vital that hash outputs are indepedendent of its inputs (because inputs who are related may be assigned to the same hash bucket). &lt;/p&gt;
 &lt;p&gt;A cryptographic hash function is hash function with four properties:&lt;/p&gt;
 &lt;ol&gt;
@@ -371,30 +371,30 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;li&gt;&lt;strong&gt;String Collision Resistance&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The last two properties are known collectively as &lt;em&gt;collision resistance&lt;/em&gt;.&lt;/p&gt;
-&lt;h3 id="compression"&gt;Compression&lt;a class="headerlink" href="#compression" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="compression"&gt;Compression&lt;a class="headerlink" href="#compression" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A compression function produces an output that is vastly smaller than its input (hence the name compression). More formally, the size of the domain (i.e. input) is much larger than the size of the range (i.e. output). For those math type people out there, it is expressed like so:&lt;/p&gt;
 &lt;div class="math"&gt;$$H: M \rightarrow x, M \in \{0,1\}^n, x \in \{0,1\}^l \text{ where } l \ll n$$&lt;/div&gt;
-&lt;h3 id="pre-image-resistance"&gt;Pre-Image Resistance&lt;a class="headerlink" href="#pre-image-resistance" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="pre-image-resistance"&gt;Pre-Image Resistance&lt;a class="headerlink" href="#pre-image-resistance" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Pre-image resistance means that given the result of a hash, it is hard to determine the message that produced that hash. Assuming the result of hashing a message &lt;span class="math"&gt;\(M\)&lt;/span&gt; is &lt;span class="math"&gt;\(x\)&lt;/span&gt;, then given only &lt;span class="math"&gt;\(x\)&lt;/span&gt;, it is hard to recover &lt;span class="math"&gt;\(M\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h3 id="weak-collision-resistance"&gt;Weak Collision Resistance&lt;a class="headerlink" href="#weak-collision-resistance" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="weak-collision-resistance"&gt;Weak Collision Resistance&lt;a class="headerlink" href="#weak-collision-resistance" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Weak collision resistance means that given the result of a hash, it is hard to find &lt;em&gt;another&lt;/em&gt; message that hashes to that same result. Therefore given &lt;span class="math"&gt;\(x \leftarrow H(M_0)\)&lt;/span&gt;, it is hard to find &lt;span class="math"&gt;\(M_1 \neq M_0\)&lt;/span&gt; such that &lt;span class="math"&gt;\(x \leftarrow H(M_1)\)&lt;/span&gt;. This is in some way similar to pre-image resistance, and weak collision resistance implies a form of pre-image resistance. But they are not the same thing.&lt;/p&gt;
-&lt;h3 id="strong-collision-resistance"&gt;Strong Collision Resistance&lt;a class="headerlink" href="#strong-collision-resistance" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="strong-collision-resistance"&gt;Strong Collision Resistance&lt;a class="headerlink" href="#strong-collision-resistance" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Strong collision resistance means that is hard to find any two messages that hash to the same value. That is, it is hard to find &lt;span class="math"&gt;\(M_0\)&lt;/span&gt; and &lt;span class="math"&gt;\(M_1\)&lt;/span&gt; such that &lt;span class="math"&gt;\(H(M_0) = H(M_1)\)&lt;/span&gt;. &lt;/p&gt;
-&lt;h2 id="dont-get-confused"&gt;Don't Get Confused!&lt;a class="headerlink" href="#dont-get-confused" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="dont-get-confused"&gt;Don't Get Confused!&lt;a class="headerlink" href="#dont-get-confused" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;If a weak collision is found, then one has also automatically found a strong collision (and vice-versa). So its easy to get confused and think they are the same thing, but they are not. A weak collision implies a hash collision for a message that has already been chosen. A strong collision implies a hash collision between any two messages. It is more difficult to achieve strong collision resistance due to the &lt;a href="http://en.wikipedia.org/wiki/Birthday_paradox"&gt;Birthday Paradox&lt;/a&gt;, hence the names strong and weak.&lt;/p&gt;
-&lt;h1 id="message-integrity"&gt;Message Integrity&lt;a class="headerlink" href="#message-integrity" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="message-integrity"&gt;Message Integrity&lt;a class="headerlink" href="#message-integrity" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Message integrity ensures a message is not altered during transmission. In short, the same message that was sent is the same that was received. For networking, various protocols have been built to ensure message integrity, like the ever popular and ubiquitous TCP protocol that ensures the message that was sent is the message that was received by using various mechanism including &lt;a href="http://en.wikipedia.org/wiki/Cyclic_redundancy_check"&gt;cyclic redundancy checking&lt;/a&gt; (CRC). CRC works well against message integrity being compromised by a network error, but it cannot defend against something more sinister: A hacker who is determined to alter the message payload during transmission (i.e. an active attack).&lt;/p&gt;
 &lt;p&gt;Message integrity is defended against an active attack by transmitting the message along with what is known as a message tag. The receiving party computes their own tag on the received message, and if it matches the transmitted tag, message integrity is assured. &lt;/p&gt;
-&lt;h2 id="tag-security-existential-forgery"&gt;Tag Security: Existential Forgery&lt;a class="headerlink" href="#tag-security-existential-forgery" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="tag-security-existential-forgery"&gt;Tag Security: Existential Forgery&lt;a class="headerlink" href="#tag-security-existential-forgery" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The mechanism used to build a tag needs to be secure. There are many rigorous security definitions for a tag, but an informal security definition would be to make it impossible for an attacker (i.e. anyone besides the person who created the original valid message tag pair) to produce a new message with a valid tag. Being able to produce a new message with a valid tag is called an &lt;em&gt;existential forgery&lt;/em&gt;, and any tag worth its weight must defend against existential forgery.&lt;/p&gt;
-&lt;h1 id="a-cryptrographic-hash-is-not-secure"&gt;A Cryptrographic Hash Is Not Secure&lt;a class="headerlink" href="#a-cryptrographic-hash-is-not-secure" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="a-cryptrographic-hash-is-not-secure"&gt;A Cryptrographic Hash Is Not Secure&lt;a class="headerlink" href="#a-cryptrographic-hash-is-not-secure" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;A crypgtographic hash (like the &lt;a href="http://en.wikipedia.org/wiki/Sha256"&gt;SHA-2&lt;/a&gt; family of hashes - e.g. SHA256) is susceptible to an existential forgery. To see this, one needs to have knowledge about how a cryptographic hash is produced. I will therefore give a very brief overview of this process, but I encourage the interested reader to read up more about this topic, I am really only skimming the surface.&lt;/p&gt;
-&lt;h2 id="merkledamgard-and-davies-meyer-construction"&gt;Merkle–Damgård And Davies-Meyer Construction&lt;a class="headerlink" href="#merkledamgard-and-davies-meyer-construction" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="merkledamgard-and-davies-meyer-construction"&gt;Merkle–Damgård And Davies-Meyer Construction&lt;a class="headerlink" href="#merkledamgard-and-davies-meyer-construction" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A block cipher is an encryption mechanism that takes a fixed input of size n bytes, and produces an encrypted output also of size n bytes. There are many block ciphers, and the field has been studied intensely (&lt;a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard"&gt;AES&lt;/a&gt; is an example). Block ciphers exhibit many of the properties of a crytographic hash, therefore it woulb be nice if a block cipher could be used to construct a cryptographic hash. And it turns out that it can: Any &lt;em&gt;secure&lt;/em&gt; block cipher can be quickly altered (normally by a method called &lt;a href="http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer"&gt;Davies-Meyer&lt;/a&gt;) to have all the properties of a cryptographic hash function except &lt;em&gt;compression&lt;/em&gt;. Block ciphers need two inputs which are kept secret: A &lt;em&gt;key&lt;/em&gt; and a &lt;em&gt;message&lt;/em&gt;. Therefore a cryptographic hash function made from a block cipher also needs two inputs, but unlike a block cipher, neither input is kept secret (read up more on &lt;a href="http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer"&gt;Davies-Meyer&lt;/a&gt; to understand these inputs). So how does one get the compression property? It is done using a construction called &lt;em&gt;Merkle–Damgård&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;The Merkle–Damgård construction takes as input a message of arbitrary length and produces a cryptographic hash of fixed output. It does this by breaking the message up into blocks, then feeding the blocks iteratively into a smaller cryptographic hash function (such as the one discussed in the above paragraph). The output of each function is fed as one of the inputs into the next function. The very first function just has a non-random set initialisation vector (IV) set as one of the inputs.&lt;/p&gt;
 &lt;p&gt;The image below demonstrates the Merkle–Damgård construction. In this image, &lt;strong&gt;h&lt;/strong&gt; is the cryptographic hash created from the block cipher, and &lt;span class="math"&gt;\(H_n\)&lt;/span&gt; is the resulting outputs of each stage. Note how the output of one function is chained to one of the inputs of the other.&lt;/p&gt;
 &lt;p&gt;&lt;img src="images/merkle-damgard.png"/&gt;&lt;/p&gt;
-&lt;h2 id="merkledamgard-is-not-secure"&gt;Merkle–Damgård Is Not Secure&lt;a class="headerlink" href="#merkledamgard-is-not-secure" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="merkledamgard-is-not-secure"&gt;Merkle–Damgård Is Not Secure&lt;a class="headerlink" href="#merkledamgard-is-not-secure" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;All our popular cryptographic hash functions are constructed using Merkle–Damgård, but it is very easy to mount an existential forgery attack on anything constructed using the Merkle–Damgård. This is because cryptographic hash functions created with Merkle–Damgård are not designed to be protected from existential forgery (more about this a little later). To see how an existential forgery can happen, study the Merkle–Damgård construction picture. An existential forgery can happen by doing the following:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Obtain a valid message tag pair, say &lt;span class="math"&gt;\((M, t_0)\)&lt;/span&gt;.&lt;/li&gt;
@@ -403,7 +403,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;li&gt;The pair &lt;span class="math"&gt;\((M||b, t_1)\)&lt;/span&gt; is a valid message tag pair (&lt;span class="math"&gt;\(M||b\)&lt;/span&gt; means &lt;span class="math"&gt;\(M\)&lt;/span&gt; concatenated with &lt;span class="math"&gt;\(b\)&lt;/span&gt;).&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;And so we can very easily make an existential forgery attack for any cryptographic hash function. &lt;strong&gt;NOTE&lt;/strong&gt;: For any cryptographer who reads this, I have purposefully ignored padding in Merkle–Damgård (so in reality, the valid message tag pair should be &lt;span class="math"&gt;\((M||pad||b, t_1)\)&lt;/span&gt;).&lt;/p&gt;
-&lt;h2 id="the-purpose-of-cryptographic-hashes"&gt;The Purpose Of Cryptographic Hashes&lt;a class="headerlink" href="#the-purpose-of-cryptographic-hashes" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="the-purpose-of-cryptographic-hashes"&gt;The Purpose Of Cryptographic Hashes&lt;a class="headerlink" href="#the-purpose-of-cryptographic-hashes" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A Cryptographic hash's purpose is not to provide message integrity. As will be shown shortly, one needs to have a secret in order to attain message integrity. A cryptographic hash is just a compression function with the extra properties as defined above. This is a very unfortunate choice of name, because most people think that anything with the name crypto means it is secure. In this case, it is not! I think it was named &lt;em&gt;cryptographic hash&lt;/em&gt; because the crypto guys made the machinery in order to make it possible.&lt;/p&gt;
 &lt;p&gt;So if it is not secure, does it have any use? Yes, it has tonnes of uses. Just not for message integrity. Here are three uses:&lt;/p&gt;
 &lt;ol&gt;
@@ -411,11 +411,11 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;li&gt;Integrity from a &lt;strong&gt;trusted source&lt;/strong&gt; - note, the source must be trusted. For example, you download a file from a website you &lt;strong&gt;trust&lt;/strong&gt;. This trusted website has a SHA crytographic hash signature. You calculate your own hash on the file you have just downloaded, and then compare. If they match (again, it is so important that you trust the web site), then you know your code has not been altered.&lt;/li&gt;
 &lt;li&gt;A means to discover changes in files. Due to collision resistance, if a file changes, its hash will also change (with high probability). This is used to detect changes in such applications as &lt;a href="http://en.wikipedia.org/wiki/Git_%28software%29"&gt;git&lt;/a&gt; (and others, I am sure).&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id="secure-cryptographic-hash"&gt;Secure Cryptographic Hash&lt;a class="headerlink" href="#secure-cryptographic-hash" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="secure-cryptographic-hash"&gt;Secure Cryptographic Hash&lt;a class="headerlink" href="#secure-cryptographic-hash" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;How does one achieve message integrtity? The answer: A &lt;strong&gt;secure&lt;/strong&gt; cryptogrphic hash. This is an example of a &lt;a href="http://en.wikipedia.org/wiki/Message_authentication_code"&gt;MAC&lt;/a&gt; and since MAC sounds so different to cryptographic hash, cryptograhers don't get confused (A MAC is more general than a secure cryptographic hash, but a secure cryptographic hash is definitely an example of a MAC). &lt;/p&gt;
 &lt;p&gt;A secure cryptogrpahic hash is a cryptographic hash that also involves a secret, and this secret is used to &lt;em&gt;"lock"&lt;/em&gt; the final tag value in place. Remember when describing the function used in Merkle–Damgård (normally created with Davies-Meyer construction), there is no secret involved. And this is achilles heel for Merkle–Damgård with respect to existential forgery.&lt;/p&gt;
 &lt;p&gt;Merkle–Damgård is adapted to use secret keys resulting in &lt;a href="http://en.wikipedia.org/wiki/Hmac"&gt;HMAC&lt;/a&gt; (which short for hashed based message authenticating code). An attacker would need to know the value of the secret key in order to mount an existential forgery attack. However, the key is a secret shared only between the two communicating parties (there is a whole class of study that is devoted to sharing a key securely between two parties - the interested reader can read about &lt;a href="http://en.wikipedia.org/wiki/Diffie_hellman"&gt;Diffie-Hellman&lt;/a&gt;). This makes an existential forgery attack impossible.&lt;/p&gt;
-&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;A cryptographic hash is not secure! In order for any hash to be secure, there needs to be a secret known only to the sender and the recipient. This secret is used as a key to lock the hash compression function in place.&lt;/p&gt;
 &lt;p&gt;So your cryptographic hash is not secure and cannot be used for message integrity without a shared secret!&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
@@ -503,7 +503,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;</summary><category term="Math"></category><category term="Mathematical_Nonsense"></category></entry><entry><title>Base64 With OpenSSL C API</title><link href="http://doctrina.org/Base64-With-OpenSSL-C-API.html" rel="alternate"></link><updated>2012-12-19T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-12-19:Base64-With-OpenSSL-C-API.html</id><summary type="html">&lt;p&gt;OpenSSL has the ability to perform &lt;a href="http://en.wikipedia.org/wiki/Base64"&gt;Base64&lt;/a&gt; encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the &lt;a href="http://www.openssl.org/docs/crypto/BIO_f_base64.html"&gt;example&lt;/a&gt; on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some &lt;a href="https://gist.github.com/4409525/download"&gt;working code&lt;/a&gt;. Enjoy!&lt;/p&gt;
-&lt;h1 id="get-the-code"&gt;Get The Code&lt;a class="headerlink" href="#get-the-code" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="get-the-code"&gt;Get The Code&lt;a class="headerlink" href="#get-the-code" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;You can download this entire gist &lt;a href="https://gist.github.com/4409525/download"&gt;here&lt;/a&gt;. It consists of the following files:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://gist.github.com/4409525#file-base64decode-c"&gt;Base64Decode.c&lt;/a&gt; - the decode function (takes Base64 encoded string as input).&lt;/li&gt;
@@ -511,28 +511,28 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;li&gt;&lt;a href="https://gist.github.com/4409525#file-main-c"&gt;Main.c&lt;/a&gt; - the main c file that demonstrates usage of the functionality in the two files above.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://gist.github.com/4409525#file-makefile"&gt;Makefile&lt;/a&gt; - the C makefile. Compilation has been tested on a linux ubuntu distribution, and links with &lt;code&gt;lcrypto&lt;/code&gt; for &lt;a href="http://www.openssl.org/"&gt;opensll&lt;/a&gt; and &lt;code&gt;lm&lt;/code&gt; for math.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id="base64-encoding"&gt;Base64 Encoding&lt;a class="headerlink" href="#base64-encoding" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="base64-encoding"&gt;Base64 Encoding&lt;a class="headerlink" href="#base64-encoding" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;script src="https://gist.github.com/4409525.js?file=Base64Encode.c"&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;p&gt;Note the following:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Given a string of length &lt;code&gt;n&lt;/code&gt;, the resulting Base64 string is length &lt;span class="math"&gt;\(4 \times \lceil \frac{n}{3} \rceil\)&lt;/span&gt;. This is performed on lines 11.&lt;/li&gt;
 &lt;li&gt;On line 12, &lt;code&gt;*buffer&lt;/code&gt; is malloc'd to &lt;code&gt;encodedSize+1&lt;/code&gt;. The &lt;code&gt;+1&lt;/code&gt; is because an extra character is needed for the &lt;code&gt;NULL&lt;/code&gt; character (&lt;code&gt;'\0'&lt;/code&gt;) at the end of the string.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id="base64-decoding"&gt;Base64 Decoding&lt;a class="headerlink" href="#base64-decoding" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="base64-decoding"&gt;Base64 Decoding&lt;a class="headerlink" href="#base64-decoding" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;script src="https://gist.github.com/4409525.js?file=Base64Decode.c"&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;p&gt;Note the following:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;It is important to set the flag &lt;code&gt;BIO_FLAGS_BASE64_NO_NL&lt;/code&gt;. If this is not done, the read operation will block until a newline character (&lt;code&gt;\n&lt;/code&gt;) is encountered.&lt;/li&gt;
 &lt;li&gt;The function &lt;code&gt;calcDecodeLength&lt;/code&gt; will, given a Base64 encoded input string, calculate the length of the decoded string. Base64 encodes a "normal" 8 bit character string by using only 6 bits (hence only &lt;span class="math"&gt;\(2^6=64\)&lt;/span&gt; characters are needed). Therefore every 4 characters of Base64 decodes to three decoded characters, and multiplying the length of the Base64 string by &lt;span class="math"&gt;\(\frac{3}{4}\)&lt;/span&gt; will typically suffice. There are however two exceptions due to padding denoted by the &lt;code&gt;=&lt;/code&gt; character. For more information, read &lt;a href="http://en.wikipedia.org/wiki/Base64#Decoding_Base64_with_padding"&gt;decoding base64 with padding&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The above functionality is used like so:
 &lt;script src="https://gist.github.com/4409525.js?file=Main.c"&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;p&gt;Compile it with this MakeFile:
 &lt;script src="https://gist.github.com/4409525.js?file=Makefile"&gt;&lt;/script&gt;&lt;/p&gt;
-&lt;h1 id="memory-stuff"&gt;Memory Stuff&lt;a class="headerlink" href="#memory-stuff" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="memory-stuff"&gt;Memory Stuff&lt;a class="headerlink" href="#memory-stuff" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The memory for &lt;code&gt;buffer&lt;/code&gt; in both functions is created on the heap using &lt;a href="http://www.cplusplus.com/reference/cstdlib/malloc/"&gt;malloc&lt;/a&gt;. Therefore, it must be managed. This is a tiny example, and the program ends before any memory leaks become a problem, but in production code, remember to free the heap memory occupied by &lt;code&gt;buffer&lt;/code&gt; after it has been used. This is done with the &lt;a href="http://www.cplusplus.com/reference/cstdlib/free/"&gt;free&lt;/a&gt; command.&lt;/p&gt;
-&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The above functions should perform better error checking if used in production. It also only works for encoding and decoding of a strings (although it is not too difficult to get it to work for files as well). This should give the inquisitive (and frustrated) programmer a base from which to work from.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
@@ -571,9 +571,9 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary><category term="Development"></category><category term="OpenSSL"></category></entry><entry><title>Scrypt Authentiction For Node</title><link href="http://doctrina.org/Scrypt-Authentication-For-Node.html" rel="alternate"></link><updated>2012-12-18T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-12-18:Scrypt-Authentication-For-Node.html</id><summary type="html">&lt;h1 id="scrypt-for-nodejs"&gt;Scrypt For NodeJS&lt;a class="headerlink" href="#scrypt-for-nodejs" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;/script&gt;</summary><category term="Development"></category><category term="OpenSSL"></category></entry><entry><title>Scrypt Authentiction For Node</title><link href="http://doctrina.org/Scrypt-Authentication-For-Node.html" rel="alternate"></link><updated>2012-12-18T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-12-18:Scrypt-Authentication-For-Node.html</id><summary type="html">&lt;h1 id="scrypt-for-nodejs"&gt;Scrypt For NodeJS&lt;a class="headerlink" href="#scrypt-for-nodejs" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;node-scrypt is a native node C++ wrapper for Colin Percival's scrypt &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation&lt;/a&gt; utility.&lt;/p&gt;
-&lt;h2 id="what-is-scrypt"&gt;What Is Scrypt?&lt;a class="headerlink" href="#what-is-scrypt" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="what-is-scrypt"&gt;What Is Scrypt?&lt;a class="headerlink" href="#what-is-scrypt" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Scrypt is an advanced crypto library used mainly for &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation&lt;/a&gt; (i.e. password authenticator). More information can be found here:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.tarsnap.com/scrypt.html"&gt;Tarsnap blurb about scrypt&lt;/a&gt; - Colin Percival (the author of scrypt) explains a bit about it.&lt;/li&gt;
@@ -581,7 +581,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;li&gt;&lt;a href="http://en.wikipedia.org/wiki/Scrypt"&gt;Wikipedia Article on scrypt&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;For additional interest, read the article on wikipedias about the &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation function&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id="the-three-essential-properties-of-password-key-derivation"&gt;The Three Essential Properties Of Password Key Derivation&lt;a class="headerlink" href="#the-three-essential-properties-of-password-key-derivation" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="the-three-essential-properties-of-password-key-derivation"&gt;The Three Essential Properties Of Password Key Derivation&lt;a class="headerlink" href="#the-three-essential-properties-of-password-key-derivation" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Password key derivation requires three properties:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The password must not be stored in plaintext. (Therefore it is hashed).&lt;/li&gt;
@@ -589,7 +589,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;li&gt;The salted hash function must not be fast. (If someone does get hold of the salted hashes, their only option will be brute force which will be very slow).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This scrypt library automatically handles the above properties. The last item seems strange: Computer scientists are normally pre-occupied with making things fast. Yet it is this property that sets Scrypt apart from the competition. As computers evolve and get more powerful, they are able to attack this property more efficiently. This has become especially apparent with the rise of parallel programming. Scrypt aims to defend against all types of attacks, not matter the attackers power now or in the future.&lt;/p&gt;
-&lt;h3 id="what-this-module-provides"&gt;What This Module Provides&lt;a class="headerlink" href="#what-this-module-provides" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="what-this-module-provides"&gt;What This Module Provides&lt;a class="headerlink" href="#what-this-module-provides" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;This module implements the following:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Scrypt password key derivation&lt;/strong&gt;&lt;ul&gt;
@@ -603,7 +603,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I suspect scrypt will be used mainly as a password key derivation function (its author's intended use), but I have also ported the scrypt encryption and decryption functions as implementations for them were available from the author. Performing scrypt cryptography is done if you value security over speed. Scrypt is more secure than a vanilla block cipher (e.g. AES) but it is much slower. It is also the basis for the key derivation functions.&lt;/p&gt;
-&lt;h2 id="why-use-scrypt"&gt;Why Use Scrypt?&lt;a class="headerlink" href="#why-use-scrypt" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="why-use-scrypt"&gt;Why Use Scrypt?&lt;a class="headerlink" href="#why-use-scrypt" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;It is probably the most advanced key derivation function available. This is is quote taken from a comment in hacker news:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Passwords hashed with scrypt with sufficiently-high strength values (there are 3 tweakable input numbers) are fundamentally impervious to being cracked. I use the word "fundamental" in the literal sense, here; even if you had the resources of a large country, you would not be able to design any hardware (whether it be GPU hardware, custom-designed hardware, or otherwise) which could crack these hashes. Ever. (For sufficiently-small definitions of "ever". At the very least "within your lifetime"; probably far longer.)&lt;/p&gt;
@@ -626,7 +626,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;p&gt;the system [will use] the amount of RAM which [is] specified [as the] fraction of the available RAM, but no more than maxmem, and no less than 1MiB&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Therefore at the very least, 1MiB of ram will be used.&lt;/p&gt;
-&lt;h3 id="the-three-tweakable-inputs"&gt;The Three Tweakable Inputs&lt;a class="headerlink" href="#the-three-tweakable-inputs" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="the-three-tweakable-inputs"&gt;The Three Tweakable Inputs&lt;a class="headerlink" href="#the-three-tweakable-inputs" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;u&gt;&lt;strong&gt;Note&lt;/strong&gt;: This is a very important section to understand&lt;/u&gt;. The three tweakable inputs mentioned above are actually just &lt;em&gt;human understandable&lt;/em&gt; inputs into a translation function that produces the inputs required for the internal scrypt cryptographic function. These inputs (as defined in the &lt;a href="http://www.tarsnap.com/scrypt/scrypt.pdf"&gt;scrypt paper&lt;/a&gt;) are as follows:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;N&lt;/strong&gt; - general work factor, iteration count.&lt;/li&gt;
@@ -634,9 +634,9 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;li&gt;&lt;strong&gt;p&lt;/strong&gt; - parallelization factor; fine-tunes the relative cpu-cost.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Values for &lt;em&gt;maxtime&lt;/em&gt;, &lt;em&gt;maxmemfrac&lt;/em&gt; and &lt;em&gt;maxmem&lt;/em&gt; are translated into the above values, which are then fed to the scrypt function. The translation function also takes into account the CPU and Memory capabilities of a machine. Therefore values of &lt;em&gt;N&lt;/em&gt;, &lt;em&gt;r&lt;/em&gt; and &lt;em&gt;p&lt;/em&gt; may differ for different machines that have different specs.&lt;/p&gt;
-&lt;h2 id="pros-and-cons"&gt;Pros And Cons&lt;a class="headerlink" href="#pros-and-cons" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="pros-and-cons"&gt;Pros And Cons&lt;a class="headerlink" href="#pros-and-cons" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Here are some pros and cons for using it:&lt;/p&gt;
-&lt;h3 id="pros"&gt;Pros&lt;a class="headerlink" href="#pros" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="pros"&gt;Pros&lt;a class="headerlink" href="#pros" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;The scrypt algorithm has been published by &lt;a href="http://en.wikipedia.org/wiki/IETF"&gt;IETF&lt;/a&gt; as an &lt;a href="http://en.wikipedia.org/wiki/Internet_Draft"&gt;Internet Draft&lt;/a&gt; and is thus on track to becoming a standard. See &lt;a href="https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00"&gt;here&lt;/a&gt; for the draft.&lt;/li&gt;
 &lt;li&gt;It is being actively used in production at &lt;a href="http://www.tarsnap.com/"&gt;Tarsnap&lt;/a&gt;.&lt;/li&gt;
@@ -650,25 +650,25 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;blockquote&gt;
 &lt;p&gt;We estimate that on modern (2009) hardware, if 5 seconds are spent computing a derived key, the cost of a hardware brute-force attack against scrypt is roughly 4000 times greater than the cost of a similar attack against bcrypt (to find the same password), and 20000 times greater than a similar attack against PBKDF2.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id="cons"&gt;Cons&lt;a class="headerlink" href="#cons" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="cons"&gt;Cons&lt;a class="headerlink" href="#cons" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;There is just one con I can think of: It is a relatively new library (only been around since 2009). Cryptographers don't really like new libraries for production deployment as it has not been &lt;em&gt;battle tested&lt;/em&gt;. That being said, it is being actively used in &lt;a href="http://www.tarsnap.com/"&gt;Tarsnap&lt;/a&gt; (as mentioned above) and the author is very active.&lt;/p&gt;
-&lt;h1 id="security-issuesconcerns"&gt;Security Issues/Concerns&lt;a class="headerlink" href="#security-issuesconcerns" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="security-issuesconcerns"&gt;Security Issues/Concerns&lt;a class="headerlink" href="#security-issuesconcerns" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;As should be the case with any security tool, this library should be scrutinized by anyone using it. If you find or suspect an issue with the code- please bring it to my attention and I'll spend some time trying to make sure that this tool is as secure as possible.&lt;/p&gt;
-&lt;h1 id="platforms"&gt;Platforms&lt;a class="headerlink" href="#platforms" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="platforms"&gt;Platforms&lt;a class="headerlink" href="#platforms" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This library works on the following platforms:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Linux&lt;/li&gt;
 &lt;li&gt;MAC OS&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Windows support is coming very soon.&lt;/p&gt;
-&lt;h1 id="installation-instructions"&gt;Installation Instructions&lt;a class="headerlink" href="#installation-instructions" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="installation-instructions"&gt;Installation Instructions&lt;a class="headerlink" href="#installation-instructions" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to &lt;a href="https://github.com/kelvinwong-ca"&gt;Kelvin Wong&lt;/a&gt;).&lt;/p&gt;
-&lt;h2 id="from-npm"&gt;From NPM&lt;a class="headerlink" href="#from-npm" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="from-npm"&gt;From NPM&lt;a class="headerlink" href="#from-npm" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;npm install scrypt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h2 id="from-source"&gt;From Source&lt;a class="headerlink" href="#from-source" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="from-source"&gt;From Source&lt;a class="headerlink" href="#from-source" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;You will need &lt;code&gt;node-gyp&lt;/code&gt; to get this to work (install it if you don't have it: &lt;code&gt;npm install -g node-gyp&lt;/code&gt;):&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -678,9 +678,9 @@ node-gyp configure build
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h1 id="testing"&gt;Testing&lt;a class="headerlink" href="#testing" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="testing"&gt;Testing&lt;a class="headerlink" href="#testing" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Testing is accomplished with the &lt;a href="https://github.com/isaacs/node-tap"&gt;node tap module&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="if-installed-via-npm"&gt;If installed via NPM&lt;a class="headerlink" href="#if-installed-via-npm" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="if-installed-via-npm"&gt;If installed via NPM&lt;a class="headerlink" href="#if-installed-via-npm" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To test, go to the folder where scrypt was installed, and type:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -690,7 +690,7 @@ node tests/scrypt-tests
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h2 id="if-installed-via-source"&gt;If installed via source&lt;a class="headerlink" href="#if-installed-via-source" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="if-installed-via-source"&gt;If installed via source&lt;a class="headerlink" href="#if-installed-via-source" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Go to the folder where scrypt was installed and type:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -700,13 +700,13 @@ node tests/scrypt-tests
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h1 id="hash-info"&gt;Hash Info&lt;a class="headerlink" href="#hash-info" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="hash-info"&gt;Hash Info&lt;a class="headerlink" href="#hash-info" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;All scrypt output is encoded into Base64 using &lt;a href="http://www.adp-gmbh.ch/"&gt;René Nyffenegger&lt;/a&gt; &lt;a href="http://www.adp-gmbh.ch/cpp/common/base64.html"&gt;library&lt;/a&gt;. The character sets that compromises all output are &lt;code&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&lt;/code&gt;.&lt;/p&gt;
-&lt;h1 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;There are both asynchronous and synchronous functions available. It is highly recommended not to use the synchronous version unless necessary due to the fact that Node's event loop will be blocked for the duration of these purposefully slow functions.&lt;/p&gt;
-&lt;h2 id="asynchronous-authentication"&gt;Asynchronous Authentication&lt;a class="headerlink" href="#asynchronous-authentication" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="asynchronous-authentication"&gt;Asynchronous Authentication&lt;a class="headerlink" href="#asynchronous-authentication" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;For interactive authentication, set &lt;code&gt;maxtime&lt;/code&gt; to &lt;code&gt;0.1&lt;/code&gt; - 100 milliseconds. &lt;/p&gt;
-&lt;h3 id="to-create-a-password-hash"&gt;To create a password hash&lt;a class="headerlink" href="#to-create-a-password-hash" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="to-create-a-password-hash"&gt;To create a password hash&lt;a class="headerlink" href="#to-create-a-password-hash" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -750,7 +750,7 @@ node tests/scrypt-tests
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h3 id="to-verify-a-password-hash"&gt;To verify a password hash&lt;a class="headerlink" href="#to-verify-a-password-hash" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="to-verify-a-password-hash"&gt;To verify a password hash&lt;a class="headerlink" href="#to-verify-a-password-hash" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -773,9 +773,9 @@ node tests/scrypt-tests
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h2 id="synchronous-authentication"&gt;Synchronous Authentication&lt;a class="headerlink" href="#synchronous-authentication" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="synchronous-authentication"&gt;Synchronous Authentication&lt;a class="headerlink" href="#synchronous-authentication" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Again, for interactive authentication, set &lt;code&gt;maxtime&lt;/code&gt; to &lt;code&gt;0.1&lt;/code&gt; - 100 milliseconds. &lt;/p&gt;
-&lt;h3 id="to-create-a-password-hash_1"&gt;To create a password hash&lt;a class="headerlink" href="#to-create-a-password-hash_1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="to-create-a-password-hash_1"&gt;To create a password hash&lt;a class="headerlink" href="#to-create-a-password-hash_1" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -803,7 +803,7 @@ var hash = scrypt.passwordHashSync(password, maxtime, maxmem, maxmemfrac);
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h3 id="to-verify-a-password-hash_1"&gt;To verify a password hash&lt;a class="headerlink" href="#to-verify-a-password-hash_1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="to-verify-a-password-hash_1"&gt;To verify a password hash&lt;a class="headerlink" href="#to-verify-a-password-hash_1" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -817,7 +817,7 @@ var result = scrypt.verifyHashSync(hash, password);
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Note: There is no error description for the synchronous version. Therefore, if an error occurs, it will just return its result as &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id="asynchronous-encryption-and-decryption"&gt;Asynchronous Encryption and Decryption&lt;a class="headerlink" href="#asynchronous-encryption-and-decryption" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="asynchronous-encryption-and-decryption"&gt;Asynchronous Encryption and Decryption&lt;a class="headerlink" href="#asynchronous-encryption-and-decryption" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -871,7 +871,7 @@ var result = scrypt.verifyHashSync(hash, password);
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h2 id="synchronous-encryption-and-decryption"&gt;Synchronous Encryption and Decryption&lt;a class="headerlink" href="#synchronous-encryption-and-decryption" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="synchronous-encryption-and-decryption"&gt;Synchronous Encryption and Decryption&lt;a class="headerlink" href="#synchronous-encryption-and-decryption" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -909,9 +909,9 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h1 id="api"&gt;Api&lt;a class="headerlink" href="#api" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id="authentication"&gt;Authentication&lt;a class="headerlink" href="#authentication" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id="asynchronous"&gt;Asynchronous&lt;a class="headerlink" href="#asynchronous" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h1 id="api"&gt;Api&lt;a class="headerlink" href="#api" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="authentication"&gt;Authentication&lt;a class="headerlink" href="#authentication" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="asynchronous"&gt;Asynchronous&lt;a class="headerlink" href="#asynchronous" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;passwordHash(password, maxtime, maxmem, maxmemfrac, callback_function)&lt;/code&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;password&lt;/code&gt; - [REQUIRED] - a password string.&lt;/li&gt;
@@ -928,7 +928,7 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="synchronous"&gt;Synchronous&lt;a class="headerlink" href="#synchronous" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="synchronous"&gt;Synchronous&lt;a class="headerlink" href="#synchronous" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;passwordHashSync(password, maxtime, maxmem, maxmemfrac)&lt;/code&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;password&lt;/code&gt; - [REQUIRED] - a password string.&lt;/li&gt;
@@ -943,8 +943,8 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="encryptiondecryption"&gt;Encryption/Decryption&lt;a class="headerlink" href="#encryptiondecryption" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id="asynchronous_1"&gt;Asynchronous&lt;a class="headerlink" href="#asynchronous_1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h2 id="encryptiondecryption"&gt;Encryption/Decryption&lt;a class="headerlink" href="#encryptiondecryption" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="asynchronous_1"&gt;Asynchronous&lt;a class="headerlink" href="#asynchronous_1" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;encrypt(message, password, maxtime, maxmem, maxmemfrac, callback_function)&lt;/code&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;message&lt;/code&gt; - [REQUIRED] - the message data to be encrypted.&lt;/li&gt;
@@ -965,7 +965,7 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="synchronous_1"&gt;Synchronous&lt;a class="headerlink" href="#synchronous_1" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="synchronous_1"&gt;Synchronous&lt;a class="headerlink" href="#synchronous_1" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;encryptSync(message, password, maxtime, maxmem, maxmemfrac)&lt;/code&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;message&lt;/code&gt; - [REQUIRED] - the message data to be encrypted.&lt;/li&gt;
@@ -984,10 +984,10 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id="credits"&gt;Credits&lt;a class="headerlink" href="#credits" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="credits"&gt;Credits&lt;a class="headerlink" href="#credits" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The scrypt library is Colin Percival's &lt;a href="http://www.tarsnap.com/scrypt.html"&gt;scrypt&lt;/a&gt; project. This includes the encryption/decryption functions which are basically just wrappers into this library.&lt;/p&gt;
 &lt;p&gt;The password hash and verify functions are also very heavily influenced by the scrypt source code, with most functionality being copied from various placed within scrypt.&lt;/p&gt;
-&lt;h1 id="contributors"&gt;Contributors&lt;a class="headerlink" href="#contributors" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="contributors"&gt;Contributors&lt;a class="headerlink" href="#contributors" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.adp-gmbh.ch/"&gt;René Nyffenegger&lt;/a&gt; - produced original Base64 encoding code.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/kelvinwong-ca"&gt;Kelvin Wong&lt;/a&gt; - MAC OS compilation and testing.&lt;/li&gt;
@@ -998,7 +998,7 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;li&gt;&lt;strong&gt;virtualenv&lt;/strong&gt; - this must be set the folder where your virtual environment is defined. It is normally &lt;code&gt;~/.virtualenvs/&amp;lt;name of virtual environment&amp;gt;&lt;/code&gt;. Uwsgi uses this switch to define the &lt;a href="http://docs.python.org/2/using/cmdline.html#envvar-PYTHONHOME"&gt;PYTHONHOME&lt;/a&gt; environment variable for the script to be executed.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;file&lt;/strong&gt; - this is the file that will be run by uwsgi&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id="an-upstart-example"&gt;An Upstart Example&lt;a class="headerlink" href="#an-upstart-example" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="an-upstart-example"&gt;An Upstart Example&lt;a class="headerlink" href="#an-upstart-example" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Lets assume the following:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;pythonpath&lt;/strong&gt; = "/home/dev/python-script"&lt;/li&gt;
@@ -1007,12 +1007,12 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/ol&gt;
 &lt;p&gt;Then an upstart script to start uwsgi that will run this script in the virutalenv is as follows:
 &lt;script src="https://gist.github.com/4469288.js"&gt;&lt;/script&gt;&lt;/p&gt;
-&lt;p&gt;There are many options that one can give uwsgi. The above example is running a flask app, and therefore uses the &lt;code&gt;--callable&lt;/code&gt; switch (although your particular needs should be defined by the documentation).&lt;/p&gt;</summary><category term="System Administration"></category></entry><entry><title>Plugin For Pelican To Enable Latex</title><link href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html" rel="alternate"></link><updated>2012-11-08T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-11-08:Plugin-For-Pelican-To-Enable-Latex.html</id><summary type="html">&lt;h1 id="latex-plugin-for-pelican"&gt;Latex Plugin For Pelican&lt;a class="headerlink" href="#latex-plugin-for-pelican" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;There are many options that one can give uwsgi. The above example is running a flask app, and therefore uses the &lt;code&gt;--callable&lt;/code&gt; switch (although your particular needs should be defined by the documentation).&lt;/p&gt;</summary><category term="System Administration"></category></entry><entry><title>Plugin For Pelican To Enable Latex</title><link href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html" rel="alternate"></link><updated>2012-11-08T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-11-08:Plugin-For-Pelican-To-Enable-Latex.html</id><summary type="html">&lt;h1 id="latex-plugin-for-pelican"&gt;Latex Plugin For Pelican&lt;a class="headerlink" href="#latex-plugin-for-pelican" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This plugin allows you to write mathematical equations in your articles using Latex.
 It uses the MathJax Latex JavaScript library to render latex that is embedded in
 between &lt;code&gt;$..$&lt;/code&gt; for inline math and &lt;code&gt;$$..$$&lt;/code&gt; for displayed math. It also allows for 
 writing equations in by using &lt;code&gt;\begin{equation}...\end{equation}&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id="installation"&gt;Installation&lt;a class="headerlink" href="#installation" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="installation"&gt;Installation&lt;a class="headerlink" href="#installation" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To enable, ensure that &lt;code&gt;latex.py&lt;/code&gt; is put somewhere that is accessible.
 Then use as follows by adding the following to your settings.py:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;PLUGINS = [&amp;quot;latex&amp;quot;]
@@ -1039,7 +1039,7 @@ between the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; parameters (for the No
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h2 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Latex will be embedded in every article. If however you want latex only for
 selected articles, then in settings.py, add&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;LATEX = &amp;#39;article&amp;#39;
@@ -1057,27 +1057,27 @@ include 'Latex' as part of the metadata without any value:&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h2 id="latex-examples"&gt;Latex Examples&lt;a class="headerlink" href="#latex-examples" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id="inline"&gt;Inline&lt;a class="headerlink" href="#inline" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h2 id="latex-examples"&gt;Latex Examples&lt;a class="headerlink" href="#latex-examples" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="inline"&gt;Inline&lt;a class="headerlink" href="#inline" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Latex between &lt;code&gt;$&lt;/code&gt;..&lt;code&gt;$&lt;/code&gt;, for example, &lt;code&gt;$&lt;/code&gt;x^2&lt;code&gt;$&lt;/code&gt;, will be rendered inline 
 with respect to the current html block.&lt;/p&gt;
-&lt;h3 id="displayed-math"&gt;Displayed Math&lt;a class="headerlink" href="#displayed-math" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="displayed-math"&gt;Displayed Math&lt;a class="headerlink" href="#displayed-math" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Latex between &lt;code&gt;$$&lt;/code&gt;..&lt;code&gt;$$&lt;/code&gt;, for example, &lt;code&gt;$$&lt;/code&gt;x^2&lt;code&gt;$$&lt;/code&gt;, will be rendered centered in a 
 new paragraph.&lt;/p&gt;
-&lt;h3 id="equations"&gt;Equations&lt;a class="headerlink" href="#equations" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="equations"&gt;Equations&lt;a class="headerlink" href="#equations" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Latex between &lt;code&gt;\begin&lt;/code&gt; and &lt;code&gt;\end&lt;/code&gt;, for example, &lt;code&gt;begin{equation}&lt;/code&gt; x^2 &lt;code&gt;\end{equation}&lt;/code&gt;, 
 will be rendered centered in a new paragraph with a right justified equation number 
 at the top of the paragraph. This equation number can be referenced in the document. 
 To do this, use a &lt;code&gt;label&lt;/code&gt; inside of the equation format and then refer to that label 
 using &lt;code&gt;ref&lt;/code&gt;. For example: &lt;code&gt;begin{equation} \label{eq} X^2 \end{equation}&lt;/code&gt;. Now 
 refer to that equation number by &lt;code&gt;$&lt;/code&gt;\ref{eq}&lt;code&gt;$&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id="template-and-article-examples"&gt;Template And Article Examples&lt;a class="headerlink" href="#template-and-article-examples" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="template-and-article-examples"&gt;Template And Article Examples&lt;a class="headerlink" href="#template-and-article-examples" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To see an example of this plugin in action, look at 
 &lt;a href="http://doctrina.org/How-RSA-Works-With-Examples.html"&gt;this article&lt;/a&gt;. To see how 
 this plugin works with a template, look at 
 &lt;a href="https://github.com/barrysteyn/pelican_theme-personal_blog"&gt;this template&lt;/a&gt;.&lt;/p&gt;</summary><category term="Software"></category><category term="Projects"></category><category term="Development"></category></entry><entry><title>JavaScript: Why Understanding Scope And Closures Matter</title><link href="http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html" rel="alternate"></link><updated>2012-10-26T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-10-26:JavaScript:Why-Understanding-Scope-And-Closures-Matter.html</id><summary type="html">&lt;p&gt;When first learning how to program, a fundamental aspect is to learn about scope. Many languages copy the C &lt;em&gt;syntax&lt;/em&gt; for scope, including JavaScript. But while these language copy the C rules for scope, JavaScript does not. This results in frustration and potentially problematic code. JavaScript instead implements scope in a way that forces programmers to think a little differently.&lt;/p&gt;
 &lt;p&gt;This post will explain how JavaScript implements scope and explains a very useful result of its scoping: Closures. It motivates the utility of JavaScript's scope model by explaining its role in asynchronous programming.&lt;/p&gt;
-&lt;h1 id="scope"&gt;Scope&lt;a class="headerlink" href="#scope" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="scope"&gt;Scope&lt;a class="headerlink" href="#scope" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;C implements scope using the block operators: &lt;code&gt;{}&lt;/code&gt;. The type of scope it implements is called &lt;em&gt;block scope&lt;/em&gt; and where ever the block operators &lt;code&gt;{}&lt;/code&gt; are declared, the compiler will create scope. Languages (besides JavaScript) that copy this notation follow more-or-less the same block scope rules (e.g. Java).&lt;/p&gt;
 &lt;p&gt;JavaScript uses block operators &lt;code&gt;{}&lt;/code&gt; but it does &lt;strong&gt;not&lt;/strong&gt; implement block scope. Coming from C/C++, the following code makes perfect sense (&lt;em&gt;please do not try run this JavaScript code&lt;/em&gt;):&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -1095,7 +1095,7 @@ this plugin works with a template, look at
 &lt;p&gt;Firstly, note that the above will cause an error in Java, but in C/C++ (whose scope syntax JavaScript has copied), it works fine. This looks like it will output &lt;code&gt;Hello World&lt;/code&gt; eight times. It won't! It will instead loop endlessly, outputting &lt;code&gt;Hello World&lt;/code&gt; forever. This is because JavaScript does not implement &lt;em&gt;block scope&lt;/em&gt;; the &lt;code&gt;i&lt;/code&gt; of the inner loop keeps resetting the &lt;code&gt;i&lt;/code&gt; of the outer loop, and so the outer loop's end condition is never achieved. This is confusing for people experienced with block scope, and JavaScript should have copied the block scope rules if it copied the operators. JavaScript realises their mistake and so the &lt;a href="http://wiki.ecmascript.org/doku.php?id=harmony:let"&gt;let&lt;/a&gt; operator, which implements block scope, has been approved for future JavaScript releases. &lt;/p&gt;
 &lt;p&gt;I feel that adding block scope solves the problem in a haphazard way. Firstly, it alters the way block scope in the C style is used, and secondly, it will entice programmers with experience of block scope to use &lt;code&gt;let&lt;/code&gt; instead of something better.&lt;/p&gt;
 &lt;p&gt;But is there &lt;em&gt;something better&lt;/em&gt;? Scope has traditionally been implemented in JavaScript via functions and is known as &lt;em&gt;function scope&lt;/em&gt;. There is an argument to be made that when used correctly, function scope can be very elegant and achieve most of what block scope does. But first, an explanation of function scope is in order...&lt;/p&gt;
-&lt;h3 id="function-scope"&gt;Function Scope&lt;a class="headerlink" href="#function-scope" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="function-scope"&gt;Function Scope&lt;a class="headerlink" href="#function-scope" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Function scope means that everything between bracket operators &lt;code&gt;{}&lt;/code&gt; is scoped &lt;em&gt;as long as it is part of a function&lt;/em&gt;.&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -1125,7 +1125,7 @@ this plugin works with a template, look at
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;In the above example, the last line invokes the function by using the invocation operator &lt;code&gt;()&lt;/code&gt; with the input parameter &lt;code&gt;JQuery&lt;/code&gt;. It immediately executes code inside the function which is scoped. In JQuery, a short cut for the &lt;code&gt;JQuery&lt;/code&gt; function is &lt;code&gt;$&lt;/code&gt;. Unfortunately, &lt;code&gt;$&lt;/code&gt; is a shortcut for other JavaScript libraries as well (e.g. ProtoTypeJS). To prevent polluting the global namespace with JQuery's &lt;code&gt;$&lt;/code&gt; (and also avoiding clashes with plugins that may be written for other JavaScript libraries), &lt;em&gt;scope&lt;/em&gt; is required. The above code snippet achieves the desired scope.&lt;/p&gt;
-&lt;h3 id="functions-within-functions"&gt;Functions Within Functions&lt;a class="headerlink" href="#functions-within-functions" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="functions-within-functions"&gt;Functions Within Functions&lt;a class="headerlink" href="#functions-within-functions" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Since functions have scope, declaring a function within another function provides another level of scope:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -1174,12 +1174,12 @@ this plugin works with a template, look at
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;The above seems intuitive and obvious, and I understand the reader not being &lt;em&gt;blown away&lt;/em&gt; by its utility. But the pattern of having an inner function that has access to an outer function's variable is the basis of a closure, which is very useful.&lt;/p&gt;
-&lt;h1 id="closures"&gt;Closures &lt;a id="closures"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#closures" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id="a-technical-definition"&gt;A Technical Definition&lt;a class="headerlink" href="#a-technical-definition" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id="closures"&gt;Closures &lt;a id="closures"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#closures" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="a-technical-definition"&gt;A Technical Definition&lt;a class="headerlink" href="#a-technical-definition" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A variable that is assigned to a function is a &lt;em&gt;structure&lt;/em&gt; in memory that is used to represent the function. For many languages, this &lt;em&gt;structure&lt;/em&gt; is the memory address of the function, resulting in the variable only being able to invoke the function. Some languages like JavaScript implement a slightly more complex setup for the &lt;em&gt;structure&lt;/em&gt;. For these languages, the &lt;em&gt;structure&lt;/em&gt; holds both the address of the function and its &lt;em&gt;referencing environment&lt;/em&gt;. The referencing environment means the environment the function was originally declared in. If the function was originally declared within another function, then the referencing environment will mean the function that the original function was declared in.&lt;/p&gt;
 &lt;p&gt;Having access to the referencing environment means access to certain non-local variables. Normally, a function has access to its own local variables and to the global variables. With the &lt;em&gt;referencing environment&lt;/em&gt; at the structure's disposal, calls to certain non-local variables (i.e. variables that were not declared in the function, but were declared in the function where it was defined) are possible. JavaScript implementors refer to the &lt;em&gt;referencing environment&lt;/em&gt; as the function's &lt;em&gt;context&lt;/em&gt;. When the &lt;em&gt;structure&lt;/em&gt; that points to a function also contains its original context (&lt;em&gt;referencing environment&lt;/em&gt;), it is called a closure. The image below demonstrates the concept, whereby the &lt;em&gt;context&lt;/em&gt; points to the original function (outer) that the function variable inner was declared in:&lt;/p&gt;
 &lt;p&gt;&lt;img src ="images/closure.png" /&gt;&lt;/p&gt;
-&lt;h2 id="how-closures-work-and-are-used-not-too-technical"&gt;How Closures Work And Are Used (Not Too Technical)&lt;a class="headerlink" href="#how-closures-work-and-are-used-not-too-technical" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="how-closures-work-and-are-used-not-too-technical"&gt;How Closures Work And Are Used (Not Too Technical)&lt;a class="headerlink" href="#how-closures-work-and-are-used-not-too-technical" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;In more laymen's terms, an inner function defined within an outer function has access to all variables within the outer function. In JavaScript, the inner function is a closure because JavaScript includes its &lt;em&gt;context&lt;/em&gt;. Both the inner and outer functions are scoped.&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -1204,7 +1204,7 @@ this plugin works with a template, look at
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;When presented like this, closures do not seem interesting. But, when the &lt;em&gt;inner&lt;/em&gt; function lives longer than the &lt;em&gt;outer&lt;/em&gt; function, the inner function (i.e. the closure) will have access to state from that outer function that is not accessible anywhere else. Therefore closures have the ability to implement something that is taken for granted in classical object oriented languages: &lt;em&gt;Private State&lt;/em&gt;.&lt;/p&gt;
-&lt;h3 id="keeping-things-private"&gt;Keeping Things Private&lt;a class="headerlink" href="#keeping-things-private" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="keeping-things-private"&gt;Keeping Things Private&lt;a class="headerlink" href="#keeping-things-private" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;In a classical object oriented language, it is easy to keep methods and state private: Put the &lt;code&gt;private&lt;/code&gt; keyword in front of such state and methods. Modern object oriented scripting languages do not have this functionality. In that sense, JavaScript is in good company with the likes of Python and Ruby.&lt;/p&gt;
 &lt;p&gt;But private state and methods are very useful at times. And it can be achieved in JavaScript by using a closure:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
@@ -1250,10 +1250,10 @@ this plugin works with a template, look at
 &lt;/ol&gt;
 &lt;p&gt;In the code snippet above, once the outer function is invoked it cannot be accessed again because it is an anonymous function. The pattern of an &lt;em&gt;inner&lt;/em&gt; function living longer than the outer function &lt;em&gt;is the useful pattern for closures&lt;/em&gt; because it implements private state. The two closure functions within the object assigned to &lt;code&gt;closure&lt;/code&gt; have access to &lt;code&gt;counter&lt;/code&gt;. &lt;code&gt;counter&lt;/code&gt; is private: It cannot be altered nor accessed except through the closure functions. &lt;/p&gt;
 &lt;p&gt;I will say it again: Closure functions are interesting when the &lt;em&gt;inner&lt;/em&gt; functions "outlives" the &lt;em&gt;outer&lt;/em&gt; object where it was declared. This is specially useful for asynchronicity.&lt;/p&gt;
-&lt;h1 id="why-closures-are-so-useful-the-big-picture"&gt;Why Closures Are So Useful: The Big Picture&lt;a class="headerlink" href="#why-closures-are-so-useful-the-big-picture" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="why-closures-are-so-useful-the-big-picture"&gt;Why Closures Are So Useful: The Big Picture&lt;a class="headerlink" href="#why-closures-are-so-useful-the-big-picture" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;One of JavaScript's most appealing features is that it is asynchronous from "the ground up". Asynchronicity is achieved by using an &lt;em&gt;event driven programming model&lt;/em&gt;: A function is executed only when an event occurs. That function is passed as an argument to the event handler. Functions used in this manner are called &lt;em&gt;callback&lt;/em&gt; functions. The &lt;em&gt;callback&lt;/em&gt; function, like any JavaScript function, will have access to the context where it was declared in. If the callback function is an inner function, it is a closure that is able to access variables in the outer function. As was shown above, closures can be used to maintain private state. So by using closure callback functions, you get the best of both worlds: &lt;strong&gt;You can implement event driven programming without having to maintain any state by passing it via the event handler&lt;/strong&gt;. This is extremely elegant and will decrease programmer errors. And this is a killer reason (amongst others I am sure) that function scope along with closures are so useful. &lt;/p&gt;
 &lt;p&gt;JavaScript should not be used like classical object oriented languages. Its power lies in the fact that it should be able to handle more load (on both the server and the client) by using an event driven approach that does not block IO. Therefore I think the JavaScript programmer should be thinking in callback functions that are closures. And for this, function scope becomes essential and in a way, elegant.&lt;/p&gt;
-&lt;h2 id="watch-out-callbacks-and-closures-sometimes-do-not-play-nicely"&gt;Watch Out: Callbacks And Closures Sometimes Do Not Play Nicely &lt;a id="closureandconstructor"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#watch-out-callbacks-and-closures-sometimes-do-not-play-nicely" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="watch-out-callbacks-and-closures-sometimes-do-not-play-nicely"&gt;Watch Out: Callbacks And Closures Sometimes Do Not Play Nicely &lt;a id="closureandconstructor"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#watch-out-callbacks-and-closures-sometimes-do-not-play-nicely" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Of course there are always &lt;em&gt;gotchas&lt;/em&gt; with JavaScript. Lets define a callback function:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -1314,7 +1314,7 @@ this plugin works with a template, look at
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Since the function invoked by the event handler (the third function) is a closure, it has access to the &lt;code&gt;that&lt;/code&gt; variable (which is private), and so it has access to the new object created by the constructor invocation pattern.&lt;/p&gt;
-&lt;h2 id="why-would-one-want-to-use-the-constructor-invocation-pattern-with-callbacks"&gt;Why Would One Want To Use The Constructor Invocation Pattern With Callbacks?&lt;a class="headerlink" href="#why-would-one-want-to-use-the-constructor-invocation-pattern-with-callbacks" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="why-would-one-want-to-use-the-constructor-invocation-pattern-with-callbacks"&gt;Why Would One Want To Use The Constructor Invocation Pattern With Callbacks?&lt;a class="headerlink" href="#why-would-one-want-to-use-the-constructor-invocation-pattern-with-callbacks" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To tell you the truth, there is no good reason to mix the &lt;a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci"&gt;constructor invocation pattern&lt;/a&gt; with a callback. I included it above as a pitfall because it is sometimes used (and misused). Using the &lt;a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci"&gt;constructor invocation pattern&lt;/a&gt; is necessary when one wants to be able to change the default prototype linkings (see &lt;a href="http://doctrina.org/Javascript-Objects-Prototypes.html#coff"&gt;here&lt;/a&gt; for an example of this). This is only necessary when one wants to create objects that are inherited from another object. It is not necessary for creating new objects because new objects can be created via a closure.&lt;/p&gt;
 &lt;p&gt;For example, here is a code snippet that uses the &lt;a href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci"&gt;constructor invocation pattern&lt;/a&gt; in order to create separate objects for each callback:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
@@ -1375,7 +1375,7 @@ this plugin works with a template, look at
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;The two code snippets above are equivalent, but the latter example is so much more concise and easier to read! Each code snippet demonstrates objects that have their own internal state. The &lt;code&gt;load&lt;/code&gt; event is given two callback functions, each an instance of an object with its own state (note this example may not work for Internet Explorer older than version 9).&lt;/p&gt;
-&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Closures make asynchronous programming elegant. In order to understand closures, it is vital to understand &lt;em&gt;function scope&lt;/em&gt;. JavaScript being functionally scoped encourages event driven programming, the mainstay of asynchronicity. &lt;/p&gt;</summary><category term="development"></category><category term="JavaScript"></category></entry><entry><title>JavaScript: Function Invocation Patterns</title><link href="http://doctrina.org/Javascript-Function-Invocation-Patterns.html" rel="alternate"></link><updated>2012-10-19T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-10-19:Javascript-Function-Invocation-Patterns.html</id><summary type="html">&lt;p&gt;JavaScript has been described as a &lt;em&gt;Functional Oriented Language&lt;/em&gt; (this as opposed to Object Oriented Language). The reason is because functions in JavaScript do more than just separate logic into execution units, functions are first class citizens that also provide &lt;a href="http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html"&gt;scope&lt;/a&gt; and the ability to create objects. Having such a heavy reliance upon functions is both a blessing and a curse: It's a blessing because it makes the language light weight and fast (the main goal of its original development), but it is a curse because you can very easily shoot yourself in the foot if you don't know what you are doing.&lt;/p&gt;
 &lt;p&gt;One concern with JavaScript functions is how different invocation patterns can produce vastly different results. This post explains the four patterns, how to use them and what to watch out for. The four invocation patterns are:&lt;/p&gt;
 &lt;ol&gt;
@@ -1384,12 +1384,12 @@ this plugin works with a template, look at
 &lt;li&gt;&lt;strong&gt;Constructor Invocation&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Apply And Call Invocation&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id="function-execution"&gt;Function Execution&lt;a class="headerlink" href="#function-execution" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="function-execution"&gt;Function Execution&lt;a class="headerlink" href="#function-execution" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;JavaScript (like all languages these days) has the ability to modularise logic in &lt;code&gt;functions&lt;/code&gt; which can be invoked at any point within the execution. Invoking a function suspends execution of the current function, passing controls and parameters to the invoked function. In addition, a parameter called &lt;code&gt;this&lt;/code&gt; is also passed to the function. The invocation operator is a pair of round brackets &lt;code&gt;()&lt;/code&gt;, that can contain zero or more expressions separated by a comma.&lt;/p&gt;
 &lt;p&gt;Unfortunately, there is more than one pattern that can be used to invoke functions. These patterns are not &lt;em&gt;nice-to-know&lt;/em&gt;: They are absolutely essential to know. This is because invoking a function with a different pattern can produce a vastly different result. I believe that this is a language design error in JavaScript, and had the language been designed with more thought (and less haste), this would not have been such a big issue.&lt;/p&gt;
-&lt;h1 id="the-four-invocation-patterns"&gt;The Four Invocation Patterns&lt;a class="headerlink" href="#the-four-invocation-patterns" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="the-four-invocation-patterns"&gt;The Four Invocation Patterns&lt;a class="headerlink" href="#the-four-invocation-patterns" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Even though there are is only one &lt;em&gt;invocation operator&lt;/em&gt; &lt;code&gt;()&lt;/code&gt;, there are four &lt;em&gt;invocation patterns&lt;/em&gt;. Each pattern differs in how the &lt;code&gt;this&lt;/code&gt; parameter is initialised. &lt;/p&gt;
-&lt;h2 id="method-invocation"&gt;Method Invocation&lt;a class="headerlink" href="#method-invocation" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="method-invocation"&gt;Method Invocation&lt;a class="headerlink" href="#method-invocation" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;When a function is part of an object, it is called a &lt;em&gt;method&lt;/em&gt;. Method invocation is the pattern of invoking a function that is part of an object. For example:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -1410,7 +1410,7 @@ this plugin works with a template, look at
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Method invocation is identified when a function is preceded by &lt;code&gt;object.&lt;/code&gt;, where &lt;code&gt;object&lt;/code&gt; is the name of some object. JavaScript will set the &lt;code&gt;this&lt;/code&gt; parameter to the object where the method was invoked on. In the example above, &lt;code&gt;this&lt;/code&gt; would be set to &lt;code&gt;obj&lt;/code&gt;. JavaScript binds &lt;code&gt;this&lt;/code&gt; at execution (also known as &lt;em&gt;late binding&lt;/em&gt;).&lt;/p&gt;
-&lt;h2 id="function-invocation"&gt;Function Invocation &lt;a id="fi"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#function-invocation" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="function-invocation"&gt;Function Invocation &lt;a id="fi"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#function-invocation" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Function invocation is performed by invoking a function using &lt;code&gt;()&lt;/code&gt;:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;add(2,3); //5
 &lt;/pre&gt;&lt;/div&gt;
@@ -1482,7 +1482,7 @@ this plugin works with a template, look at
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;If &lt;code&gt;this&lt;/code&gt; could be bound to the current object whose scope it is called in, function and method invocations would be identical.&lt;/p&gt;
-&lt;h2 id="constructor-invocation"&gt;Constructor Invocation &lt;a id="ci"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#constructor-invocation" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="constructor-invocation"&gt;Constructor Invocation &lt;a id="ci"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#constructor-invocation" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;Warning&lt;/em&gt;: This is another JavaScript peculiarity! JavaScript is not a classical object oriented language. Instead, it is a prototypical object oriented language, but the creators of JavaScript felt that people with classical object orientation experience (the vast majority) may be unhappy with a purely prototype aproach. This resulted in JavaScript being unsure of its prototypical nature and the worst thing happened: It mixed classical object orientation syntax with its prototypical nature. The result: A mess!&lt;/p&gt;
 &lt;p&gt;In classical object orientation, an object is an instantiation of a class. In C++ and Java, this instantiation is performed by using the &lt;code&gt;new&lt;/code&gt; operator. This seems to be the inspiration behind the constructor invocation pattern...&lt;/p&gt;
 &lt;p&gt;The constructor invocation pattern involves putting the &lt;code&gt;new&lt;/code&gt; operator just before the function is invoked. For example:&lt;/p&gt;
@@ -1537,7 +1537,7 @@ this plugin works with a template, look at
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;We might ignore the constructor invocation pattern, and just use &lt;a href="http://doctrina.org/Javascript-Objects-Prototypes.html#cofl"&gt;object literals&lt;/a&gt; to make objects, except that the makers of JavaScript have enabled a key feature of their language by using this pattern: Object creation with an arbitrary prototype link (see &lt;a href="http://doctrina.org/Javascript-Objects-Prototypes.html"&gt;previous post&lt;/a&gt; for more details). This pattern is unintuitive and also &lt;a href="http://doctrina.org/Javascript-Objects-Prototypes.html#pcip"&gt;potentially problematic&lt;/a&gt;. There is a &lt;a href="http://doctrina.org/Javascript-Objects-Prototypes.html#remedy"&gt;remedy&lt;/a&gt; which was championed by Douglas Crockford: Augment &lt;code&gt;Object&lt;/code&gt; with a create method that accomplishes what the constructor invocation pattern tries to do. I am happy to note that as of JavaScript 1.8.5, &lt;code&gt;Object.create&lt;/code&gt; is a reality and can be used. Due to legacy, the constructor invocation is still used often, and for backward compatability, will crop up quite frequently.&lt;/p&gt;
-&lt;h2 id="apply-and-call-invocation"&gt;Apply And Call Invocation&lt;a class="headerlink" href="#apply-and-call-invocation" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="apply-and-call-invocation"&gt;Apply And Call Invocation&lt;a class="headerlink" href="#apply-and-call-invocation" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The apply pattern is not as badly thought out as the two preceding patterns. The &lt;code&gt;apply&lt;/code&gt; method allows manual invocation of a function with a means to pass the function an array of parameters and explicitly set the &lt;code&gt;this&lt;/code&gt; parameter. Because functions are first class citizens, they are also objects and hence can have methods (functions) run on it. In fact, every function is linked to &lt;code&gt;Function.prototype&lt;/code&gt; (see &lt;a href="http://doctrina.org/Javascript-Objects-Prototypes.html#cfo"&gt;here&lt;/a&gt; for more details), and so methods can very easily be augmented to any function. The apply method is just an augmentation to every function as - I presume - it is defined on &lt;code&gt;Function.prototype&lt;/code&gt;. &lt;/p&gt;
 &lt;p&gt;Apply takes two parameters: the first parameter is an object to bind the &lt;code&gt;this&lt;/code&gt; parameter to, the second is an array which is mapped to the parameters:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -1579,9 +1579,9 @@ this plugin works with a template, look at
 
 &lt;p&gt;The example above uses &lt;code&gt;apply&lt;/code&gt; to bind &lt;code&gt;this&lt;/code&gt; to &lt;code&gt;obj&lt;/code&gt;. This results in being able to produce a value for &lt;code&gt;this.data&lt;/code&gt;. Being able to expicitly assign a value to &lt;code&gt;this&lt;/code&gt; is where the real value of apply comes about. Without this feature, we might as well use &lt;code&gt;()&lt;/code&gt; to invoke functions.&lt;/p&gt;
 &lt;p&gt;JavaScript also has another invoker called &lt;code&gt;call&lt;/code&gt;, that is identical to &lt;code&gt;apply&lt;/code&gt; except that instead of taking an array of parameters, it takes an argument list. If JavaScript would implement function overriding, I think that &lt;code&gt;call&lt;/code&gt; would be an overridden variant of &lt;code&gt;apply&lt;/code&gt;. Therefore one talks about &lt;code&gt;apply&lt;/code&gt; and &lt;code&gt;call&lt;/code&gt; in the same vein.&lt;/p&gt;
-&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;For better or worse, JavaScript is about to take over the world. It is therefore very important that the peculiarities of the language be known and avoided. Learning how the four function invocation methods differ and how to avoid their pitfalls is fundamental to anyone who wants to use JavaScript. I hope this post has helped people when it comes to invoking functions.&lt;/p&gt;
-&lt;h2 id="update"&gt;Update&lt;a class="headerlink" href="#update" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="update"&gt;Update&lt;a class="headerlink" href="#update" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Wow, this has &lt;a href='http://doctrina.org/static/images/TopOfHackerNews.png'&gt;reached top of Hacker News&lt;/a&gt;. Thanks for upvoting it everybody.&lt;/li&gt;
 &lt;li&gt;Now its also gonna be &lt;a href='http://hackermonthly.com/issue-32.html'&gt;published&lt;/a&gt; :)&lt;/li&gt;
@@ -1592,13 +1592,13 @@ this plugin works with a template, look at
 &lt;li&gt;What &lt;code&gt;Object.prototype&lt;/code&gt; and &lt;code&gt;Function.prototype&lt;/code&gt; are used for.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Douglas_Crockford"&gt;Douglas Crockford's&lt;/a&gt; wonderful book &lt;a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?ie=UTF8&amp;amp;qid=1346978272&amp;amp;sr=8-1&amp;amp;keywords=javascript+the+good+parts"&gt;JavaScript: The Good Parts&lt;/a&gt; does a fanastic job of explaining this topic, and I urge the interested reader to buy his book.&lt;/p&gt;
-&lt;h1 id="javascript-objects"&gt;JavaScript Objects&lt;a class="headerlink" href="#javascript-objects" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="javascript-objects"&gt;JavaScript Objects&lt;a class="headerlink" href="#javascript-objects" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;In JavaScript the simple types are &lt;em&gt;numbers&lt;/em&gt;, &lt;em&gt;strings&lt;/em&gt;, &lt;em&gt;booleans&lt;/em&gt; (&lt;em&gt;true&lt;/em&gt; and &lt;em&gt;false&lt;/em&gt;), &lt;em&gt;null&lt;/em&gt; and &lt;em&gt;undefined&lt;/em&gt;. All other values are objects. Even though there are multiple ways to create objects, there are really only two &lt;em&gt;atomic&lt;/em&gt; mechanisms that are used:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Literals. &lt;/li&gt;
 &lt;li&gt;Functions.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="creating-objects-from-literals"&gt;Creating Objects From Literals &lt;a id="cofl"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#creating-objects-from-literals" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="creating-objects-from-literals"&gt;Creating Objects From Literals &lt;a id="cofl"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#creating-objects-from-literals" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Creating objects from literals is very simple. The following is an &lt;em&gt;object literal&lt;/em&gt;:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -1613,7 +1613,7 @@ this plugin works with a template, look at
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Object Literals do not look like traditional objects. In fact, Object Literals look more like a structure that can hold things.  There is however one difference between a JavaScript object and a structure that can hold things: All JavaScript objects have a &lt;em&gt;prototype&lt;/em&gt; linking.&lt;/p&gt;
-&lt;h2 id="the-prototype-link"&gt;The Prototype Link&lt;a class="headerlink" href="#the-prototype-link" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="the-prototype-link"&gt;The Prototype Link&lt;a class="headerlink" href="#the-prototype-link" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Every Object has a &lt;em&gt;hidden&lt;/em&gt; link to another object called a &lt;em&gt;prototype link&lt;/em&gt;. Objects by default are linked to the object &lt;code&gt;Object.prototype&lt;/code&gt;. The prototype link is only used when retrieving property values from an object (it is not touched when updating an object). When retrieving a property value from an object, if it cannot be found, it will look for it in the prototype object that it is linked to. For example:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;person.age; // undefined - property age does not exist
 &lt;/pre&gt;&lt;/div&gt;
@@ -1627,7 +1627,7 @@ person.age; // 56
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;JavaScript could not find age on person, but it did find it on &lt;code&gt;Object.prototype&lt;/code&gt;, which is linked to person. Therefore the prototype linkage is used to &lt;em&gt;augment&lt;/em&gt; an object with additional properties. In a classical object oriented language like Java or C++, augmentation is performed using inheritance. And so a prototype link can be considered as providing the property augmentation feature of object inheritance.&lt;/p&gt;
-&lt;h2 id="creating-function-objects"&gt;Creating Function Objects &lt;a id="cfo"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#creating-function-objects" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="creating-function-objects"&gt;Creating Function Objects &lt;a id="cfo"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#creating-function-objects" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Functions in JavaScript are objects and are &lt;a href="http://en.wikipedia.org/wiki/First-class_citizen"&gt;first class citizens&lt;/a&gt;. A variable can be assigned a function object like so:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -1680,7 +1680,7 @@ person.age; // 56
 
 &lt;p&gt;In the above example, &lt;em&gt;addNum&lt;/em&gt; was searched for &lt;em&gt;divide&lt;/em&gt;. Then &lt;code&gt;Function.prototype&lt;/code&gt; was searched, after which, &lt;code&gt;Object.prototype&lt;/code&gt; was searched, where it was eventually found. Therefore prototype links are chained together, whereby if a property is not found in the current object, it then searches for it in its linked prototype object. And if that object does not have the property, it is then searched for in that object's linked prototype object, and so on, until the process ends with &lt;code&gt;Object.prototype&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;The process described above is the mainstay of &lt;a href="http://en.wikipedia.org/wiki/Prototype-based_programming"&gt;Prototype Based Programming&lt;/a&gt;, and it is called &lt;em&gt;prototype chaining&lt;/em&gt;.&lt;/p&gt;
-&lt;h2 id="creating-objects-from-functions"&gt;Creating Objects From Functions &lt;a id="coff"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#creating-objects-from-functions" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="creating-objects-from-functions"&gt;Creating Objects From Functions &lt;a id="coff"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#creating-objects-from-functions" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This section should not be confused with the previous section. Their titles share similar wording, but in this section, we are going to talk about how to create a new object using a function, and last section we talked about creating function objects.&lt;/p&gt;
 &lt;p&gt;To recap from the last section, this is how a &lt;em&gt;function object&lt;/em&gt; is created:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -1735,7 +1735,7 @@ human.species; // human
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h3 id="the-problem-with-using-the-constructor-invocation-pattern"&gt;The problem with using the "constructor invocation pattern" &lt;a id="pcip"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#the-problem-with-using-the-constructor-invocation-pattern" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="the-problem-with-using-the-constructor-invocation-pattern"&gt;The problem with using the "constructor invocation pattern" &lt;a id="pcip"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#the-problem-with-using-the-constructor-invocation-pattern" title="Permanent link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Using &lt;code&gt;new&lt;/code&gt; is one of four ways in which to invoke a function, the most popular way being to call the function. For example:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -1794,7 +1794,7 @@ human.species; // human
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Object orientation in JavaScript is a bit of a mess. This is because JavaScript is quite unsure about what it is, and ends up being a mix of a classical object oriented language and a prototype based language. Hence we get the &lt;code&gt;new&lt;/code&gt; keyword, which makes JavaScript look like a classical object oriented language, even though it is not.&lt;/p&gt;
 &lt;p&gt;To summarise, here are the three objects this blog discusses:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
@@ -1861,8 +1861,8 @@ human.species; // human
 &lt;li&gt;Why the inverse of a key is calculated with respect to the &lt;a href="http://doctrina/How-RSA-Works-With-Examples.html#eulers-totient"&gt;Totient&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Some parts of this post will be mathematical, but I am going to give as many examples as possible to aid understanding. Before reading this post, it is essential that the background math section of the &lt;a href="http://doctrina.org/How-RSA-Works-With-Examples.html"&gt;previous post&lt;/a&gt; is understood.&lt;/p&gt;
-&lt;h1 id="background-mathematics"&gt;Background Mathematics&lt;a class="headerlink" href="#background-mathematics" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id="fermats-little-theorem"&gt;Fermat's Little Theorem&lt;a class="headerlink" href="#fermats-little-theorem" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id="background-mathematics"&gt;Background Mathematics&lt;a class="headerlink" href="#background-mathematics" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="fermats-little-theorem"&gt;Fermat's Little Theorem&lt;a class="headerlink" href="#fermats-little-theorem" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Pierre_de_Fermat"&gt;Pierre de Fermat&lt;/a&gt; can only be described as an absolute legend! This theorem of his was made sometime in the 17th century. He could not have fathomed how useful it would be to RSA encryption. &lt;/p&gt;
 &lt;p&gt;It is actually very simple: For any prime number &lt;span class="math"&gt;\(p\)&lt;/span&gt; and any integer &lt;span class="math"&gt;\(a\)&lt;/span&gt;, &lt;span class="math"&gt;\(a^p \equiv a \bmod p\)&lt;/span&gt;. In English, this says that an integer &lt;span class="math"&gt;\(a\)&lt;/span&gt; raised to the power of a prime number &lt;span class="math"&gt;\(p\)&lt;/span&gt; will result in a number that when divided by the prime number &lt;span class="math"&gt;\(p\)&lt;/span&gt; produces a remainder that is &lt;span class="math"&gt;\(a\)&lt;/span&gt;. &lt;strong&gt;Example&lt;/strong&gt;: Let &lt;span class="math"&gt;\(a=2\)&lt;/span&gt; and &lt;span class="math"&gt;\(p=5\)&lt;/span&gt;. Then &lt;span class="math"&gt;\(2^5 = 32 = 2 \bmod 5\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;If we manipulate the theorem slightly by dividing the equation by &lt;span class="math"&gt;\(a\)&lt;/span&gt;, we get the form that is most useful to RSA:&lt;/p&gt;
@@ -1876,7 +1876,7 @@ human.species; // human
 &lt;p&gt;Here is another one: 
 &lt;/p&gt;
 &lt;div class="math"&gt;$$6^{13-1}= 6^{12} = 2176782336 = 1 \bmod 13$$&lt;/div&gt;
-&lt;h1 id="rsa-a-brief-recap"&gt;RSA - A brief recap&lt;a class="headerlink" href="#rsa-a-brief-recap" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="rsa-a-brief-recap"&gt;RSA - A brief recap&lt;a class="headerlink" href="#rsa-a-brief-recap" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;A brief recap is in order. For RSA to work, we need the following things (these are all explained in more detail in my previous &lt;a href="http://doctrina.org/How-RSA-Works-With-Examples.html#RSA"&gt;post&lt;/a&gt;):&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Two large randomly generated primes, denoted by &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;.&lt;/li&gt;
@@ -1894,8 +1894,8 @@ human.species; // human
 &lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt; (With Public Key): &lt;span class="math"&gt;\(E(e,m) = m^e \bmod n = c\)&lt;/span&gt;&lt;br/&gt;
 &lt;strong&gt;Decryption&lt;/strong&gt; (With Private Key): &lt;span class="math"&gt;\(D(d,c) = c^d \bmod n = m\)&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id="rsa-why-it-works"&gt;RSA - Why It Works&lt;a class="headerlink" href="#rsa-why-it-works" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id="why-opposite-keys-must-be-used"&gt;Why opposite keys must be used&lt;a class="headerlink" href="#why-opposite-keys-must-be-used" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id="rsa-why-it-works"&gt;RSA - Why It Works&lt;a class="headerlink" href="#rsa-why-it-works" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="why-opposite-keys-must-be-used"&gt;Why opposite keys must be used&lt;a class="headerlink" href="#why-opposite-keys-must-be-used" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;It is sometimes misunderstood that encryption can only happen with the &lt;em&gt;public key&lt;/em&gt; and decryption with the &lt;em&gt;private key&lt;/em&gt;. This statement is not true. In RSA, both the &lt;em&gt;public&lt;/em&gt; and the &lt;em&gt;private&lt;/em&gt; keys will encrypt a message. If that message is to be decrypted, then the opposite key that was used to encrypt it must be used to decrypt it. Underlying this statement is this fundamental equation:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
 e\cdot d = 1 \bmod \phi(n)
@@ -1924,7 +1924,7 @@ $$&lt;/div&gt;
 &lt;li&gt;&lt;strong&gt;Identity&lt;/strong&gt;: If one needs to prove that a message originated from someone, then if the message can be decrypted using the person's public key, it must originate from that person because that person is the only one who has the private key.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;It is the second use in my opinion that makes RSA so useful. Things like &lt;em&gt;electronic voting&lt;/em&gt;, &lt;em&gt;digital signatures&lt;/em&gt;, &lt;em&gt;mix nets&lt;/em&gt; etc become possible because of this. This is not to play down the importance of the first use, which is critical for things like SSL.&lt;/p&gt;
-&lt;h2 id="why-rsa-satisfies-the-correctness-equation"&gt;Why RSA Satisfies The Correctness Equation &lt;a id="correctness"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#why-rsa-satisfies-the-correctness-equation" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="why-rsa-satisfies-the-correctness-equation"&gt;Why RSA Satisfies The Correctness Equation &lt;a id="correctness"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#why-rsa-satisfies-the-correctness-equation" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The correctness equation (also called the consistency equation) simply states that ciphertext &lt;span class="math"&gt;\(c\)&lt;/span&gt; originating from a message &lt;span class="math"&gt;\(m\)&lt;/span&gt; must equal to &lt;span class="math"&gt;\(m\)&lt;/span&gt; when decrypted. In other words, decrypting the ciphertext must produce the original message: &lt;span class="math"&gt;\(D(d,E(e,m)) = m\)&lt;/span&gt;. It is not only fundamental to RSA, but to any encryption atomic. In fact, I would say that the first thing a person would have to prove if they invent a new cryptographic algorithm is that it conforms to the correctness equation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Helpful hint&lt;/strong&gt;: I would advise the reader who is serious about this topic to get a pen and paper and work through the below math as I present it. It is not difficult math, but it can get quite confusing if you are just reading this. I also think that this topic can be explained more succinctly than I have presented it, but for the sake of clarity, I have gone into great detail.&lt;/p&gt;
 &lt;p&gt;Recall that encrypting a message &lt;span class="math"&gt;\(m\)&lt;/span&gt; with a key exponent &lt;span class="math"&gt;\(e\)&lt;/span&gt; will result in cipher text &lt;span class="math"&gt;\(c\)&lt;/span&gt; that is &lt;span class="math"&gt;\(m^e \bmod n\)&lt;/span&gt;. When raising that cipher text to the opposite key exponent &lt;span class="math"&gt;\(d\)&lt;/span&gt;, the original message &lt;span class="math"&gt;\(m\)&lt;/span&gt; must result. In other words, &lt;span class="math"&gt;\(m = c^d = m^{e \cdot d}\)&lt;/span&gt;. Therefore raising &lt;span class="math"&gt;\(m\)&lt;/span&gt; to &lt;span class="math"&gt;\(e\cdot d\)&lt;/span&gt; must result in &lt;span class="math"&gt;\(m\)&lt;/span&gt;. If this can be proven, we have then proved the correctness property.&lt;/p&gt;
@@ -1949,7 +1949,7 @@ $$&lt;/div&gt;
 &lt;div class="math"&gt;\begin{equation}
 D(d,E(e,m)) = m
 \end{equation}&lt;/div&gt;
-&lt;h2 id="why-rsa-uses-inverses-with-respect-to-the-totient"&gt;Why RSA uses inverses with respect to the Totient &lt;a id="wruiwrtt"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#why-rsa-uses-inverses-with-respect-to-the-totient" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="why-rsa-uses-inverses-with-respect-to-the-totient"&gt;Why RSA uses inverses with respect to the Totient &lt;a id="wruiwrtt"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#why-rsa-uses-inverses-with-respect-to-the-totient" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The private key &lt;span class="math"&gt;\(d\)&lt;/span&gt; is the inverse of the public key &lt;span class="math"&gt;\(e\)&lt;/span&gt; with respect to &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. But why choose &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; to calculate the private key? It was proven above that using &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; gives an algorithm that will satisfy correctness. But this is not the only reason why &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; is used! Before answering this question, lets state what is &lt;em&gt;public&lt;/em&gt; and what is &lt;em&gt;secret&lt;/em&gt; in RSA:&lt;/p&gt;
 &lt;p&gt;&lt;center&gt;
 &lt;table style="border-style: solid; border-width:1px; border-color: #000000;"&gt;
@@ -1974,7 +1974,7 @@ D(d,E(e,m)) = m
 &lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;RSA's security lies in the fact that it is difficult to deduce what is secret given what is public. When describing RSA's security, the word &lt;em&gt;difficult&lt;/em&gt; is used a lot. The reason being that deducing what is secret from what is public cannot be proven to be impossible! This is because the security relies upon a problem that is considered &lt;em&gt;hard&lt;/em&gt;: Given &lt;span class="math"&gt;\(n\)&lt;/span&gt;, find its prime factors, &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;. This cannot be proven to be impossibly difficult and therefore it may seem scary and odd that we place so much vital information in the trust of an algorithm that cannot be proven secure. Solace is taken in the fact that very clever people in the present and the past have all tried and failed to quickly factorise large numbers into their prime constituents. Also, there is some evidence to believe that whilst we can never prove security, it is in fact &lt;a href="http://en.wikipedia.org/wiki/Integer_factorization#Difficulty_and_complexity"&gt;secure&lt;/a&gt;. But if one can find the prime factors of &lt;span class="math"&gt;\(n\)&lt;/span&gt;, then it is easy to calculate &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; which is &lt;span class="math"&gt;\((p-1)\cdot (q-1)\)&lt;/span&gt;. With &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; at your disposal, calculating &lt;span class="math"&gt;\(d\)&lt;/span&gt; given &lt;span class="math"&gt;\(e\)&lt;/span&gt; is simple (use the &lt;a href="http://en.wikipedia.org/wiki/Extended_euclidean_algorithm"&gt;Extended Euclidean Algorithm&lt;/a&gt; to do this).&lt;/p&gt;
 &lt;p&gt;So we use &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; to calculate the inverse because it is hard for anyone to determine it given the public information, and therefore calculate the private key.&lt;/p&gt;
-&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;RSA works! There are many more interesting things to discuss about RSA, and books can be (and &lt;a href="http://www.amazon.com/The-Mathematics-Ciphers-Number-Cryptography/dp/1568810822/ref=sr_1_3?ie=UTF8&amp;amp;qid=1346693118&amp;amp;sr=8-3&amp;amp;keywords=RSA"&gt;have been&lt;/a&gt;) written about this subject. But hopefully with my &lt;a href="http://doctrina.org/How-RSA-Works-With-Examples.html"&gt;previous post&lt;/a&gt; and this post combined, the reader will have a solid understanding of this wonderful cryptographic algorithm.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
@@ -2013,18 +2013,18 @@ D(d,E(e,m)) = m
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary><category term="cryptography"></category></entry><entry><title>How RSA Works With Examples</title><link href="http://doctrina.org/How-RSA-Works-With-Examples.html" rel="alternate"></link><updated>2012-05-26T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-05-26:How-RSA-Works-With-Examples.html</id><summary type="html">&lt;h2 id="introduction"&gt;Introduction&lt;a title="Permanent link" class="headerlink" href="#introduction"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;/script&gt;</summary><category term="cryptography"></category></entry><entry><title>How RSA Works With Examples</title><link href="http://doctrina.org/How-RSA-Works-With-Examples.html" rel="alternate"></link><updated>2012-05-26T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-05-26:How-RSA-Works-With-Examples.html</id><summary type="html">&lt;h2 id="introduction"&gt;Introduction&lt;a title="Permanent link" class="headerlink" href="#introduction"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This is part 1 of a series of two blog posts about RSA (&lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html"&gt;part 2&lt;/a&gt; will explain &lt;em&gt;why&lt;/em&gt; RSA works). In this post, I am going to explain exactly how RSA public key encryption works. One of the &lt;a href="http://doctrina.org/The-3-Seminal-Events-In-Cryptography.html"&gt;3 seminal events in cryptography&lt;/a&gt; of the 20th century, RSA opens the world to a host of various cryptographic protocols (like &lt;em&gt;digital signatures, cryptographic voting&lt;/em&gt; etc). All discussions on this topic (including this one) are very &lt;em&gt;mathematical&lt;/em&gt;, but the difference here is that I am going to go out of my way to explain each concept with a concrete example. The reader who only has a beginner level of mathematical knowledge should be able to understand exactly how RSA works after reading this post along with the examples.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;PLEASE PLEASE PLEASE&lt;/strong&gt;: Do not use these examples (specially the real world example) and implement this yourself. What we are talking about in this blog post is actually referred to by cryptographers as &lt;em&gt;plain old RSA&lt;/em&gt;, and it needs to be randomly padded with &lt;a href="http://en.wikipedia.org/wiki/OAEP"&gt;OAEP&lt;/a&gt; to make it secure. In fact, you should never ever implement any type of cryptography by yourself, rather use a library. You have been warned!&lt;/p&gt;
-&lt;h1 id="background-mathematics"&gt;Background Mathematics&lt;a title="Permanent link" class="headerlink" href="#background-mathematics"&gt;§&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id="the-set-of-integers-modulo-p"&gt;The Set Of Integers Modulo P&lt;a title="Permanent link" class="headerlink" href="#the-set-of-integers-modulo-p"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id="background-mathematics"&gt;Background Mathematics&lt;a title="Permanent link" class="headerlink" href="#background-mathematics"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="the-set-of-integers-modulo-p"&gt;The Set Of Integers Modulo P&lt;a title="Permanent link" class="headerlink" href="#the-set-of-integers-modulo-p"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The set:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{bg:intmod} \mathbb{Z}_p = \{ 0,1,2,...,p-1 \}
 \end{equation}&lt;/div&gt;
 &lt;p&gt;Is called the &lt;em&gt;set of integers modulo p&lt;/em&gt; (or &lt;em&gt;mod p&lt;/em&gt; for short). It is a set that contains Integers from &lt;span class="math"&gt;\(0\)&lt;/span&gt; up until &lt;span class="math"&gt;\(p-1\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: &lt;span class="math"&gt;\(\mathbb{Z}_{10} =\{0,1,2,3,4,5,6,7,8,9\}\)&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id="integer-remainder-after-dividing"&gt;Integer Remainder After Dividing&lt;a title="Permanent link" class="headerlink" href="#integer-remainder-after-dividing"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="integer-remainder-after-dividing"&gt;Integer Remainder After Dividing&lt;a title="Permanent link" class="headerlink" href="#integer-remainder-after-dividing"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;When we first learned about numbers at school, we had no notion of real numbers, only integers.  Therefore we were told that  5 divided by 2 was equal to 2 remainder 1, and not &lt;span class="math"&gt;\(2\frac{1}{2}\)&lt;/span&gt;. It turns out that this type of math is absolutely vital to RSA, and is one of the reasons that secures RSA. A very formal way of stating a remainder after dividing by another number is an equivalence relationship:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
  \label{bg:mod} \forall x,y,z,k \in \mathbb{Z}, x \equiv y \bmod z \Longrightarrow x = k\cdot z + y
@@ -2036,7 +2036,7 @@ D(d,E(e,m)) = m
 &lt;li&gt;The remainder &lt;span class="math"&gt;\(y\)&lt;/span&gt; stays constant, whatever value &lt;span class="math"&gt;\(x\)&lt;/span&gt; takes on to satisfy quation &lt;span class="math"&gt;\(\ref{bg:mod}\)&lt;/span&gt;.&lt;/li&gt;
 &lt;li&gt;Due to the above fact, &lt;span class="math"&gt;\(y \in \mathbb{Z}_z\)&lt;/span&gt; (&lt;span class="math"&gt;\(y\)&lt;/span&gt; is in the set of integers modulo &lt;span class="math"&gt;\(z\)&lt;/span&gt;)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="multiplicative-inverse-and-the-greatest-common-divisor"&gt;Multiplicative Inverse And The Greatest Common Divisor&lt;a title="Permanent link" class="headerlink" href="#multiplicative-inverse-and-the-greatest-common-divisor"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="multiplicative-inverse-and-the-greatest-common-divisor"&gt;Multiplicative Inverse And The Greatest Common Divisor&lt;a title="Permanent link" class="headerlink" href="#multiplicative-inverse-and-the-greatest-common-divisor"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A multiplicative inverse for &lt;span class="math"&gt;\(x\)&lt;/span&gt; is a number that when multiplied by &lt;span class="math"&gt;\(x\)&lt;/span&gt;, will equal &lt;span class="math"&gt;\(1\)&lt;/span&gt;. For example, the multiplicative inverse of &lt;span class="math"&gt;\(x\)&lt;/span&gt; is written as &lt;span class="math"&gt;\(x^{-1}\)&lt;/span&gt; and is defined as so:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}x\cdot x^{-1} = 1\end{equation}&lt;/div&gt;
 &lt;p&gt;The greatest common divisor (gcd) between two numbers is the largest integer that will divide both numbers. For example, &lt;span class="math"&gt;\(gcd(4,10) = 2\)&lt;/span&gt;.&lt;/p&gt;
@@ -2047,20 +2047,20 @@ D(d,E(e,m)) = m
 \end{equation}&lt;/div&gt;
 &lt;p&gt;The above just says that an inverse only exists if the greatest common divisor is 1. An example should set things straight...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Lets work in the set &lt;span class="math"&gt;\(\mathbb{Z}_9\)&lt;/span&gt;, then &lt;span class="math"&gt;\(4 \in \mathbb{Z}_9\)&lt;/span&gt; and &lt;span class="math"&gt;\(gcd(4,9)=1\)&lt;/span&gt;. Therefore &lt;span class="math"&gt;\(4\)&lt;/span&gt; has a multiplicative inverse (written &lt;span class="math"&gt;\(4^{-1}\)&lt;/span&gt;) in &lt;span class="math"&gt;\(\bmod 9\)&lt;/span&gt;, which is &lt;span class="math"&gt;\(7\)&lt;/span&gt;. And indeed, &lt;span class="math"&gt;\(4\cdot 7 = 28 = 1 \bmod 9\)&lt;/span&gt;. But not all numbers have inverses. For instance, &lt;span class="math"&gt;\(3 \in \mathbb{Z}_9\)&lt;/span&gt; but &lt;span class="math"&gt;\(3^{-1}\)&lt;/span&gt; does not exist! This is because &lt;span class="math"&gt;\(gcd(3,9) = 3 \neq 1\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id="eulers-totient"&gt;Euler's Totient&lt;a title="Permanent link" class="headerlink" href="#eulers-totient"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="eulers-totient"&gt;Euler's Totient&lt;a title="Permanent link" class="headerlink" href="#eulers-totient"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Euler%27s_totient_function"&gt;Euler's Totient&lt;/a&gt; is the number of elements that have an inverse in a set of modulo integers. The totient is denoted using the Greek symbol phi &lt;span class="math"&gt;\(\phi\)&lt;/span&gt;.  From &lt;span class="math"&gt;\(\ref{bg:gcd}\)&lt;/span&gt; above, we can see that the totient is just a count 
 of number of elements that have their &lt;span class="math"&gt;\(\gcd\)&lt;/span&gt; with the modulus equal to 1. Now for any prime number &lt;span class="math"&gt;\(p\)&lt;/span&gt;, every number from &lt;span class="math"&gt;\(1\)&lt;/span&gt; up to &lt;span class="math"&gt;\(p-1\)&lt;/span&gt; has a &lt;span class="math"&gt;\(\gcd\)&lt;/span&gt; of 1 with &lt;span class="math"&gt;\(p\)&lt;/span&gt;. This brings us to an important equation regarding the totient and prime numbers:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{bg:totient} p \in \mathbb{P}, \phi(p) = p-1
 \end{equation}&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: &lt;span class="math"&gt;\(\phi(7) = \left|\{1,2,3,4,5,6\}\right| = 6\)&lt;/span&gt;&lt;sup id="sf-How-RSA-Works-With-Examples-1-back"&gt;&lt;a title="In set theory, anything between |{...}| just means the amount of elements in {...} - called cardinality for those who are interested" class="simple-footnote" href="#sf-How-RSA-Works-With-Examples-1"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-&lt;h1 id="rsa"&gt;RSA&lt;a title="Permanent link" class="headerlink" href="#rsa"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="rsa"&gt;RSA&lt;a title="Permanent link" class="headerlink" href="#rsa"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;With the above background, we have enough tools to describe RSA and show how it works. RSA is actually a set of two algorithms:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Key Generation&lt;/strong&gt;: A key generation algorithm.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;RSA Function Evaluation&lt;/strong&gt;: A function &lt;span class="math"&gt;\(F\)&lt;/span&gt;, that takes as input a point &lt;span class="math"&gt;\(x\)&lt;/span&gt; and a key &lt;span class="math"&gt;\(k\)&lt;/span&gt; and produces either an encrypted result or plaintext, depending on the input and the key.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="key-generation"&gt;Key Generation&lt;a title="Permanent link" class="headerlink" href="#key-generation"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="key-generation"&gt;Key Generation&lt;a title="Permanent link" class="headerlink" href="#key-generation"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The key generation algorithm is the most complex part of RSA. The aim of the key generation algorithm is to generate both the &lt;em&gt;public&lt;/em&gt; and the &lt;em&gt;private&lt;/em&gt; RSA keys. Sounds simple enough! Unfortunately, weak key generation makes RSA very vulnerable to attack. So it has to be done correctly. Here is what has to happen in order to generate secure RSA keys:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Large Prime Number Generation&lt;/strong&gt;: Two large prime numbers &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt; need to be generated. These numbers are very large: At least 512 digits, but 1024 digits is considered safe.&lt;/li&gt;
@@ -2070,12 +2070,12 @@ of number of elements that have their &lt;span class="math"&gt;\(\gcd\)&lt;/span
 &lt;li&gt;&lt;strong&gt;Private Key&lt;/strong&gt;: Because the prime in step 4 has a gcd of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, we are able to determine it's inverse with respect to &lt;span class="math"&gt;\(\bmod \phi(n)\)&lt;/span&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;After the five steps above, we will have our keys. Lets go over each step.&lt;/p&gt;
-&lt;h3 id="large-prime-number-generation"&gt;Large Prime Number Generation&lt;a title="Permanent link" class="headerlink" href="#large-prime-number-generation"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="large-prime-number-generation"&gt;Large Prime Number Generation&lt;a title="Permanent link" class="headerlink" href="#large-prime-number-generation"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;It is vital for RSA security that two very large prime numbers be generated that are quite far apart. Generating composite numbers, or even prime numbers that are close together makes RSA totally insecure.&lt;/p&gt;
 &lt;p&gt;How does one generate large prime numbers? The answer is to pick a large random number (a very large random number) and test for primeness. If that number fails the prime test, then add 1 and start over again until we have a number that passes a prime test. The problem is now: How do we test a number in order to determine if it is prime?&lt;/p&gt;
 &lt;p&gt;The answer: An incredibly fast prime number tester called the &lt;a href="http://en.wikipedia.org/wiki/Rabin-Miller"&gt;Rabin-Miller primality tester&lt;/a&gt; is able to accomplish this. Give it a very large number, it is able to very quickly determine with a high probability if its input is prime.  But there is a catch (and readers may have spotted the catch in the last sentence): The Rabin-Miller test is a probability test, not a definite test. Given the fact that RSA absolutely relies upon generating large prime numbers, why would anyone want to use a probabilistic test? The answer: With Rabin-Miller, we make the result as accurate as we want. In other words, Rabin-Miller is setup with parameters that produces a result that determines if a number is prime with a probability of our choosing. Normally, the test is performed by iterating &lt;span class="math"&gt;\(64\)&lt;/span&gt; times and produces a result on a number that has a &lt;span class="math"&gt;\(\frac{1}{2^{128}}\)&lt;/span&gt; chance of not being prime. The probability of a number passing the Rabin-Miller test and not being prime is so low, that it is okay to use it with RSA.  In fact, &lt;span class="math"&gt;\(\frac{1}{2^{128}}\)&lt;/span&gt; is such a small number that I would suspect that nobody would ever get a false positive.&lt;/p&gt;
 &lt;p&gt;So with Rabin-Miller, we generate two large prime numbers: &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h3 id="modulus"&gt;Modulus&lt;a title="Permanent link" class="headerlink" href="#modulus"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="modulus"&gt;Modulus&lt;a title="Permanent link" class="headerlink" href="#modulus"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Once we have our two prime numbers, we can generate a modulus very easily:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{rsa:modulus}n=p\cdot q
@@ -2083,7 +2083,7 @@ of number of elements that have their &lt;span class="math"&gt;\(\gcd\)&lt;/span
 &lt;p&gt;RSA's main security foundation relies upon the fact that given two large prime numbers, a composite number (in this case &lt;span class="math"&gt;\(n\)&lt;/span&gt;) can very easily be deduced by multiplying the two primes together. But, given just &lt;span class="math"&gt;\(n\)&lt;/span&gt;, there is no known algorithm to efficiently determining &lt;span class="math"&gt;\(n\)&lt;/span&gt;'s prime 
 factors. In fact, it is considered a hard problem. I am going to bold this next statement for effect: &lt;strong&gt;The foundation of RSA's security relies upon the fact that given a composite number, it is considered a hard problem to determine it's prime factors&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The bold-ed statement above cannot be proved. That is why I used the term &lt;em&gt;"considered a hard problem"&lt;/em&gt; and not &lt;em&gt;"is a hard problem"&lt;/em&gt;. This is a little bit disturbing: Basing the security of one of the most used cryptographic atomics on something that is not provably difficult.  The only solace one can take is that throughout history, numerous people have tried, but failed to find a solution to this.&lt;/p&gt;
-&lt;h3 id="totient"&gt;Totient&lt;a title="Permanent link" class="headerlink" href="#totient"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="totient"&gt;Totient&lt;a title="Permanent link" class="headerlink" href="#totient"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;With the prime factors of &lt;span class="math"&gt;\(n\)&lt;/span&gt;, the totient can be very quickly calculated:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{RSA:totient}\phi(n) = (p-1)\cdot (q-1)
@@ -2093,12 +2093,12 @@ factors. In fact, it is considered a hard problem. I am going to bold this next 
 &lt;div class="math"&gt;$$\phi(n) = \phi(p\cdot q) = \phi(p) \cdot \phi(q) = (p-1)\cdot (q-1)$$&lt;/div&gt;
 &lt;p&gt;
 The reason why the RSA becomes vulnerable if one can determine the prime factors of the modulus is because then one can easily determine the totient.&lt;/p&gt;
-&lt;h3 id="public-key"&gt;Public Key&lt;a title="Permanent link" class="headerlink" href="#public-key"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="public-key"&gt;Public Key&lt;a title="Permanent link" class="headerlink" href="#public-key"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Next, the &lt;em&gt;public key&lt;/em&gt; is determined. Normally expressed as &lt;span class="math"&gt;\(e\)&lt;/span&gt;, it is a prime number chosen in the range &lt;span class="math"&gt;\([3,\phi(n))\)&lt;/span&gt;. The discerning reader may think that &lt;span class="math"&gt;\(3\)&lt;/span&gt; is a little small, and yes, I agree, if &lt;span class="math"&gt;\(3\)&lt;/span&gt; is chosen, it could lead to security flaws. So in practice, the public key is normally set at &lt;span class="math"&gt;\(65537\)&lt;/span&gt;. Note that because the public key is prime, it has a high chance of a &lt;em&gt;gcd&lt;/em&gt; equal to &lt;span class="math"&gt;\(1\)&lt;/span&gt; with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. If this is not the case, then we must use another prime number that is &lt;em&gt;not&lt;/em&gt; &lt;span class="math"&gt;\(65537\)&lt;/span&gt;, but this will only occur if &lt;span class="math"&gt;\(65537\)&lt;/span&gt; is a factor of &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, something that is quite unlikely, but must still be checked for.&lt;/p&gt;
 &lt;p&gt;An interesting observation: If in practice, the number above is set at &lt;span class="math"&gt;\(65537\)&lt;/span&gt;, then it is not picked at random; surely this is a problem?  Actually, no, it isn't. As the name implies, this key is public, and therefore is shared with everyone. As long as the &lt;em&gt;private key&lt;/em&gt; cannot be deduced from the public key, we are happy. The reason why the public key is not randomly chosen in practice is because it is desirable not to have a large number. This is because it is more efficient to encrypt with smaller numbers than larger numbers.&lt;/p&gt;
 &lt;p&gt;The public key is actually a key pair of the exponent &lt;span class="math"&gt;\(e\)&lt;/span&gt; and the modulus &lt;span class="math"&gt;\(n\)&lt;/span&gt; and is present as follows&lt;/p&gt;
 &lt;div class="math"&gt;$$(e,n)$$&lt;/div&gt;
-&lt;h3 id="private-key"&gt;Private Key&lt;a title="Permanent link" class="headerlink" href="#private-key"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="private-key"&gt;Private Key&lt;a title="Permanent link" class="headerlink" href="#private-key"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Because the public key has a &lt;em&gt;gcd&lt;/em&gt; of &lt;span class="math"&gt;\(1\)&lt;/span&gt; with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, the multiplicative inverse of the public key with respect to &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; can be efficiently and quickly determined using the &lt;a href="http://en.wikipedia.org/wiki/Extended_euclidean_algorithm"&gt;Extended Euclidean Algorithm&lt;/a&gt;. This multiplicative inverse is the &lt;em&gt;private key&lt;/em&gt;. The common notation for expressing the private key is &lt;span class="math"&gt;\(d\)&lt;/span&gt;. So in effect, we have the following equation (one of the most important equations in RSA):&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{RSA:ed} e\cdot d = 1 \bmod \phi(n) 
@@ -2106,7 +2106,7 @@ The reason why the RSA becomes vulnerable if one can determine the prime factors
 &lt;p&gt;Just like the public key, the private key is also a key pair of the exponent &lt;span class="math"&gt;\(d\)&lt;/span&gt; and modulus &lt;span class="math"&gt;\(n\)&lt;/span&gt;:&lt;/p&gt;
 &lt;div class="math"&gt;$$(d,n)$$&lt;/div&gt;
 &lt;p&gt;One of the absolute fundamental security assumptions behind RSA is that given a public key, one cannot efficiently determine the private key. I have written a follow up to this post explaining &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html"&gt;why RSA works&lt;/a&gt;, in which I discuss &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#wruiwrtt"&gt;why one can't efficiently determine the private key given a public key&lt;/a&gt;. &lt;/p&gt;
-&lt;h2 id="rsa-function-evaluation"&gt;RSA Function Evaluation&lt;a title="Permanent link" class="headerlink" href="#rsa-function-evaluation"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="rsa-function-evaluation"&gt;RSA Function Evaluation&lt;a title="Permanent link" class="headerlink" href="#rsa-function-evaluation"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This is the process of transforming a plaintext message into ciphertext, or vice-versa. The RSA function, for message &lt;span class="math"&gt;\(m\)&lt;/span&gt; and key &lt;span class="math"&gt;\(k\)&lt;/span&gt; is evaluated as follows:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     F(m,k) = m^k \bmod n
@@ -2120,13 +2120,13 @@ The reason why the RSA becomes vulnerable if one can determine the prime factors
 &lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt;: &lt;span class="math"&gt;\(F(m,e) = m^e \bmod n = c\)&lt;/span&gt;, where &lt;span class="math"&gt;\(m\)&lt;/span&gt; is the message, &lt;span class="math"&gt;\(e\)&lt;/span&gt; is the public key and &lt;span class="math"&gt;\(c\)&lt;/span&gt; is the cipher.&lt;br&gt;
 &lt;strong&gt;Decryption&lt;/strong&gt;: &lt;span class="math"&gt;\(F(c,d) = c^d \bmod n = m\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;And there you have it: RSA!&lt;/p&gt;
-&lt;h1 id="final-example-rsa-from-scratch"&gt;Final Example: RSA From Scratch&lt;a title="Permanent link" class="headerlink" href="#final-example-rsa-from-scratch"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="final-example-rsa-from-scratch"&gt;Final Example: RSA From Scratch&lt;a title="Permanent link" class="headerlink" href="#final-example-rsa-from-scratch"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This is the part that everyone has been waiting for: an example of RSA from the ground up. I am first going to give an academic example, and then a real world example.&lt;/p&gt;
-&lt;h3 id="calculation-of-modulus-and-totient"&gt;Calculation of Modulus And Totient&lt;a title="Permanent link" class="headerlink" href="#calculation-of-modulus-and-totient"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="calculation-of-modulus-and-totient"&gt;Calculation of Modulus And Totient&lt;a title="Permanent link" class="headerlink" href="#calculation-of-modulus-and-totient"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Lets choose two primes: &lt;span class="math"&gt;\(p=11\)&lt;/span&gt; and &lt;span class="math"&gt;\(q=13\)&lt;/span&gt;. Hence the modulus is &lt;span class="math"&gt;\(n = p \times q = 143\)&lt;/span&gt;. The totient of n &lt;span class="math"&gt;\(\phi(n) = (p-1)\cdot (q-1) = 120\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h3 id="key-generation_1"&gt;Key Generation&lt;a title="Permanent link" class="headerlink" href="#key-generation_1"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="key-generation_1"&gt;Key Generation&lt;a title="Permanent link" class="headerlink" href="#key-generation_1"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;For the public key, a random prime number that has a greatest common divisor (gcd) of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; and is less than &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; is chosen. Let's choose &lt;span class="math"&gt;\(7\)&lt;/span&gt; (note: both &lt;span class="math"&gt;\(3\)&lt;/span&gt; and &lt;span class="math"&gt;\(5\)&lt;/span&gt; do not have a gcd of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. So &lt;span class="math"&gt;\(e=7\)&lt;/span&gt;, and to determine &lt;span class="math"&gt;\(d\)&lt;/span&gt;, the secret key, we need to find the inverse of &lt;span class="math"&gt;\(7\)&lt;/span&gt; with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. This can be done very easily and quickly with the &lt;em&gt;Extended Euclidean Algorithm&lt;/em&gt;, and hence &lt;span class="math"&gt;\(d=103\)&lt;/span&gt;. This can be easily verified: &lt;span class="math"&gt;\(e\cdot d = 1 \bmod \phi(n)\)&lt;/span&gt; and &lt;span class="math"&gt;\(7\cdot 103 = 721 = 1 \bmod 120\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h4 id="encryptiondecryption"&gt;Encryption/Decryption&lt;a title="Permanent link" class="headerlink" href="#encryptiondecryption"&gt;§&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id="encryptiondecryption"&gt;Encryption/Decryption&lt;a title="Permanent link" class="headerlink" href="#encryptiondecryption"&gt;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Lets choose our plaintext message, &lt;span class="math"&gt;\(m\)&lt;/span&gt; to be &lt;span class="math"&gt;\(9\)&lt;/span&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt;: 
 &lt;/p&gt;
@@ -2134,9 +2134,9 @@ The reason why the RSA becomes vulnerable if one can determine the prime factors
 &lt;p&gt;&lt;strong&gt;Decryption&lt;/strong&gt;:
 &lt;/p&gt;
 &lt;div class="math"&gt;$$c^d \bmod n = 48^{103} \bmod 143 = 9 = m$$&lt;/div&gt;
-&lt;h2 id="a-real-world-example"&gt;A Real World Example&lt;a title="Permanent link" class="headerlink" href="#a-real-world-example"&gt;§&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="a-real-world-example"&gt;A Real World Example&lt;a title="Permanent link" class="headerlink" href="#a-real-world-example"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Now for a real world example, lets encrypt the message "attack at dawn". The first thing that must be done is to convert the message into a numeric format. Each letter is represented by an ascii character, therefore it can be accomplished quite easily. I am not going to dive into converting strings to numbers or vice-versa, but just to note that it can be done very easily. How I will do it here is to convert the string to a bit array, and then the bit array to a large number. This can very easily be reversed to get back the original string given the large number. Using this method, "attack at dawn" becomes 1976620216402300889624482718775150 (for those interested, &lt;a href="https://gist.github.com/4184435#file_convert_text_to_decimal.py"&gt;here&lt;/a&gt; is the code that I used to make this conversion).&lt;/p&gt;
-&lt;h3 id="key-generation_2"&gt;Key Generation&lt;a title="Permanent link" class="headerlink" href="#key-generation_2"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="key-generation_2"&gt;Key Generation&lt;a title="Permanent link" class="headerlink" href="#key-generation_2"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Now to pick two large primes, &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;. These numbers must be random and not too close to each other. Here are the numbers that I generated:
 using Rabin-Miller primality tests:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;p&lt;/strong&gt;&lt;br&gt;
@@ -2152,7 +2152,7 @@ using Rabin-Miller primality tests:&lt;/p&gt;
 &lt;span class="math"&gt;\(65537\)&lt;/span&gt; has a gcd of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, so lets use it as the public key. To calculate the private key, use extended euclidean algorithm to find the multiplicative inverse with respect to &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;d&lt;/strong&gt; - the private key&lt;br&gt;
 89489425009274444368228545921773093919669586065884257445497854456487674839629818390934941973262879616797970608917283679875499331574161113854088813275488110588247193077582527278437906504015680623423550067240042466665654232383502922215493623289472138866445818789127946123407807725702626644091036502372545139713&lt;/p&gt;
-&lt;h3 id="encryptiondecryption_1"&gt;Encryption/Decryption&lt;a title="Permanent link" class="headerlink" href="#encryptiondecryption_1"&gt;§&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="encryptiondecryption_1"&gt;Encryption/Decryption&lt;a title="Permanent link" class="headerlink" href="#encryptiondecryption_1"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt;: 197662021640230088962448271877515&lt;span class="math"&gt;\(0^e \bmod n\)&lt;/span&gt;&lt;br&gt;
 &lt;/p&gt;&lt;p style="border-style: solid; border-width: 1px"&gt;
 35052111338673026690212423937053328511880760811579981620642802346685810623109850235943049080973386241113784040794704193978215378499765413083646438784740952306932534945195080183861574225226218879827232453912820596886440377536082465681750074417459151485407445862511023472235560823053497791518928820272257787786
@@ -2165,7 +2165,7 @@ using Rabin-Miller primality tests:&lt;/p&gt;
 1976620216402300889624482718775150 (which is our plaintext "attack at dawn")
 &lt;/p&gt;
 &lt;p&gt;This real world example shows how large the numbers are that is used in the real world.&lt;/p&gt;
-&lt;h1 id="conclusion"&gt;Conclusion&lt;a title="Permanent link" class="headerlink" href="#conclusion"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a title="Permanent link" class="headerlink" href="#conclusion"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;RSA is the single most useful tool for building cryptographic protocols (in my humble opinion). In this post, I have shown &lt;em&gt;how&lt;/em&gt; RSA works, I will &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html"&gt;follow this up&lt;/a&gt; with another post explaining &lt;em&gt;why&lt;/em&gt; it works.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
@@ -2211,15 +2211,15 @@ using Rabin-Miller primality tests:&lt;/p&gt;
 &lt;li&gt;&lt;em&gt;A Method for Obtaining Digital Signatures and Public-Key Cryptosystems&lt;/em&gt; by &lt;a href="http://en.wikipedia.org/wiki/Ron_Rivest"&gt;Ronald Rivest&lt;/a&gt;, &lt;a href="http://en.wikipedia.org/wiki/Adi_Shamir"&gt;Adi Shamir&lt;/a&gt; and &lt;a href="http://en.wikipedia.org/wiki/Leonard_Adleman"&gt;Leanard Adleman&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;For this explanation, it helps to give a quick definition of the cryptographic process. A message (called the plain text) must be encrypted to cipher text. It is done so via an algorithm that takes two inputs - the &lt;em&gt;plain text&lt;/em&gt; to be encrypted, and a &lt;em&gt;secret key&lt;/em&gt;.&lt;/p&gt;
-&lt;h1 id="communication-theory-of-secret-systems-by-claude-shannon"&gt;Communication Theory of Secret Systems by Claude Shannon&lt;a class="headerlink" href="#communication-theory-of-secret-systems-by-claude-shannon" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="communication-theory-of-secret-systems-by-claude-shannon"&gt;Communication Theory of Secret Systems by Claude Shannon&lt;a class="headerlink" href="#communication-theory-of-secret-systems-by-claude-shannon" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;How does one define security of a cipher? This question had not been rigorously answered until the above paper in 1949 by Claude Shannon was published. Claude Shannon has often been called the father of the digital world. One of the founding fathers of this amazing age that we live in, there is hardly anything that we take for granted in the electronic age that Claude Shannon did not have a hand in designing.&lt;/p&gt;
 &lt;p&gt;Thank goodness Shannon had some spare time to devote to cryptography. His paper defines a secure cipher as &lt;em&gt;not letting anyone learn anything about the plain text given just the cipher text&lt;/em&gt;. He thus defines a perfect cipher as the following: Given a cipher text, the probability that it resulted from any plain text is equal. Okay, that does not sound so special, but that is because I dumbed it down a bit. It actually means that when you are given some cipher text, you have absolutely no idea what plain text was used as input to produce the cipher text, seeing as all plain text have the same probability to produce the cipher text, it could have been any plain text - we just don't know!&lt;/p&gt;
 &lt;p&gt;Unfortunately, Shannon also proved that in order to have this perfect security, one needs a key at least as big as the message space. This makes perfect security impracticable: Given a message that it is a few gigabytes of size, the key to producing a perfect cipher must also be a few gigabytes large! So modern cryptography tries to relax the conditions of perfect security by defining something called &lt;em&gt;semantic security&lt;/em&gt;. Semantic security says that no efficient algorithm must have the ability to determine what plaintext produced the cipher text. More importantly, by relaxing Shannon's security definition, we are able to use keys that are tiny in comparison. Because it is not perfect by Shannon's definition, an algorithm can be produced that should be able to break the cipher. But as long as we make it so that the effort required is tantamount to waiting until the end of the universe, we are safe.&lt;/p&gt;
 &lt;p&gt;Semantic security defines our modern cryptographic age. To be sure, if a cipher is semantic secure, it can also suffer from &lt;em&gt;chosen plaintext attacks&lt;/em&gt; and &lt;em&gt;chosen ciphertext attacks&lt;/em&gt;, but at least now we have a base metric which we can use to measure how effective our security is. And indeed, modern cryptographic atomics, like AES (advanced encryption standard) is as far as we know, semantically secure. And so we use it all the time.&lt;/p&gt;
-&lt;h1 id="new-directions-in-cryptography-by-whitfield-diffie-and-martin-hellman"&gt;New Directions In Cryptography by Whitfield Diffie and Martin Hellman&lt;a class="headerlink" href="#new-directions-in-cryptography-by-whitfield-diffie-and-martin-hellman" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="new-directions-in-cryptography-by-whitfield-diffie-and-martin-hellman"&gt;New Directions In Cryptography by Whitfield Diffie and Martin Hellman&lt;a class="headerlink" href="#new-directions-in-cryptography-by-whitfield-diffie-and-martin-hellman" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The next big thing that happened has all to due with secret keys. A cipher such as AES is semantically secure, and so using it should be secure for two parties. But how can two parties agree upon a secret key to use with encryption without letting anyone know? In the Internet age, this problem is even more acute than one may suspect: Given two people that are separated by vast geographical distances and connected by the Internet who wish to communicate securely, how do they agree upon a secret key without anyone else being able to discover this secret key. The Internet is a very insecure medium by fact of anyone being able to connect to it. So agreeing upon a secret key in a secure manner over an insecure medium is not a trivial problem.&lt;/p&gt;
 &lt;p&gt;Diffie-Hellman to the rescue! Their seminal paper allows us to perform the amazing feat of securely agreeing upon a secret over an insecure medium. I'm going to save it for another post in order to explain how Diffie-Hellman works (it requires some math background), but suffice it to say that Diffie-Hallman makes it possible for secure communication to happen anywhere over any connection.&lt;/p&gt;
-&lt;h1 id="a-method-for-obtaining-digital-signatures-and-public-key-cryptosystems-by-ronald-rivest-adi-shamir-and-leanard-adleman"&gt;A Method for Obtaining Digital Signatures and Public-Key Cryptosystems by Ronald Rivest, Adi Shamir and Leanard Adleman&lt;a class="headerlink" href="#a-method-for-obtaining-digital-signatures-and-public-key-cryptosystems-by-ronald-rivest-adi-shamir-and-leanard-adleman" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="a-method-for-obtaining-digital-signatures-and-public-key-cryptosystems-by-ronald-rivest-adi-shamir-and-leanard-adleman"&gt;A Method for Obtaining Digital Signatures and Public-Key Cryptosystems by Ronald Rivest, Adi Shamir and Leanard Adleman&lt;a class="headerlink" href="#a-method-for-obtaining-digital-signatures-and-public-key-cryptosystems-by-ronald-rivest-adi-shamir-and-leanard-adleman" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The last of the seminal papers was a really huge idea. Up until now, people had used the same key to both encrypt and decrypt their messages. One could think about encryption as a door with a lock: The same key used to lock the door is also used to unlock the door. The above paper changed all that!&lt;/p&gt;
 &lt;p&gt;Commonly known as RSA (taken from the first letter of the surnames of the three inventors), it ushered in the era of &lt;em&gt;public key encryption&lt;/em&gt;, and allowed cryptography to do more than just keep secrets - it allowed cryptography to also uniquely identify a party thus making digital signatures possible.&lt;/p&gt;
 &lt;p&gt;Public key cryptography works by having two keys: A public key, and a private key. The names are very descriptive: A public key is kept public and is shared with the world, a private key is kept private and may not be shared with anyone. If one encrypts with one key, then one must use the other key to decrypt. So if two users wish to communicate securely, then one of the users just asks for the other user's public key. The message is then encrypted using the public key, but the user with the private key is the only entity able to decrypt it. So it is useless to anyone else.&lt;/p&gt;
@@ -2231,7 +2231,7 @@ using Rabin-Miller primality tests:&lt;/p&gt;
 &lt;li&gt;The folder where you have installed your &lt;code&gt;nvm.sh&lt;/code&gt; script.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: For what follows, the assumption is that the version of node that will be used for execution is the &lt;a href="https://github.com/creationix/nvm#usage"&gt;default version of nvm&lt;/a&gt;. This accomplished by using &lt;code&gt;alias&lt;/code&gt; with nvm to set &lt;code&gt;default&lt;/code&gt; (see previous link).&lt;/p&gt;
-&lt;h1 id="an-upstart-example"&gt;An Upstart Example&lt;a class="headerlink" href="#an-upstart-example" title="Permanent link"&gt;§&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="an-upstart-example"&gt;An Upstart Example&lt;a class="headerlink" href="#an-upstart-example" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Lets assume the following:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Your app is defined in the path &lt;code&gt;"/home/dev/node-script"&lt;/code&gt;&lt;/li&gt;

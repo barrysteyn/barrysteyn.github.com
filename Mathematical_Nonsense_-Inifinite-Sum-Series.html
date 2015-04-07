@@ -117,16 +117,16 @@
 	<div class="article-content">
 		<p>The following fact for infinite series crops up all the time:</p>
 <div class="math">$$ r\neq 1, 1+r+r^2+r^3+\ldots +r^k = \frac{r^{k+1}-1}{r-1} $$</div>
-<h1 id="proof">Proof<a class="headerlink" href="#proof" title="Permanent link">§</a></h1>
+<h1 id="proof">Proof<a class="headerlink" href="#proof" title="Permanent link"></a></h1>
 <p>The proof is by induction:</p>
-<h3 id="base-case-k1">Base Case: k=1<a class="headerlink" href="#base-case-k1" title="Permanent link">§</a></h3>
+<h3 id="base-case-k1">Base Case: k=1<a class="headerlink" href="#base-case-k1" title="Permanent link"></a></h3>
 <p>For the base case, where k=1, the left hand side of the above sum is <span class="math">\(1+r\)</span>, and the right hand side is <span class="math">\(\frac{r^2-1}{1-r}\)</span>:</p>
 <div class="math">\begin{aligned}
  1+r &amp;= (1+r)\cdot \frac{1-r}{1-r} \cr
  &amp;= \frac{(1+r)(1-r)}{1-r} \cr
  &amp;= \frac{r^2-1}{1-r} \cr
 \end{aligned}</div>
-<h3 id="inductive-case-kn">Inductive Case: k=n<a class="headerlink" href="#inductive-case-kn" title="Permanent link">§</a></h3>
+<h3 id="inductive-case-kn">Inductive Case: k=n<a class="headerlink" href="#inductive-case-kn" title="Permanent link"></a></h3>
 <p>Assume the above holds for <span class="math">\(k=n-1\)</span>, then <span class="math">\(1+r+r^2+r^3+\ldots +r^{n-1} = \frac{r^n-1}{r-1}\)</span>. </p>
 <div class="math">$$\left( 1+r+r^2+r^3+\ldots +r^{n-1} \right) + r^n $$</div>
 <p>By the inductive argument:</p>
@@ -136,12 +136,12 @@
  &amp;= \frac{r^{n+1} - r^n + r^n -1}{r-1} \cr
  &amp;= \frac{r^{n+1} -1}{r-1} \cr
 \end{aligned}</div>
-<h1 id="some-useful-facts">Some useful facts<a class="headerlink" href="#some-useful-facts" title="Permanent link">§</a></h1>
-<h3 id="assume-r-1-then-the-sum-is-bounded-by-frac11-r">Assume r &lt; 1, then the sum is bounded by <span class="math">\(\frac{1}{1-r}\)</span><a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-frac11-r" title="Permanent link">§</a></h3>
+<h1 id="some-useful-facts">Some useful facts<a class="headerlink" href="#some-useful-facts" title="Permanent link"></a></h1>
+<h3 id="assume-r-1-then-the-sum-is-bounded-by-frac11-r">Assume r &lt; 1, then the sum is bounded by <span class="math">\(\frac{1}{1-r}\)</span><a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-frac11-r" title="Permanent link"></a></h3>
 <p>If <span class="math">\(r &lt; 1\)</span>, then: <span class="math">\(1+r+r^2+r^3+\ldots +r^k \leq \frac{1}{1-r}\)</span></p>
 <p>This is easy to see: if <span class="math">\(r&lt;1\)</span>, then <span class="math">\(1 - r^{k+1} \leq 1\)</span>, and so <span class="math">\(\frac{r^{k+1}-1}{r-1} = \frac{1-r^{k+1}}{1-r}\leq \frac{1}{1-r}\)</span>.</p>
 <p>In this case, the series sum is dominated by the first term (e.g. 1), and is bounded above by something that is independent of k.</p>
-<h3 id="assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right">Assume r &gt; 1, then the sum is bounded by <span class="math">\(r^k\cdot \left(1+\frac{1}{r-1} \right)\)</span><a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right" title="Permanent link">§</a></h3>
+<h3 id="assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right">Assume r &gt; 1, then the sum is bounded by <span class="math">\(r^k\cdot \left(1+\frac{1}{r-1} \right)\)</span><a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right" title="Permanent link"></a></h3>
 <p>If <span class="math">\(r &gt; 1\)</span>, then: <span class="math">\( 1+r+r^2+r^3+\ldots +r^k \leq r^k\cdot \left(1+\frac{1}{r-1} \right)\)</span></p>
 <p>The proof:
 </p>

@@ -115,8 +115,8 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="algorithm-analysis">Algorithm Analysis<a class="headerlink" href="#algorithm-analysis" title="Permanent link">§</a></h1>
-<h2 id="aymptotic-notation-big-oh">Aymptotic Notation: Big Oh<a class="headerlink" href="#aymptotic-notation-big-oh" title="Permanent link">§</a></h2>
+		<h1 id="algorithm-analysis">Algorithm Analysis<a class="headerlink" href="#algorithm-analysis" title="Permanent link"></a></h1>
+<h2 id="aymptotic-notation-big-oh">Aymptotic Notation: Big Oh<a class="headerlink" href="#aymptotic-notation-big-oh" title="Permanent link"></a></h2>
 <p>Note: These definitions are not rigorous but should serve for interview purposes</p>
 <ul>
 <li><span class="math">\(f(n) = O(g(n)) \Rightarrow f(n) \text{ is bounded above by } g(n)\)</span> <ul>
@@ -132,25 +132,25 @@
 </ul>
 </li>
 </ul>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">§</a></h3>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link"></a></h3>
 <p>Is <span class="math">\((x + y)^2 = O(x^2 + y^2)\)</span>?</p>
 <p>Expand <span class="math">\((x + y)^2\)</span> to <span class="math">\(x^2 + 2xy + y^2\)</span>, which contains an extra term, namely <span class="math">\(2xy\)</span>. There are two scenarios: <span class="math">\(x &lt; y\)</span> or <span class="math">\(y &lt; x\)</span>. In either case, <span class="math">\(2xy \leq 2(x^2 + y^2)\)</span>. So <span class="math">\((x + y)^2 \leq 3\cdot (x^2 + y^2) \Rightarrow (x + y)^2 = O(x^2 + y^2)\)</span>.</p>
-<h2 id="growth-rates">Growth Rates<a class="headerlink" href="#growth-rates" title="Permanent link">§</a></h2>
+<h2 id="growth-rates">Growth Rates<a class="headerlink" href="#growth-rates" title="Permanent link"></a></h2>
 <p>Important to know that:</p>
 <p><center> <span class="math">\(n! \gg 2^n \gg n^3 \gg n^2 \gg n\cdot log n \gg n \gg log n \gg 1\)</span></center></p>
-<h3 id="example-of-n">Example of <span class="math">\(n!\)</span><a class="headerlink" href="#example-of-n" title="Permanent link">§</a></h3>
-<h3 id="example-of-2n">Example of <span class="math">\(2^n\)</span><a class="headerlink" href="#example-of-2n" title="Permanent link">§</a></h3>
+<h3 id="example-of-n">Example of <span class="math">\(n!\)</span><a class="headerlink" href="#example-of-n" title="Permanent link"></a></h3>
+<h3 id="example-of-2n">Example of <span class="math">\(2^n\)</span><a class="headerlink" href="#example-of-2n" title="Permanent link"></a></h3>
 <p>A recursive definition of the Fibonacci series as presented below:
 <script src="https://gist.github.com/barrysteyn/5413430.js"></script>
 Note: There are more efficient ways of calculating Fibonacci series.</p>
-<h3 id="example-of-n3">Example of <span class="math">\(n^3\)</span><a class="headerlink" href="#example-of-n3" title="Permanent link">§</a></h3>
-<h3 id="example-of-n2">Example of <span class="math">\(n^2\)</span><a class="headerlink" href="#example-of-n2" title="Permanent link">§</a></h3>
-<h3 id="example-of-ncdot-log-n">Example of <span class="math">\(n\cdot log n\)</span><a class="headerlink" href="#example-of-ncdot-log-n" title="Permanent link">§</a></h3>
+<h3 id="example-of-n3">Example of <span class="math">\(n^3\)</span><a class="headerlink" href="#example-of-n3" title="Permanent link"></a></h3>
+<h3 id="example-of-n2">Example of <span class="math">\(n^2\)</span><a class="headerlink" href="#example-of-n2" title="Permanent link"></a></h3>
+<h3 id="example-of-ncdot-log-n">Example of <span class="math">\(n\cdot log n\)</span><a class="headerlink" href="#example-of-ncdot-log-n" title="Permanent link"></a></h3>
 <p>The canonical example is <a href="">Merge Sort</a></p>
-<h3 id="example-of-n_1">Example of <span class="math">\(n\)</span><a class="headerlink" href="#example-of-n_1" title="Permanent link">§</a></h3>
-<h3 id="example-of-log-n">Example of <span class="math">\(log n\)</span><a class="headerlink" href="#example-of-log-n" title="Permanent link">§</a></h3>
+<h3 id="example-of-n_1">Example of <span class="math">\(n\)</span><a class="headerlink" href="#example-of-n_1" title="Permanent link"></a></h3>
+<h3 id="example-of-log-n">Example of <span class="math">\(log n\)</span><a class="headerlink" href="#example-of-log-n" title="Permanent link"></a></h3>
 <p>Binary search.</p>
-<h3 id="example-of-1">Example of <span class="math">\(1\)</span><a class="headerlink" href="#example-of-1" title="Permanent link">§</a></h3>
+<h3 id="example-of-1">Example of <span class="math">\(1\)</span><a class="headerlink" href="#example-of-1" title="Permanent link"></a></h3>
 <p>Array index access.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",

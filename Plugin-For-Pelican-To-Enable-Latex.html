@@ -115,12 +115,12 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="latex-plugin-for-pelican">Latex Plugin For Pelican<a class="headerlink" href="#latex-plugin-for-pelican" title="Permanent link">§</a></h1>
+		<h1 id="latex-plugin-for-pelican">Latex Plugin For Pelican<a class="headerlink" href="#latex-plugin-for-pelican" title="Permanent link"></a></h1>
 <p>This plugin allows you to write mathematical equations in your articles using Latex.
 It uses the MathJax Latex JavaScript library to render latex that is embedded in
 between <code>$..$</code> for inline math and <code>$$..$$</code> for displayed math. It also allows for 
 writing equations in by using <code>\begin{equation}...\end{equation}</code>.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">§</a></h2>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h2>
 <p>To enable, ensure that <code>latex.py</code> is put somewhere that is accessible.
 Then use as follows by adding the following to your settings.py:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>PLUGINS = [&quot;latex&quot;]
@@ -147,7 +147,7 @@ between the <code>&lt;head&gt;</code> parameters (for the NotMyIdea template, th
 </pre></div>
 </td></tr></table>
 
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">§</a></h2>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
 <p>Latex will be embedded in every article. If however you want latex only for
 selected articles, then in settings.py, add</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>LATEX = &#39;article&#39;
@@ -165,21 +165,21 @@ include 'Latex' as part of the metadata without any value:</p>
 </pre></div>
 </td></tr></table>
 
-<h2 id="latex-examples">Latex Examples<a class="headerlink" href="#latex-examples" title="Permanent link">§</a></h2>
-<h3 id="inline">Inline<a class="headerlink" href="#inline" title="Permanent link">§</a></h3>
+<h2 id="latex-examples">Latex Examples<a class="headerlink" href="#latex-examples" title="Permanent link"></a></h2>
+<h3 id="inline">Inline<a class="headerlink" href="#inline" title="Permanent link"></a></h3>
 <p>Latex between <code>$</code>..<code>$</code>, for example, <code>$</code>x^2<code>$</code>, will be rendered inline 
 with respect to the current html block.</p>
-<h3 id="displayed-math">Displayed Math<a class="headerlink" href="#displayed-math" title="Permanent link">§</a></h3>
+<h3 id="displayed-math">Displayed Math<a class="headerlink" href="#displayed-math" title="Permanent link"></a></h3>
 <p>Latex between <code>$$</code>..<code>$$</code>, for example, <code>$$</code>x^2<code>$$</code>, will be rendered centered in a 
 new paragraph.</p>
-<h3 id="equations">Equations<a class="headerlink" href="#equations" title="Permanent link">§</a></h3>
+<h3 id="equations">Equations<a class="headerlink" href="#equations" title="Permanent link"></a></h3>
 <p>Latex between <code>\begin</code> and <code>\end</code>, for example, <code>begin{equation}</code> x^2 <code>\end{equation}</code>, 
 will be rendered centered in a new paragraph with a right justified equation number 
 at the top of the paragraph. This equation number can be referenced in the document. 
 To do this, use a <code>label</code> inside of the equation format and then refer to that label 
 using <code>ref</code>. For example: <code>begin{equation} \label{eq} X^2 \end{equation}</code>. Now 
 refer to that equation number by <code>$</code>\ref{eq}<code>$</code>.</p>
-<h2 id="template-and-article-examples">Template And Article Examples<a class="headerlink" href="#template-and-article-examples" title="Permanent link">§</a></h2>
+<h2 id="template-and-article-examples">Template And Article Examples<a class="headerlink" href="#template-and-article-examples" title="Permanent link"></a></h2>
 <p>To see an example of this plugin in action, look at 
 <a href="http://doctrina.org/How-RSA-Works-With-Examples.html">this article</a>. To see how 
 this plugin works with a template, look at 
