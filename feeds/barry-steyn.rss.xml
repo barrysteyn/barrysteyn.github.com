@@ -664,7 +664,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;h1 id="installation-instructions"&gt;Installation Instructions&lt;a class="headerlink" href="#installation-instructions" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to &lt;a href="https://github.com/kelvinwong-ca"&gt;Kelvin Wong&lt;/a&gt;).&lt;/p&gt;
 &lt;h2 id="from-npm"&gt;From NPM&lt;a class="headerlink" href="#from-npm" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;npm install scrypt
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -672,9 +672,9 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;p&gt;You will need &lt;code&gt;node-gyp&lt;/code&gt; to get this to work (install it if you don't have it: &lt;code&gt;npm install -g node-gyp&lt;/code&gt;):&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/barrysteyn/node-scrypt.git
-cd node-scrypt
-node-gyp configure build
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/barrysteyn/node-scrypt.git&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;scrypt&lt;/span&gt;
+&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;gyp&lt;/span&gt; &lt;span class="n"&gt;configure&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -684,9 +684,9 @@ node-gyp configure build
 &lt;p&gt;To test, go to the folder where scrypt was installed, and type:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;cd node_modules/scrypt
-npm install
-node tests/scrypt-tests
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;node_modules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;scrypt&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
+&lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="n"&gt;tests&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tests&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -694,9 +694,9 @@ node tests/scrypt-tests
 &lt;p&gt;Go to the folder where scrypt was installed and type:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;cd node-scrypt
-npm install
-node tests/scrypt-tests
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;scrypt&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
+&lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="n"&gt;tests&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tests&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -780,11 +780,11 @@ node tests/scrypt-tests
 2
 3
 4
-5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
-var password = &amp;quot;This is a password&amp;quot;;
-var maxtime = 0.1;
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;This is a password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-var hash = scrypt.passwordHashSync(password, maxtime);
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;hash&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;passwordHashSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -794,12 +794,12 @@ var hash = scrypt.passwordHashSync(password, maxtime);
 3
 4
 5
-6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
-var password = &amp;quot;This is a password&amp;quot;;
-var maxtime = 0.1;
-var maxmem = 0, maxmemfrac = 0.5;
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;This is a password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxmem&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmemfrac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-var hash = scrypt.passwordHashSync(password, maxtime, maxmem, maxmemfrac);
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;hash&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;passwordHashSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmemfrac&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -808,11 +808,11 @@ var hash = scrypt.passwordHashSync(password, maxtime, maxmem, maxmemfrac);
 2
 3
 4
-5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
-var password = &amp;quot;This is a password&amp;quot;;
-var hash; //This should be obtained from the database
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;This is a password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;hash&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//This should be obtained from the database&lt;/span&gt;
 
-var result = scrypt.verifyHashSync(hash, password);
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;verifyHashSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hash&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -878,13 +878,13 @@ var result = scrypt.verifyHashSync(hash, password);
 4
 5
 6
-7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
-var message = &amp;quot;Hello World&amp;quot;;
-var password = &amp;quot;Pass&amp;quot;;
-var maxtime = 1.0;
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Pass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-var cipher = scrypt.encryptSync(message, password, maxtime);
-var plainText = scrypt.decryptSync(cipher, password, maxtime);
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;cipher&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encryptSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;plainText&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decryptSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cipher&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -897,15 +897,15 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime);
 6
 7
 8
-9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;var scrypt = require(&amp;quot;scrypt&amp;quot;);
-var message = &amp;quot;Hello World&amp;quot;;
-var password = &amp;quot;Pass&amp;quot;;
-var maxtime = 1.0;
-var maxmem = 1; //Defaults to 0 if not set
-var maxmemfrac = 1.5; //Defaults to 0.5 if not set
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scrypt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Pass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxmem&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Defaults to 0 if not set&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;maxmemfrac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Defaults to 0.5 if not set&lt;/span&gt;
 
-var cipher = scrypt.encryptSync(message, password, maxtime, maxmem, maxmemfrac);
-var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac);
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;cipher&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encryptSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmemfrac&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;plainText&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decryptSync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cipher&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxtime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxmemfrac&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -1015,7 +1015,7 @@ writing equations in by using &lt;code&gt;\begin{equation}...\end{equation}&lt;/
 &lt;h2 id="installation"&gt;Installation&lt;a class="headerlink" href="#installation" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To enable, ensure that &lt;code&gt;latex.py&lt;/code&gt; is put somewhere that is accessible.
 Then use as follows by adding the following to your settings.py:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;PLUGINS = [&amp;quot;latex&amp;quot;]
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;latex&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -1025,7 +1025,7 @@ there. An easy way to find where pelican is installed is to verbose list the
 available themes by typing &lt;code&gt;pelican-themes -l -v&lt;/code&gt;. &lt;/p&gt;
 &lt;p&gt;Once the pelican folder is found, copy &lt;code&gt;latex.py&lt;/code&gt; to the &lt;code&gt;plugins&lt;/code&gt; folder. Then 
 add to settings.py like this:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;PLUGINS = [&amp;quot;pelican.plugins.latex&amp;quot;]
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;pelican.plugins.latex&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -1042,7 +1042,7 @@ between the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; parameters (for the No
 &lt;h2 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Latex will be embedded in every article. If however you want latex only for
 selected articles, then in settings.py, add&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;LATEX = &amp;#39;article&amp;#39;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;LATEX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;article&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -1084,11 +1084,11 @@ this plugin works with a template, look at
 2
 3
 4
-5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;for (i=0; i &amp;lt; 4; i++) { //Outer loop
-    for (i=0; i &amp;lt; 2; i++) { //Inner loop
-        document.write(&amp;quot;Hello World&amp;quot;); 
-    }
-}
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;//Outer loop&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;//Inner loop&lt;/span&gt;
+        &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -1412,7 +1412,7 @@ this plugin works with a template, look at
 &lt;p&gt;Method invocation is identified when a function is preceded by &lt;code&gt;object.&lt;/code&gt;, where &lt;code&gt;object&lt;/code&gt; is the name of some object. JavaScript will set the &lt;code&gt;this&lt;/code&gt; parameter to the object where the method was invoked on. In the example above, &lt;code&gt;this&lt;/code&gt; would be set to &lt;code&gt;obj&lt;/code&gt;. JavaScript binds &lt;code&gt;this&lt;/code&gt; at execution (also known as &lt;em&gt;late binding&lt;/em&gt;).&lt;/p&gt;
 &lt;h2 id="function-invocation"&gt;Function Invocation &lt;a id="fi"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#function-invocation" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Function invocation is performed by invoking a function using &lt;code&gt;()&lt;/code&gt;:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;add(2,3); //5
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//5&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -1615,14 +1615,14 @@ this plugin works with a template, look at
 &lt;p&gt;Object Literals do not look like traditional objects. In fact, Object Literals look more like a structure that can hold things.  There is however one difference between a JavaScript object and a structure that can hold things: All JavaScript objects have a &lt;em&gt;prototype&lt;/em&gt; linking.&lt;/p&gt;
 &lt;h2 id="the-prototype-link"&gt;The Prototype Link&lt;a class="headerlink" href="#the-prototype-link" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Every Object has a &lt;em&gt;hidden&lt;/em&gt; link to another object called a &lt;em&gt;prototype link&lt;/em&gt;. Objects by default are linked to the object &lt;code&gt;Object.prototype&lt;/code&gt;. The prototype link is only used when retrieving property values from an object (it is not touched when updating an object). When retrieving a property value from an object, if it cannot be found, it will look for it in the prototype object that it is linked to. For example:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;person.age; // undefined - property age does not exist
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// undefined - property age does not exist&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;JavaScript tried to find the property age on person, and it could not. So then it tried to find it on &lt;code&gt;Object.prototype&lt;/code&gt; and it could not find it either. So it returned "&lt;em&gt;undefined&lt;/em&gt;".&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;Object.prototype.age = 56; // Every object is linked to Object.prototype by default
-person.age; // 56
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prototype&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;56&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Every object is linked to Object.prototype by default&lt;/span&gt;
+&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// 56&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -1730,8 +1730,8 @@ person.age; // 56
 
 &lt;p&gt;In the above, the &lt;code&gt;alien&lt;/code&gt; and &lt;code&gt;human&lt;/code&gt; objects are constructed from the function &lt;code&gt;Entity&lt;/code&gt; via the &lt;em&gt;constructor invocation pattern&lt;/em&gt; that is initiated by putting the &lt;code&gt;new&lt;/code&gt; keyword in front of the function name. When &lt;code&gt;alien&lt;/code&gt; is constructed, &lt;code&gt;Entity&lt;/code&gt;'s prototype property has not been altered, and so &lt;code&gt;alien&lt;/code&gt; is linked to &lt;code&gt;Object.prototype&lt;/code&gt;. But when constructing &lt;code&gt;human&lt;/code&gt;, &lt;code&gt;Entity&lt;/code&gt;'s prototype property was altered to species, and so the prototype object linked to &lt;code&gt;human&lt;/code&gt; is &lt;code&gt;species&lt;/code&gt;, which in turn is itself linked to &lt;code&gt;Object.prototype&lt;/code&gt;:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;alien.species; // undefined
-human.species; // human
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;alien&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;species&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// undefined&lt;/span&gt;
+&lt;span class="n"&gt;human&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;species&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// human&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -1808,16 +1808,16 @@ human.species; // human
  9
 10
 11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;//Object Literal&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;objectLiteral&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s2"&gt;&amp;quot;property1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;value1&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;objectLiteral&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;property1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;value1&amp;quot;&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 
 &lt;span class="c1"&gt;//Function Object&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;functionObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;functionObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="c1"&gt;//Object From Function&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;objectFromFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;functionObject&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;objectFromFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;functionObject&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -2013,18 +2013,18 @@ D(d,E(e,m)) = m
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Barry Steyn</dc:creator><pubDate>Mon, 03 Sep 2012 00:00:00 -0700</pubDate><guid>tag:doctrina.org,2012-09-03:Why-RSA-Works-Three-Fundamental-Questions-Answered.html</guid><category>cryptography</category></item><item><title>How RSA Works With Examples</title><link>http://doctrina.org/How-RSA-Works-With-Examples.html</link><description>&lt;h2 id="introduction"&gt;Introduction&lt;a title="Permanent link" class="headerlink" href="#introduction"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Barry Steyn</dc:creator><pubDate>Mon, 03 Sep 2012 00:00:00 -0700</pubDate><guid>tag:doctrina.org,2012-09-03:Why-RSA-Works-Three-Fundamental-Questions-Answered.html</guid><category>cryptography</category></item><item><title>How RSA Works With Examples</title><link>http://doctrina.org/How-RSA-Works-With-Examples.html</link><description>&lt;h2 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This is part 1 of a series of two blog posts about RSA (&lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html"&gt;part 2&lt;/a&gt; will explain &lt;em&gt;why&lt;/em&gt; RSA works). In this post, I am going to explain exactly how RSA public key encryption works. One of the &lt;a href="http://doctrina.org/The-3-Seminal-Events-In-Cryptography.html"&gt;3 seminal events in cryptography&lt;/a&gt; of the 20th century, RSA opens the world to a host of various cryptographic protocols (like &lt;em&gt;digital signatures, cryptographic voting&lt;/em&gt; etc). All discussions on this topic (including this one) are very &lt;em&gt;mathematical&lt;/em&gt;, but the difference here is that I am going to go out of my way to explain each concept with a concrete example. The reader who only has a beginner level of mathematical knowledge should be able to understand exactly how RSA works after reading this post along with the examples.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;PLEASE PLEASE PLEASE&lt;/strong&gt;: Do not use these examples (specially the real world example) and implement this yourself. What we are talking about in this blog post is actually referred to by cryptographers as &lt;em&gt;plain old RSA&lt;/em&gt;, and it needs to be randomly padded with &lt;a href="http://en.wikipedia.org/wiki/OAEP"&gt;OAEP&lt;/a&gt; to make it secure. In fact, you should never ever implement any type of cryptography by yourself, rather use a library. You have been warned!&lt;/p&gt;
-&lt;h1 id="background-mathematics"&gt;Background Mathematics&lt;a title="Permanent link" class="headerlink" href="#background-mathematics"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id="the-set-of-integers-modulo-p"&gt;The Set Of Integers Modulo P&lt;a title="Permanent link" class="headerlink" href="#the-set-of-integers-modulo-p"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id="background-mathematics"&gt;Background Mathematics&lt;a href="#background-mathematics" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="the-set-of-integers-modulo-p"&gt;The Set Of Integers Modulo P&lt;a href="#the-set-of-integers-modulo-p" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The set:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{bg:intmod} \mathbb{Z}_p = \{ 0,1,2,...,p-1 \}
 \end{equation}&lt;/div&gt;
 &lt;p&gt;Is called the &lt;em&gt;set of integers modulo p&lt;/em&gt; (or &lt;em&gt;mod p&lt;/em&gt; for short). It is a set that contains Integers from &lt;span class="math"&gt;\(0\)&lt;/span&gt; up until &lt;span class="math"&gt;\(p-1\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: &lt;span class="math"&gt;\(\mathbb{Z}_{10} =\{0,1,2,3,4,5,6,7,8,9\}\)&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id="integer-remainder-after-dividing"&gt;Integer Remainder After Dividing&lt;a title="Permanent link" class="headerlink" href="#integer-remainder-after-dividing"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="integer-remainder-after-dividing"&gt;Integer Remainder After Dividing&lt;a href="#integer-remainder-after-dividing" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;When we first learned about numbers at school, we had no notion of real numbers, only integers.  Therefore we were told that  5 divided by 2 was equal to 2 remainder 1, and not &lt;span class="math"&gt;\(2\frac{1}{2}\)&lt;/span&gt;. It turns out that this type of math is absolutely vital to RSA, and is one of the reasons that secures RSA. A very formal way of stating a remainder after dividing by another number is an equivalence relationship:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
  \label{bg:mod} \forall x,y,z,k \in \mathbb{Z}, x \equiv y \bmod z \Longrightarrow x = k\cdot z + y
@@ -2036,7 +2036,7 @@ D(d,E(e,m)) = m
 &lt;li&gt;The remainder &lt;span class="math"&gt;\(y\)&lt;/span&gt; stays constant, whatever value &lt;span class="math"&gt;\(x\)&lt;/span&gt; takes on to satisfy quation &lt;span class="math"&gt;\(\ref{bg:mod}\)&lt;/span&gt;.&lt;/li&gt;
 &lt;li&gt;Due to the above fact, &lt;span class="math"&gt;\(y \in \mathbb{Z}_z\)&lt;/span&gt; (&lt;span class="math"&gt;\(y\)&lt;/span&gt; is in the set of integers modulo &lt;span class="math"&gt;\(z\)&lt;/span&gt;)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="multiplicative-inverse-and-the-greatest-common-divisor"&gt;Multiplicative Inverse And The Greatest Common Divisor&lt;a title="Permanent link" class="headerlink" href="#multiplicative-inverse-and-the-greatest-common-divisor"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="multiplicative-inverse-and-the-greatest-common-divisor"&gt;Multiplicative Inverse And The Greatest Common Divisor&lt;a href="#multiplicative-inverse-and-the-greatest-common-divisor" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A multiplicative inverse for &lt;span class="math"&gt;\(x\)&lt;/span&gt; is a number that when multiplied by &lt;span class="math"&gt;\(x\)&lt;/span&gt;, will equal &lt;span class="math"&gt;\(1\)&lt;/span&gt;. For example, the multiplicative inverse of &lt;span class="math"&gt;\(x\)&lt;/span&gt; is written as &lt;span class="math"&gt;\(x^{-1}\)&lt;/span&gt; and is defined as so:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}x\cdot x^{-1} = 1\end{equation}&lt;/div&gt;
 &lt;p&gt;The greatest common divisor (gcd) between two numbers is the largest integer that will divide both numbers. For example, &lt;span class="math"&gt;\(gcd(4,10) = 2\)&lt;/span&gt;.&lt;/p&gt;
@@ -2047,20 +2047,20 @@ D(d,E(e,m)) = m
 \end{equation}&lt;/div&gt;
 &lt;p&gt;The above just says that an inverse only exists if the greatest common divisor is 1. An example should set things straight...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Lets work in the set &lt;span class="math"&gt;\(\mathbb{Z}_9\)&lt;/span&gt;, then &lt;span class="math"&gt;\(4 \in \mathbb{Z}_9\)&lt;/span&gt; and &lt;span class="math"&gt;\(gcd(4,9)=1\)&lt;/span&gt;. Therefore &lt;span class="math"&gt;\(4\)&lt;/span&gt; has a multiplicative inverse (written &lt;span class="math"&gt;\(4^{-1}\)&lt;/span&gt;) in &lt;span class="math"&gt;\(\bmod 9\)&lt;/span&gt;, which is &lt;span class="math"&gt;\(7\)&lt;/span&gt;. And indeed, &lt;span class="math"&gt;\(4\cdot 7 = 28 = 1 \bmod 9\)&lt;/span&gt;. But not all numbers have inverses. For instance, &lt;span class="math"&gt;\(3 \in \mathbb{Z}_9\)&lt;/span&gt; but &lt;span class="math"&gt;\(3^{-1}\)&lt;/span&gt; does not exist! This is because &lt;span class="math"&gt;\(gcd(3,9) = 3 \neq 1\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id="eulers-totient"&gt;Euler's Totient&lt;a title="Permanent link" class="headerlink" href="#eulers-totient"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="eulers-totient"&gt;Euler's Totient&lt;a href="#eulers-totient" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Euler%27s_totient_function"&gt;Euler's Totient&lt;/a&gt; is the number of elements that have an inverse in a set of modulo integers. The totient is denoted using the Greek symbol phi &lt;span class="math"&gt;\(\phi\)&lt;/span&gt;.  From &lt;span class="math"&gt;\(\ref{bg:gcd}\)&lt;/span&gt; above, we can see that the totient is just a count 
 of number of elements that have their &lt;span class="math"&gt;\(\gcd\)&lt;/span&gt; with the modulus equal to 1. Now for any prime number &lt;span class="math"&gt;\(p\)&lt;/span&gt;, every number from &lt;span class="math"&gt;\(1\)&lt;/span&gt; up to &lt;span class="math"&gt;\(p-1\)&lt;/span&gt; has a &lt;span class="math"&gt;\(\gcd\)&lt;/span&gt; of 1 with &lt;span class="math"&gt;\(p\)&lt;/span&gt;. This brings us to an important equation regarding the totient and prime numbers:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{bg:totient} p \in \mathbb{P}, \phi(p) = p-1
 \end{equation}&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: &lt;span class="math"&gt;\(\phi(7) = \left|\{1,2,3,4,5,6\}\right| = 6\)&lt;/span&gt;&lt;sup id="sf-How-RSA-Works-With-Examples-1-back"&gt;&lt;a title="In set theory, anything between |{...}| just means the amount of elements in {...} - called cardinality for those who are interested" class="simple-footnote" href="#sf-How-RSA-Works-With-Examples-1"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-&lt;h1 id="rsa"&gt;RSA&lt;a title="Permanent link" class="headerlink" href="#rsa"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: &lt;span class="math"&gt;\(\phi(7) = \left|\{1,2,3,4,5,6\}\right| = 6\)&lt;/span&gt;&lt;sup id="sf-How-RSA-Works-With-Examples-1-back"&gt;&lt;a href="#sf-How-RSA-Works-With-Examples-1" title="In set theory, anything between |{...}| just means the amount of elements in {...} - called cardinality for those who are interested" class="simple-footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h1 id="rsa"&gt;RSA&lt;a href="#rsa" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;With the above background, we have enough tools to describe RSA and show how it works. RSA is actually a set of two algorithms:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Key Generation&lt;/strong&gt;: A key generation algorithm.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;RSA Function Evaluation&lt;/strong&gt;: A function &lt;span class="math"&gt;\(F\)&lt;/span&gt;, that takes as input a point &lt;span class="math"&gt;\(x\)&lt;/span&gt; and a key &lt;span class="math"&gt;\(k\)&lt;/span&gt; and produces either an encrypted result or plaintext, depending on the input and the key.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="key-generation"&gt;Key Generation&lt;a title="Permanent link" class="headerlink" href="#key-generation"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="key-generation"&gt;Key Generation&lt;a href="#key-generation" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The key generation algorithm is the most complex part of RSA. The aim of the key generation algorithm is to generate both the &lt;em&gt;public&lt;/em&gt; and the &lt;em&gt;private&lt;/em&gt; RSA keys. Sounds simple enough! Unfortunately, weak key generation makes RSA very vulnerable to attack. So it has to be done correctly. Here is what has to happen in order to generate secure RSA keys:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Large Prime Number Generation&lt;/strong&gt;: Two large prime numbers &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt; need to be generated. These numbers are very large: At least 512 digits, but 1024 digits is considered safe.&lt;/li&gt;
@@ -2070,12 +2070,12 @@ of number of elements that have their &lt;span class="math"&gt;\(\gcd\)&lt;/span
 &lt;li&gt;&lt;strong&gt;Private Key&lt;/strong&gt;: Because the prime in step 4 has a gcd of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, we are able to determine it's inverse with respect to &lt;span class="math"&gt;\(\bmod \phi(n)\)&lt;/span&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;After the five steps above, we will have our keys. Lets go over each step.&lt;/p&gt;
-&lt;h3 id="large-prime-number-generation"&gt;Large Prime Number Generation&lt;a title="Permanent link" class="headerlink" href="#large-prime-number-generation"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="large-prime-number-generation"&gt;Large Prime Number Generation&lt;a href="#large-prime-number-generation" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;It is vital for RSA security that two very large prime numbers be generated that are quite far apart. Generating composite numbers, or even prime numbers that are close together makes RSA totally insecure.&lt;/p&gt;
 &lt;p&gt;How does one generate large prime numbers? The answer is to pick a large random number (a very large random number) and test for primeness. If that number fails the prime test, then add 1 and start over again until we have a number that passes a prime test. The problem is now: How do we test a number in order to determine if it is prime?&lt;/p&gt;
 &lt;p&gt;The answer: An incredibly fast prime number tester called the &lt;a href="http://en.wikipedia.org/wiki/Rabin-Miller"&gt;Rabin-Miller primality tester&lt;/a&gt; is able to accomplish this. Give it a very large number, it is able to very quickly determine with a high probability if its input is prime.  But there is a catch (and readers may have spotted the catch in the last sentence): The Rabin-Miller test is a probability test, not a definite test. Given the fact that RSA absolutely relies upon generating large prime numbers, why would anyone want to use a probabilistic test? The answer: With Rabin-Miller, we make the result as accurate as we want. In other words, Rabin-Miller is setup with parameters that produces a result that determines if a number is prime with a probability of our choosing. Normally, the test is performed by iterating &lt;span class="math"&gt;\(64\)&lt;/span&gt; times and produces a result on a number that has a &lt;span class="math"&gt;\(\frac{1}{2^{128}}\)&lt;/span&gt; chance of not being prime. The probability of a number passing the Rabin-Miller test and not being prime is so low, that it is okay to use it with RSA.  In fact, &lt;span class="math"&gt;\(\frac{1}{2^{128}}\)&lt;/span&gt; is such a small number that I would suspect that nobody would ever get a false positive.&lt;/p&gt;
 &lt;p&gt;So with Rabin-Miller, we generate two large prime numbers: &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h3 id="modulus"&gt;Modulus&lt;a title="Permanent link" class="headerlink" href="#modulus"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="modulus"&gt;Modulus&lt;a href="#modulus" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Once we have our two prime numbers, we can generate a modulus very easily:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{rsa:modulus}n=p\cdot q
@@ -2083,7 +2083,7 @@ of number of elements that have their &lt;span class="math"&gt;\(\gcd\)&lt;/span
 &lt;p&gt;RSA's main security foundation relies upon the fact that given two large prime numbers, a composite number (in this case &lt;span class="math"&gt;\(n\)&lt;/span&gt;) can very easily be deduced by multiplying the two primes together. But, given just &lt;span class="math"&gt;\(n\)&lt;/span&gt;, there is no known algorithm to efficiently determining &lt;span class="math"&gt;\(n\)&lt;/span&gt;'s prime 
 factors. In fact, it is considered a hard problem. I am going to bold this next statement for effect: &lt;strong&gt;The foundation of RSA's security relies upon the fact that given a composite number, it is considered a hard problem to determine it's prime factors&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The bold-ed statement above cannot be proved. That is why I used the term &lt;em&gt;"considered a hard problem"&lt;/em&gt; and not &lt;em&gt;"is a hard problem"&lt;/em&gt;. This is a little bit disturbing: Basing the security of one of the most used cryptographic atomics on something that is not provably difficult.  The only solace one can take is that throughout history, numerous people have tried, but failed to find a solution to this.&lt;/p&gt;
-&lt;h3 id="totient"&gt;Totient&lt;a title="Permanent link" class="headerlink" href="#totient"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="totient"&gt;Totient&lt;a href="#totient" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;With the prime factors of &lt;span class="math"&gt;\(n\)&lt;/span&gt;, the totient can be very quickly calculated:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{RSA:totient}\phi(n) = (p-1)\cdot (q-1)
@@ -2093,12 +2093,12 @@ factors. In fact, it is considered a hard problem. I am going to bold this next 
 &lt;div class="math"&gt;$$\phi(n) = \phi(p\cdot q) = \phi(p) \cdot \phi(q) = (p-1)\cdot (q-1)$$&lt;/div&gt;
 &lt;p&gt;
 The reason why the RSA becomes vulnerable if one can determine the prime factors of the modulus is because then one can easily determine the totient.&lt;/p&gt;
-&lt;h3 id="public-key"&gt;Public Key&lt;a title="Permanent link" class="headerlink" href="#public-key"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="public-key"&gt;Public Key&lt;a href="#public-key" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Next, the &lt;em&gt;public key&lt;/em&gt; is determined. Normally expressed as &lt;span class="math"&gt;\(e\)&lt;/span&gt;, it is a prime number chosen in the range &lt;span class="math"&gt;\([3,\phi(n))\)&lt;/span&gt;. The discerning reader may think that &lt;span class="math"&gt;\(3\)&lt;/span&gt; is a little small, and yes, I agree, if &lt;span class="math"&gt;\(3\)&lt;/span&gt; is chosen, it could lead to security flaws. So in practice, the public key is normally set at &lt;span class="math"&gt;\(65537\)&lt;/span&gt;. Note that because the public key is prime, it has a high chance of a &lt;em&gt;gcd&lt;/em&gt; equal to &lt;span class="math"&gt;\(1\)&lt;/span&gt; with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. If this is not the case, then we must use another prime number that is &lt;em&gt;not&lt;/em&gt; &lt;span class="math"&gt;\(65537\)&lt;/span&gt;, but this will only occur if &lt;span class="math"&gt;\(65537\)&lt;/span&gt; is a factor of &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, something that is quite unlikely, but must still be checked for.&lt;/p&gt;
 &lt;p&gt;An interesting observation: If in practice, the number above is set at &lt;span class="math"&gt;\(65537\)&lt;/span&gt;, then it is not picked at random; surely this is a problem?  Actually, no, it isn't. As the name implies, this key is public, and therefore is shared with everyone. As long as the &lt;em&gt;private key&lt;/em&gt; cannot be deduced from the public key, we are happy. The reason why the public key is not randomly chosen in practice is because it is desirable not to have a large number. This is because it is more efficient to encrypt with smaller numbers than larger numbers.&lt;/p&gt;
 &lt;p&gt;The public key is actually a key pair of the exponent &lt;span class="math"&gt;\(e\)&lt;/span&gt; and the modulus &lt;span class="math"&gt;\(n\)&lt;/span&gt; and is present as follows&lt;/p&gt;
 &lt;div class="math"&gt;$$(e,n)$$&lt;/div&gt;
-&lt;h3 id="private-key"&gt;Private Key&lt;a title="Permanent link" class="headerlink" href="#private-key"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="private-key"&gt;Private Key&lt;a href="#private-key" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Because the public key has a &lt;em&gt;gcd&lt;/em&gt; of &lt;span class="math"&gt;\(1\)&lt;/span&gt; with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, the multiplicative inverse of the public key with respect to &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; can be efficiently and quickly determined using the &lt;a href="http://en.wikipedia.org/wiki/Extended_euclidean_algorithm"&gt;Extended Euclidean Algorithm&lt;/a&gt;. This multiplicative inverse is the &lt;em&gt;private key&lt;/em&gt;. The common notation for expressing the private key is &lt;span class="math"&gt;\(d\)&lt;/span&gt;. So in effect, we have the following equation (one of the most important equations in RSA):&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     \label{RSA:ed} e\cdot d = 1 \bmod \phi(n) 
@@ -2106,7 +2106,7 @@ The reason why the RSA becomes vulnerable if one can determine the prime factors
 &lt;p&gt;Just like the public key, the private key is also a key pair of the exponent &lt;span class="math"&gt;\(d\)&lt;/span&gt; and modulus &lt;span class="math"&gt;\(n\)&lt;/span&gt;:&lt;/p&gt;
 &lt;div class="math"&gt;$$(d,n)$$&lt;/div&gt;
 &lt;p&gt;One of the absolute fundamental security assumptions behind RSA is that given a public key, one cannot efficiently determine the private key. I have written a follow up to this post explaining &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html"&gt;why RSA works&lt;/a&gt;, in which I discuss &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#wruiwrtt"&gt;why one can't efficiently determine the private key given a public key&lt;/a&gt;. &lt;/p&gt;
-&lt;h2 id="rsa-function-evaluation"&gt;RSA Function Evaluation&lt;a title="Permanent link" class="headerlink" href="#rsa-function-evaluation"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="rsa-function-evaluation"&gt;RSA Function Evaluation&lt;a href="#rsa-function-evaluation" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This is the process of transforming a plaintext message into ciphertext, or vice-versa. The RSA function, for message &lt;span class="math"&gt;\(m\)&lt;/span&gt; and key &lt;span class="math"&gt;\(k\)&lt;/span&gt; is evaluated as follows:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation}
     F(m,k) = m^k \bmod n
@@ -2120,13 +2120,13 @@ The reason why the RSA becomes vulnerable if one can determine the prime factors
 &lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt;: &lt;span class="math"&gt;\(F(m,e) = m^e \bmod n = c\)&lt;/span&gt;, where &lt;span class="math"&gt;\(m\)&lt;/span&gt; is the message, &lt;span class="math"&gt;\(e\)&lt;/span&gt; is the public key and &lt;span class="math"&gt;\(c\)&lt;/span&gt; is the cipher.&lt;br&gt;
 &lt;strong&gt;Decryption&lt;/strong&gt;: &lt;span class="math"&gt;\(F(c,d) = c^d \bmod n = m\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;And there you have it: RSA!&lt;/p&gt;
-&lt;h1 id="final-example-rsa-from-scratch"&gt;Final Example: RSA From Scratch&lt;a title="Permanent link" class="headerlink" href="#final-example-rsa-from-scratch"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="final-example-rsa-from-scratch"&gt;Final Example: RSA From Scratch&lt;a href="#final-example-rsa-from-scratch" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This is the part that everyone has been waiting for: an example of RSA from the ground up. I am first going to give an academic example, and then a real world example.&lt;/p&gt;
-&lt;h3 id="calculation-of-modulus-and-totient"&gt;Calculation of Modulus And Totient&lt;a title="Permanent link" class="headerlink" href="#calculation-of-modulus-and-totient"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="calculation-of-modulus-and-totient"&gt;Calculation of Modulus And Totient&lt;a href="#calculation-of-modulus-and-totient" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Lets choose two primes: &lt;span class="math"&gt;\(p=11\)&lt;/span&gt; and &lt;span class="math"&gt;\(q=13\)&lt;/span&gt;. Hence the modulus is &lt;span class="math"&gt;\(n = p \times q = 143\)&lt;/span&gt;. The totient of n &lt;span class="math"&gt;\(\phi(n) = (p-1)\cdot (q-1) = 120\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h3 id="key-generation_1"&gt;Key Generation&lt;a title="Permanent link" class="headerlink" href="#key-generation_1"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="key-generation_1"&gt;Key Generation&lt;a href="#key-generation_1" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;For the public key, a random prime number that has a greatest common divisor (gcd) of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; and is less than &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt; is chosen. Let's choose &lt;span class="math"&gt;\(7\)&lt;/span&gt; (note: both &lt;span class="math"&gt;\(3\)&lt;/span&gt; and &lt;span class="math"&gt;\(5\)&lt;/span&gt; do not have a gcd of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. So &lt;span class="math"&gt;\(e=7\)&lt;/span&gt;, and to determine &lt;span class="math"&gt;\(d\)&lt;/span&gt;, the secret key, we need to find the inverse of &lt;span class="math"&gt;\(7\)&lt;/span&gt; with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;. This can be done very easily and quickly with the &lt;em&gt;Extended Euclidean Algorithm&lt;/em&gt;, and hence &lt;span class="math"&gt;\(d=103\)&lt;/span&gt;. This can be easily verified: &lt;span class="math"&gt;\(e\cdot d = 1 \bmod \phi(n)\)&lt;/span&gt; and &lt;span class="math"&gt;\(7\cdot 103 = 721 = 1 \bmod 120\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h4 id="encryptiondecryption"&gt;Encryption/Decryption&lt;a title="Permanent link" class="headerlink" href="#encryptiondecryption"&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id="encryptiondecryption"&gt;Encryption/Decryption&lt;a href="#encryptiondecryption" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Lets choose our plaintext message, &lt;span class="math"&gt;\(m\)&lt;/span&gt; to be &lt;span class="math"&gt;\(9\)&lt;/span&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt;: 
 &lt;/p&gt;
@@ -2134,9 +2134,9 @@ The reason why the RSA becomes vulnerable if one can determine the prime factors
 &lt;p&gt;&lt;strong&gt;Decryption&lt;/strong&gt;:
 &lt;/p&gt;
 &lt;div class="math"&gt;$$c^d \bmod n = 48^{103} \bmod 143 = 9 = m$$&lt;/div&gt;
-&lt;h2 id="a-real-world-example"&gt;A Real World Example&lt;a title="Permanent link" class="headerlink" href="#a-real-world-example"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="a-real-world-example"&gt;A Real World Example&lt;a href="#a-real-world-example" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Now for a real world example, lets encrypt the message "attack at dawn". The first thing that must be done is to convert the message into a numeric format. Each letter is represented by an ascii character, therefore it can be accomplished quite easily. I am not going to dive into converting strings to numbers or vice-versa, but just to note that it can be done very easily. How I will do it here is to convert the string to a bit array, and then the bit array to a large number. This can very easily be reversed to get back the original string given the large number. Using this method, "attack at dawn" becomes 1976620216402300889624482718775150 (for those interested, &lt;a href="https://gist.github.com/4184435#file_convert_text_to_decimal.py"&gt;here&lt;/a&gt; is the code that I used to make this conversion).&lt;/p&gt;
-&lt;h3 id="key-generation_2"&gt;Key Generation&lt;a title="Permanent link" class="headerlink" href="#key-generation_2"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="key-generation_2"&gt;Key Generation&lt;a href="#key-generation_2" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Now to pick two large primes, &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;. These numbers must be random and not too close to each other. Here are the numbers that I generated:
 using Rabin-Miller primality tests:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;p&lt;/strong&gt;&lt;br&gt;
@@ -2152,7 +2152,7 @@ using Rabin-Miller primality tests:&lt;/p&gt;
 &lt;span class="math"&gt;\(65537\)&lt;/span&gt; has a gcd of 1 with &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;, so lets use it as the public key. To calculate the private key, use extended euclidean algorithm to find the multiplicative inverse with respect to &lt;span class="math"&gt;\(\phi(n)\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;d&lt;/strong&gt; - the private key&lt;br&gt;
 89489425009274444368228545921773093919669586065884257445497854456487674839629818390934941973262879616797970608917283679875499331574161113854088813275488110588247193077582527278437906504015680623423550067240042466665654232383502922215493623289472138866445818789127946123407807725702626644091036502372545139713&lt;/p&gt;
-&lt;h3 id="encryptiondecryption_1"&gt;Encryption/Decryption&lt;a title="Permanent link" class="headerlink" href="#encryptiondecryption_1"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="encryptiondecryption_1"&gt;Encryption/Decryption&lt;a href="#encryptiondecryption_1" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Encryption&lt;/strong&gt;: 197662021640230088962448271877515&lt;span class="math"&gt;\(0^e \bmod n\)&lt;/span&gt;&lt;br&gt;
 &lt;/p&gt;&lt;p style="border-style: solid; border-width: 1px"&gt;
 35052111338673026690212423937053328511880760811579981620642802346685810623109850235943049080973386241113784040794704193978215378499765413083646438784740952306932534945195080183861574225226218879827232453912820596886440377536082465681750074417459151485407445862511023472235560823053497791518928820272257787786
@@ -2165,7 +2165,7 @@ using Rabin-Miller primality tests:&lt;/p&gt;
 1976620216402300889624482718775150 (which is our plaintext "attack at dawn")
 &lt;/p&gt;
 &lt;p&gt;This real world example shows how large the numbers are that is used in the real world.&lt;/p&gt;
-&lt;h1 id="conclusion"&gt;Conclusion&lt;a title="Permanent link" class="headerlink" href="#conclusion"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a href="#conclusion" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;RSA is the single most useful tool for building cryptographic protocols (in my humble opinion). In this post, I have shown &lt;em&gt;how&lt;/em&gt; RSA works, I will &lt;a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html"&gt;follow this up&lt;/a&gt; with another post explaining &lt;em&gt;why&lt;/em&gt; it works.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
@@ -2204,7 +2204,7 @@ using Rabin-Miller primality tests:&lt;/p&gt;
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;&lt;ol class="simple-footnotes"&gt;&lt;li id="sf-How-RSA-Works-With-Examples-1"&gt;In set theory, anything between |{...}| just means the amount of elements in {...} - called &lt;a href="http://en.wikipedia.org/wiki/Cardinality"&gt;cardinality&lt;/a&gt; for those who are interested &lt;a class="simple-footnote-back" href="#sf-How-RSA-Works-With-Examples-1-back"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Barry Steyn</dc:creator><pubDate>Sat, 26 May 2012 00:00:00 -0700</pubDate><guid>tag:doctrina.org,2012-05-26:How-RSA-Works-With-Examples.html</guid><category>cryptography</category></item><item><title>The 3 Seminal Events In Cryptography</title><link>http://doctrina.org/The-3-Seminal-Events-In-Cryptography.html</link><description>&lt;p&gt;Cryptography is the art/science of keeping a secret. This need has been present since prerecorded human history, but we have some very famous early examples such as the &lt;a href="http://en.wikipedia.org/wiki/Caesar_cipher"&gt;Caesar Cipher&lt;/a&gt;. Yet these early examples were very easy to break. It took until the twentieth century for cryptography to be rigorously defined and useful to a wider audience, and it was largely done so in three seminal papers:&lt;/p&gt;
+&lt;/script&gt;&lt;ol class="simple-footnotes"&gt;&lt;li id="sf-How-RSA-Works-With-Examples-1"&gt;In set theory, anything between |{...}| just means the amount of elements in {...} - called &lt;a href="http://en.wikipedia.org/wiki/Cardinality"&gt;cardinality&lt;/a&gt; for those who are interested &lt;a href="#sf-How-RSA-Works-With-Examples-1-back" class="simple-footnote-back"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Barry Steyn</dc:creator><pubDate>Sat, 26 May 2012 00:00:00 -0700</pubDate><guid>tag:doctrina.org,2012-05-26:How-RSA-Works-With-Examples.html</guid><category>cryptography</category></item><item><title>The 3 Seminal Events In Cryptography</title><link>http://doctrina.org/The-3-Seminal-Events-In-Cryptography.html</link><description>&lt;p&gt;Cryptography is the art/science of keeping a secret. This need has been present since prerecorded human history, but we have some very famous early examples such as the &lt;a href="http://en.wikipedia.org/wiki/Caesar_cipher"&gt;Caesar Cipher&lt;/a&gt;. Yet these early examples were very easy to break. It took until the twentieth century for cryptography to be rigorously defined and useful to a wider audience, and it was largely done so in three seminal papers:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;em&gt;Communication Theory of Secret Systems&lt;/em&gt; by &lt;a href="http://en.wikipedia.org/wiki/Claude_Shannon"&gt;Claude Shannon&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;New Directions In Cryptography&lt;/em&gt; by &lt;a href="http://en.wikipedia.org/wiki/Whitfield_Diffie"&gt;Whitfield Diffie&lt;/a&gt; and &lt;a href="http://en.wikipedia.org/wiki/Martin_Hellman"&gt;Martin Hellman&lt;/a&gt;&lt;/li&gt;

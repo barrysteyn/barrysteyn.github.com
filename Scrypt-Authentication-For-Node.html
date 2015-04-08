@@ -208,7 +208,7 @@
 <h1 id="installation-instructions">Installation Instructions<a class="headerlink" href="#installation-instructions" title="Permanent link"></a></h1>
 <p>This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to <a href="https://github.com/kelvinwong-ca">Kelvin Wong</a>).</p>
 <h2 id="from-npm">From NPM<a class="headerlink" href="#from-npm" title="Permanent link"></a></h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>npm install scrypt
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">npm</span> <span class="n">install</span> <span class="n">scrypt</span>
 </pre></div>
 </td></tr></table>
 
@@ -216,9 +216,9 @@
 <p>You will need <code>node-gyp</code> to get this to work (install it if you don't have it: <code>npm install -g node-gyp</code>):</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre>git clone https://github.com/barrysteyn/node-scrypt.git
-cd node-scrypt
-node-gyp configure build
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/barrysteyn/node-scrypt.git</span>
+<span class="n">cd</span> <span class="n">node</span><span class="o">-</span><span class="n">scrypt</span>
+<span class="n">node</span><span class="o">-</span><span class="n">gyp</span> <span class="n">configure</span> <span class="n">build</span>
 </pre></div>
 </td></tr></table>
 
@@ -228,9 +228,9 @@ node-gyp configure build
 <p>To test, go to the folder where scrypt was installed, and type:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre>cd node_modules/scrypt
-npm install
-node tests/scrypt-tests
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">cd</span> <span class="n">node_modules</span><span class="o">/</span><span class="n">scrypt</span>
+<span class="n">npm</span> <span class="n">install</span>
+<span class="n">node</span> <span class="n">tests</span><span class="o">/</span><span class="n">scrypt</span><span class="o">-</span><span class="n">tests</span>
 </pre></div>
 </td></tr></table>
 
@@ -238,9 +238,9 @@ node tests/scrypt-tests
 <p>Go to the folder where scrypt was installed and type:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre>cd node-scrypt
-npm install
-node tests/scrypt-tests
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">cd</span> <span class="n">node</span><span class="o">-</span><span class="n">scrypt</span>
+<span class="n">npm</span> <span class="n">install</span>
+<span class="n">node</span> <span class="n">tests</span><span class="o">/</span><span class="n">scrypt</span><span class="o">-</span><span class="n">tests</span>
 </pre></div>
 </td></tr></table>
 
@@ -324,11 +324,11 @@ node tests/scrypt-tests
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre>var scrypt = require(&quot;scrypt&quot;);
-var password = &quot;This is a password&quot;;
-var maxtime = 0.1;
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">var</span> <span class="n">scrypt</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;This is a password&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxtime</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
 
-var hash = scrypt.passwordHashSync(password, maxtime);
+<span class="n">var</span> <span class="n">hash</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">passwordHashSync</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -338,12 +338,12 @@ var hash = scrypt.passwordHashSync(password, maxtime);
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre>var scrypt = require(&quot;scrypt&quot;);
-var password = &quot;This is a password&quot;;
-var maxtime = 0.1;
-var maxmem = 0, maxmemfrac = 0.5;
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">var</span> <span class="n">scrypt</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;This is a password&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxtime</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxmem</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxmemfrac</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
 
-var hash = scrypt.passwordHashSync(password, maxtime, maxmem, maxmemfrac);
+<span class="n">var</span> <span class="n">hash</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">passwordHashSync</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">,</span> <span class="n">maxmem</span><span class="p">,</span> <span class="n">maxmemfrac</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -352,11 +352,11 @@ var hash = scrypt.passwordHashSync(password, maxtime, maxmem, maxmemfrac);
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre>var scrypt = require(&quot;scrypt&quot;);
-var password = &quot;This is a password&quot;;
-var hash; //This should be obtained from the database
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">var</span> <span class="n">scrypt</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;This is a password&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">hash</span><span class="p">;</span> <span class="c1">//This should be obtained from the database</span>
 
-var result = scrypt.verifyHashSync(hash, password);
+<span class="n">var</span> <span class="n">result</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">verifyHashSync</span><span class="p">(</span><span class="n">hash</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -422,13 +422,13 @@ var result = scrypt.verifyHashSync(hash, password);
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre>var scrypt = require(&quot;scrypt&quot;);
-var message = &quot;Hello World&quot;;
-var password = &quot;Pass&quot;;
-var maxtime = 1.0;
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">var</span> <span class="n">scrypt</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;Pass&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxtime</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
 
-var cipher = scrypt.encryptSync(message, password, maxtime);
-var plainText = scrypt.decryptSync(cipher, password, maxtime);
+<span class="n">var</span> <span class="n">cipher</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">encryptSync</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">plainText</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">decryptSync</span><span class="p">(</span><span class="n">cipher</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -441,15 +441,15 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime);
 6
 7
 8
-9</pre></div></td><td class="code"><div class="highlight"><pre>var scrypt = require(&quot;scrypt&quot;);
-var message = &quot;Hello World&quot;;
-var password = &quot;Pass&quot;;
-var maxtime = 1.0;
-var maxmem = 1; //Defaults to 0 if not set
-var maxmemfrac = 1.5; //Defaults to 0.5 if not set
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">var</span> <span class="n">scrypt</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;scrypt&quot;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">password</span> <span class="o">=</span> <span class="s">&quot;Pass&quot;</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxtime</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">maxmem</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//Defaults to 0 if not set</span>
+<span class="n">var</span> <span class="n">maxmemfrac</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span> <span class="c1">//Defaults to 0.5 if not set</span>
 
-var cipher = scrypt.encryptSync(message, password, maxtime, maxmem, maxmemfrac);
-var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac);
+<span class="n">var</span> <span class="n">cipher</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">encryptSync</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">,</span> <span class="n">maxmem</span><span class="p">,</span> <span class="n">maxmemfrac</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">plainText</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">.</span><span class="n">decryptSync</span><span class="p">(</span><span class="n">cipher</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">maxtime</span><span class="p">,</span> <span class="n">maxmem</span><span class="p">,</span> <span class="n">maxmemfrac</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
