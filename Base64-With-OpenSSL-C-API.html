@@ -115,24 +115,19 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<p>OpenSSL has the ability to perform <a href="http://en.wikipedia.org/wiki/Base64">Base64</a> encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the <a href="http://www.openssl.org/docs/crypto/BIO_f_base64.html">example</a> on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some <a href="https://gist.github.com/4409525/download">working code</a>. Enjoy!</p>
+		<p>OpenSSL has the ability to perform <a href="http://en.wikipedia.org/wiki/Base64">Base64</a> encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the <a href="http://www.openssl.org/docs/crypto/BIO_f_base64.html">example</a> on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some <a href="https://gist.github.com/7308212/download">working code</a>. Enjoy!</p>
 <h1 id="get-the-code">Get The Code<a class="headerlink" href="#get-the-code" title="Permanent link"></a></h1>
-<p>You can download this entire gist <a href="https://gist.github.com/4409525/download">here</a>. It consists of the following files:</p>
+<p>You can download this entire gist <a href="https://gist.github.com/7308212/download">here</a>. It consists of the following files:</p>
 <ul>
-<li><a href="https://gist.github.com/4409525#file-base64decode-c">Base64Decode.c</a> - the decode function (takes Base64 encoded string as input).</li>
-<li><a href="https://gist.github.com/4409525#file-base64encode-c">Base64Encode.c</a> - the encode function (takes a "normal" string as input).</li>
-<li><a href="https://gist.github.com/4409525#file-main-c">Main.c</a> - the main c file that demonstrates usage of the functionality in the two files above.</li>
-<li><a href="https://gist.github.com/4409525#file-makefile">Makefile</a> - the C makefile. Compilation has been tested on a linux ubuntu distribution, and links with <code>lcrypto</code> for <a href="http://www.openssl.org/">opensll</a> and <code>lm</code> for math.</li>
+<li><a href="https://gist.github.com/7308212#file-base64decode-c">Base64Decode.c</a> - the decode function (takes Base64 encoded string as input).</li>
+<li><a href="https://gist.github.com/7308212#file-base64encode-c">Base64Encode.c</a> - the encode function (takes a "normal" string as input).</li>
+<li><a href="https://gist.github.com/7308212#file-main-c">Main.c</a> - the main c file that demonstrates usage of the functionality in the two files above.</li>
+<li><a href="https://gist.github.com/7308212#file-makefile">Makefile</a> - the C makefile. Compilation has been tested on a linux ubuntu distribution, and links with <code>lcrypto</code> for <a href="http://www.openssl.org/">opensll</a> and <code>lm</code> for math.</li>
 </ul>
 <h1 id="base64-encoding">Base64 Encoding<a class="headerlink" href="#base64-encoding" title="Permanent link"></a></h1>
-<p><script src="https://gist.github.com/4409525.js?file=Base64Encode.c"></script></p>
-<p>Note the following:</p>
-<ul>
-<li>Given a string of length <code>n</code>, the resulting Base64 string is length <span class="math">\(4 \times \lceil \frac{n}{3} \rceil\)</span>. This is performed on lines 11.</li>
-<li>On line 12, <code>*buffer</code> is malloc'd to <code>encodedSize+1</code>. The <code>+1</code> is because an extra character is needed for the <code>NULL</code> character (<code>'\0'</code>) at the end of the string.</li>
-</ul>
+<p><script src="https://gist.github.com/7308212.js?file=Base64Encode.c"></script></p>
 <h1 id="base64-decoding">Base64 Decoding<a class="headerlink" href="#base64-decoding" title="Permanent link"></a></h1>
-<p><script src="https://gist.github.com/4409525.js?file=Base64Decode.c"></script></p>
+<p><script src="https://gist.github.com/7308212.js?file=Base64Decode.c"></script></p>
 <p>Note the following:</p>
 <ul>
 <li>It is important to set the flag <code>BIO_FLAGS_BASE64_NO_NL</code>. If this is not done, the read operation will block until a newline character (<code>\n</code>) is encountered.</li>
@@ -140,9 +135,9 @@
 </ul>
 <h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h1>
 <p>The above functionality is used like so:
-<script src="https://gist.github.com/4409525.js?file=Main.c"></script></p>
+<script src="https://gist.github.com/7308212.js?file=Main.c"></script></p>
 <p>Compile it with this MakeFile:
-<script src="https://gist.github.com/4409525.js?file=Makefile"></script></p>
+<script src="https://gist.github.com/7308212.js?file=Makefile"></script></p>
 <h1 id="memory-stuff">Memory Stuff<a class="headerlink" href="#memory-stuff" title="Permanent link"></a></h1>
 <p>The memory for <code>buffer</code> in both functions is created on the heap using <a href="http://www.cplusplus.com/reference/cstdlib/malloc/">malloc</a>. Therefore, it must be managed. This is a tiny example, and the program ends before any memory leaks become a problem, but in production code, remember to free the heap memory occupied by <code>buffer</code> after it has been used. This is done with the <a href="http://www.cplusplus.com/reference/cstdlib/free/">free</a> command.</p>
 <h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h1>

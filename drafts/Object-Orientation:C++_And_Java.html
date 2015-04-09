@@ -139,21 +139,21 @@
 12
 13
 14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">class</span> <span class="n">Point</span> <span class="p">{</span>
-    <span class="nl">private:</span>
-        <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="nl">public:</span>
-        <span class="n">Point</span><span class="p">(</span><span class="kt">float</span> <span class="n">X</span><span class="p">,</span> <span class="kt">float</span> <span class="n">Y</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="p">{}</span>
-        <span class="k">const</span> <span class="kt">float</span> <span class="n">getX</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-        <span class="k">const</span> <span class="kt">float</span> <span class="n">getY</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-        <span class="kt">void</span> <span class="nf">setX</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-        <span class="kt">void</span> <span class="nf">setY</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-<span class="p">};</span>
+15</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">class</span> <span class="nt">Point</span> <span class="p">{</span>
+    <span class="n">private</span><span class="o">:</span>
+        <span class="k">float</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">public</span><span class="o">:</span>
+        <span class="n">Point</span><span class="p">(</span><span class="k">float</span> <span class="n">X</span><span class="o">,</span> <span class="k">float</span> <span class="n">Y</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">,</span> <span class="n">y</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="err">{</span><span class="p">}</span>
+        <span class="nt">const</span> <span class="nt">float</span> <span class="nt">getX</span><span class="o">()</span> <span class="nt">const</span><span class="o">;</span>
+        <span class="nt">const</span> <span class="nt">float</span> <span class="nt">getY</span><span class="o">()</span> <span class="nt">const</span><span class="o">;</span>
+        <span class="nt">void</span> <span class="nt">setX</span><span class="o">(</span><span class="nt">const</span> <span class="nt">float</span> <span class="o">&amp;</span><span class="nt">x</span><span class="o">);</span>
+        <span class="nt">void</span> <span class="nt">setY</span><span class="o">(</span><span class="nt">const</span> <span class="nt">float</span> <span class="o">&amp;</span><span class="nt">x</span><span class="o">);</span>
+<span class="err">}</span><span class="o">;</span>
 
-<span class="k">const</span> <span class="kt">float</span> <span class="n">Point</span><span class="o">::</span><span class="n">getX</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">x</span><span class="p">;}</span>
-<span class="k">const</span> <span class="kt">float</span> <span class="n">Point</span><span class="o">::</span><span class="n">getY</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">y</span><span class="p">;}</span>
-<span class="kt">void</span> <span class="n">Point</span><span class="o">::</span><span class="n">setX</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;}</span>
-<span class="kt">void</span> <span class="n">Point</span><span class="o">::</span><span class="n">setY</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;}</span>
+<span class="nt">const</span> <span class="nt">float</span> <span class="nt">Point</span><span class="o">:</span><span class="nd">:getX</span><span class="o">()</span> <span class="nt">const</span> <span class="p">{</span><span class="n">return</span> <span class="n">x</span><span class="p">;}</span>
+<span class="nt">const</span> <span class="nt">float</span> <span class="nt">Point</span><span class="o">:</span><span class="nd">:getY</span><span class="o">()</span> <span class="nt">const</span> <span class="p">{</span><span class="n">return</span> <span class="n">y</span><span class="p">;}</span>
+<span class="nt">void</span> <span class="nt">Point</span><span class="o">:</span><span class="nd">:setX</span><span class="o">(</span><span class="nt">const</span> <span class="nt">float</span> <span class="o">&amp;</span><span class="nt">x</span><span class="o">)</span> <span class="p">{</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;}</span>
+<span class="nt">void</span> <span class="nt">Point</span><span class="o">:</span><span class="nd">:setY</span><span class="o">(</span><span class="nt">const</span> <span class="nt">float</span> <span class="o">&amp;</span><span class="nt">y</span><span class="o">)</span> <span class="p">{</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;}</span>
 </pre></div>
 </td></tr></table>
 
@@ -169,18 +169,18 @@
  9
 10
 11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">public</span> <span class="n">class</span> <span class="n">Point</span> <span class="p">{</span>
-    <span class="n">private</span> <span class="kt">float</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-    <span class="n">public</span> <span class="nf">Point</span><span class="p">(</span><span class="kt">float</span> <span class="n">X</span><span class="p">,</span> <span class="kt">float</span> <span class="n">Y</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">;</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">;</span>
-    <span class="p">}</span>
+12</pre></div></td><td class="code"><div class="highlight"><pre>public class Point {
+    private float x=0, y=0;
+    public Point(float X, float Y) {
+        x = X;
+        y = Y;
+    }
 
-    <span class="n">public</span> <span class="kt">float</span> <span class="nf">getX</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;}</span>
-    <span class="n">public</span> <span class="kt">float</span> <span class="nf">getY</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">y</span><span class="p">;}</span>
-    <span class="n">public</span> <span class="kt">void</span> <span class="nf">setX</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">this</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">;}</span>
-    <span class="n">public</span> <span class="kt">void</span> <span class="nf">setY</span><span class="p">(</span><span class="kt">float</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">this</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">;}</span>
-<span class="p">}</span>
+    public float getX() { return x;}
+    public float getY() { return y;}
+    public void setX(float x) { this.x = X;}
+    public void setY(float y) { this.y = Y;}
+}
 </pre></div>
 </td></tr></table>
 
@@ -219,26 +219,26 @@
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">class</span> <span class="n">Shape</span> <span class="p">{</span>
-    <span class="nl">protected:</span>
-        <span class="n">Point</span> <span class="n">center</span><span class="p">;</span>
-        <span class="n">Shape</span> <span class="p">(</span><span class="n">Point</span> <span class="o">&amp;</span> <span class="n">Center</span><span class="p">)</span> <span class="o">:</span> <span class="n">center</span><span class="p">(</span><span class="n">Center</span><span class="p">)</span> <span class="p">{}</span>
-    <span class="nl">public:</span>
-        <span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">getCenter</span><span class="p">();</span>
-        <span class="n">virtual</span> <span class="kt">void</span> <span class="n">draw</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">};</span>
+20</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">class</span> <span class="nt">Shape</span> <span class="p">{</span>
+    <span class="n">protected</span><span class="o">:</span>
+        <span class="n">Point</span> <span class="k">center</span><span class="p">;</span>
+        <span class="n">Shape</span> <span class="p">(</span><span class="n">Point</span> <span class="o">&amp;</span> <span class="n">Center</span><span class="p">)</span> <span class="o">:</span> <span class="k">center</span><span class="p">(</span><span class="n">Center</span><span class="p">)</span> <span class="err">{</span><span class="p">}</span>
+    <span class="nt">public</span><span class="o">:</span>
+        <span class="nt">const</span> <span class="nt">Point</span><span class="o">&amp;</span> <span class="nt">getCenter</span><span class="o">();</span>
+        <span class="nt">virtual</span> <span class="nt">void</span> <span class="nt">draw</span><span class="o">()</span> <span class="o">=</span> <span class="nt">0</span><span class="o">;</span>
+<span class="err">}</span><span class="o">;</span>
 
-<span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">Shape</span><span class="o">::</span><span class="n">getCenter</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">center</span><span class="p">;}</span>
+<span class="nt">const</span> <span class="nt">Point</span><span class="o">&amp;</span> <span class="nt">Shape</span><span class="o">:</span><span class="nd">:getCenter</span><span class="o">()</span> <span class="p">{</span><span class="n">return</span> <span class="k">center</span><span class="p">;}</span>
 
-<span class="n">class</span> <span class="n">Rectangle</span> <span class="o">:</span> <span class="n">Shape</span> <span class="p">{</span>
-    <span class="nl">private:</span>
-        <span class="kt">int</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
-    <span class="nl">public:</span>
-        <span class="n">Shape</span><span class="p">(</span><span class="kt">int</span> <span class="n">H</span><span class="p">,</span> <span class="kt">int</span> <span class="n">W</span><span class="p">,</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">Center</span><span class="p">)</span> <span class="o">:</span> <span class="n">h</span><span class="p">(</span><span class="n">H</span><span class="p">),</span> <span class="n">w</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="n">center</span><span class="p">(</span><span class="n">Center</span><span class="p">)</span> <span class="p">{}</span>
-        <span class="kt">void</span> <span class="n">draw</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="nt">class</span> <span class="nt">Rectangle</span> <span class="o">:</span> <span class="nt">Shape</span> <span class="p">{</span>
+    <span class="n">private</span><span class="o">:</span>
+        <span class="n">int</span> <span class="n">h</span><span class="o">,</span> <span class="n">w</span><span class="p">;</span>
+    <span class="n">public</span><span class="o">:</span>
+        <span class="n">Shape</span><span class="p">(</span><span class="n">int</span> <span class="n">H</span><span class="o">,</span> <span class="n">int</span> <span class="n">W</span><span class="o">,</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">Center</span><span class="p">)</span> <span class="o">:</span> <span class="n">h</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="o">,</span> <span class="n">w</span><span class="p">(</span><span class="n">W</span><span class="p">)</span><span class="o">,</span> <span class="k">center</span><span class="p">(</span><span class="n">Center</span><span class="p">)</span> <span class="err">{</span><span class="p">}</span>
+        <span class="nt">void</span> <span class="nt">draw</span><span class="o">();</span>
+<span class="err">}</span>
 
-<span class="n">public</span> <span class="kt">void</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">draw</span><span class="p">()</span> <span class="p">{...}</span>
+<span class="nt">public</span> <span class="nt">void</span> <span class="nt">Rectangle</span><span class="o">:</span><span class="nd">:draw</span><span class="o">()</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -268,34 +268,34 @@
 16
 17
 18
-19</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">public</span> <span class="n">abstract</span> <span class="n">class</span> <span class="n">Shape</span> <span class="p">{</span>
-    <span class="n">protected</span> <span class="n">Point</span> <span class="n">center</span><span class="p">;</span>
-    <span class="n">protected</span> <span class="nf">Shape</span><span class="p">(</span><span class="n">Point</span> <span class="n">center</span><span class="p">)</span> <span class="p">{</span><span class="n">this</span><span class="p">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">center</span><span class="p">;}</span>
+19</pre></div></td><td class="code"><div class="highlight"><pre>public abstract class Shape {
+    protected Point center;
+    protected Shape(Point center) {this.center = center;}
 
-    <span class="n">public</span> <span class="n">Point</span> <span class="nf">getCenter</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">center</span><span class="p">;}</span>
-    <span class="n">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="p">();</span>
-<span class="p">}</span>
+    public Point getCenter() {return center;}
+    public void draw();
+}
 
-<span class="n">public</span> <span class="n">class</span> <span class="n">Rectangle</span> <span class="n">extends</span> <span class="n">Shape</span> <span class="p">{</span>
-    <span class="n">private</span> <span class="kt">int</span> <span class="n">h</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+public class Rectangle extends Shape {
+    private int h=0, w=0;
 
-    <span class="n">public</span> <span class="nf">Shape</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">,</span> <span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">Point</span> <span class="n">center</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">this</span><span class="p">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span> <span class="n">this</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span> <span class="n">this</span><span class="p">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">center</span><span class="p">;</span>
-    <span class="p">}</span>
+    public Shape(int h, int w, Point center) {
+        this.h = h; this.w = w; this.center = center;
+    }
 
-    <span class="n">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="p">()</span> <span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    public void draw() {
+        ...
+    }
+}
 </pre></div>
 </td></tr></table>
 
 <p><strong>Note:</strong></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">*</span> <span class="n">Inheritance</span> <span class="n">accomplished</span> <span class="n">by</span> <span class="err">`</span><span class="n">extends</span><span class="err">`</span> <span class="n">key</span> <span class="n">word</span><span class="p">.</span>
-<span class="o">*</span> <span class="n">Can</span> <span class="n">only</span> <span class="n">have</span> <span class="n">a</span> <span class="n">single</span> <span class="n">inheritance</span><span class="p">.</span>
-<span class="o">*</span> <span class="n">Java</span> <span class="n">uses</span> <span class="n">the</span> <span class="err">`</span><span class="n">super</span><span class="err">`</span> <span class="n">keyword</span> <span class="n">to</span> <span class="n">call</span> <span class="n">parent</span> <span class="n">constructors</span> <span class="n">explicitly</span><span class="p">.</span> <span class="n">It</span> <span class="n">must</span> <span class="n">be</span> <span class="n">the</span> <span class="n">first</span> <span class="n">statement</span> <span class="n">in</span> <span class="n">a</span> <span class="n">child</span> <span class="n">constructor</span><span class="p">.</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre>* Inheritance accomplished by `extends` key word.
+* Can only have a single inheritance.
+* Java uses the `super` keyword to call parent constructors explicitly. It must be the first statement in a child constructor.
 </pre></div>
 </td></tr></table>
 
@@ -311,17 +311,17 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">class</span> <span class="n">A</span> <span class="p">{</span>
-<span class="p">}</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="n">A</span> {
+}
 
-<span class="n">class</span> <span class="n">B</span> <span class="o">:</span> <span class="n">A</span> <span class="p">{</span>
-<span class="p">}</span>
+<span class="k">class</span> <span class="n">B</span> : <span class="n">A</span> {
+}
 
-<span class="n">class</span> <span class="n">C</span> <span class="o">:</span> <span class="n">A</span> <span class="p">{</span>
-<span class="p">}</span>
+<span class="k">class</span> <span class="n">C</span> : <span class="n">A</span> {
+}
 
-<span class="n">class</span> <span class="n">D</span> <span class="o">:</span> <span class="n">B</span><span class="p">,</span><span class="n">C</span> <span class="p">{</span>
-<span class="p">}</span>
+<span class="k">class</span> <span class="n">D</span> : <span class="n">B</span>,<span class="n">C</span> {
+}
 </pre></div>
 </td></tr></table>
 

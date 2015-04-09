@@ -300,24 +300,19 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary><category term="Math"></category><category term="Mathematical_Nonsense"></category></entry><entry><title>Base64 With OpenSSL C API</title><link href="http://doctrina.org/Base64-With-OpenSSL-C-API.html" rel="alternate"></link><updated>2012-12-19T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-12-19:Base64-With-OpenSSL-C-API.html</id><summary type="html">&lt;p&gt;OpenSSL has the ability to perform &lt;a href="http://en.wikipedia.org/wiki/Base64"&gt;Base64&lt;/a&gt; encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the &lt;a href="http://www.openssl.org/docs/crypto/BIO_f_base64.html"&gt;example&lt;/a&gt; on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some &lt;a href="https://gist.github.com/4409525/download"&gt;working code&lt;/a&gt;. Enjoy!&lt;/p&gt;
+&lt;/script&gt;</summary><category term="Math"></category><category term="Mathematical_Nonsense"></category></entry><entry><title>Base64 With OpenSSL C API</title><link href="http://doctrina.org/Base64-With-OpenSSL-C-API.html" rel="alternate"></link><updated>2012-12-19T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-12-19:Base64-With-OpenSSL-C-API.html</id><summary type="html">&lt;p&gt;OpenSSL has the ability to perform &lt;a href="http://en.wikipedia.org/wiki/Base64"&gt;Base64&lt;/a&gt; encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the &lt;a href="http://www.openssl.org/docs/crypto/BIO_f_base64.html"&gt;example&lt;/a&gt; on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some &lt;a href="https://gist.github.com/7308212/download"&gt;working code&lt;/a&gt;. Enjoy!&lt;/p&gt;
 &lt;h1 id="get-the-code"&gt;Get The Code&lt;a class="headerlink" href="#get-the-code" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;You can download this entire gist &lt;a href="https://gist.github.com/4409525/download"&gt;here&lt;/a&gt;. It consists of the following files:&lt;/p&gt;
+&lt;p&gt;You can download this entire gist &lt;a href="https://gist.github.com/7308212/download"&gt;here&lt;/a&gt;. It consists of the following files:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://gist.github.com/4409525#file-base64decode-c"&gt;Base64Decode.c&lt;/a&gt; - the decode function (takes Base64 encoded string as input).&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://gist.github.com/4409525#file-base64encode-c"&gt;Base64Encode.c&lt;/a&gt; - the encode function (takes a "normal" string as input).&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://gist.github.com/4409525#file-main-c"&gt;Main.c&lt;/a&gt; - the main c file that demonstrates usage of the functionality in the two files above.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://gist.github.com/4409525#file-makefile"&gt;Makefile&lt;/a&gt; - the C makefile. Compilation has been tested on a linux ubuntu distribution, and links with &lt;code&gt;lcrypto&lt;/code&gt; for &lt;a href="http://www.openssl.org/"&gt;opensll&lt;/a&gt; and &lt;code&gt;lm&lt;/code&gt; for math.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/7308212#file-base64decode-c"&gt;Base64Decode.c&lt;/a&gt; - the decode function (takes Base64 encoded string as input).&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/7308212#file-base64encode-c"&gt;Base64Encode.c&lt;/a&gt; - the encode function (takes a "normal" string as input).&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/7308212#file-main-c"&gt;Main.c&lt;/a&gt; - the main c file that demonstrates usage of the functionality in the two files above.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/7308212#file-makefile"&gt;Makefile&lt;/a&gt; - the C makefile. Compilation has been tested on a linux ubuntu distribution, and links with &lt;code&gt;lcrypto&lt;/code&gt; for &lt;a href="http://www.openssl.org/"&gt;opensll&lt;/a&gt; and &lt;code&gt;lm&lt;/code&gt; for math.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="base64-encoding"&gt;Base64 Encoding&lt;a class="headerlink" href="#base64-encoding" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;script src="https://gist.github.com/4409525.js?file=Base64Encode.c"&gt;&lt;/script&gt;&lt;/p&gt;
-&lt;p&gt;Note the following:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Given a string of length &lt;code&gt;n&lt;/code&gt;, the resulting Base64 string is length &lt;span class="math"&gt;\(4 \times \lceil \frac{n}{3} \rceil\)&lt;/span&gt;. This is performed on lines 11.&lt;/li&gt;
-&lt;li&gt;On line 12, &lt;code&gt;*buffer&lt;/code&gt; is malloc'd to &lt;code&gt;encodedSize+1&lt;/code&gt;. The &lt;code&gt;+1&lt;/code&gt; is because an extra character is needed for the &lt;code&gt;NULL&lt;/code&gt; character (&lt;code&gt;'\0'&lt;/code&gt;) at the end of the string.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/7308212.js?file=Base64Encode.c"&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;h1 id="base64-decoding"&gt;Base64 Decoding&lt;a class="headerlink" href="#base64-decoding" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;script src="https://gist.github.com/4409525.js?file=Base64Decode.c"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/7308212.js?file=Base64Decode.c"&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;p&gt;Note the following:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;It is important to set the flag &lt;code&gt;BIO_FLAGS_BASE64_NO_NL&lt;/code&gt;. If this is not done, the read operation will block until a newline character (&lt;code&gt;\n&lt;/code&gt;) is encountered.&lt;/li&gt;
@@ -325,9 +320,9 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;/ul&gt;
 &lt;h1 id="usage"&gt;Usage&lt;a class="headerlink" href="#usage" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The above functionality is used like so:
-&lt;script src="https://gist.github.com/4409525.js?file=Main.c"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src="https://gist.github.com/7308212.js?file=Main.c"&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;p&gt;Compile it with this MakeFile:
-&lt;script src="https://gist.github.com/4409525.js?file=Makefile"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src="https://gist.github.com/7308212.js?file=Makefile"&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;h1 id="memory-stuff"&gt;Memory Stuff&lt;a class="headerlink" href="#memory-stuff" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The memory for &lt;code&gt;buffer&lt;/code&gt; in both functions is created on the heap using &lt;a href="http://www.cplusplus.com/reference/cstdlib/malloc/"&gt;malloc&lt;/a&gt;. Therefore, it must be managed. This is a tiny example, and the program ends before any memory leaks become a problem, but in production code, remember to free the heap memory occupied by &lt;code&gt;buffer&lt;/code&gt; after it has been used. This is done with the &lt;a href="http://www.cplusplus.com/reference/cstdlib/free/"&gt;free&lt;/a&gt; command.&lt;/p&gt;
 &lt;h1 id="conclusion"&gt;Conclusion&lt;a class="headerlink" href="#conclusion" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
@@ -394,11 +389,11 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 2
 3
 4
-5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;//Outer loop&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;//Inner loop&lt;/span&gt;
-        &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;for (i=0; i &amp;lt; 4; i++) { //Outer loop
+    for (i=0; i &amp;lt; 2; i++) { //Inner loop
+        document.write(&amp;quot;Hello World&amp;quot;); 
+    }
+}
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -722,7 +717,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;p&gt;Method invocation is identified when a function is preceded by &lt;code&gt;object.&lt;/code&gt;, where &lt;code&gt;object&lt;/code&gt; is the name of some object. JavaScript will set the &lt;code&gt;this&lt;/code&gt; parameter to the object where the method was invoked on. In the example above, &lt;code&gt;this&lt;/code&gt; would be set to &lt;code&gt;obj&lt;/code&gt;. JavaScript binds &lt;code&gt;this&lt;/code&gt; at execution (also known as &lt;em&gt;late binding&lt;/em&gt;).&lt;/p&gt;
 &lt;h2 id="function-invocation"&gt;Function Invocation &lt;a id="fi"&gt;&lt;/a&gt;&lt;a class="headerlink" href="#function-invocation" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Function invocation is performed by invoking a function using &lt;code&gt;()&lt;/code&gt;:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//5&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;add(2,3); //5
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -925,14 +920,14 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;p&gt;Object Literals do not look like traditional objects. In fact, Object Literals look more like a structure that can hold things.  There is however one difference between a JavaScript object and a structure that can hold things: All JavaScript objects have a &lt;em&gt;prototype&lt;/em&gt; linking.&lt;/p&gt;
 &lt;h2 id="the-prototype-link"&gt;The Prototype Link&lt;a class="headerlink" href="#the-prototype-link" title="Permanent link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Every Object has a &lt;em&gt;hidden&lt;/em&gt; link to another object called a &lt;em&gt;prototype link&lt;/em&gt;. Objects by default are linked to the object &lt;code&gt;Object.prototype&lt;/code&gt;. The prototype link is only used when retrieving property values from an object (it is not touched when updating an object). When retrieving a property value from an object, if it cannot be found, it will look for it in the prototype object that it is linked to. For example:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// undefined - property age does not exist&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;person.age; // undefined - property age does not exist
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;JavaScript tried to find the property age on person, and it could not. So then it tried to find it on &lt;code&gt;Object.prototype&lt;/code&gt; and it could not find it either. So it returned "&lt;em&gt;undefined&lt;/em&gt;".&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prototype&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;56&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Every object is linked to Object.prototype by default&lt;/span&gt;
-&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// 56&lt;/span&gt;
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;Object.prototype.age = 56; // Every object is linked to Object.prototype by default
+person.age; // 56
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -1040,8 +1035,8 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 
 &lt;p&gt;In the above, the &lt;code&gt;alien&lt;/code&gt; and &lt;code&gt;human&lt;/code&gt; objects are constructed from the function &lt;code&gt;Entity&lt;/code&gt; via the &lt;em&gt;constructor invocation pattern&lt;/em&gt; that is initiated by putting the &lt;code&gt;new&lt;/code&gt; keyword in front of the function name. When &lt;code&gt;alien&lt;/code&gt; is constructed, &lt;code&gt;Entity&lt;/code&gt;'s prototype property has not been altered, and so &lt;code&gt;alien&lt;/code&gt; is linked to &lt;code&gt;Object.prototype&lt;/code&gt;. But when constructing &lt;code&gt;human&lt;/code&gt;, &lt;code&gt;Entity&lt;/code&gt;'s prototype property was altered to species, and so the prototype object linked to &lt;code&gt;human&lt;/code&gt; is &lt;code&gt;species&lt;/code&gt;, which in turn is itself linked to &lt;code&gt;Object.prototype&lt;/code&gt;:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;alien&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;species&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// undefined&lt;/span&gt;
-&lt;span class="n"&gt;human&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;species&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// human&lt;/span&gt;
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;alien.species; // undefined
+human.species; // human
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
@@ -1118,16 +1113,16 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
  9
 10
 11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;//Object Literal&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;objectLiteral&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;property1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;value1&amp;quot;&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;objectLiteral&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;property1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;value1&amp;quot;&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 
 &lt;span class="c1"&gt;//Function Object&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;functionObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;functionObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="c1"&gt;//Object From Function&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;objectFromFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;functionObject&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;objectFromFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;functionObject&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 

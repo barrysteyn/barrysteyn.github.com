@@ -133,18 +133,18 @@
  9
 10
 11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">class</span> <span class="n">ClassicSingleton</span> <span class="p">{</span>
-    <span class="nl">protected:</span>
-        <span class="n">ClassicSingleton</span><span class="p">();</span>
-    <span class="nl">public:</span>
-        <span class="k">static</span> <span class="n">ClassicSingleton</span> <span class="o">&amp;</span> <span class="n">getInstance</span><span class="p">();</span>
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="n">ClassicSingleton</span> {
+    <span class="n">protected:</span>
+        <span class="n">ClassicSingleton</span>();
+    <span class="n">public:</span>
+        <span class="n">static</span> <span class="n">ClassicSingleton</span> &amp; <span class="n">getInstance</span>();
 
-<span class="p">}</span>
+}
 
-<span class="n">ClassicSingleton</span><span class="o">&amp;</span> <span class="n">ClassicSingleton</span><span class="o">::</span><span class="n">getInstance</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="n">ClassicSingleton</span> <span class="n">instance</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="n">ClassicSingleton</span>&amp; <span class="n">ClassicSingleton::getInstance</span>() {
+    <span class="n">static</span> <span class="n">ClassicSingleton</span> <span class="n">instance</span>;
+    <span class="k">return</span> <span class="n">instance</span>;
+}
 </pre></div>
 </td></tr></table>
 
@@ -160,18 +160,18 @@
  9
 10
 11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">public</span> <span class="n">class</span> <span class="n">ClassicSingleton</span> <span class="p">{</span>
-   <span class="n">private</span> <span class="k">static</span> <span class="n">ClassicSingleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
-   <span class="n">protected</span> <span class="nf">ClassicSingleton</span><span class="p">()</span> <span class="p">{</span>
-      <span class="c1">// Exists only to defeat instantiation.</span>
-   <span class="p">}</span>
-   <span class="n">public</span> <span class="k">static</span> <span class="n">ClassicSingleton</span> <span class="nf">getInstance</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">if</span><span class="p">(</span><span class="n">instance</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
-         <span class="n">instance</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ClassicSingleton</span><span class="p">();</span>
-      <span class="p">}</span>
-      <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
-   <span class="p">}</span>
-<span class="p">}</span>
+12</pre></div></td><td class="code"><div class="highlight"><pre>public class ClassicSingleton {
+   private static ClassicSingleton instance = null;
+   protected ClassicSingleton() {
+      // Exists only to defeat instantiation.
+   }
+   public static ClassicSingleton getInstance() {
+      if(instance == null) {
+         instance = new ClassicSingleton();
+      }
+      return instance;
+   }
+}
 </pre></div>
 </td></tr></table>
 
@@ -194,18 +194,18 @@
  9
 10
 11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">public</span> <span class="n">class</span> <span class="n">Complex</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="n">Complex</span><span class="p">(</span><span class="kt">int</span> <span class="n">first</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">second</span><span class="p">,</span> <span class="kt">char</span> <span class="n">third</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fourth</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">fifth</span><span class="p">,</span> <span class="kt">float</span> <span class="n">sixth</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">seventh</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">eighth</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+12</pre></div></td><td class="code"><div class="highlight"><pre>public class Complex {
+    public Complex(int first, bool second, char third, int fourth, bool fifth, float sixth, bool seventh, bool eighth) {
+    }
+}
 
-<span class="n">public</span> <span class="n">class</span> <span class="n">ComplexBuilder</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="n">setFirst</span><span class="p">(</span><span class="kt">int</span> <span class="n">first</span><span class="p">)</span> <span class="p">{...}</span>
-    <span class="p">...</span>
-    <span class="n">public</span> <span class="n">Complex</span> <span class="n">Build</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">Complex</span><span class="p">(...);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+public class ComplexBuilder {
+    public setFirst(int first) {...}
+    ...
+    public Complex Build() {
+        return Complex(...);
+    }
+}
 </pre></div>
 </td></tr></table>
 
@@ -231,26 +231,26 @@
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span class="mf">1.</span> <span class="n">A</span> <span class="n">normal</span> <span class="n">maze</span> <span class="n">game</span><span class="p">,</span> <span class="n">where</span> <span class="n">each</span> <span class="n">room</span> <span class="n">is</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">each</span> <span class="n">other</span><span class="p">.</span>
-<span class="mf">2.</span> <span class="n">A</span> <span class="n">magic</span> <span class="n">maze</span> <span class="n">game</span><span class="p">,</span> <span class="n">where</span> <span class="n">each</span> <span class="n">room</span> <span class="n">is</span> <span class="n">not</span> <span class="n">only</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">each</span> <span class="n">other</span><span class="p">,</span> <span class="n">but</span> <span class="n">it</span> <span class="n">also</span> <span class="n">has</span> <span class="n">the</span> <span class="n">ability</span> <span class="n">to</span> <span class="n">magically</span> <span class="n">teleport</span><span class="p">.</span>
+20</pre></div></td><td class="code"><div class="highlight"><pre>1. A normal maze game, where each room is connected to each other.
+2. A magic maze game, where each room is not only connected to each other, but it also has the ability to magically teleport.
 
-<span class="n">public</span> <span class="n">class</span> <span class="n">Maze</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="n">createRoom</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">new</span> <span class="n">ordinaryRoom</span><span class="p">();</span>
-    <span class="p">}</span>
+public class Maze {
+    public createRoom() {
+        return new ordinaryRoom();
+    }
 
-    <span class="n">public</span> <span class="n">Maze</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">room1</span> <span class="o">=</span> <span class="n">createRoom</span><span class="p">();</span>
-        <span class="n">room2</span> <span class="o">=</span> <span class="n">createRoom</span><span class="p">();</span>
-        <span class="n">room1</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">room2</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    public Maze() {
+        room1 = createRoom();
+        room2 = createRoom();
+        room1.connect(room2);
+    }
+}
 
-<span class="n">public</span> <span class="n">class</span> <span class="n">MagicMaze</span> <span class="n">extends</span> <span class="n">Maze</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="n">createRoom</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">new</span> <span class="n">magicRoom</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+public class MagicMaze extends Maze {
+    public createRoom() {
+        return new magicRoom();
+    }
+}
 </pre></div>
 </td></tr></table>
 
