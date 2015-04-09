@@ -3,28 +3,23 @@ Title: Base64 With OpenSSL C API
 Slug: Base64-With-OpenSSL-C-API
 Author: Barry Steyn
 Tags: Development,OpenSSL
-Github: https://gist.github.com/4409525
+Github: https://gist.github.com/7308212
 
-OpenSSL has the ability to perform [Base64](http://en.wikipedia.org/wiki/Base64) encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the [example](http://www.openssl.org/docs/crypto/BIO_f_base64.html) on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some [working code](https://gist.github.com/4409525/download). Enjoy!
+OpenSSL has the ability to perform [Base64](http://en.wikipedia.org/wiki/Base64) encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the [example](http://www.openssl.org/docs/crypto/BIO_f_base64.html) on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some [working code](https://gist.github.com/7308212/download). Enjoy!
 
 #Get The Code
-You can download this entire gist [here](https://gist.github.com/4409525/download). It consists of the following files:
+You can download this entire gist [here](https://gist.github.com/7308212/download). It consists of the following files:
 
-* [Base64Decode.c](https://gist.github.com/4409525#file-base64decode-c) - the decode function (takes Base64 encoded string as input).
-* [Base64Encode.c](https://gist.github.com/4409525#file-base64encode-c) - the encode function (takes a "normal" string as input).
-* [Main.c](https://gist.github.com/4409525#file-main-c) - the main c file that demonstrates usage of the functionality in the two files above.
-* [Makefile](https://gist.github.com/4409525#file-makefile) - the C makefile. Compilation has been tested on a linux ubuntu distribution, and links with `lcrypto` for [opensll](http://www.openssl.org/) and `lm` for math.
+* [Base64Decode.c](https://gist.github.com/7308212#file-base64decode-c) - the decode function (takes Base64 encoded string as input).
+* [Base64Encode.c](https://gist.github.com/7308212#file-base64encode-c) - the encode function (takes a "normal" string as input).
+* [Main.c](https://gist.github.com/7308212#file-main-c) - the main c file that demonstrates usage of the functionality in the two files above.
+* [Makefile](https://gist.github.com/7308212#file-makefile) - the C makefile. Compilation has been tested on a linux ubuntu distribution, and links with `lcrypto` for [opensll](http://www.openssl.org/) and `lm` for math.
 
 #Base64 Encoding
-<script src="https://gist.github.com/4409525.js?file=Base64Encode.c"></script>
-
-Note the following:
-
-* Given a string of length `n`, the resulting Base64 string is length $4 \times \lceil \frac{n}{3} \rceil$. This is performed on lines 11.
-* On line 12, `*buffer` is malloc'd to `encodedSize+1`. The `+1` is because an extra character is needed for the `NULL` character (`'\0'`) at the end of the string.
+<script src="https://gist.github.com/7308212.js?file=Base64Encode.c"></script>
 
 #Base64 Decoding
-<script src="https://gist.github.com/4409525.js?file=Base64Decode.c"></script>
+<script src="https://gist.github.com/7308212.js?file=Base64Decode.c"></script>
 
 Note the following:
 
@@ -33,10 +28,10 @@ Note the following:
 
 #Usage
 The above functionality is used like so:
-<script src="https://gist.github.com/4409525.js?file=Main.c"></script>
+<script src="https://gist.github.com/7308212.js?file=Main.c"></script>
 
 Compile it with this MakeFile:
-<script src="https://gist.github.com/4409525.js?file=Makefile"></script>
+<script src="https://gist.github.com/7308212.js?file=Makefile"></script>
 
 #Memory Stuff
 The memory for `buffer` in both functions is created on the heap using [malloc](http://www.cplusplus.com/reference/cstdlib/malloc/). Therefore, it must be managed. This is a tiny example, and the program ends before any memory leaks become a problem, but in production code, remember to free the heap memory occupied by `buffer` after it has been used. This is done with the [free](http://www.cplusplus.com/reference/cstdlib/free/) command.
