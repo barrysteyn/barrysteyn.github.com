@@ -71,7 +71,8 @@ PLUGINS = [
     'simple_footnotes',  # footnotes
     'sitemap',  # For SEO
     'liquid_tags.youtube',  # liquid tags - embed youtube
-    'liquid_tags.img'  # liquid tags - image:w
+    'liquid_tags.img',  # liquid tags - image:w
+    'md_inline_extension'  # my inline md extension :)
 ]
 
 #Render Math Plugin
