@@ -6,7 +6,7 @@ Subcategory: Cryptography
 
 [TOC]
 
-##Introduction
+#Introduction
 
 This is part 1 of a series of two blog posts about RSA ([part 2](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html) will explain *why* RSA works). In this post, I am going to explain exactly how RSA public key encryption works. One of the [3 seminal events in cryptography](http://doctrina.org/The-3-Seminal-Events-In-Cryptography.html) of the 20th century, RSA opens the world to a host of various cryptographic protocols (like *digital signatures, cryptographic voting* etc). All discussions on this topic (including this one) are very *mathematical*, but the difference here is that I am going to go out of my way to explain each concept with a concrete example. The reader who only has a beginner level of mathematical knowledge should be able to understand exactly how RSA works after reading this post along with the examples.
 
@@ -28,10 +28,10 @@ Is called the *set of integers modulo p* (or *mod p* for short). It is a set tha
 **Example**: $\mathbb{Z}_{10} =\{0,1,2,3,4,5,6,7,8,9\}$
 
 ##Integer Remainder After Dividing
-When we first learned about numbers at school, we had no notion of real numbers, only integers.  Therefore we were told that  5 divided by 2 was equal to 2 remainder 1, and not $2\frac{1}{2}$. It turns out that this type of math is absolutely vital to RSA, and is one of the reasons that secures RSA. A very formal way of stating a remainder after dividing by another number is an equivalence relationship:
+When we first learned about numbers at school, we had no notion of real numbers, only integers.  Therefore we were told that  5 divided by 2 was equal to 2 remainder 1, and not $2\frac{1}{2}$. It turns out that this type of math is vital to RSA, and is one of the reasons that secures RSA. A formal way of stating a remainder after dividing by another number is an equivalence relationship:
 
 \begin{equation}
- \label{bg:mod} \forall x,y,z,k \in \mathbb{Z}, x \equiv y \bmod z \Longrightarrow x = k\cdot z + y
+ \label{bg:mod} \forall x,y,z,k \in \mathbb{Z}, x \equiv y \bmod z \iff x = k\cdot z + y
 \end{equation}
 
 Equation $\ref{bg:mod}$ states that if $x$ is equivalent to the remainder (in this case $y$) after dividing by an integer (in this case $z$), then $x$ can be written like so: $x = k\cdot z + y$ where $k$ is an integer.
@@ -40,11 +40,11 @@ Equation $\ref{bg:mod}$ states that if $x$ is equivalent to the remainder (in th
 
 There are two important things to note:  
 
-1. The remainder $y$ stays constant, whatever value $x$ takes on to satisfy quation $\ref{bg:mod}$.
+1. The remainder $y$ stays constant, whatever value $x$ takes on to satisfy equation $\ref{bg:mod}$.
 2. Due to the above fact, $y \in \mathbb{Z}_z$ ($y$ is in the set of integers modulo $z$)
 
 ##Multiplicative Inverse And The Greatest Common Divisor
-A multiplicative inverse for $x$ is a number that when multiplied by $x$, will equal $1$. For example, the multiplicative inverse of $x$ is written as $x^{-1}$ and is defined as so:
+A multiplicative inverse for $x$ is a number that when multiplied by $x$, will equal $1$. The multiplicative inverse of $x$ is written as $x^{-1}$ and is defined as so:
 
 \begin{equation}x\cdot x^{-1} = 1\end{equation}
 
@@ -61,9 +61,13 @@ The above just says that an inverse only exists if the greatest common divisor i
 
 **Example**: Lets work in the set $\mathbb{Z}_9$, then $4 \in \mathbb{Z}_9$ and $gcd(4,9)=1$. Therefore $4$ has a multiplicative inverse (written $4^{-1}$) in $\bmod 9$, which is $7$. And indeed, $4\cdot 7 = 28 = 1 \bmod 9$. But not all numbers have inverses. For instance, $3 \in \mathbb{Z}_9$ but $3^{-1}$ does not exist! This is because $gcd(3,9) = 3 \neq 1$.
 
+##Prime Numbers
+[Prime](http://en.wikipedia.org/wiki/Prime_number) numbers are very important to the RSA algorithm. A prime is a number that can only be divided *without a remainder* by itself and $1$. For example, $5$ is a prime number (any other number besides $1$ and $5$ will result in a remainder after division) while $10$ is not a prime[ref]A [Composite](http://en.wikipedia.org/wiki/Composite_number) number is the formal name given to a number that is not prime.[/ref].
+
+This has an important implication: For any prime number $p$, every number from $1$ up to $p-1$ has a $\gcd$ of 1 with $p$, and therefore has a multiplicative inverse in modulo $p$.
+
 ##Euler's Totient
-[Euler's Totient](http://en.wikipedia.org/wiki/Euler%27s_totient_function) is the number of elements that have an inverse in a set of modulo integers. The totient is denoted using the Greek symbol phi $\phi$.  From $\ref{bg:gcd}$ above, we can see that the totient is just a count 
-of number of elements that have their $\gcd$ with the modulus equal to 1. Now for any prime number $p$, every number from $1$ up to $p-1$ has a $\gcd$ of 1 with $p$. This brings us to an important equation regarding the totient and prime numbers:
+[Euler's Totient](http://en.wikipedia.org/wiki/Euler%27s_totient_function) is the number of elements that have a multiplicative inverse in a set of modulo integers. The totient is denoted using the Greek symbol phi $\phi$. From $\ref{bg:gcd}$ above, we can see that the totient is just the count of the number of elements that have their $\gcd$ with the modulus equal to 1. This brings us to an important equation regarding the totient and prime numbers:
 
 \begin{equation}
 	\label{bg:totient} p \in \mathbb{P}, \phi(p) = p-1
