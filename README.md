@@ -3,9 +3,8 @@
 ## Requirments:
 
 ### Python
- 1. Pelican: `pip install pelican`
- 2. Markdown: `pip install markdown`
- 3. Inlfect engine for pluralize filter: `pip install inflect`
+
+`pip install pelican markfown inflect beautifulsoup4 html5lib`
 
 ## Checking The Repo Out
 The repo has a submodule that also needs to be cloned:
