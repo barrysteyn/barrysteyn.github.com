@@ -85,7 +85,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -105,7 +105,23 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
-        "}); ";
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;</summary><category term="algorithms"></category><category term="math"></category></entry><entry><title>Merge Sort And Inversions</title><link href="http://doctrina.org/Merge-Sort-And-Inversions.html" rel="alternate"></link><updated>2013-03-16T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-03-16:Merge-Sort-And-Inversions.html</id><summary type="html">&lt;h1 id="merge-sort"&gt;Merge Sort&lt;a class="headerlink" href="#merge-sort" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
@@ -152,7 +168,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -172,7 +188,23 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
-        "}); ";
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;</summary><category term="Software"></category><category term="Computer Science"></category><category term="Algorithms"></category></entry><entry><title>JavaScript Lecture: Cryptography In The Browser</title><link href="http://doctrina.org/JavaScript_Lecture:Cryptography_In_The_Browser.html" rel="alternate"></link><updated>2013-03-14T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-03-14:JavaScript_Lecture:Cryptography_In_The_Browser.html</id><summary type="html">&lt;p&gt;I was recently asked to lecture the local Toronto JavaScript meetup about Cryptography in the browser. Here are my lecture slides. Apparently, there is a video of my talk that will be put up. When I get, I will link to it over here.&lt;/p&gt;
@@ -230,7 +262,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -250,7 +282,23 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
-        "}); ";
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;</summary><category term="Math"></category><category term="Mathematical_Nonsense"></category></entry><entry><title>Mathematical Nonsense - Logarithm Equality</title><link href="http://doctrina.org/Mathematical_Nonsense_Lemma-For-Logarithm-Equality.html" rel="alternate"></link><updated>2013-02-06T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2013-02-06:Mathematical_Nonsense_Lemma-For-Logarithm-Equality.html</id><summary type="html">&lt;p&gt;It's been many years since I was first taught &lt;a href="http://en.wikipedia.org/wiki/Logarithm"&gt;logarithms&lt;/a&gt;. So when looking at a proof that hinged on the fact that &lt;span class="math"&gt;\(a^{log_b n} = n^{log_b a}\)&lt;/span&gt;, I thought that the proof was wrong. Actually, it was my fault: &lt;span class="math"&gt;\(a^{log_b n}\)&lt;/span&gt; is indeed equal to &lt;span class="math"&gt;\(n^{log_b a}\)&lt;/span&gt;, I just forgot.&lt;/p&gt;
@@ -277,7 +325,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -297,7 +345,23 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
-        "}); ";
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;</summary><category term="Math"></category><category term="Mathematical_Nonsense"></category></entry><entry><title>Base64 With OpenSSL C API</title><link href="http://doctrina.org/Base64-With-OpenSSL-C-API.html" rel="alternate"></link><updated>2012-12-19T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-12-19:Base64-With-OpenSSL-C-API.html</id><summary type="html">&lt;p&gt;OpenSSL has the ability to perform &lt;a href="http://en.wikipedia.org/wiki/Base64"&gt;Base64&lt;/a&gt; encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the &lt;a href="http://www.openssl.org/docs/crypto/BIO_f_base64.html"&gt;example&lt;/a&gt; on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some &lt;a href="https://gist.github.com/7308212/download"&gt;working code&lt;/a&gt;. Enjoy!&lt;/p&gt;
@@ -341,7 +405,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -361,7 +425,23 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
-        "}); ";
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;</summary><category term="Development"></category><category term="OpenSSL"></category></entry><entry><title>Upstart With Python VirtualEnv</title><link href="http://doctrina.org/VirtualEnv-With-Upstart.html" rel="alternate"></link><updated>2012-11-29T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-11-29:VirtualEnv-With-Upstart.html</id><summary type="html">&lt;p&gt;I thought I would write this very short blog article to help anyone who would who wants to launch a &lt;a href="http://projects.unbit.it/uwsgi/"&gt;uwsgi&lt;/a&gt; server that refers to a python script in a virtual environment via upstart.&lt;/p&gt;
