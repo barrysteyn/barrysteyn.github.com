@@ -67,11 +67,11 @@ DEFAULT_PAGINATION = False
 PLUGIN_PATHS = ['../pelican-plugins/']
 PLUGINS = [
     'extract_toc',  # extracts [TOC] to variable that can be used in template
-    'render_math',   # my render math plugin :)
     'simple_footnotes',  # footnotes
+    'render_math',   # my render math plugin :)
     'sitemap',  # For SEO
     'liquid_tags.youtube',  # liquid tags - embed youtube
-    'liquid_tags.img',  # liquid tags - image:w
+    'liquid_tags.img',  # liquid tags - image
     'md_inline_extension'  # my inline md extension :)
 ]
 
