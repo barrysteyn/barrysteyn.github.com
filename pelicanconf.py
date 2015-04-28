@@ -64,9 +64,10 @@ DISQUS_SHORTNAME = 'doctrinalocal'
 DEFAULT_PAGINATION = False
 
 #Plugins
-PLUGIN_PATHS = ['../pelican-plugins/']
+PLUGIN_PATHS = ['../pelican-plugins/', '../']
 PLUGINS = [
     'extract_toc',  # extracts [TOC] to variable that can be used in template
+    'links_in_print',  # puts links in print for print.css (must be before simple_footnotes)
     'simple_footnotes',  # footnotes
     'render_math',   # my render math plugin :)
     'sitemap',  # For SEO
