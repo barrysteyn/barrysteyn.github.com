@@ -118,15 +118,15 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="merge-sort">Merge Sort<a class="headerlink" href="#merge-sort" title="Permanent link"></a></h1>
-<p>Merge sort is the classic divide and conquor algorithm, and is used as a canonical example for explaining the topic. It is quite easy to implement (specially in Python) but I wanted to see a C implementation. Google found me some <a href="http://www.stackoverflow.com">stack overflow</a> links as well as several blog sites that listed code. And oh my god, the code was terrible. Most code that I have seen is a mixture of <a href="http://en.wikipedia.org/wiki/Quick_sort">Quick Sort</a>. And there are several untruths, for instance, that one can implement merge sort in place!</p>
+		<h1 id="merge-sort">Merge Sort<a title="Permanent link" class="headerlink" href="#merge-sort"></a></h1>
+<p>Merge sort is the classic divide and conquor algorithm, and is used as a canonical example for explaining the topic. It is quite easy to implement (specially in Python) but I wanted to see a C implementation. Google found me some <a href="http://www.stackoverflow.com">stack overflow</a><sup class="print">L1</sup> links as well as several blog sites that listed code. And oh my god, the code was terrible. Most code that I have seen is a mixture of <a href="http://en.wikipedia.org/wiki/Quick_sort">Quick Sort</a><sup class="print">L2</sup>. And there are several untruths, for instance, that one can implement merge sort in place!</p>
 <p>Merge sort is <span class="math">\(O(n\cdot log(n))\)</span>, and in fact, it is proven that for a comparison based sort, one cannot achieve better results. So then why is Quick Sort so popular when it is <span class="math">\(O(n^2)\)</span>? It is because Quick Sort has average complexity of <span class="math">\(O(n\cdot log(n))\)</span> (one has to choose very unlucky random pivots for it to be <span class="math">\(O(n^2)\)</span>) but also, Quick Sort can be accomplished in place. Merge Sort cannot! In fact, merge sort's space complexity is always going to be <span class="math">\(2\cdot n\)</span> - there is no getting around this and still guaranteeing <span class="math">\(O(n\cdot log(n))\)</span> performance.</p>
 <p>To Summarize:</p>
 <ul>
 <li>Merge Sort is <span class="math">\(O(n\cdot log(n))\)</span>.</li>
 <li>Merge Sort cannot sort in place.</li>
 </ul>
-<h2 id="merge-sort-example-code">Merge Sort Example Code<a class="headerlink" href="#merge-sort-example-code" title="Permanent link"></a></h2>
+<h2 id="merge-sort-example-code">Merge Sort Example Code<a title="Permanent link" class="headerlink" href="#merge-sort-example-code"></a></h2>
 <p>Here is my C implementation of Merge Sort. The merge function is where the extra space is required, and although it is only required temporarily and destroyed once the stack is popped, it still makes the sort require <span class="math">\(2\cdot n\)</span> space.</p>
 <script src="https://gist.github.com/barrysteyn/5177637.js?file=mergesort.c"></script>
 
@@ -139,11 +139,11 @@
 <p>It would be used like so:</p>
 <script src="https://gist.github.com/barrysteyn/5177637.js?file=main.c"></script>
 
-<h1 id="counting-split-inversions">Counting Split Inversions<a class="headerlink" href="#counting-split-inversions" title="Permanent link"></a></h1>
-<p>Merge sort leads to interesting applications besides sorting. One of the most interesting is counting the number of split inversions between two arrays. Assuming there are two arrays, the number of split inversions counts the number of swaps one array needs to transform into the other array. A <em>split inversion count</em> forms a <a href="http://en.wikipedia.org/wiki/Metric_space">metric space</a> over the two arrays, and therefore one can accomplish measurements with it. For instance, one can use the inversion count as a metric for a recommender. How? If someone ranks movies from one to five, then that ranking can be compared to other rankings. One can then find similar rankings to note that these people have the same taste and therefore recommend movies that one person likes to the other.</p>
-<h2 id="counting-inversions-brute-force">Counting Inversions: Brute Force<a class="headerlink" href="#counting-inversions-brute-force" title="Permanent link"></a></h2>
+<h1 id="counting-split-inversions">Counting Split Inversions<a title="Permanent link" class="headerlink" href="#counting-split-inversions"></a></h1>
+<p>Merge sort leads to interesting applications besides sorting. One of the most interesting is counting the number of split inversions between two arrays. Assuming there are two arrays, the number of split inversions counts the number of swaps one array needs to transform into the other array. A <em>split inversion count</em> forms a <a href="http://en.wikipedia.org/wiki/Metric_space">metric space</a><sup class="print">L3</sup> over the two arrays, and therefore one can accomplish measurements with it. For instance, one can use the inversion count as a metric for a recommender. How? If someone ranks movies from one to five, then that ranking can be compared to other rankings. One can then find similar rankings to note that these people have the same taste and therefore recommend movies that one person likes to the other.</p>
+<h2 id="counting-inversions-brute-force">Counting Inversions: Brute Force<a title="Permanent link" class="headerlink" href="#counting-inversions-brute-force"></a></h2>
 <p>A brute force algorithm would be to compare each element in both arrays to each other, and determine if they would need to be swapped. This is <span class="math">\(O(n^2)\)</span> (quadratic in <span class="math">\(n\)</span>). Can we do better?</p>
-<h2 id="counting-inversions-divide-and-conquer">Counting Inversions: Divide And Conquer<a class="headerlink" href="#counting-inversions-divide-and-conquer" title="Permanent link"></a></h2>
+<h2 id="counting-inversions-divide-and-conquer">Counting Inversions: Divide And Conquer<a title="Permanent link" class="headerlink" href="#counting-inversions-divide-and-conquer"></a></h2>
 <p>In fact, we can do much better. The key point to note that is that we can get this information for free during the merge stage of the Merge Sort. </p>
 <p>In the merge stage, two sorted arrays are merged into one sorted array. Lets call these arrays <span class="math">\(A\)</span> and <span class="math">\(B\)</span>. Then the number of split inversions involving an element <span class="math">\(y \in B\)</span> of the second array is <em>precisely the number elements lefts in the first array <span class="math">\(A\)</span> when <span class="math">\(y\)</span> is copied into the temporary buffer</em>. Adding up these split inversions during the merge stage will result in the total number of split inversions.</p>
 <script src="https://gist.github.com/barrysteyn/5177637.js?file=merge-sort-with-split-inversion-count.c"></script>
@@ -201,7 +201,7 @@
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script>
+</script><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://www.stackoverflow.com</li><li>http://en.wikipedia.org/wiki/Quick_sort</li><li>http://en.wikipedia.org/wiki/Metric_space</li></ol></div>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

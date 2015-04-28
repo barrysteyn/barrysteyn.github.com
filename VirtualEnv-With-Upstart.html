@@ -118,14 +118,14 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<p>I thought I would write this very short blog article to help anyone who would who wants to launch a <a href="http://projects.unbit.it/uwsgi/">uwsgi</a> server that refers to a python script in a virtual environment via upstart.</p>
-<p>In order to run a <a href="http://projects.unbit.it/uwsgi/">uwsgi</a> server that runs a python script that in <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>, the following switches must be defined:</p>
+		<p>I thought I would write this very short blog article to help anyone who would who wants to launch a <a href="http://projects.unbit.it/uwsgi/">uwsgi</a><sup class="print">L1</sup> server that refers to a python script in a virtual environment via upstart.</p>
+<p>In order to run a <a href="http://projects.unbit.it/uwsgi/">uwsgi</a><sup class="print">L2</sup> server that runs a python script that in <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a><sup class="print">L3</sup>, the following switches must be defined:</p>
 <ol>
-<li><strong>pythonpath</strong> - this should be set to the folder where your script lives. Uwsgi uses this switch to define the <a href="http://docs.python.org/2/using/cmdline.html#envvar-PYTHONPATH">PYTHONPATH</a> environment variable for the script to be executed.</li>
-<li><strong>virtualenv</strong> - this must be set the folder where your virtual environment is defined. It is normally <code>~/.virtualenvs/&lt;name of virtual environment&gt;</code>. Uwsgi uses this switch to define the <a href="http://docs.python.org/2/using/cmdline.html#envvar-PYTHONHOME">PYTHONHOME</a> environment variable for the script to be executed.</li>
+<li><strong>pythonpath</strong> - this should be set to the folder where your script lives. Uwsgi uses this switch to define the <a href="http://docs.python.org/2/using/cmdline.html#envvar-PYTHONPATH">PYTHONPATH</a><sup class="print">L4</sup> environment variable for the script to be executed.</li>
+<li><strong>virtualenv</strong> - this must be set the folder where your virtual environment is defined. It is normally <code>~/.virtualenvs/&lt;name of virtual environment&gt;</code>. Uwsgi uses this switch to define the <a href="http://docs.python.org/2/using/cmdline.html#envvar-PYTHONHOME">PYTHONHOME</a><sup class="print">L5</sup> environment variable for the script to be executed.</li>
 <li><strong>file</strong> - this is the file that will be run by uwsgi</li>
 </ol>
-<h1 id="an-upstart-example">An Upstart Example<a class="headerlink" href="#an-upstart-example" title="Permanent link"></a></h1>
+<h1 id="an-upstart-example">An Upstart Example<a title="Permanent link" class="headerlink" href="#an-upstart-example"></a></h1>
 <p>Lets assume the following:</p>
 <ol>
 <li><strong>pythonpath</strong> = "/home/dev/python-script"</li>
@@ -134,7 +134,7 @@
 </ol>
 <p>Then an upstart script to start uwsgi that will run this script in the virutalenv is as follows:
 <script src="https://gist.github.com/4469288.js"></script></p>
-<p>There are many options that one can give uwsgi. The above example is running a flask app, and therefore uses the <code>--callable</code> switch (although your particular needs should be defined by the documentation).</p>
+<p>There are many options that one can give uwsgi. The above example is running a flask app, and therefore uses the <code>--callable</code> switch (although your particular needs should be defined by the documentation).</p><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://projects.unbit.it/uwsgi/</li><li>http://projects.unbit.it/uwsgi/</li><li>http://pypi.python.org/pypi/virtualenv</li><li>http://docs.python.org/2/using/cmdline.html#envvar-PYTHONPATH</li><li>http://docs.python.org/2/using/cmdline.html#envvar-PYTHONHOME</li></ol></div>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

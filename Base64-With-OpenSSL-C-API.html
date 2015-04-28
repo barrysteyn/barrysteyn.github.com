@@ -118,32 +118,32 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<p>OpenSSL has the ability to perform <a href="http://en.wikipedia.org/wiki/Base64">Base64</a> encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the <a href="http://www.openssl.org/docs/crypto/BIO_f_base64.html">example</a> on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some <a href="https://gist.github.com/7308212/download">working code</a>. Enjoy!</p>
-<h1 id="get-the-code">Get The Code<a class="headerlink" href="#get-the-code" title="Permanent link"></a></h1>
-<p>You can download this entire gist <a href="https://gist.github.com/7308212/download">here</a>. It consists of the following files:</p>
+		<p>OpenSSL has the ability to perform <a href="http://en.wikipedia.org/wiki/Base64">Base64</a><sup class="print">L1</sup> encodings and decodings. There seems to be many queries for working examples on how to use this functionality. Unfortunately, the <a href="http://www.openssl.org/docs/crypto/BIO_f_base64.html">example</a><sup class="print">L2</sup> on the OpenSSL site is quite obtuse, and every other example I have come accross does not work. So here is some <a href="https://gist.github.com/7308212/download">working code</a><sup class="print">L3</sup>. Enjoy!</p>
+<h1 id="get-the-code">Get The Code<a title="Permanent link" class="headerlink" href="#get-the-code"></a></h1>
+<p>You can download this entire gist <a href="https://gist.github.com/7308212/download">here</a><sup class="print">L4</sup>. It consists of the following files:</p>
 <ul>
-<li><a href="https://gist.github.com/7308212#file-base64decode-c">Base64Decode.c</a> - the decode function (takes Base64 encoded string as input).</li>
-<li><a href="https://gist.github.com/7308212#file-base64encode-c">Base64Encode.c</a> - the encode function (takes a "normal" string as input).</li>
-<li><a href="https://gist.github.com/7308212#file-main-c">Main.c</a> - the main c file that demonstrates usage of the functionality in the two files above.</li>
-<li><a href="https://gist.github.com/7308212#file-makefile">Makefile</a> - the C makefile. Compilation has been tested on a linux ubuntu distribution, and links with <code>lcrypto</code> for <a href="http://www.openssl.org/">opensll</a> and <code>lm</code> for math.</li>
+<li><a href="https://gist.github.com/7308212#file-base64decode-c">Base64Decode.c</a><sup class="print">L5</sup> - the decode function (takes Base64 encoded string as input).</li>
+<li><a href="https://gist.github.com/7308212#file-base64encode-c">Base64Encode.c</a><sup class="print">L6</sup> - the encode function (takes a "normal" string as input).</li>
+<li><a href="https://gist.github.com/7308212#file-main-c">Main.c</a><sup class="print">L7</sup> - the main c file that demonstrates usage of the functionality in the two files above.</li>
+<li><a href="https://gist.github.com/7308212#file-makefile">Makefile</a><sup class="print">L8</sup> - the C makefile. Compilation has been tested on a linux ubuntu distribution, and links with <code>lcrypto</code> for <a href="http://www.openssl.org/">opensll</a><sup class="print">L9</sup> and <code>lm</code> for math.</li>
 </ul>
-<h1 id="base64-encoding">Base64 Encoding<a class="headerlink" href="#base64-encoding" title="Permanent link"></a></h1>
+<h1 id="base64-encoding">Base64 Encoding<a title="Permanent link" class="headerlink" href="#base64-encoding"></a></h1>
 <p><script src="https://gist.github.com/7308212.js?file=Base64Encode.c"></script></p>
-<h1 id="base64-decoding">Base64 Decoding<a class="headerlink" href="#base64-decoding" title="Permanent link"></a></h1>
+<h1 id="base64-decoding">Base64 Decoding<a title="Permanent link" class="headerlink" href="#base64-decoding"></a></h1>
 <p><script src="https://gist.github.com/7308212.js?file=Base64Decode.c"></script></p>
 <p>Note the following:</p>
 <ul>
 <li>It is important to set the flag <code>BIO_FLAGS_BASE64_NO_NL</code>. If this is not done, the read operation will block until a newline character (<code>\n</code>) is encountered.</li>
-<li>The function <code>calcDecodeLength</code> will, given a Base64 encoded input string, calculate the length of the decoded string. Base64 encodes a "normal" 8 bit character string by using only 6 bits (hence only <span class="math">\(2^6=64\)</span> characters are needed). Therefore every 4 characters of Base64 decodes to three decoded characters, and multiplying the length of the Base64 string by <span class="math">\(\frac{3}{4}\)</span> will typically suffice. There are however two exceptions due to padding denoted by the <code>=</code> character. For more information, read <a href="http://en.wikipedia.org/wiki/Base64#Decoding_Base64_with_padding">decoding base64 with padding</a>.</li>
+<li>The function <code>calcDecodeLength</code> will, given a Base64 encoded input string, calculate the length of the decoded string. Base64 encodes a "normal" 8 bit character string by using only 6 bits (hence only <span class="math">\(2^6=64\)</span> characters are needed). Therefore every 4 characters of Base64 decodes to three decoded characters, and multiplying the length of the Base64 string by <span class="math">\(\frac{3}{4}\)</span> will typically suffice. There are however two exceptions due to padding denoted by the <code>=</code> character. For more information, read <a href="http://en.wikipedia.org/wiki/Base64#Decoding_Base64_with_padding">decoding base64 with padding</a><sup class="print">L10</sup>.</li>
 </ul>
-<h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h1>
+<h1 id="usage">Usage<a title="Permanent link" class="headerlink" href="#usage"></a></h1>
 <p>The above functionality is used like so:
 <script src="https://gist.github.com/7308212.js?file=Main.c"></script></p>
 <p>Compile it with this MakeFile:
 <script src="https://gist.github.com/7308212.js?file=Makefile"></script></p>
-<h1 id="memory-stuff">Memory Stuff<a class="headerlink" href="#memory-stuff" title="Permanent link"></a></h1>
-<p>The memory for <code>buffer</code> in both functions is created on the heap using <a href="http://www.cplusplus.com/reference/cstdlib/malloc/">malloc</a>. Therefore, it must be managed. This is a tiny example, and the program ends before any memory leaks become a problem, but in production code, remember to free the heap memory occupied by <code>buffer</code> after it has been used. This is done with the <a href="http://www.cplusplus.com/reference/cstdlib/free/">free</a> command.</p>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h1>
+<h1 id="memory-stuff">Memory Stuff<a title="Permanent link" class="headerlink" href="#memory-stuff"></a></h1>
+<p>The memory for <code>buffer</code> in both functions is created on the heap using <a href="http://www.cplusplus.com/reference/cstdlib/malloc/">malloc</a><sup class="print">L11</sup>. Therefore, it must be managed. This is a tiny example, and the program ends before any memory leaks become a problem, but in production code, remember to free the heap memory occupied by <code>buffer</code> after it has been used. This is done with the <a href="http://www.cplusplus.com/reference/cstdlib/free/">free</a><sup class="print">L12</sup> command.</p>
+<h1 id="conclusion">Conclusion<a title="Permanent link" class="headerlink" href="#conclusion"></a></h1>
 <p>The above functions should perform better error checking if used in production. It also only works for encoding and decoding of a strings (although it is not too difficult to get it to work for files as well). This should give the inquisitive (and frustrated) programmer a base from which to work from.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
@@ -198,7 +198,7 @@
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script>
+</script><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://en.wikipedia.org/wiki/Base64</li><li>http://www.openssl.org/docs/crypto/BIO_f_base64.html</li><li>https://gist.github.com/7308212/download</li><li>https://gist.github.com/7308212/download</li><li>https://gist.github.com/7308212#file-base64decode-c</li><li>https://gist.github.com/7308212#file-base64encode-c</li><li>https://gist.github.com/7308212#file-main-c</li><li>https://gist.github.com/7308212#file-makefile</li><li>http://www.openssl.org/</li><li>http://en.wikipedia.org/wiki/Base64#Decoding_Base64_with_padding</li><li>http://www.cplusplus.com/reference/cstdlib/malloc/</li><li>http://www.cplusplus.com/reference/cstdlib/free/</li></ol></div>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.
