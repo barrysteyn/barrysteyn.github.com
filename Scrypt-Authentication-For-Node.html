@@ -121,13 +121,13 @@
 		<h1 id="scrypt-for-nodejs">Scrypt For NodeJS<a title="Permanent link" class="headerlink" href="#scrypt-for-nodejs"></a></h1>
 <p>node-scrypt is a native node C++ wrapper for Colin Percival's scrypt <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation</a><sup class="print">L1</sup> utility.</p>
 <h2 id="what-is-scrypt">What Is Scrypt?<a title="Permanent link" class="headerlink" href="#what-is-scrypt"></a></h2>
-<p>Scrypt is an advanced crypto library used mainly for <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation</a><sup class="print">L2</sup> (i.e. password authenticator). More information can be found here:</p>
+<p>Scrypt is an advanced crypto library used mainly for <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation</a><sup class="print">L1</sup> (i.e. password authenticator). More information can be found here:</p>
 <ul>
-<li><a href="http://www.tarsnap.com/scrypt.html">Tarsnap blurb about scrypt</a><sup class="print">L3</sup> - Colin Percival (the author of scrypt) explains a bit about it.</li>
-<li><a href="http://www.tarsnap.com/scrypt/scrypt.pdf">Academic paper explaining scrypt</a><sup class="print">L4</sup>.</li>
-<li><a href="http://en.wikipedia.org/wiki/Scrypt">Wikipedia Article on scrypt</a><sup class="print">L5</sup>.</li>
+<li><a href="http://www.tarsnap.com/scrypt.html">Tarsnap blurb about scrypt</a><sup class="print">L2</sup> - Colin Percival (the author of scrypt) explains a bit about it.</li>
+<li><a href="http://www.tarsnap.com/scrypt/scrypt.pdf">Academic paper explaining scrypt</a><sup class="print">L3</sup>.</li>
+<li><a href="http://en.wikipedia.org/wiki/Scrypt">Wikipedia Article on scrypt</a><sup class="print">L4</sup>.</li>
 </ul>
-<p>For additional interest, read the article on wikipedias about the <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation function</a><sup class="print">L6</sup>.</p>
+<p>For additional interest, read the article on wikipedias about the <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation function</a><sup class="print">L1</sup>.</p>
 <h3 id="the-three-essential-properties-of-password-key-derivation">The Three Essential Properties Of Password Key Derivation<a title="Permanent link" class="headerlink" href="#the-three-essential-properties-of-password-key-derivation"></a></h3>
 <p>Password key derivation requires three properties:</p>
 <ul>
@@ -174,7 +174,7 @@
 </blockquote>
 <p>Therefore at the very least, 1MiB of ram will be used.</p>
 <h3 id="the-three-tweakable-inputs">The Three Tweakable Inputs<a title="Permanent link" class="headerlink" href="#the-three-tweakable-inputs"></a></h3>
-<p><u><strong>Note</strong>: This is a very important section to understand</u>. The three tweakable inputs mentioned above are actually just <em>human understandable</em> inputs into a translation function that produces the inputs required for the internal scrypt cryptographic function. These inputs (as defined in the <a href="http://www.tarsnap.com/scrypt/scrypt.pdf">scrypt paper</a><sup class="print">L7</sup>) are as follows:</p>
+<p><u><strong>Note</strong>: This is a very important section to understand</u>. The three tweakable inputs mentioned above are actually just <em>human understandable</em> inputs into a translation function that produces the inputs required for the internal scrypt cryptographic function. These inputs (as defined in the <a href="http://www.tarsnap.com/scrypt/scrypt.pdf">scrypt paper</a><sup class="print">L3</sup>) are as follows:</p>
 <ol>
 <li><strong>N</strong> - general work factor, iteration count.</li>
 <li><strong>r</strong> - blocksize in use for underlying hash; fine-tunes the relative memory-cost.</li>
@@ -185,8 +185,8 @@
 <p>Here are some pros and cons for using it:</p>
 <h3 id="pros">Pros<a title="Permanent link" class="headerlink" href="#pros"></a></h3>
 <ul>
-<li>The scrypt algorithm has been published by <a href="http://en.wikipedia.org/wiki/IETF">IETF</a><sup class="print">L8</sup> as an <a href="http://en.wikipedia.org/wiki/Internet_Draft">Internet Draft</a><sup class="print">L9</sup> and is thus on track to becoming a standard. See <a href="https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00">here</a><sup class="print">L10</sup> for the draft.</li>
-<li>It is being actively used in production at <a href="http://www.tarsnap.com/">Tarsnap</a><sup class="print">L11</sup>.</li>
+<li>The scrypt algorithm has been published by <a href="http://en.wikipedia.org/wiki/IETF">IETF</a><sup class="print">L5</sup> as an <a href="http://en.wikipedia.org/wiki/Internet_Draft">Internet Draft</a><sup class="print">L6</sup> and is thus on track to becoming a standard. See <a href="https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00">here</a><sup class="print">L7</sup> for the draft.</li>
+<li>It is being actively used in production at <a href="http://www.tarsnap.com/">Tarsnap</a><sup class="print">L8</sup>.</li>
 <li>It is much more secure than bcrypt.</li>
 <li>It is designed to be future proof against attacks with future (and more advanced) hardware.</li>
 <li>It is designed to defend against large scale custom hardware attacks.</li>
@@ -198,7 +198,7 @@
 <p>We estimate that on modern (2009) hardware, if 5 seconds are spent computing a derived key, the cost of a hardware brute-force attack against scrypt is roughly 4000 times greater than the cost of a similar attack against bcrypt (to find the same password), and 20000 times greater than a similar attack against PBKDF2.</p>
 </blockquote>
 <h3 id="cons">Cons<a title="Permanent link" class="headerlink" href="#cons"></a></h3>
-<p>There is just one con I can think of: It is a relatively new library (only been around since 2009). Cryptographers don't really like new libraries for production deployment as it has not been <em>battle tested</em>. That being said, it is being actively used in <a href="http://www.tarsnap.com/">Tarsnap</a><sup class="print">L12</sup> (as mentioned above) and the author is very active.</p>
+<p>There is just one con I can think of: It is a relatively new library (only been around since 2009). Cryptographers don't really like new libraries for production deployment as it has not been <em>battle tested</em>. That being said, it is being actively used in <a href="http://www.tarsnap.com/">Tarsnap</a><sup class="print">L8</sup> (as mentioned above) and the author is very active.</p>
 <h1 id="security-issuesconcerns">Security Issues/Concerns<a title="Permanent link" class="headerlink" href="#security-issuesconcerns"></a></h1>
 <p>As should be the case with any security tool, this library should be scrutinized by anyone using it. If you find or suspect an issue with the code- please bring it to my attention and I'll spend some time trying to make sure that this tool is as secure as possible.</p>
 <h1 id="platforms">Platforms<a title="Permanent link" class="headerlink" href="#platforms"></a></h1>
@@ -209,7 +209,7 @@
 </ul>
 <p>Windows support is coming very soon.</p>
 <h1 id="installation-instructions">Installation Instructions<a title="Permanent link" class="headerlink" href="#installation-instructions"></a></h1>
-<p>This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to <a href="https://github.com/kelvinwong-ca">Kelvin Wong</a><sup class="print">L13</sup>).</p>
+<p>This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to <a href="https://github.com/kelvinwong-ca">Kelvin Wong</a><sup class="print">L9</sup>).</p>
 <h2 id="from-npm">From NPM<a title="Permanent link" class="headerlink" href="#from-npm"></a></h2>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>npm install scrypt
 </pre></div>
@@ -226,7 +226,7 @@ node-gyp configure build
 </td></tr></tbody></table>
 
 <h1 id="testing">Testing<a title="Permanent link" class="headerlink" href="#testing"></a></h1>
-<p>Testing is accomplished with the <a href="https://github.com/isaacs/node-tap">node tap module</a><sup class="print">L14</sup>.</p>
+<p>Testing is accomplished with the <a href="https://github.com/isaacs/node-tap">node tap module</a><sup class="print">L10</sup>.</p>
 <h2 id="if-installed-via-npm">If installed via NPM<a title="Permanent link" class="headerlink" href="#if-installed-via-npm"></a></h2>
 <p>To test, go to the folder where scrypt was installed, and type:</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -248,7 +248,7 @@ node tests/scrypt-tests
 </td></tr></tbody></table>
 
 <h1 id="hash-info">Hash Info<a title="Permanent link" class="headerlink" href="#hash-info"></a></h1>
-<p>All scrypt output is encoded into Base64 using <a href="http://www.adp-gmbh.ch/">René Nyffenegger</a><sup class="print">L15</sup> <a href="http://www.adp-gmbh.ch/cpp/common/base64.html">library</a><sup class="print">L16</sup>. The character sets that compromises all output are <code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/</code>.</p>
+<p>All scrypt output is encoded into Base64 using <a href="http://www.adp-gmbh.ch/">René Nyffenegger</a><sup class="print">L11</sup> <a href="http://www.adp-gmbh.ch/cpp/common/base64.html">library</a><sup class="print">L12</sup>. The character sets that compromises all output are <code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/</code>.</p>
 <h1 id="usage">Usage<a title="Permanent link" class="headerlink" href="#usage"></a></h1>
 <p>There are both asynchronous and synchronous functions available. It is highly recommended not to use the synchronous version unless necessary due to the fact that Node's event loop will be blocked for the duration of these purposefully slow functions.</p>
 <h2 id="asynchronous-authentication">Asynchronous Authentication<a title="Permanent link" class="headerlink" href="#asynchronous-authentication"></a></h2>
@@ -532,13 +532,13 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 </li>
 </ul>
 <h1 id="credits">Credits<a title="Permanent link" class="headerlink" href="#credits"></a></h1>
-<p>The scrypt library is Colin Percival's <a href="http://www.tarsnap.com/scrypt.html">scrypt</a><sup class="print">L17</sup> project. This includes the encryption/decryption functions which are basically just wrappers into this library.</p>
+<p>The scrypt library is Colin Percival's <a href="http://www.tarsnap.com/scrypt.html">scrypt</a><sup class="print">L2</sup> project. This includes the encryption/decryption functions which are basically just wrappers into this library.</p>
 <p>The password hash and verify functions are also very heavily influenced by the scrypt source code, with most functionality being copied from various placed within scrypt.</p>
 <h1 id="contributors">Contributors<a title="Permanent link" class="headerlink" href="#contributors"></a></h1>
 <ul>
-<li><a href="http://www.adp-gmbh.ch/">René Nyffenegger</a><sup class="print">L18</sup> - produced original Base64 encoding code.</li>
-<li><a href="https://github.com/kelvinwong-ca">Kelvin Wong</a><sup class="print">L19</sup> - MAC OS compilation and testing.</li>
-</ul><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://en.wikipedia.org/wiki/Key_derivation_function</li><li>http://en.wikipedia.org/wiki/Key_derivation_function</li><li>http://www.tarsnap.com/scrypt.html</li><li>http://www.tarsnap.com/scrypt/scrypt.pdf</li><li>http://en.wikipedia.org/wiki/Scrypt</li><li>http://en.wikipedia.org/wiki/Key_derivation_function</li><li>http://www.tarsnap.com/scrypt/scrypt.pdf</li><li>http://en.wikipedia.org/wiki/IETF</li><li>http://en.wikipedia.org/wiki/Internet_Draft</li><li>https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00</li><li>http://www.tarsnap.com/</li><li>http://www.tarsnap.com/</li><li>https://github.com/kelvinwong-ca</li><li>https://github.com/isaacs/node-tap</li><li>http://www.adp-gmbh.ch/</li><li>http://www.adp-gmbh.ch/cpp/common/base64.html</li><li>http://www.tarsnap.com/scrypt.html</li><li>http://www.adp-gmbh.ch/</li><li>https://github.com/kelvinwong-ca</li></ol></div>
+<li><a href="http://www.adp-gmbh.ch/">René Nyffenegger</a><sup class="print">L11</sup> - produced original Base64 encoding code.</li>
+<li><a href="https://github.com/kelvinwong-ca">Kelvin Wong</a><sup class="print">L9</sup> - MAC OS compilation and testing.</li>
+</ul><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://en.wikipedia.org/wiki/Key_derivation_function</li><li>http://www.tarsnap.com/scrypt.html</li><li>http://www.tarsnap.com/scrypt/scrypt.pdf</li><li>http://en.wikipedia.org/wiki/Scrypt</li><li>http://en.wikipedia.org/wiki/IETF</li><li>http://en.wikipedia.org/wiki/Internet_Draft</li><li>https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00</li><li>http://www.tarsnap.com/</li><li>https://github.com/kelvinwong-ca</li><li>https://github.com/isaacs/node-tap</li><li>http://www.adp-gmbh.ch/</li><li>http://www.adp-gmbh.ch/cpp/common/base64.html</li></ol></div>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

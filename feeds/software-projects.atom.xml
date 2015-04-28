@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/software-projects.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2012-12-18T00:00:00-08:00</updated><entry><title>Scrypt Authentiction For Node</title><link href="http://doctrina.org/Scrypt-Authentication-For-Node.html" rel="alternate"></link><updated>2012-12-18T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-12-18:Scrypt-Authentication-For-Node.html</id><summary type="html">&lt;h1 id="scrypt-for-nodejs"&gt;Scrypt For NodeJS&lt;a title="Permanent link" class="headerlink" href="#scrypt-for-nodejs"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;node-scrypt is a native node C++ wrapper for Colin Percival's scrypt &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt; utility.&lt;/p&gt;
 &lt;h2 id="what-is-scrypt"&gt;What Is Scrypt?&lt;a title="Permanent link" class="headerlink" href="#what-is-scrypt"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Scrypt is an advanced crypto library used mainly for &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation&lt;/a&gt;&lt;sup class="print"&gt;L2&lt;/sup&gt; (i.e. password authenticator). More information can be found here:&lt;/p&gt;
+&lt;p&gt;Scrypt is an advanced crypto library used mainly for &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt; (i.e. password authenticator). More information can be found here:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.tarsnap.com/scrypt.html"&gt;Tarsnap blurb about scrypt&lt;/a&gt;&lt;sup class="print"&gt;L3&lt;/sup&gt; - Colin Percival (the author of scrypt) explains a bit about it.&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.tarsnap.com/scrypt/scrypt.pdf"&gt;Academic paper explaining scrypt&lt;/a&gt;&lt;sup class="print"&gt;L4&lt;/sup&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://en.wikipedia.org/wiki/Scrypt"&gt;Wikipedia Article on scrypt&lt;/a&gt;&lt;sup class="print"&gt;L5&lt;/sup&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.tarsnap.com/scrypt.html"&gt;Tarsnap blurb about scrypt&lt;/a&gt;&lt;sup class="print"&gt;L2&lt;/sup&gt; - Colin Percival (the author of scrypt) explains a bit about it.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.tarsnap.com/scrypt/scrypt.pdf"&gt;Academic paper explaining scrypt&lt;/a&gt;&lt;sup class="print"&gt;L3&lt;/sup&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://en.wikipedia.org/wiki/Scrypt"&gt;Wikipedia Article on scrypt&lt;/a&gt;&lt;sup class="print"&gt;L4&lt;/sup&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For additional interest, read the article on wikipedias about the &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation function&lt;/a&gt;&lt;sup class="print"&gt;L6&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;For additional interest, read the article on wikipedias about the &lt;a href="http://en.wikipedia.org/wiki/Key_derivation_function"&gt;key derivation function&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt;.&lt;/p&gt;
 &lt;h3 id="the-three-essential-properties-of-password-key-derivation"&gt;The Three Essential Properties Of Password Key Derivation&lt;a title="Permanent link" class="headerlink" href="#the-three-essential-properties-of-password-key-derivation"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Password key derivation requires three properties:&lt;/p&gt;
 &lt;ul&gt;
@@ -55,7 +55,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;Therefore at the very least, 1MiB of ram will be used.&lt;/p&gt;
 &lt;h3 id="the-three-tweakable-inputs"&gt;The Three Tweakable Inputs&lt;a title="Permanent link" class="headerlink" href="#the-three-tweakable-inputs"&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;u&gt;&lt;strong&gt;Note&lt;/strong&gt;: This is a very important section to understand&lt;/u&gt;. The three tweakable inputs mentioned above are actually just &lt;em&gt;human understandable&lt;/em&gt; inputs into a translation function that produces the inputs required for the internal scrypt cryptographic function. These inputs (as defined in the &lt;a href="http://www.tarsnap.com/scrypt/scrypt.pdf"&gt;scrypt paper&lt;/a&gt;&lt;sup class="print"&gt;L7&lt;/sup&gt;) are as follows:&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;Note&lt;/strong&gt;: This is a very important section to understand&lt;/u&gt;. The three tweakable inputs mentioned above are actually just &lt;em&gt;human understandable&lt;/em&gt; inputs into a translation function that produces the inputs required for the internal scrypt cryptographic function. These inputs (as defined in the &lt;a href="http://www.tarsnap.com/scrypt/scrypt.pdf"&gt;scrypt paper&lt;/a&gt;&lt;sup class="print"&gt;L3&lt;/sup&gt;) are as follows:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;N&lt;/strong&gt; - general work factor, iteration count.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;r&lt;/strong&gt; - blocksize in use for underlying hash; fine-tunes the relative memory-cost.&lt;/li&gt;
@@ -66,8 +66,8 @@
 &lt;p&gt;Here are some pros and cons for using it:&lt;/p&gt;
 &lt;h3 id="pros"&gt;Pros&lt;a title="Permanent link" class="headerlink" href="#pros"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;The scrypt algorithm has been published by &lt;a href="http://en.wikipedia.org/wiki/IETF"&gt;IETF&lt;/a&gt;&lt;sup class="print"&gt;L8&lt;/sup&gt; as an &lt;a href="http://en.wikipedia.org/wiki/Internet_Draft"&gt;Internet Draft&lt;/a&gt;&lt;sup class="print"&gt;L9&lt;/sup&gt; and is thus on track to becoming a standard. See &lt;a href="https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00"&gt;here&lt;/a&gt;&lt;sup class="print"&gt;L10&lt;/sup&gt; for the draft.&lt;/li&gt;
-&lt;li&gt;It is being actively used in production at &lt;a href="http://www.tarsnap.com/"&gt;Tarsnap&lt;/a&gt;&lt;sup class="print"&gt;L11&lt;/sup&gt;.&lt;/li&gt;
+&lt;li&gt;The scrypt algorithm has been published by &lt;a href="http://en.wikipedia.org/wiki/IETF"&gt;IETF&lt;/a&gt;&lt;sup class="print"&gt;L5&lt;/sup&gt; as an &lt;a href="http://en.wikipedia.org/wiki/Internet_Draft"&gt;Internet Draft&lt;/a&gt;&lt;sup class="print"&gt;L6&lt;/sup&gt; and is thus on track to becoming a standard. See &lt;a href="https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00"&gt;here&lt;/a&gt;&lt;sup class="print"&gt;L7&lt;/sup&gt; for the draft.&lt;/li&gt;
+&lt;li&gt;It is being actively used in production at &lt;a href="http://www.tarsnap.com/"&gt;Tarsnap&lt;/a&gt;&lt;sup class="print"&gt;L8&lt;/sup&gt;.&lt;/li&gt;
 &lt;li&gt;It is much more secure than bcrypt.&lt;/li&gt;
 &lt;li&gt;It is designed to be future proof against attacks with future (and more advanced) hardware.&lt;/li&gt;
 &lt;li&gt;It is designed to defend against large scale custom hardware attacks.&lt;/li&gt;
@@ -79,7 +79,7 @@
 &lt;p&gt;We estimate that on modern (2009) hardware, if 5 seconds are spent computing a derived key, the cost of a hardware brute-force attack against scrypt is roughly 4000 times greater than the cost of a similar attack against bcrypt (to find the same password), and 20000 times greater than a similar attack against PBKDF2.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id="cons"&gt;Cons&lt;a title="Permanent link" class="headerlink" href="#cons"&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;There is just one con I can think of: It is a relatively new library (only been around since 2009). Cryptographers don't really like new libraries for production deployment as it has not been &lt;em&gt;battle tested&lt;/em&gt;. That being said, it is being actively used in &lt;a href="http://www.tarsnap.com/"&gt;Tarsnap&lt;/a&gt;&lt;sup class="print"&gt;L12&lt;/sup&gt; (as mentioned above) and the author is very active.&lt;/p&gt;
+&lt;p&gt;There is just one con I can think of: It is a relatively new library (only been around since 2009). Cryptographers don't really like new libraries for production deployment as it has not been &lt;em&gt;battle tested&lt;/em&gt;. That being said, it is being actively used in &lt;a href="http://www.tarsnap.com/"&gt;Tarsnap&lt;/a&gt;&lt;sup class="print"&gt;L8&lt;/sup&gt; (as mentioned above) and the author is very active.&lt;/p&gt;
 &lt;h1 id="security-issuesconcerns"&gt;Security Issues/Concerns&lt;a title="Permanent link" class="headerlink" href="#security-issuesconcerns"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;As should be the case with any security tool, this library should be scrutinized by anyone using it. If you find or suspect an issue with the code- please bring it to my attention and I'll spend some time trying to make sure that this tool is as secure as possible.&lt;/p&gt;
 &lt;h1 id="platforms"&gt;Platforms&lt;a title="Permanent link" class="headerlink" href="#platforms"&gt;&lt;/a&gt;&lt;/h1&gt;
@@ -90,7 +90,7 @@
 &lt;/ul&gt;
 &lt;p&gt;Windows support is coming very soon.&lt;/p&gt;
 &lt;h1 id="installation-instructions"&gt;Installation Instructions&lt;a title="Permanent link" class="headerlink" href="#installation-instructions"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to &lt;a href="https://github.com/kelvinwong-ca"&gt;Kelvin Wong&lt;/a&gt;&lt;sup class="print"&gt;L13&lt;/sup&gt;).&lt;/p&gt;
+&lt;p&gt;This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to &lt;a href="https://github.com/kelvinwong-ca"&gt;Kelvin Wong&lt;/a&gt;&lt;sup class="print"&gt;L9&lt;/sup&gt;).&lt;/p&gt;
 &lt;h2 id="from-npm"&gt;From NPM&lt;a title="Permanent link" class="headerlink" href="#from-npm"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;npm install scrypt
 &lt;/pre&gt;&lt;/div&gt;
@@ -107,7 +107,7 @@ node-gyp configure build
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 
 &lt;h1 id="testing"&gt;Testing&lt;a title="Permanent link" class="headerlink" href="#testing"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;Testing is accomplished with the &lt;a href="https://github.com/isaacs/node-tap"&gt;node tap module&lt;/a&gt;&lt;sup class="print"&gt;L14&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Testing is accomplished with the &lt;a href="https://github.com/isaacs/node-tap"&gt;node tap module&lt;/a&gt;&lt;sup class="print"&gt;L10&lt;/sup&gt;.&lt;/p&gt;
 &lt;h2 id="if-installed-via-npm"&gt;If installed via NPM&lt;a title="Permanent link" class="headerlink" href="#if-installed-via-npm"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To test, go to the folder where scrypt was installed, and type:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -129,7 +129,7 @@ node tests/scrypt-tests
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 
 &lt;h1 id="hash-info"&gt;Hash Info&lt;a title="Permanent link" class="headerlink" href="#hash-info"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;All scrypt output is encoded into Base64 using &lt;a href="http://www.adp-gmbh.ch/"&gt;René Nyffenegger&lt;/a&gt;&lt;sup class="print"&gt;L15&lt;/sup&gt; &lt;a href="http://www.adp-gmbh.ch/cpp/common/base64.html"&gt;library&lt;/a&gt;&lt;sup class="print"&gt;L16&lt;/sup&gt;. The character sets that compromises all output are &lt;code&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;All scrypt output is encoded into Base64 using &lt;a href="http://www.adp-gmbh.ch/"&gt;René Nyffenegger&lt;/a&gt;&lt;sup class="print"&gt;L11&lt;/sup&gt; &lt;a href="http://www.adp-gmbh.ch/cpp/common/base64.html"&gt;library&lt;/a&gt;&lt;sup class="print"&gt;L12&lt;/sup&gt;. The character sets that compromises all output are &lt;code&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&lt;/code&gt;.&lt;/p&gt;
 &lt;h1 id="usage"&gt;Usage&lt;a title="Permanent link" class="headerlink" href="#usage"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;There are both asynchronous and synchronous functions available. It is highly recommended not to use the synchronous version unless necessary due to the fact that Node's event loop will be blocked for the duration of these purposefully slow functions.&lt;/p&gt;
 &lt;h2 id="asynchronous-authentication"&gt;Asynchronous Authentication&lt;a title="Permanent link" class="headerlink" href="#asynchronous-authentication"&gt;&lt;/a&gt;&lt;/h2&gt;
@@ -413,13 +413,13 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="credits"&gt;Credits&lt;a title="Permanent link" class="headerlink" href="#credits"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;The scrypt library is Colin Percival's &lt;a href="http://www.tarsnap.com/scrypt.html"&gt;scrypt&lt;/a&gt;&lt;sup class="print"&gt;L17&lt;/sup&gt; project. This includes the encryption/decryption functions which are basically just wrappers into this library.&lt;/p&gt;
+&lt;p&gt;The scrypt library is Colin Percival's &lt;a href="http://www.tarsnap.com/scrypt.html"&gt;scrypt&lt;/a&gt;&lt;sup class="print"&gt;L2&lt;/sup&gt; project. This includes the encryption/decryption functions which are basically just wrappers into this library.&lt;/p&gt;
 &lt;p&gt;The password hash and verify functions are also very heavily influenced by the scrypt source code, with most functionality being copied from various placed within scrypt.&lt;/p&gt;
 &lt;h1 id="contributors"&gt;Contributors&lt;a title="Permanent link" class="headerlink" href="#contributors"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.adp-gmbh.ch/"&gt;René Nyffenegger&lt;/a&gt;&lt;sup class="print"&gt;L18&lt;/sup&gt; - produced original Base64 encoding code.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/kelvinwong-ca"&gt;Kelvin Wong&lt;/a&gt;&lt;sup class="print"&gt;L19&lt;/sup&gt; - MAC OS compilation and testing.&lt;/li&gt;
-&lt;/ul&gt;&lt;h2 class="print"&gt;Links&lt;/h2&gt;&lt;div class="print"&gt;&lt;ol class="print-links"&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Key_derivation_function&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Key_derivation_function&lt;/li&gt;&lt;li&gt;http://www.tarsnap.com/scrypt.html&lt;/li&gt;&lt;li&gt;http://www.tarsnap.com/scrypt/scrypt.pdf&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Scrypt&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Key_derivation_function&lt;/li&gt;&lt;li&gt;http://www.tarsnap.com/scrypt/scrypt.pdf&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/IETF&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Internet_Draft&lt;/li&gt;&lt;li&gt;https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00&lt;/li&gt;&lt;li&gt;http://www.tarsnap.com/&lt;/li&gt;&lt;li&gt;http://www.tarsnap.com/&lt;/li&gt;&lt;li&gt;https://github.com/kelvinwong-ca&lt;/li&gt;&lt;li&gt;https://github.com/isaacs/node-tap&lt;/li&gt;&lt;li&gt;http://www.adp-gmbh.ch/&lt;/li&gt;&lt;li&gt;http://www.adp-gmbh.ch/cpp/common/base64.html&lt;/li&gt;&lt;li&gt;http://www.tarsnap.com/scrypt.html&lt;/li&gt;&lt;li&gt;http://www.adp-gmbh.ch/&lt;/li&gt;&lt;li&gt;https://github.com/kelvinwong-ca&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</summary><category term="Software"></category><category term="Projects"></category><category term="Development"></category></entry><entry><title>Plugin For Pelican To Enable Latex</title><link href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html" rel="alternate"></link><updated>2012-11-08T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-11-08:Plugin-For-Pelican-To-Enable-Latex.html</id><summary type="html">&lt;h1 id="latex-plugin-for-pelican"&gt;Latex Plugin For Pelican&lt;a title="Permanent link" class="headerlink" href="#latex-plugin-for-pelican"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;li&gt;&lt;a href="http://www.adp-gmbh.ch/"&gt;René Nyffenegger&lt;/a&gt;&lt;sup class="print"&gt;L11&lt;/sup&gt; - produced original Base64 encoding code.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kelvinwong-ca"&gt;Kelvin Wong&lt;/a&gt;&lt;sup class="print"&gt;L9&lt;/sup&gt; - MAC OS compilation and testing.&lt;/li&gt;
+&lt;/ul&gt;&lt;h2 class="print"&gt;Links&lt;/h2&gt;&lt;div class="print"&gt;&lt;ol class="print-links"&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Key_derivation_function&lt;/li&gt;&lt;li&gt;http://www.tarsnap.com/scrypt.html&lt;/li&gt;&lt;li&gt;http://www.tarsnap.com/scrypt/scrypt.pdf&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Scrypt&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/IETF&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Internet_Draft&lt;/li&gt;&lt;li&gt;https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00&lt;/li&gt;&lt;li&gt;http://www.tarsnap.com/&lt;/li&gt;&lt;li&gt;https://github.com/kelvinwong-ca&lt;/li&gt;&lt;li&gt;https://github.com/isaacs/node-tap&lt;/li&gt;&lt;li&gt;http://www.adp-gmbh.ch/&lt;/li&gt;&lt;li&gt;http://www.adp-gmbh.ch/cpp/common/base64.html&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</summary><category term="Software"></category><category term="Projects"></category><category term="Development"></category></entry><entry><title>Plugin For Pelican To Enable Latex</title><link href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html" rel="alternate"></link><updated>2012-11-08T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2012-11-08:Plugin-For-Pelican-To-Enable-Latex.html</id><summary type="html">&lt;h1 id="latex-plugin-for-pelican"&gt;Latex Plugin For Pelican&lt;a title="Permanent link" class="headerlink" href="#latex-plugin-for-pelican"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This plugin allows you to write mathematical equations in your articles using Latex.
 It uses the MathJax Latex JavaScript library to render latex that is embedded in
 between &lt;code&gt;$..$&lt;/code&gt; for inline math and &lt;code&gt;$$..$$&lt;/code&gt; for displayed math. It also allows for 
