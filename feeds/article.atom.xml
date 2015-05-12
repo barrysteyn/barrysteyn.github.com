@@ -1,5 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-04-02T00:00:00-07:00</updated><entry><title>Do Not Go Gentle Into That Good Night</title><link href="http://doctrina.org/do-not-go-gentle-into-that-good-night.html" rel="alternate"></link><updated>2015-04-02T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-04-02:do-not-go-gentle-into-that-good-night.html</id><summary type="html">&lt;h1 id="do-not-go-gentle-into-that-good-night"&gt;Do Not Go Gentle Into That Good Night&lt;a title="Permanent link" class="headerlink" href="#do-not-go-gentle-into-that-good-night"&gt;&lt;/a&gt;&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-05-11T00:00:00-07:00</updated><entry><title>Maximum Height Of A Red-Black Tree</title><link href="http://doctrina.org/maximum-height-of-red-black-tree.html" rel="alternate"></link><updated>2015-05-11T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-05-11:maximum-height-of-red-black-tree.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a title="Permanent link" class="headerlink" href="#introduction"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;My friend and colleague, &lt;a href="http://dome.hobbits.grus.uberspace.de/"&gt;Dominik Messinger&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt; was fortunate to learn about abstract data structures in high school&lt;sup id="sf-maximum-height-of-red-black-tree-1-back"&gt;&lt;a title="He is German, so I think this is a nod to the excellent school system in Germany." class="simple-footnote" href="#sf-maximum-height-of-red-black-tree-1"&gt;1&lt;/a&gt;&lt;/sup&gt;. After chatting to him one day, the topic of red-black trees came up. He studied &lt;a href="http://en.wikipedia.org/wiki/AVL_tree"&gt;AVL trees&lt;/a&gt;&lt;sup class="print"&gt;L2&lt;/sup&gt; in depth at high school, but did not do the same for red-black trees. After this chat, I realized I had not formalized this topic in my mind either. So I decided to choose one topic and write about...&lt;/p&gt;
+&lt;p&gt;So here is an analysis of the maximum height of a red-black trees. &lt;/p&gt;
+&lt;h1 id="background-knowledge"&gt;Background Knowledge&lt;a title="Permanent link" class="headerlink" href="#background-knowledge"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="tree-level"&gt;Tree Level&lt;a title="Permanent link" class="headerlink" href="#tree-level"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A node's level is the number of parent node ancestors the node has. Level is zero based (the root is at level 0 since it has no ancestors).&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/binary-tree-level.png"&gt;&lt;/p&gt;
+&lt;p&gt;An important observation is that a node at level &lt;span class="math"&gt;\(k\)&lt;/span&gt; has &lt;span class="math"&gt;\(k+1\)&lt;/span&gt; parent ancestors.&lt;/p&gt;
+&lt;h2 id="full-and-complete-binary-tree"&gt;Full And Complete Binary Tree&lt;a title="Permanent link" class="headerlink" href="#full-and-complete-binary-tree"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A tree that is both &lt;em&gt;full and complete&lt;/em&gt;&lt;sup id="sf-maximum-height-of-red-black-tree-2-back"&gt;&lt;a title="Full and complete binary trees are sometimes called perfect binary trees." class="simple-footnote" href="#sf-maximum-height-of-red-black-tree-2"&gt;2&lt;/a&gt;&lt;/sup&gt; has the following properties:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;All non-leaf nodes have two children.&lt;/li&gt;
+&lt;li&gt;All leaf nodes are at the same level.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="images/full-complete-binary-tree.png"&gt;&lt;/p&gt;
+&lt;p&gt;A full and complete binary tree with &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes and &lt;span class="math"&gt;\(k\)&lt;/span&gt; levels has the following relationship:
+&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation*}
+n = 2^{k+1}-1
+\end{equation*}&lt;/div&gt;
+&lt;h1 id="red-black-tree"&gt;Red-Black Tree&lt;a title="Permanent link" class="headerlink" href="#red-black-tree"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="red-black-tree-invariants"&gt;Red-Black Tree Invariants&lt;a title="Permanent link" class="headerlink" href="#red-black-tree-invariants"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A red-black tree is a &lt;a href="http://en.wikipedia.org/wiki/Binary_search_tree"&gt;binary search tree&lt;/a&gt;&lt;sup class="print"&gt;L3&lt;/sup&gt; that is constrained by the following 4 invariants:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Each node is either red or black.&lt;/li&gt;
+&lt;li&gt;The root node is black.&lt;/li&gt;
+&lt;li&gt;Every red node must either have zero or two black chilren.&lt;/li&gt;
+&lt;li&gt;Every root-null path must have the same number of black nodes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="the-maximum-height-of-a-red-black-tree"&gt;The Maximum Height Of A Red-Black Tree&lt;a title="Permanent link" class="headerlink" href="#the-maximum-height-of-a-red-black-tree"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The maximum height of a red-black tree is the root-null path that contains the most number of nodes. Ironically, an examiniation of the shortest root-null path is needed to calculate the maximum height.&lt;/p&gt;
+&lt;h4 id="length-of-the-shortest-root-null-path"&gt;Length Of The Shortest Root-Null Path&lt;a title="Permanent link" class="headerlink" href="#length-of-the-shortest-root-null-path"&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;By invariant 4, the &lt;em&gt;maximum number of black nodes&lt;/em&gt; in any root-null path is restricted by the number of nodes in the &lt;em&gt;shortest&lt;/em&gt; root-null path. Assume the shortest root-null path is at level &lt;span class="math"&gt;\(k\)&lt;/span&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;There are &lt;span class="math"&gt;\(k+1\)&lt;/span&gt; nodes in the root-null path at level &lt;span class="math"&gt;\(k\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;There is a &lt;em&gt;full&lt;/em&gt; and &lt;em&gt;complete&lt;/em&gt; binary subtree with &lt;span class="math"&gt;\(k\)&lt;/span&gt; levels.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For example, if the shortest root-null path is at level 2, the full and complete binary subtree would look like the image below:&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/full-complete-binary-subtree.png"&gt;&lt;/p&gt;
+&lt;p&gt;Suppose the full and complete binary subtree has &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes, then using the fact that &lt;span class="math"&gt;\(n=2^{k+1}-1\)&lt;/span&gt;, it can be shown that the number of nodes in the root-null path (i.e. &lt;span class="math"&gt;\(k+1\)&lt;/span&gt;) is logarithmic:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{array}{ccc}
+n &amp;amp; = &amp;amp; 2^{k+1}-1 \\
+k+1 &amp;amp; = &amp;amp; \log_2(n+1)
+\end{array}&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;By invariant 4&lt;/em&gt;: The maximum number of black nodes in any root-null path is &lt;span class="math"&gt;\(\log_2(n+1)\)&lt;/span&gt;&lt;/p&gt;
+&lt;h4 id="length-of-the-longest-root-null-path"&gt;Length Of The Longest Root-Null Path&lt;a title="Permanent link" class="headerlink" href="#length-of-the-longest-root-null-path"&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;The longest root-null path will have &lt;span class="math"&gt;\(\log_2(n+1)\)&lt;/span&gt; black nodes (the maximum that it can have). The question now becomes: How many red nodes can be present? By invariant 3, a red node must have black node children. This restricts the maximum number of red nodes to being placed between the black nodes:&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/red-black-in-between.png"&gt;&lt;/p&gt;
+&lt;p&gt;The maximum number of red nodes in a root-null path is therefore constrained by the maximum number of black nodes, which is &lt;span class="math"&gt;\(\log_2(n+1)\)&lt;/span&gt;. So the length of the longest root-null path is:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{array}{lcl}
+\text{Maximum height} &amp;amp;=&amp;amp; \text{max black nodes} + \text{max red nodes} \\
+                      &amp;amp;=&amp;amp; \log_2(n+1) + \log_2(n+1) \\
+                      &amp;amp;=&amp;amp; 2\cdot\log_2(n+1)
+\end{array}&lt;/div&gt;
+&lt;p&gt;This proves that the height of a red-black tree is &lt;span class="math"&gt;\(O(log_2(n))\)&lt;/span&gt; where &lt;span class="math"&gt;\(n\)&lt;/span&gt; is the total number of nodes. In a binary search tree, the time complexity of a search operation is governed by the maximum height of the tree. This means that search in a red-black tree is logarithmic time complexity.&lt;/p&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a title="Permanent link" class="headerlink" href="#conclusion"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;A red-black tree is probably the most used balanced binary search tree algorithm. This article demonstrates the reasons why: It's height is logarithmic. It is a little bit more work to show that &lt;em&gt;update&lt;/em&gt;, &lt;em&gt;delete&lt;/em&gt; and &lt;em&gt;insert&lt;/em&gt; is also logarithmic, but any proof would rely upon the fact the maximum height is logarithmic.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "true";
+
+    if (true) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: '[math]'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;&lt;h2 class="print"&gt;Links&lt;/h2&gt;&lt;div class="print"&gt;&lt;ol class="print-links"&gt;&lt;li&gt;http://dome.hobbits.grus.uberspace.de/&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/AVL_tree&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Binary_search_tree&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;ol class="simple-footnotes"&gt;&lt;li id="sf-maximum-height-of-red-black-tree-1"&gt;He is German, so I think this is a nod to the excellent school system in Germany. &lt;a class="simple-footnote-back" href="#sf-maximum-height-of-red-black-tree-1-back"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;li id="sf-maximum-height-of-red-black-tree-2"&gt;Full and complete binary trees are sometimes called &lt;em&gt;perfect binary trees&lt;/em&gt;. &lt;a class="simple-footnote-back" href="#sf-maximum-height-of-red-black-tree-2-back"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</summary><category term="datastructures"></category><category term="red-black tree"></category></entry><entry><title>Do Not Go Gentle Into That Good Night</title><link href="http://doctrina.org/do-not-go-gentle-into-that-good-night.html" rel="alternate"></link><updated>2015-04-02T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-04-02:do-not-go-gentle-into-that-good-night.html</id><summary type="html">&lt;h1 id="do-not-go-gentle-into-that-good-night"&gt;Do Not Go Gentle Into That Good Night&lt;a title="Permanent link" class="headerlink" href="#do-not-go-gentle-into-that-good-night"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;small&gt;By &lt;a href="http://en.wikipedia.org/wiki/Dylan_Thomas"&gt;Dylan Thomas&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt;&lt;/small&gt;&lt;/p&gt;
 &lt;p&gt;Do not go gentle into that good night,&lt;br&gt;
 Old age should burn and rave at close of day;&lt;br&gt;

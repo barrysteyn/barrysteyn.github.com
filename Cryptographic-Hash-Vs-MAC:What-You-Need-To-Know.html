@@ -61,19 +61,20 @@
 	
 		<div class="visible-grid-float-breakpoint">
 					<div class="toc"><span class="toctitle">Table Of Contents</span><ul>
-<li><a href="#cryptographic-hash">Cryptographic Hash</a><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#cryptographic-hash-function">Cryptographic Hash Function</a><ul>
 <li><a href="#compression">Compression</a></li>
 <li><a href="#pre-image-resistance">Pre-Image Resistance</a></li>
 <li><a href="#weak-collision-resistance">Weak Collision Resistance</a></li>
 <li><a href="#strong-collision-resistance">Strong Collision Resistance</a></li>
-<li><a href="#dont-get-confused">Don't Get Confused!</a></li>
+<li><a href="#strong-and-weak-collision-resistance-are-not-the-same">Strong And Weak Collision Resistance Are Not The Same</a></li>
 </ul>
 </li>
 <li><a href="#message-integrity">Message Integrity</a><ul>
-<li><a href="#tag-security-existential-forgery">Tag Security: Existential Forgery</a></li>
+<li><a href="#message-tag">Message Tag</a></li>
 </ul>
 </li>
-<li><a href="#a-cryptrographic-hash-is-not-secure">A Cryptrographic Hash Is Not Secure</a><ul>
+<li><a href="#a-cryptrographic-hash-cannot-protect-against-existential-forgery">A Cryptrographic Hash Cannot Protect Against Existential Forgery</a><ul>
 <li><a href="#merkledamgard-and-davies-meyer-construction">Merkle–Damgård And Davies-Meyer Construction</a></li>
 <li><a href="#merkledamgard-is-not-secure">Merkle–Damgård Is Not Secure</a></li>
 <li><a href="#the-purpose-of-cryptographic-hashes">The Purpose Of Cryptographic Hashes</a></li>
@@ -150,19 +151,20 @@
 				<div class="col-md-3 col-md-pull-1 hidden-grid-float-breakpoint">
 					<nav id="toc-affix">
 								<div class="toc"><span class="toctitle">Table Of Contents</span><ul>
-<li><a href="#cryptographic-hash">Cryptographic Hash</a><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#cryptographic-hash-function">Cryptographic Hash Function</a><ul>
 <li><a href="#compression">Compression</a></li>
 <li><a href="#pre-image-resistance">Pre-Image Resistance</a></li>
 <li><a href="#weak-collision-resistance">Weak Collision Resistance</a></li>
 <li><a href="#strong-collision-resistance">Strong Collision Resistance</a></li>
-<li><a href="#dont-get-confused">Don't Get Confused!</a></li>
+<li><a href="#strong-and-weak-collision-resistance-are-not-the-same">Strong And Weak Collision Resistance Are Not The Same</a></li>
 </ul>
 </li>
 <li><a href="#message-integrity">Message Integrity</a><ul>
-<li><a href="#tag-security-existential-forgery">Tag Security: Existential Forgery</a></li>
+<li><a href="#message-tag">Message Tag</a></li>
 </ul>
 </li>
-<li><a href="#a-cryptrographic-hash-is-not-secure">A Cryptrographic Hash Is Not Secure</a><ul>
+<li><a href="#a-cryptrographic-hash-cannot-protect-against-existential-forgery">A Cryptrographic Hash Cannot Protect Against Existential Forgery</a><ul>
 <li><a href="#merkledamgard-and-davies-meyer-construction">Merkle–Damgård And Davies-Meyer Construction</a></li>
 <li><a href="#merkledamgard-is-not-secure">Merkle–Damgård Is Not Secure</a></li>
 <li><a href="#the-purpose-of-cryptographic-hashes">The Purpose Of Cryptographic Hashes</a></li>
@@ -178,44 +180,45 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-0 col-md-pull-1">
 	<div class="article-content">
-		<p>A MAC (<a href="http://en.wikipedia.org/wiki/Message_authentication_code">message authentication code</a><sup class="print">L1</sup>) is an important part of the cryptographic arsenal. It ensures message integrity and eliminates a very dangerous type of attack - <em>active attacks</em> (whereby an atacker changes the message payload tricking both communicating parties).</p>
-<p>A MAC is often confused with a cryptograhic hash (i.e. SHA256), and while they are similar, using a crytographic hash instead of a MAC will have devastatingly insecure consequences. I think it was an unfortunate choice of words to call it a <em>cryptographic hash</em>, because as I will show , a cryptographic hash is not even designed to be secure. </p>
+		<h1 id="introduction">Introduction<a title="Permanent link" class="headerlink" href="#introduction"></a></h1>
+<p>A MAC (<a href="http://en.wikipedia.org/wiki/Message_authentication_code">message authentication code</a><sup class="print">L1</sup>) plays a vital role in the world of cryptography. It ensures message integrity and combats <em>active attacks</em><sup id="sf-Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know-1-back"><a title="An active attack is an attack whereby the message payload is changed tricking both communicating parties." class="simple-footnote" href="#sf-Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know-1">1</a></sup>.</p>
+<p>A MAC is often confused with a cryptograhic hash (i.e. SHA256). I think it was an unfortunate choice of words to use <em>cryptographic hash</em>, because as I will show , a cryptographic hash is not even designed to be secure. </p>
 <p>This article aims to set things right. It will explain the following:</p>
 <ul>
 <li>What a cryptographic hash is.</li>
 <li>Why a cryptographic hash is insecure, and when it should be used.</li>
 <li>What a MAC is.</li>
 </ul>
-<h1 id="cryptographic-hash">Cryptographic Hash<a title="Permanent link" class="headerlink" href="#cryptographic-hash"></a></h1>
-<p>A hash function maps an input in a large space to an output in a small space. Known as compression, all hash functions exhibit this property. A hash function's classic use is in the creation of a hash table, where it is vital that hash outputs are indepedendent of its inputs (because inputs who are related may be assigned to the same hash bucket). </p>
-<p>A cryptographic hash function is hash function with four properties:</p>
+<h1 id="cryptographic-hash-function">Cryptographic Hash Function<a title="Permanent link" class="headerlink" href="#cryptographic-hash-function"></a></h1>
+<p>A cryptographic hash function exhibits four properties:</p>
 <ol>
 <li><strong>Compression</strong></li>
 <li><strong>Pre-Image Resistance</strong></li>
 <li><strong>Weak Collision Resistance</strong></li>
-<li><strong>String Collision Resistance</strong></li>
+<li><strong>Strong Collision Resistance</strong></li>
 </ol>
-<p>The last two properties are known collectively as <em>collision resistance</em>.</p>
+<p>The last two properties are known collectively as <em>collision resistance</em>. For what follows, assume a hash function <span class="math">\(H\)</span> takes as input a message <span class="math">\(m\)</span> and produces an output <span class="math">\(x\)</span>:</p>
+<div class="math">\begin{equation}H(m) = x \label{hashex}\end{equation}</div>
 <h3 id="compression">Compression<a title="Permanent link" class="headerlink" href="#compression"></a></h3>
-<p>A compression function produces an output that is vastly smaller than its input (hence the name compression). More formally, the size of the domain (i.e. input) is much larger than the size of the range (i.e. output). For those math type people out there, it is expressed like so:</p>
-<div class="math">$$H: M \rightarrow x, M \in \{0,1\}^n, x \in \{0,1\}^l \text{ where } l \ll n$$</div>
+<p>All hash functions exhibit compression, whereby an output that is much smaller than its input is produced. More formally, the size of the range (i.e. output) is much smaller than the size of the domain (i.e. input). Since computers represent everything using 0's and 1's, a mathematical description of compression in terms of computer science is:</p>
+<div class="math">$$H: m \rightarrow x, m \in \{0,1\}^n, x \in \{0,1\}^l \text{ where } l \ll n$$</div>
 <h3 id="pre-image-resistance">Pre-Image Resistance<a title="Permanent link" class="headerlink" href="#pre-image-resistance"></a></h3>
-<p>Pre-image resistance means that given the result of a hash, it is hard to determine the message that produced that hash. Assuming the result of hashing a message <span class="math">\(M\)</span> is <span class="math">\(x\)</span>, then given only <span class="math">\(x\)</span>, it is hard to recover <span class="math">\(M\)</span>.</p>
+<p>If given the output of a function, pre-image resistance implies that it is difficult to find the input which produced that output. So if only given <span class="math">\(x\)</span> in equation <span class="math">\(\ref{hashex}\)</span>, it is difficult to find <span class="math">\(m\)</span>.</p>
 <h3 id="weak-collision-resistance">Weak Collision Resistance<a title="Permanent link" class="headerlink" href="#weak-collision-resistance"></a></h3>
-<p>Weak collision resistance means that given the result of a hash, it is hard to find <em>another</em> message that hashes to that same result. Therefore given <span class="math">\(x \leftarrow H(M_0)\)</span>, it is hard to find <span class="math">\(M_1 \neq M_0\)</span> such that <span class="math">\(x \leftarrow H(M_1)\)</span>. This is in some way similar to pre-image resistance, and weak collision resistance implies a form of pre-image resistance. But they are not the same thing.</p>
+<p>Given an arbitrary message <span class="math">\(m_1\)</span>, weak collision resistance implies that it is difficult to produce another message <span class="math">\(m_2\)</span> such that <span class="math">\(H(m_1) = H(m_2)\)</span>.</p>
 <h3 id="strong-collision-resistance">Strong Collision Resistance<a title="Permanent link" class="headerlink" href="#strong-collision-resistance"></a></h3>
-<p>Strong collision resistance means that is hard to find any two messages that hash to the same value. That is, it is hard to find <span class="math">\(M_0\)</span> and <span class="math">\(M_1\)</span> such that <span class="math">\(H(M_0) = H(M_1)\)</span>. </p>
-<h2 id="dont-get-confused">Don't Get Confused!<a title="Permanent link" class="headerlink" href="#dont-get-confused"></a></h2>
-<p>If a weak collision is found, then one has also automatically found a strong collision (and vice-versa). So its easy to get confused and think they are the same thing, but they are not. A weak collision implies a hash collision for a message that has already been chosen. A strong collision implies a hash collision between any two messages. It is more difficult to achieve strong collision resistance due to the <a href="http://en.wikipedia.org/wiki/Birthday_paradox">Birthday Paradox</a><sup class="print">L2</sup>, hence the names strong and weak.</p>
+<p>Strong collision resistance means that is difficult to find any two messages that hash to the same value. That is, it is hard to find <span class="math">\(m_1\)</span> and <span class="math">\(m_2\)</span> such that <span class="math">\(H(m_1) = H(m_2)\)</span>. </p>
+<h2 id="strong-and-weak-collision-resistance-are-not-the-same">Strong And Weak Collision Resistance Are Not The Same<a title="Permanent link" class="headerlink" href="#strong-and-weak-collision-resistance-are-not-the-same"></a></h2>
+<p>Even though they seem similar, there is a subtle difference between strong and weak collision resistance. Weak collision resistance is bound to a particular input, whereas strong collision resistance applies to any two arbitrary inputs. As the name implies, it is more difficult to achieve strong collision resistance than weak collision resistance. This is because strong collision resistance implies weak collision resitance, yet, having weak collision resistance <em>does not</em> imply strong collision resistance<sup id="sf-Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know-2-back"><a title="A great explanation of this concept is this stackoverflow explanationL2." class="simple-footnote" href="#sf-Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know-2">2</a></sup>.</p>
 <h1 id="message-integrity">Message Integrity<a title="Permanent link" class="headerlink" href="#message-integrity"></a></h1>
-<p>Message integrity ensures a message is not altered during transmission. In short, the same message that was sent is the same that was received. For networking, various protocols have been built to ensure message integrity, like the ever popular and ubiquitous TCP protocol that ensures the message that was sent is the message that was received by using various mechanism including <a href="http://en.wikipedia.org/wiki/Cyclic_redundancy_check">cyclic redundancy checking</a><sup class="print">L3</sup> (CRC). CRC works well against message integrity being compromised by a network error, but it cannot defend against something more sinister: A hacker who is determined to alter the message payload during transmission (i.e. an active attack).</p>
-<p>Message integrity is defended against an active attack by transmitting the message along with what is known as a message tag. The receiving party computes their own tag on the received message, and if it matches the transmitted tag, message integrity is assured. </p>
-<h2 id="tag-security-existential-forgery">Tag Security: Existential Forgery<a title="Permanent link" class="headerlink" href="#tag-security-existential-forgery"></a></h2>
-<p>The mechanism used to build a tag needs to be secure. There are many rigorous security definitions for a tag, but an informal security definition would be to make it impossible for an attacker (i.e. anyone besides the person who created the original valid message tag pair) to produce a new message with a valid tag. Being able to produce a new message with a valid tag is called an <em>existential forgery</em>, and any tag worth its weight must defend against existential forgery.</p>
-<h1 id="a-cryptrographic-hash-is-not-secure">A Cryptrographic Hash Is Not Secure<a title="Permanent link" class="headerlink" href="#a-cryptrographic-hash-is-not-secure"></a></h1>
-<p>A crypgtographic hash (like the <a href="http://en.wikipedia.org/wiki/Sha256">SHA-2</a><sup class="print">L4</sup> family of hashes - e.g. SHA256) is susceptible to an existential forgery. To see this, one needs to have knowledge about how a cryptographic hash is produced. I will therefore give a very brief overview of this process, but I encourage the interested reader to read up more about this topic, I am really only skimming the surface.</p>
+<p>Message integrity is the process of ensuring that a message is not altered during transmission. For networking, various protocols have been built to ensure message integrity, like the ever popular and ubiquitous TCP protocol that ensures message integrity by using various mechanism including <a href="http://en.wikipedia.org/wiki/Cyclic_redundancy_check">cyclic redundancy checking</a><sup class="print">L3</sup> (CRC). CRC works well against message integrity being compromised by a network error, but it cannot defend against something more sinister: A hacker who is trying to alter the message payload during transmission (i.e. an active attack).</p>
+<h2 id="message-tag">Message Tag<a title="Permanent link" class="headerlink" href="#message-tag"></a></h2>
+<p>A message tag is used to defend against an active attack. A message is transmitted along with its tag to a recipient. The recipient then computes their own tag on the received message, and if it matches the transmitted tag, message integrity is assured.</p>
+<p>An informal security definition for a tag is to make it impossible for an attacker to produce a new message with a valid tag. Being able to produce a new message with a valid tag is called an <em>existential forgery</em>: Any successful tagging scheme must protect against existential forgery.</p>
+<h1 id="a-cryptrographic-hash-cannot-protect-against-existential-forgery">A Cryptrographic Hash Cannot Protect Against Existential Forgery<a title="Permanent link" class="headerlink" href="#a-cryptrographic-hash-cannot-protect-against-existential-forgery"></a></h1>
+<p>A crypgtographic hash (like the <a href="http://en.wikipedia.org/wiki/Sha256">SHA-2</a><sup class="print">L4</sup> family of hashes - e.g. SHA256) is susceptible to an existential forgery. This is due to its construction method that does not use any secret.</p>
 <h2 id="merkledamgard-and-davies-meyer-construction">Merkle–Damgård And Davies-Meyer Construction<a title="Permanent link" class="headerlink" href="#merkledamgard-and-davies-meyer-construction"></a></h2>
-<p>A block cipher is an encryption mechanism that takes a fixed input of size n bytes, and produces an encrypted output also of size n bytes. There are many block ciphers, and the field has been studied intensely (<a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a><sup class="print">L5</sup> is an example). Block ciphers exhibit many of the properties of a crytographic hash, therefore it woulb be nice if a block cipher could be used to construct a cryptographic hash. And it turns out that it can: Any <em>secure</em> block cipher can be quickly altered (normally by a method called <a href="http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer">Davies-Meyer</a><sup class="print">L6</sup>) to have all the properties of a cryptographic hash function except <em>compression</em>. Block ciphers need two inputs which are kept secret: A <em>key</em> and a <em>message</em>. Therefore a cryptographic hash function made from a block cipher also needs two inputs, but unlike a block cipher, neither input is kept secret (read up more on <a href="http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer">Davies-Meyer</a><sup class="print">L6</sup> to understand these inputs). So how does one get the compression property? It is done using a construction called <em>Merkle–Damgård</em>.</p>
+<p>A block cipher is an encryption mechanism that takes a fixed input of size n bytes, and produces an encrypted output also of size n bytes. There are many block ciphers, and the field has been studied intensely (<a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a><sup class="print">L5</sup> is an example). Block ciphers exhibit many of the properties of a crytographic hash, therefore it would be nice if they could be used to construct a cryptographic hash. And it turns out that they can: Any <em>secure</em> block cipher can be quickly altered (normally by a method called <a href="http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer">Davies-Meyer</a><sup class="print">L6</sup>) to have all the properties of a cryptographic hash function except <em>compression</em>. Block ciphers need two inputs which are kept secret: A <em>key</em> and a <em>message</em>. Therefore a cryptographic hash function made from a block cipher also needs two inputs, but unlike a block cipher, neither input is kept secret (read up more on <a href="http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer">Davies-Meyer</a><sup class="print">L6</sup> to understand these inputs). So how does one get the compression property? It is done using a construction called <em>Merkle–Damgård</em>.</p>
 <p>The Merkle–Damgård construction takes as input a message of arbitrary length and produces a cryptographic hash of fixed output. It does this by breaking the message up into blocks, then feeding the blocks iteratively into a smaller cryptographic hash function (such as the one discussed in the above paragraph). The output of each function is fed as one of the inputs into the next function. The very first function just has a non-random set initialisation vector (IV) set as one of the inputs.</p>
 <p>The image below demonstrates the Merkle–Damgård construction. In this image, <strong>h</strong> is the cryptographic hash created from the block cipher, and <span class="math">\(H_n\)</span> is the resulting outputs of each stage. Note how the output of one function is chained to one of the inputs of the other.</p>
 <p><img src="images/merkle-damgard.png"></p>
@@ -296,7 +299,7 @@
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://en.wikipedia.org/wiki/Message_authentication_code</li><li>http://en.wikipedia.org/wiki/Birthday_paradox</li><li>http://en.wikipedia.org/wiki/Cyclic_redundancy_check</li><li>http://en.wikipedia.org/wiki/Sha256</li><li>http://en.wikipedia.org/wiki/Advanced_Encryption_Standard</li><li>http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer</li><li>http://en.wikipedia.org/wiki/Git_%28software%29</li><li>http://en.wikipedia.org/wiki/Hmac</li><li>http://en.wikipedia.org/wiki/Diffie_hellman</li></ol></div>
+</script><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://en.wikipedia.org/wiki/Message_authentication_code</li><li>http://stackoverflow.com/questions/8523005/what-is-the-difference-between-weak-and-strong-resistance#8542254</li><li>http://en.wikipedia.org/wiki/Cyclic_redundancy_check</li><li>http://en.wikipedia.org/wiki/Sha256</li><li>http://en.wikipedia.org/wiki/Advanced_Encryption_Standard</li><li>http://en.wikipedia.org/wiki/Davies-Meyer#Davies.E2.80.93Meyer</li><li>http://en.wikipedia.org/wiki/Git_%28software%29</li><li>http://en.wikipedia.org/wiki/Hmac</li><li>http://en.wikipedia.org/wiki/Diffie_hellman</li></ol></div><ol class="simple-footnotes"><li id="sf-Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know-1">An active attack is an attack whereby the message payload is changed tricking both communicating parties. <a class="simple-footnote-back" href="#sf-Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know-1-back">↩</a></li><li id="sf-Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know-2">A great explanation of this concept is this <a href="http://stackoverflow.com/questions/8523005/what-is-the-difference-between-weak-and-strong-resistance#8542254">stackoverflow explanation</a><sup class="print">L2</sup>. <a class="simple-footnote-back" href="#sf-Cryptographic-Hash-Vs-MAC:What-You-Need-To-Know-2-back">↩</a></li></ol>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

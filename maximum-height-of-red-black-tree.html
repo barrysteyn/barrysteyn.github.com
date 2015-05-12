@@ -79,7 +79,7 @@
 					<ul class="center-list">
 						<li class="print text-center" style="font-size: 1.5em; margin-top: 1.0em;"><strong>Barry Steyn</strong></li>
 						<li class="print text-center" style="margin-bottom: 0.5em">barry.steyn@gmail.com</li>
-						<li><b>Published</b>: 19  Mar  2015</li>
+						<li><b>Published</b>: 11  May  2015</li>
 					</ul>
 				</div>
 		</div>
@@ -90,25 +90,25 @@
 		<span class="toctitle">Share</span>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Maximum%20Height%20Of%20A%20Red-Black%20Tree&url=http%3A//doctrina.org/drafts/maximum-height-of-a-red-black-tree.html&via=">
+	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Maximum%20Height%20Of%20A%20Red-Black%20Tree&url=http%3A//doctrina.org/maximum-height-of-red-black-tree.html&via=">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
 	    </a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/drafts/maximum-height-of-a-red-black-tree.html">
+		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/maximum-height-of-red-black-tree.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/drafts/maximum-height-of-a-red-black-tree.html">
+		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/maximum-height-of-red-black-tree.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/drafts/maximum-height-of-a-red-black-tree.html&title=Maximum%20Height%20Of%20A%20Red-Black%20Tree">
+	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/maximum-height-of-red-black-tree.html&title=Maximum%20Height%20Of%20A%20Red-Black%20Tree">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
 	    </a>
@@ -118,26 +118,63 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="background-knowledge">Background Knowledge<a class="headerlink" href="#background-knowledge" title="Permanent link"></a></h1>
-<h2 id="red-black-tree-invariants">Red-Black Tree Invariants<a class="headerlink" href="#red-black-tree-invariants" title="Permanent link"></a></h2>
-<p>A red-black tree is a binary search tree that is constrained by the following 4 invariants:</p>
+		<h1 id="introduction">Introduction<a title="Permanent link" class="headerlink" href="#introduction"></a></h1>
+<p>My friend and colleague, <a href="http://dome.hobbits.grus.uberspace.de/">Dominik Messinger</a><sup class="print">L1</sup> was fortunate to learn about abstract data structures in high school<sup id="sf-maximum-height-of-red-black-tree-1-back"><a title="He is German, so I think this is a nod to the excellent school system in Germany." class="simple-footnote" href="#sf-maximum-height-of-red-black-tree-1">1</a></sup>. After chatting to him one day, the topic of red-black trees came up. He studied <a href="http://en.wikipedia.org/wiki/AVL_tree">AVL trees</a><sup class="print">L2</sup> in depth at high school, but did not do the same for red-black trees. After this chat, I realized I had not formalized this topic in my mind either. So I decided to choose one topic and write about...</p>
+<p>So here is an analysis of the maximum height of a red-black trees. </p>
+<h1 id="background-knowledge">Background Knowledge<a title="Permanent link" class="headerlink" href="#background-knowledge"></a></h1>
+<h2 id="tree-level">Tree Level<a title="Permanent link" class="headerlink" href="#tree-level"></a></h2>
+<p>A node's level is the number of parent node ancestors the node has. Level is zero based (the root is at level 0 since it has no ancestors).</p>
+<p><img src="images/binary-tree-level.png"></p>
+<p>An important observation is that a node at level <span class="math">\(k\)</span> has <span class="math">\(k+1\)</span> parent ancestors.</p>
+<h2 id="full-and-complete-binary-tree">Full And Complete Binary Tree<a title="Permanent link" class="headerlink" href="#full-and-complete-binary-tree"></a></h2>
+<p>A tree that is both <em>full and complete</em><sup id="sf-maximum-height-of-red-black-tree-2-back"><a title="Full and complete binary trees are sometimes called perfect binary trees." class="simple-footnote" href="#sf-maximum-height-of-red-black-tree-2">2</a></sup> has the following properties:</p>
+<ol>
+<li>All non-leaf nodes have two children.</li>
+<li>All leaf nodes are at the same level.</li>
+</ol>
+<p><img src="images/full-complete-binary-tree.png"></p>
+<p>A full and complete binary tree with <span class="math">\(n\)</span> nodes and <span class="math">\(k\)</span> levels has the following relationship:
+</p>
+<div class="math">\begin{equation*}
+n = 2^{k+1}-1
+\end{equation*}</div>
+<h1 id="red-black-tree">Red-Black Tree<a title="Permanent link" class="headerlink" href="#red-black-tree"></a></h1>
+<h2 id="red-black-tree-invariants">Red-Black Tree Invariants<a title="Permanent link" class="headerlink" href="#red-black-tree-invariants"></a></h2>
+<p>A red-black tree is a <a href="http://en.wikipedia.org/wiki/Binary_search_tree">binary search tree</a><sup class="print">L3</sup> that is constrained by the following 4 invariants:</p>
 <ol>
 <li>Each node is either red or black.</li>
 <li>The root node is black.</li>
 <li>Every red node must either have zero or two black chilren.</li>
 <li>Every root-null path must have the same number of black nodes.</li>
 </ol>
-<h2 id="relationship-to-levels-and-nodes-in-a-graph-structure">Relationship To Levels And Nodes In A Graph Structure<a class="headerlink" href="#relationship-to-levels-and-nodes-in-a-graph-structure" title="Permanent link"></a></h2>
-<h2 id="a-full-and-complete-binary-tree">A Full And Complete Binary Tree<a class="headerlink" href="#a-full-and-complete-binary-tree" title="Permanent link"></a></h2>
-<h2 id="lemma-root-null-in-a-balanced-binary-tree-has-leq-log_2n1-nodes">Lemma: Root-null in a balanced Binary Tree has <span class="math">\(\leq \log_2(n+1) nodes\)</span><a class="headerlink" href="#lemma-root-null-in-a-balanced-binary-tree-has-leq-log_2n1-nodes" title="Permanent link"></a></h2>
-<p>The proof is as follows: Assume the smallest root-null path has <span class="math">\(k\)</span> levels:</p>
-<p><em>. Then there is a </em>full and complete subtree<em> in the upper part of the binary search tree.
-  </em>. There will be <span class="math">\((k+1)\)</span> nodes in a path with <span class="math">\(k\)</span> levels.
-  *. A binary substree with <span class="math">\(k\)</span> levels has at least <span class="math">\(2{k+1}-1\)</span> nodes.</p>
-<p>With the above in place:</p>
-<div class="math">$$
-    n \leq 2^{k+1}-1 \implies k+1 \leq \log_2(n+1)
-$$</div>
+<h3 id="the-maximum-height-of-a-red-black-tree">The Maximum Height Of A Red-Black Tree<a title="Permanent link" class="headerlink" href="#the-maximum-height-of-a-red-black-tree"></a></h3>
+<p>The maximum height of a red-black tree is the root-null path that contains the most number of nodes. Ironically, an examiniation of the shortest root-null path is needed to calculate the maximum height.</p>
+<h4 id="length-of-the-shortest-root-null-path">Length Of The Shortest Root-Null Path<a title="Permanent link" class="headerlink" href="#length-of-the-shortest-root-null-path"></a></h4>
+<p>By invariant 4, the <em>maximum number of black nodes</em> in any root-null path is restricted by the number of nodes in the <em>shortest</em> root-null path. Assume the shortest root-null path is at level <span class="math">\(k\)</span>:</p>
+<ol>
+<li>There are <span class="math">\(k+1\)</span> nodes in the root-null path at level <span class="math">\(k\)</span>.</li>
+<li>There is a <em>full</em> and <em>complete</em> binary subtree with <span class="math">\(k\)</span> levels.</li>
+</ol>
+<p>For example, if the shortest root-null path is at level 2, the full and complete binary subtree would look like the image below:</p>
+<p><img src="images/full-complete-binary-subtree.png"></p>
+<p>Suppose the full and complete binary subtree has <span class="math">\(n\)</span> nodes, then using the fact that <span class="math">\(n=2^{k+1}-1\)</span>, it can be shown that the number of nodes in the root-null path (i.e. <span class="math">\(k+1\)</span>) is logarithmic:</p>
+<div class="math">\begin{array}{ccc}
+n &amp; = &amp; 2^{k+1}-1 \\
+k+1 &amp; = &amp; \log_2(n+1)
+\end{array}</div>
+<p><em>By invariant 4</em>: The maximum number of black nodes in any root-null path is <span class="math">\(\log_2(n+1)\)</span></p>
+<h4 id="length-of-the-longest-root-null-path">Length Of The Longest Root-Null Path<a title="Permanent link" class="headerlink" href="#length-of-the-longest-root-null-path"></a></h4>
+<p>The longest root-null path will have <span class="math">\(\log_2(n+1)\)</span> black nodes (the maximum that it can have). The question now becomes: How many red nodes can be present? By invariant 3, a red node must have black node children. This restricts the maximum number of red nodes to being placed between the black nodes:</p>
+<p><img src="images/red-black-in-between.png"></p>
+<p>The maximum number of red nodes in a root-null path is therefore constrained by the maximum number of black nodes, which is <span class="math">\(\log_2(n+1)\)</span>. So the length of the longest root-null path is:</p>
+<div class="math">\begin{array}{lcl}
+\text{Maximum height} &amp;=&amp; \text{max black nodes} + \text{max red nodes} \\
+                      &amp;=&amp; \log_2(n+1) + \log_2(n+1) \\
+                      &amp;=&amp; 2\cdot\log_2(n+1)
+\end{array}</div>
+<p>This proves that the height of a red-black tree is <span class="math">\(O(log_2(n))\)</span> where <span class="math">\(n\)</span> is the total number of nodes. In a binary search tree, the time complexity of a search operation is governed by the maximum height of the tree. This means that search in a red-black tree is logarithmic time complexity.</p>
+<h1 id="conclusion">Conclusion<a title="Permanent link" class="headerlink" href="#conclusion"></a></h1>
+<p>A red-black tree is probably the most used balanced binary search tree algorithm. This article demonstrates the reasons why: It's height is logarithmic. It is a little bit more work to show that <em>update</em>, <em>delete</em> and <em>insert</em> is also logarithmic, but any proof would rely upon the fact the maximum height is logarithmic.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -191,7 +228,7 @@ $$</div>
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script>
+</script><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://dome.hobbits.grus.uberspace.de/</li><li>http://en.wikipedia.org/wiki/AVL_tree</li><li>http://en.wikipedia.org/wiki/Binary_search_tree</li></ol></div><ol class="simple-footnotes"><li id="sf-maximum-height-of-red-black-tree-1">He is German, so I think this is a nod to the excellent school system in Germany. <a class="simple-footnote-back" href="#sf-maximum-height-of-red-black-tree-1-back">↩</a></li><li id="sf-maximum-height-of-red-black-tree-2">Full and complete binary trees are sometimes called <em>perfect binary trees</em>. <a class="simple-footnote-back" href="#sf-maximum-height-of-red-black-tree-2-back">↩</a></li></ol>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.
@@ -209,7 +246,7 @@ $$</div>
 					<div class="content-border">
 						<h2>Comments</h2>
         				<div class="divider-grey"></div>
-						<a id="disqus" href="http://doctrina.org/drafts/maximum-height-of-a-red-black-tree.html#disqus_thread">0 Comments</a>
+						<a id="disqus" href="http://doctrina.org/maximum-height-of-red-black-tree.html#disqus_thread">0 Comments</a>
 						<div id="disqus_thread"></div>
 					</div>
 			    </div>
@@ -285,8 +322,8 @@ $$</div>
 
 		var disqus = {
 			shortname: 'doctrina',
-			identifier: 'http://doctrina.org/drafts/maximum-height-of-a-red-black-tree.html',
-			url: 'http://doctrina.org/drafts/maximum-height-of-a-red-black-tree.html',
+			identifier: 'http://doctrina.org/maximum-height-of-red-black-tree.html',
+			url: 'http://doctrina.org/maximum-height-of-red-black-tree.html',
 			developer: 0
 		};
 
