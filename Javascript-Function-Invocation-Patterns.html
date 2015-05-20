@@ -126,12 +126,12 @@
 <li><strong>Constructor Invocation</strong></li>
 <li><strong>Apply And Call Invocation</strong></li>
 </ol>
-<h1 id="function-execution">Function Execution<a title="Permanent link" class="headerlink" href="#function-execution"></a></h1>
+<h1 id="function-execution">Function Execution<a href="#function-execution" title="Permanent link" class="headerlink"></a></h1>
 <p>JavaScript (like all languages these days) has the ability to modularise logic in <code>functions</code> which can be invoked at any point within the execution. Invoking a function suspends execution of the current function, passing controls and parameters to the invoked function. In addition, a parameter called <code>this</code> is also passed to the function. The invocation operator is a pair of round brackets <code>()</code>, that can contain zero or more expressions separated by a comma.</p>
 <p>Unfortunately, there is more than one pattern that can be used to invoke functions. These patterns are not <em>nice-to-know</em>: They are absolutely essential to know. This is because invoking a function with a different pattern can produce a vastly different result. I believe that this is a language design error in JavaScript, and had the language been designed with more thought (and less haste), this would not have been such a big issue.</p>
-<h1 id="the-four-invocation-patterns">The Four Invocation Patterns<a title="Permanent link" class="headerlink" href="#the-four-invocation-patterns"></a></h1>
+<h1 id="the-four-invocation-patterns">The Four Invocation Patterns<a href="#the-four-invocation-patterns" title="Permanent link" class="headerlink"></a></h1>
 <p>Even though there are is only one <em>invocation operator</em> <code>()</code>, there are four <em>invocation patterns</em>. Each pattern differs in how the <code>this</code> parameter is initialised. </p>
-<h2 id="method-invocation">Method Invocation<a title="Permanent link" class="headerlink" href="#method-invocation"></a></h2>
+<h2 id="method-invocation">Method Invocation<a href="#method-invocation" title="Permanent link" class="headerlink"></a></h2>
 <p>When a function is part of an object, it is called a <em>method</em>. Method invocation is the pattern of invoking a function that is part of an object. For example:</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -152,9 +152,9 @@
 </td></tr></tbody></table>
 
 <p>Method invocation is identified when a function is preceded by <code>object.</code>, where <code>object</code> is the name of some object. JavaScript will set the <code>this</code> parameter to the object where the method was invoked on. In the example above, <code>this</code> would be set to <code>obj</code>. JavaScript binds <code>this</code> at execution (also known as <em>late binding</em>).</p>
-<h2 id="function-invocation">Function Invocation <a id="fi"></a><a title="Permanent link" class="headerlink" href="#function-invocation"></a></h2>
+<h2 id="function-invocation">Function Invocation <a id="fi"></a><a href="#function-invocation" title="Permanent link" class="headerlink"></a></h2>
 <p>Function invocation is performed by invoking a function using <code>()</code>:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>add(2,3); //5
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="c1">//5</span>
 </pre></div>
 </td></tr></tbody></table>
 
@@ -224,7 +224,7 @@
 </td></tr></tbody></table>
 
 <p>If <code>this</code> could be bound to the current object whose scope it is called in, function and method invocations would be identical.</p>
-<h2 id="constructor-invocation">Constructor Invocation <a id="ci"></a><a title="Permanent link" class="headerlink" href="#constructor-invocation"></a></h2>
+<h2 id="constructor-invocation">Constructor Invocation <a id="ci"></a><a href="#constructor-invocation" title="Permanent link" class="headerlink"></a></h2>
 <p><em>Warning</em>: This is another JavaScript peculiarity! JavaScript is not a classical object oriented language. Instead, it is a prototypical object oriented language, but the creators of JavaScript felt that people with classical object orientation experience (the vast majority) may be unhappy with a purely prototype aproach. This resulted in JavaScript being unsure of its prototypical nature and the worst thing happened: It mixed classical object orientation syntax with its prototypical nature. The result: A mess!</p>
 <p>In classical object orientation, an object is an instantiation of a class. In C++ and Java, this instantiation is performed by using the <code>new</code> operator. This seems to be the inspiration behind the constructor invocation pattern...</p>
 <p>The constructor invocation pattern involves putting the <code>new</code> operator just before the function is invoked. For example:</p>
@@ -279,7 +279,7 @@
 </td></tr></tbody></table>
 
 <p>We might ignore the constructor invocation pattern, and just use <a href="http://doctrina.org/Javascript-Objects-Prototypes.html#cofl">object literals</a><sup class="print">L3</sup> to make objects, except that the makers of JavaScript have enabled a key feature of their language by using this pattern: Object creation with an arbitrary prototype link (see <a href="http://doctrina.org/Javascript-Objects-Prototypes.html">previous post</a><sup class="print">L4</sup> for more details). This pattern is unintuitive and also <a href="http://doctrina.org/Javascript-Objects-Prototypes.html#pcip">potentially problematic</a><sup class="print">L5</sup>. There is a <a href="http://doctrina.org/Javascript-Objects-Prototypes.html#remedy">remedy</a><sup class="print">L6</sup> which was championed by Douglas Crockford: Augment <code>Object</code> with a create method that accomplishes what the constructor invocation pattern tries to do. I am happy to note that as of JavaScript 1.8.5, <code>Object.create</code> is a reality and can be used. Due to legacy, the constructor invocation is still used often, and for backward compatability, will crop up quite frequently.</p>
-<h2 id="apply-and-call-invocation">Apply And Call Invocation<a title="Permanent link" class="headerlink" href="#apply-and-call-invocation"></a></h2>
+<h2 id="apply-and-call-invocation">Apply And Call Invocation<a href="#apply-and-call-invocation" title="Permanent link" class="headerlink"></a></h2>
 <p>The apply pattern is not as badly thought out as the two preceding patterns. The <code>apply</code> method allows manual invocation of a function with a means to pass the function an array of parameters and explicitly set the <code>this</code> parameter. Because functions are first class citizens, they are also objects and hence can have methods (functions) run on it. In fact, every function is linked to <code>Function.prototype</code> (see <a href="http://doctrina.org/Javascript-Objects-Prototypes.html#cfo">here</a><sup class="print">L7</sup> for more details), and so methods can very easily be augmented to any function. The apply method is just an augmentation to every function as - I presume - it is defined on <code>Function.prototype</code>. </p>
 <p>Apply takes two parameters: the first parameter is an object to bind the <code>this</code> parameter to, the second is an array which is mapped to the parameters:</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -321,13 +321,13 @@
 
 <p>The example above uses <code>apply</code> to bind <code>this</code> to <code>obj</code>. This results in being able to produce a value for <code>this.data</code>. Being able to expicitly assign a value to <code>this</code> is where the real value of apply comes about. Without this feature, we might as well use <code>()</code> to invoke functions.</p>
 <p>JavaScript also has another invoker called <code>call</code>, that is identical to <code>apply</code> except that instead of taking an array of parameters, it takes an argument list. If JavaScript would implement function overriding, I think that <code>call</code> would be an overridden variant of <code>apply</code>. Therefore one talks about <code>apply</code> and <code>call</code> in the same vein.</p>
-<h1 id="conclusion">Conclusion<a title="Permanent link" class="headerlink" href="#conclusion"></a></h1>
+<h1 id="conclusion">Conclusion<a href="#conclusion" title="Permanent link" class="headerlink"></a></h1>
 <p>For better or worse, JavaScript is about to take over the world. It is therefore very important that the peculiarities of the language be known and avoided. Learning how the four function invocation methods differ and how to avoid their pitfalls is fundamental to anyone who wants to use JavaScript. I hope this post has helped people when it comes to invoking functions.</p>
-<h2 id="update">Update<a title="Permanent link" class="headerlink" href="#update"></a></h2>
+<h2 id="update">Update<a href="#update" title="Permanent link" class="headerlink"></a></h2>
 <ul>
 <li>Wow, this has <a href="http://doctrina.org/static/images/TopOfHackerNews.png">reached top of Hacker News</a><sup class="print">L8</sup>. Thanks for upvoting it everybody.</li>
 <li>Now its also gonna be <a href="http://hackermonthly.com/issue-32.html">published</a><sup class="print">L9</sup> :)</li>
-</ul><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html</li><li>http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html#closures</li><li>http://doctrina.org/Javascript-Objects-Prototypes.html#cofl</li><li>http://doctrina.org/Javascript-Objects-Prototypes.html</li><li>http://doctrina.org/Javascript-Objects-Prototypes.html#pcip</li><li>http://doctrina.org/Javascript-Objects-Prototypes.html#remedy</li><li>http://doctrina.org/Javascript-Objects-Prototypes.html#cfo</li><li>http://doctrina.org/static/images/TopOfHackerNews.png</li><li>http://hackermonthly.com/issue-32.html</li></ol></div>
+</ul><h2 class="print">Links</h2><div style="margin-left: 2.0em;" class="print"><ol class="print-links"><li>http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html</li><li>http://doctrina.org/JavaScript:Why-Understanding-Scope-And-Closures-Matter.html#closures</li><li>http://doctrina.org/Javascript-Objects-Prototypes.html#cofl</li><li>http://doctrina.org/Javascript-Objects-Prototypes.html</li><li>http://doctrina.org/Javascript-Objects-Prototypes.html#pcip</li><li>http://doctrina.org/Javascript-Objects-Prototypes.html#remedy</li><li>http://doctrina.org/Javascript-Objects-Prototypes.html#cfo</li><li>http://doctrina.org/static/images/TopOfHackerNews.png</li><li>http://hackermonthly.com/issue-32.html</li></ol></div>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

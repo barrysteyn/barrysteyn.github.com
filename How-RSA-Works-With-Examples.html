@@ -208,18 +208,18 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-0 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="introduction">Introduction<a title="Permanent link" class="headerlink" href="#introduction"></a></h1>
+		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
 <p>This is part 1 of a series of two blog posts about RSA (<a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html">part 2</a><sup class="print">L1</sup> will explain <em>why</em> RSA works). In this post, I am going to explain exactly how RSA public key encryption works. One of the <a href="http://doctrina.org/The-3-Seminal-Events-In-Cryptography.html">3 seminal events in cryptography</a><sup class="print">L2</sup> of the 20th century, RSA opens the world to a host of various cryptographic protocols (like <em>digital signatures, cryptographic voting</em> etc). All discussions on this topic (including this one) are very <em>mathematical</em>, but the difference here is that I am going to go out of my way to explain each concept with a concrete example. The reader who only has a beginner level of mathematical knowledge should be able to understand exactly how RSA works after reading this post along with the examples.</p>
 <p><strong>PLEASE PLEASE PLEASE</strong>: Do not use these examples (specially the real world example) and implement this yourself. What we are talking about in this blog post is actually referred to by cryptographers as <em>plain old RSA</em>, and it needs to be randomly padded with <a href="http://en.wikipedia.org/wiki/OAEP">OAEP</a><sup class="print">L3</sup> to make it secure. In fact, you should never ever implement any type of cryptography by yourself, rather use a library. You have been warned!</p>
-<h1 id="background-mathematics">Background Mathematics<a title="Permanent link" class="headerlink" href="#background-mathematics"></a></h1>
-<h2 id="the-set-of-integers-modulo-p">The Set Of Integers Modulo P<a title="Permanent link" class="headerlink" href="#the-set-of-integers-modulo-p"></a></h2>
+<h1 id="background-mathematics">Background Mathematics<a href="#background-mathematics" title="Permanent link" class="headerlink"></a></h1>
+<h2 id="the-set-of-integers-modulo-p">The Set Of Integers Modulo P<a href="#the-set-of-integers-modulo-p" title="Permanent link" class="headerlink"></a></h2>
 <p>The set:</p>
 <div class="math">\begin{equation}
     \label{bg:intmod} \mathbb{Z}_p = \{ 0,1,2,...,p-1 \}
 \end{equation}</div>
 <p>Is called the <em>set of integers modulo p</em> (or <em>mod p</em> for short). It is a set that contains Integers from <span class="math">\(0\)</span> up until <span class="math">\(p-1\)</span>.</p>
 <p><strong>Example</strong>: <span class="math">\(\mathbb{Z}_{10} =\{0,1,2,3,4,5,6,7,8,9\}\)</span></p>
-<h2 id="integer-remainder-after-dividing">Integer Remainder After Dividing<a title="Permanent link" class="headerlink" href="#integer-remainder-after-dividing"></a></h2>
+<h2 id="integer-remainder-after-dividing">Integer Remainder After Dividing<a href="#integer-remainder-after-dividing" title="Permanent link" class="headerlink"></a></h2>
 <p>When we first learned about numbers at school, we had no notion of real numbers, only integers.  Therefore we were told that  5 divided by 2 was equal to 2 remainder 1, and not <span class="math">\(2\frac{1}{2}\)</span>. It turns out that this type of math is vital to RSA, and is one of the reasons that secures RSA. A formal way of stating a remainder after dividing by another number is an equivalence relationship:</p>
 <div class="math">\begin{equation}
  \label{bg:mod} \forall x,y,z,k \in \mathbb{Z}, x \equiv y \bmod z \iff x = k\cdot z + y
@@ -231,7 +231,7 @@
 <li>The remainder <span class="math">\(y\)</span> stays constant, whatever value <span class="math">\(x\)</span> takes on to satisfy equation <span class="math">\(\ref{bg:mod}\)</span>.</li>
 <li>Due to the above fact, <span class="math">\(y \in \mathbb{Z}_z\)</span> (<span class="math">\(y\)</span> is in the set of integers modulo <span class="math">\(z\)</span>)</li>
 </ol>
-<h2 id="multiplicative-inverse-and-the-greatest-common-divisor">Multiplicative Inverse And The Greatest Common Divisor<a title="Permanent link" class="headerlink" href="#multiplicative-inverse-and-the-greatest-common-divisor"></a></h2>
+<h2 id="multiplicative-inverse-and-the-greatest-common-divisor">Multiplicative Inverse And The Greatest Common Divisor<a href="#multiplicative-inverse-and-the-greatest-common-divisor" title="Permanent link" class="headerlink"></a></h2>
 <p>A multiplicative inverse for <span class="math">\(x\)</span> is a number that when multiplied by <span class="math">\(x\)</span>, will equal <span class="math">\(1\)</span>. The multiplicative inverse of <span class="math">\(x\)</span> is written as <span class="math">\(x^{-1}\)</span> and is defined as so:</p>
 <div class="math">\begin{equation}x\cdot x^{-1} = 1\end{equation}</div>
 <p>The greatest common divisor (gcd) between two numbers is the largest integer that will divide both numbers. For example, <span class="math">\(gcd(4,10) = 2\)</span>.</p>
@@ -242,22 +242,22 @@
 \end{equation}</div>
 <p>The above just says that an inverse only exists if the greatest common divisor is 1. An example should set things straight...</p>
 <p><strong>Example</strong>: Lets work in the set <span class="math">\(\mathbb{Z}_9\)</span>, then <span class="math">\(4 \in \mathbb{Z}_9\)</span> and <span class="math">\(gcd(4,9)=1\)</span>. Therefore <span class="math">\(4\)</span> has a multiplicative inverse (written <span class="math">\(4^{-1}\)</span>) in <span class="math">\(\bmod 9\)</span>, which is <span class="math">\(7\)</span>. And indeed, <span class="math">\(4\cdot 7 = 28 = 1 \bmod 9\)</span>. But not all numbers have inverses. For instance, <span class="math">\(3 \in \mathbb{Z}_9\)</span> but <span class="math">\(3^{-1}\)</span> does not exist! This is because <span class="math">\(gcd(3,9) = 3 \neq 1\)</span>.</p>
-<h2 id="prime-numbers">Prime Numbers<a title="Permanent link" class="headerlink" href="#prime-numbers"></a></h2>
-<p><a href="http://en.wikipedia.org/wiki/Prime_number">Prime</a><sup class="print">L4</sup> numbers are very important to the RSA algorithm. A prime is a number that can only be divided <em>without a remainder</em> by itself and <span class="math">\(1\)</span>. For example, <span class="math">\(5\)</span> is a prime number (any other number besides <span class="math">\(1\)</span> and <span class="math">\(5\)</span> will result in a remainder after division) while <span class="math">\(10\)</span> is not a prime<sup id="sf-How-RSA-Works-With-Examples-1-back"><a title="A CompositeL5 number is the formal name given to a number that is not prime." class="simple-footnote" href="#sf-How-RSA-Works-With-Examples-1">1</a></sup>.</p>
+<h2 id="prime-numbers">Prime Numbers<a href="#prime-numbers" title="Permanent link" class="headerlink"></a></h2>
+<p><a href="http://en.wikipedia.org/wiki/Prime_number">Prime</a><sup class="print">L4</sup> numbers are very important to the RSA algorithm. A prime is a number that can only be divided <em>without a remainder</em> by itself and <span class="math">\(1\)</span>. For example, <span class="math">\(5\)</span> is a prime number (any other number besides <span class="math">\(1\)</span> and <span class="math">\(5\)</span> will result in a remainder after division) while <span class="math">\(10\)</span> is not a prime<sup id="sf-How-RSA-Works-With-Examples-1-back"><a href="#sf-How-RSA-Works-With-Examples-1" title="A CompositeL5 number is the formal name given to a number that is not prime." class="simple-footnote">1</a></sup>.</p>
 <p>This has an important implication: For any prime number <span class="math">\(p\)</span>, every number from <span class="math">\(1\)</span> up to <span class="math">\(p-1\)</span> has a <span class="math">\(\gcd\)</span> of 1 with <span class="math">\(p\)</span>, and therefore has a multiplicative inverse in modulo <span class="math">\(p\)</span>.</p>
-<h2 id="eulers-totient">Euler's Totient<a title="Permanent link" class="headerlink" href="#eulers-totient"></a></h2>
+<h2 id="eulers-totient">Euler's Totient<a href="#eulers-totient" title="Permanent link" class="headerlink"></a></h2>
 <p><a href="http://en.wikipedia.org/wiki/Euler%27s_totient_function">Euler's Totient</a><sup class="print">L6</sup> is the number of elements that have a multiplicative inverse in a set of modulo integers. The totient is denoted using the Greek symbol phi <span class="math">\(\phi\)</span>. From <span class="math">\(\ref{bg:gcd}\)</span> above, we can see that the totient is just the count of the number of elements that have their <span class="math">\(\gcd\)</span> with the modulus equal to 1. This brings us to an important equation regarding the totient and prime numbers:</p>
 <div class="math">\begin{equation}
     \label{bg:totient} p \in \mathbb{P}, \phi(p) = p-1
 \end{equation}</div>
-<p><strong>Example</strong>: <span class="math">\(\phi(7) = \left|\{1,2,3,4,5,6\}\right| = 6\)</span><sup id="sf-How-RSA-Works-With-Examples-2-back"><a title="In set theory, anything between |{...}| just means the amount of elements in {...} - called cardinalityL7 for those who are interested" class="simple-footnote" href="#sf-How-RSA-Works-With-Examples-2">2</a></sup>.</p>
-<h1 id="rsa">RSA<a title="Permanent link" class="headerlink" href="#rsa"></a></h1>
+<p><strong>Example</strong>: <span class="math">\(\phi(7) = \left|\{1,2,3,4,5,6\}\right| = 6\)</span><sup id="sf-How-RSA-Works-With-Examples-2-back"><a href="#sf-How-RSA-Works-With-Examples-2" title="In set theory, anything between |{...}| just means the amount of elements in {...} - called cardinalityL7 for those who are interested" class="simple-footnote">2</a></sup>.</p>
+<h1 id="rsa">RSA<a href="#rsa" title="Permanent link" class="headerlink"></a></h1>
 <p>With the above background, we have enough tools to describe RSA and show how it works. RSA is actually a set of two algorithms:</p>
 <ol>
 <li><strong>Key Generation</strong>: A key generation algorithm.</li>
 <li><strong>RSA Function Evaluation</strong>: A function <span class="math">\(F\)</span>, that takes as input a point <span class="math">\(x\)</span> and a key <span class="math">\(k\)</span> and produces either an encrypted result or plaintext, depending on the input and the key.</li>
 </ol>
-<h2 id="key-generation">Key Generation<a title="Permanent link" class="headerlink" href="#key-generation"></a></h2>
+<h2 id="key-generation">Key Generation<a href="#key-generation" title="Permanent link" class="headerlink"></a></h2>
 <p>The key generation algorithm is the most complex part of RSA. The aim of the key generation algorithm is to generate both the <em>public</em> and the <em>private</em> RSA keys. Sounds simple enough! Unfortunately, weak key generation makes RSA very vulnerable to attack. So it has to be done correctly. Here is what has to happen in order to generate secure RSA keys:</p>
 <ol>
 <li><strong>Large Prime Number Generation</strong>: Two large prime numbers <span class="math">\(p\)</span> and <span class="math">\(q\)</span> need to be generated. These numbers are very large: At least 512 digits, but 1024 digits is considered safe.</li>
@@ -267,12 +267,12 @@
 <li><strong>Private Key</strong>: Because the prime in step 4 has a gcd of 1 with <span class="math">\(\phi(n)\)</span>, we are able to determine it's inverse with respect to <span class="math">\(\bmod \phi(n)\)</span>.</li>
 </ol>
 <p>After the five steps above, we will have our keys. Lets go over each step.</p>
-<h3 id="large-prime-number-generation">Large Prime Number Generation<a title="Permanent link" class="headerlink" href="#large-prime-number-generation"></a></h3>
+<h3 id="large-prime-number-generation">Large Prime Number Generation<a href="#large-prime-number-generation" title="Permanent link" class="headerlink"></a></h3>
 <p>It is vital for RSA security that two very large prime numbers be generated that are quite far apart. Generating composite numbers, or even prime numbers that are close together makes RSA totally insecure.</p>
 <p>How does one generate large prime numbers? The answer is to pick a large random number (a very large random number) and test for primeness. If that number fails the prime test, then add 1 and start over again until we have a number that passes a prime test. The problem is now: How do we test a number in order to determine if it is prime?</p>
 <p>The answer: An incredibly fast prime number tester called the <a href="http://en.wikipedia.org/wiki/Rabin-Miller">Rabin-Miller primality tester</a><sup class="print">L8</sup> is able to accomplish this. Give it a very large number, it is able to very quickly determine with a high probability if its input is prime.  But there is a catch (and readers may have spotted the catch in the last sentence): The Rabin-Miller test is a probability test, not a definite test. Given the fact that RSA absolutely relies upon generating large prime numbers, why would anyone want to use a probabilistic test? The answer: With Rabin-Miller, we make the result as accurate as we want. In other words, Rabin-Miller is setup with parameters that produces a result that determines if a number is prime with a probability of our choosing. Normally, the test is performed by iterating <span class="math">\(64\)</span> times and produces a result on a number that has a <span class="math">\(\frac{1}{2^{128}}\)</span> chance of not being prime. The probability of a number passing the Rabin-Miller test and not being prime is so low, that it is okay to use it with RSA.  In fact, <span class="math">\(\frac{1}{2^{128}}\)</span> is such a small number that I would suspect that nobody would ever get a false positive.</p>
 <p>So with Rabin-Miller, we generate two large prime numbers: <span class="math">\(p\)</span> and <span class="math">\(q\)</span>.</p>
-<h3 id="modulus">Modulus<a title="Permanent link" class="headerlink" href="#modulus"></a></h3>
+<h3 id="modulus">Modulus<a href="#modulus" title="Permanent link" class="headerlink"></a></h3>
 <p>Once we have our two prime numbers, we can generate a modulus very easily:</p>
 <div class="math">\begin{equation}
     \label{rsa:modulus}n=p\cdot q
@@ -280,7 +280,7 @@
 <p>RSA's main security foundation relies upon the fact that given two large prime numbers, a composite number (in this case <span class="math">\(n\)</span>) can very easily be deduced by multiplying the two primes together. But, given just <span class="math">\(n\)</span>, there is no known algorithm to efficiently determining <span class="math">\(n\)</span>'s prime 
 factors. In fact, it is considered a hard problem. I am going to bold this next statement for effect: <strong>The foundation of RSA's security relies upon the fact that given a composite number, it is considered a hard problem to determine it's prime factors</strong>.</p>
 <p>The bold-ed statement above cannot be proved. That is why I used the term <em>"considered a hard problem"</em> and not <em>"is a hard problem"</em>. This is a little bit disturbing: Basing the security of one of the most used cryptographic atomics on something that is not provably difficult.  The only solace one can take is that throughout history, numerous people have tried, but failed to find a solution to this.</p>
-<h3 id="totient">Totient<a title="Permanent link" class="headerlink" href="#totient"></a></h3>
+<h3 id="totient">Totient<a href="#totient" title="Permanent link" class="headerlink"></a></h3>
 <p>With the prime factors of <span class="math">\(n\)</span>, the totient can be very quickly calculated:</p>
 <div class="math">\begin{equation}
     \label{RSA:totient}\phi(n) = (p-1)\cdot (q-1)
@@ -290,12 +290,12 @@ factors. In fact, it is considered a hard problem. I am going to bold this next 
 <div class="math">$$\phi(n) = \phi(p\cdot q) = \phi(p) \cdot \phi(q) = (p-1)\cdot (q-1)$$</div>
 <p>
 The reason why the RSA becomes vulnerable if one can determine the prime factors of the modulus is because then one can easily determine the totient.</p>
-<h3 id="public-key">Public Key<a title="Permanent link" class="headerlink" href="#public-key"></a></h3>
+<h3 id="public-key">Public Key<a href="#public-key" title="Permanent link" class="headerlink"></a></h3>
 <p>Next, the <em>public key</em> is determined. Normally expressed as <span class="math">\(e\)</span>, it is a prime number chosen in the range <span class="math">\([3,\phi(n))\)</span>. The discerning reader may think that <span class="math">\(3\)</span> is a little small, and yes, I agree, if <span class="math">\(3\)</span> is chosen, it could lead to security flaws. So in practice, the public key is normally set at <span class="math">\(65537\)</span>. Note that because the public key is prime, it has a high chance of a <em>gcd</em> equal to <span class="math">\(1\)</span> with <span class="math">\(\phi(n)\)</span>. If this is not the case, then we must use another prime number that is <em>not</em> <span class="math">\(65537\)</span>, but this will only occur if <span class="math">\(65537\)</span> is a factor of <span class="math">\(\phi(n)\)</span>, something that is quite unlikely, but must still be checked for.</p>
 <p>An interesting observation: If in practice, the number above is set at <span class="math">\(65537\)</span>, then it is not picked at random; surely this is a problem?  Actually, no, it isn't. As the name implies, this key is public, and therefore is shared with everyone. As long as the <em>private key</em> cannot be deduced from the public key, we are happy. The reason why the public key is not randomly chosen in practice is because it is desirable not to have a large number. This is because it is more efficient to encrypt with smaller numbers than larger numbers.</p>
 <p>The public key is actually a key pair of the exponent <span class="math">\(e\)</span> and the modulus <span class="math">\(n\)</span> and is present as follows</p>
 <div class="math">$$(e,n)$$</div>
-<h3 id="private-key">Private Key<a title="Permanent link" class="headerlink" href="#private-key"></a></h3>
+<h3 id="private-key">Private Key<a href="#private-key" title="Permanent link" class="headerlink"></a></h3>
 <p>Because the public key has a <em>gcd</em> of <span class="math">\(1\)</span> with <span class="math">\(\phi(n)\)</span>, the multiplicative inverse of the public key with respect to <span class="math">\(\phi(n)\)</span> can be efficiently and quickly determined using the <a href="http://en.wikipedia.org/wiki/Extended_euclidean_algorithm">Extended Euclidean Algorithm</a><sup class="print">L9</sup>. This multiplicative inverse is the <em>private key</em>. The common notation for expressing the private key is <span class="math">\(d\)</span>. So in effect, we have the following equation (one of the most important equations in RSA):</p>
 <div class="math">\begin{equation}
     \label{RSA:ed} e\cdot d = 1 \bmod \phi(n) 
@@ -303,7 +303,7 @@ The reason why the RSA becomes vulnerable if one can determine the prime factors
 <p>Just like the public key, the private key is also a key pair of the exponent <span class="math">\(d\)</span> and modulus <span class="math">\(n\)</span>:</p>
 <div class="math">$$(d,n)$$</div>
 <p>One of the absolute fundamental security assumptions behind RSA is that given a public key, one cannot efficiently determine the private key. I have written a follow up to this post explaining <a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html">why RSA works</a><sup class="print">L1</sup>, in which I discuss <a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#wruiwrtt">why one can't efficiently determine the private key given a public key</a><sup class="print">L10</sup>. </p>
-<h2 id="rsa-function-evaluation">RSA Function Evaluation<a title="Permanent link" class="headerlink" href="#rsa-function-evaluation"></a></h2>
+<h2 id="rsa-function-evaluation">RSA Function Evaluation<a href="#rsa-function-evaluation" title="Permanent link" class="headerlink"></a></h2>
 <p>This is the process of transforming a plaintext message into ciphertext, or vice-versa. The RSA function, for message <span class="math">\(m\)</span> and key <span class="math">\(k\)</span> is evaluated as follows:</p>
 <div class="math">\begin{equation}
     F(m,k) = m^k \bmod n
@@ -317,13 +317,13 @@ The reason why the RSA becomes vulnerable if one can determine the prime factors
 <p><strong>Encryption</strong>: <span class="math">\(F(m,e) = m^e \bmod n = c\)</span>, where <span class="math">\(m\)</span> is the message, <span class="math">\(e\)</span> is the public key and <span class="math">\(c\)</span> is the cipher.<br>
 <strong>Decryption</strong>: <span class="math">\(F(c,d) = c^d \bmod n = m\)</span>.</p>
 <p>And there you have it: RSA!</p>
-<h1 id="final-example-rsa-from-scratch">Final Example: RSA From Scratch<a title="Permanent link" class="headerlink" href="#final-example-rsa-from-scratch"></a></h1>
+<h1 id="final-example-rsa-from-scratch">Final Example: RSA From Scratch<a href="#final-example-rsa-from-scratch" title="Permanent link" class="headerlink"></a></h1>
 <p>This is the part that everyone has been waiting for: an example of RSA from the ground up. I am first going to give an academic example, and then a real world example.</p>
-<h3 id="calculation-of-modulus-and-totient">Calculation of Modulus And Totient<a title="Permanent link" class="headerlink" href="#calculation-of-modulus-and-totient"></a></h3>
+<h3 id="calculation-of-modulus-and-totient">Calculation of Modulus And Totient<a href="#calculation-of-modulus-and-totient" title="Permanent link" class="headerlink"></a></h3>
 <p>Lets choose two primes: <span class="math">\(p=11\)</span> and <span class="math">\(q=13\)</span>. Hence the modulus is <span class="math">\(n = p \times q = 143\)</span>. The totient of n <span class="math">\(\phi(n) = (p-1)\cdot (q-1) = 120\)</span>.</p>
-<h3 id="key-generation_1">Key Generation<a title="Permanent link" class="headerlink" href="#key-generation_1"></a></h3>
+<h3 id="key-generation_1">Key Generation<a href="#key-generation_1" title="Permanent link" class="headerlink"></a></h3>
 <p>For the public key, a random prime number that has a greatest common divisor (gcd) of 1 with <span class="math">\(\phi(n)\)</span> and is less than <span class="math">\(\phi(n)\)</span> is chosen. Let's choose <span class="math">\(7\)</span> (note: both <span class="math">\(3\)</span> and <span class="math">\(5\)</span> do not have a gcd of 1 with <span class="math">\(\phi(n)\)</span>. So <span class="math">\(e=7\)</span>, and to determine <span class="math">\(d\)</span>, the secret key, we need to find the inverse of <span class="math">\(7\)</span> with <span class="math">\(\phi(n)\)</span>. This can be done very easily and quickly with the <em>Extended Euclidean Algorithm</em>, and hence <span class="math">\(d=103\)</span>. This can be easily verified: <span class="math">\(e\cdot d = 1 \bmod \phi(n)\)</span> and <span class="math">\(7\cdot 103 = 721 = 1 \bmod 120\)</span>.</p>
-<h4 id="encryptiondecryption">Encryption/Decryption<a title="Permanent link" class="headerlink" href="#encryptiondecryption"></a></h4>
+<h4 id="encryptiondecryption">Encryption/Decryption<a href="#encryptiondecryption" title="Permanent link" class="headerlink"></a></h4>
 <p>Lets choose our plaintext message, <span class="math">\(m\)</span> to be <span class="math">\(9\)</span>:</p>
 <p><strong>Encryption</strong>: 
 </p>
@@ -331,9 +331,9 @@ The reason why the RSA becomes vulnerable if one can determine the prime factors
 <p><strong>Decryption</strong>:
 </p>
 <div class="math">$$c^d \bmod n = 48^{103} \bmod 143 = 9 = m$$</div>
-<h2 id="a-real-world-example">A Real World Example<a title="Permanent link" class="headerlink" href="#a-real-world-example"></a></h2>
+<h2 id="a-real-world-example">A Real World Example<a href="#a-real-world-example" title="Permanent link" class="headerlink"></a></h2>
 <p>Now for a real world example, lets encrypt the message "attack at dawn". The first thing that must be done is to convert the message into a numeric format. Each letter is represented by an ascii character, therefore it can be accomplished quite easily. I am not going to dive into converting strings to numbers or vice-versa, but just to note that it can be done very easily. How I will do it here is to convert the string to a bit array, and then the bit array to a large number. This can very easily be reversed to get back the original string given the large number. Using this method, "attack at dawn" becomes 1976620216402300889624482718775150 (for those interested, <a href="https://gist.github.com/4184435#file_convert_text_to_decimal.py">here</a><sup class="print">L11</sup> is the code that I used to make this conversion).</p>
-<h3 id="key-generation_2">Key Generation<a title="Permanent link" class="headerlink" href="#key-generation_2"></a></h3>
+<h3 id="key-generation_2">Key Generation<a href="#key-generation_2" title="Permanent link" class="headerlink"></a></h3>
 <p>Now to pick two large primes, <span class="math">\(p\)</span> and <span class="math">\(q\)</span>. These numbers must be random and not too close to each other. Here are the numbers that I generated:
 using Rabin-Miller primality tests:</p>
 <p><strong>p</strong><br>
@@ -349,7 +349,7 @@ using Rabin-Miller primality tests:</p>
 <span class="math">\(65537\)</span> has a gcd of 1 with <span class="math">\(\phi(n)\)</span>, so lets use it as the public key. To calculate the private key, use extended euclidean algorithm to find the multiplicative inverse with respect to <span class="math">\(\phi(n)\)</span>.</p>
 <p><strong>d</strong> - the private key<br>
 89489425009274444368228545921773093919669586065884257445497854456487674839629818390934941973262879616797970608917283679875499331574161113854088813275488110588247193077582527278437906504015680623423550067240042466665654232383502922215493623289472138866445818789127946123407807725702626644091036502372545139713</p>
-<h3 id="encryptiondecryption_1">Encryption/Decryption<a title="Permanent link" class="headerlink" href="#encryptiondecryption_1"></a></h3>
+<h3 id="encryptiondecryption_1">Encryption/Decryption<a href="#encryptiondecryption_1" title="Permanent link" class="headerlink"></a></h3>
 <p><strong>Encryption</strong>: 197662021640230088962448271877515<span class="math">\(0^e \bmod n\)</span><br>
 </p><p style="border-style: solid; border-width: 1px">
 35052111338673026690212423937053328511880760811579981620642802346685810623109850235943049080973386241113784040794704193978215378499765413083646438784740952306932534945195080183861574225226218879827232453912820596886440377536082465681750074417459151485407445862511023472235560823053497791518928820272257787786
@@ -362,7 +362,7 @@ using Rabin-Miller primality tests:</p>
 1976620216402300889624482718775150 (which is our plaintext "attack at dawn")
 </p>
 <p>This real world example shows how large the numbers are that is used in the real world.</p>
-<h1 id="conclusion">Conclusion<a title="Permanent link" class="headerlink" href="#conclusion"></a></h1>
+<h1 id="conclusion">Conclusion<a href="#conclusion" title="Permanent link" class="headerlink"></a></h1>
 <p>RSA is the single most useful tool for building cryptographic protocols (in my humble opinion). In this post, I have shown <em>how</em> RSA works, I will <a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html">follow this up</a><sup class="print">L1</sup> with another post explaining <em>why</em> it works.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
@@ -417,7 +417,7 @@ using Rabin-Miller primality tests:</p>
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html</li><li>http://doctrina.org/The-3-Seminal-Events-In-Cryptography.html</li><li>http://en.wikipedia.org/wiki/OAEP</li><li>http://en.wikipedia.org/wiki/Prime_number</li><li>http://en.wikipedia.org/wiki/Composite_number</li><li>http://en.wikipedia.org/wiki/Euler%27s_totient_function</li><li>http://en.wikipedia.org/wiki/Cardinality</li><li>http://en.wikipedia.org/wiki/Rabin-Miller</li><li>http://en.wikipedia.org/wiki/Extended_euclidean_algorithm</li><li>http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#wruiwrtt</li><li>https://gist.github.com/4184435#file_convert_text_to_decimal.py</li></ol></div><ol class="simple-footnotes"><li id="sf-How-RSA-Works-With-Examples-1">A <a href="http://en.wikipedia.org/wiki/Composite_number">Composite</a><sup class="print">L5</sup> number is the formal name given to a number that is not prime. <a class="simple-footnote-back" href="#sf-How-RSA-Works-With-Examples-1-back">↩</a></li><li id="sf-How-RSA-Works-With-Examples-2">In set theory, anything between |{...}| just means the amount of elements in {...} - called <a href="http://en.wikipedia.org/wiki/Cardinality">cardinality</a><sup class="print">L7</sup> for those who are interested <a class="simple-footnote-back" href="#sf-How-RSA-Works-With-Examples-2-back">↩</a></li></ol>
+</script><h2 class="print">Links</h2><div style="margin-left: 2.0em;" class="print"><ol class="print-links"><li>http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html</li><li>http://doctrina.org/The-3-Seminal-Events-In-Cryptography.html</li><li>http://en.wikipedia.org/wiki/OAEP</li><li>http://en.wikipedia.org/wiki/Prime_number</li><li>http://en.wikipedia.org/wiki/Composite_number</li><li>http://en.wikipedia.org/wiki/Euler%27s_totient_function</li><li>http://en.wikipedia.org/wiki/Cardinality</li><li>http://en.wikipedia.org/wiki/Rabin-Miller</li><li>http://en.wikipedia.org/wiki/Extended_euclidean_algorithm</li><li>http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html#wruiwrtt</li><li>https://gist.github.com/4184435#file_convert_text_to_decimal.py</li></ol></div><ol class="simple-footnotes"><li id="sf-How-RSA-Works-With-Examples-1">A <a href="http://en.wikipedia.org/wiki/Composite_number">Composite</a><sup class="print">L5</sup> number is the formal name given to a number that is not prime. <a href="#sf-How-RSA-Works-With-Examples-1-back" class="simple-footnote-back">↩</a></li><li id="sf-How-RSA-Works-With-Examples-2">In set theory, anything between |{...}| just means the amount of elements in {...} - called <a href="http://en.wikipedia.org/wiki/Cardinality">cardinality</a><sup class="print">L7</sup> for those who are interested <a href="#sf-How-RSA-Works-With-Examples-2-back" class="simple-footnote-back">↩</a></li></ol>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

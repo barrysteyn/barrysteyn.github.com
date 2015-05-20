@@ -125,13 +125,13 @@
 <li>What <code>Object.prototype</code> and <code>Function.prototype</code> are used for.</li>
 </ul>
 <p><a href="http://en.wikipedia.org/wiki/Douglas_Crockford">Douglas Crockford's</a><sup class="print">L1</sup> wonderful book <a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?ie=UTF8&amp;qid=1346978272&amp;sr=8-1&amp;keywords=javascript+the+good+parts">JavaScript: The Good Parts</a><sup class="print">L2</sup> does a fanastic job of explaining this topic, and I urge the interested reader to buy his book.</p>
-<h1 id="javascript-objects">JavaScript Objects<a title="Permanent link" class="headerlink" href="#javascript-objects"></a></h1>
+<h1 id="javascript-objects">JavaScript Objects<a href="#javascript-objects" title="Permanent link" class="headerlink"></a></h1>
 <p>In JavaScript the simple types are <em>numbers</em>, <em>strings</em>, <em>booleans</em> (<em>true</em> and <em>false</em>), <em>null</em> and <em>undefined</em>. All other values are objects. Even though there are multiple ways to create objects, there are really only two <em>atomic</em> mechanisms that are used:</p>
 <ol>
 <li>Literals. </li>
 <li>Functions.</li>
 </ol>
-<h2 id="creating-objects-from-literals">Creating Objects From Literals <a id="cofl"></a><a title="Permanent link" class="headerlink" href="#creating-objects-from-literals"></a></h2>
+<h2 id="creating-objects-from-literals">Creating Objects From Literals <a id="cofl"></a><a href="#creating-objects-from-literals" title="Permanent link" class="headerlink"></a></h2>
 <p>Creating objects from literals is very simple. The following is an <em>object literal</em>:</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -146,21 +146,21 @@
 </td></tr></tbody></table>
 
 <p>Object Literals do not look like traditional objects. In fact, Object Literals look more like a structure that can hold things.  There is however one difference between a JavaScript object and a structure that can hold things: All JavaScript objects have a <em>prototype</em> linking.</p>
-<h2 id="the-prototype-link">The Prototype Link<a title="Permanent link" class="headerlink" href="#the-prototype-link"></a></h2>
+<h2 id="the-prototype-link">The Prototype Link<a href="#the-prototype-link" title="Permanent link" class="headerlink"></a></h2>
 <p>Every Object has a <em>hidden</em> link to another object called a <em>prototype link</em>. Objects by default are linked to the object <code>Object.prototype</code>. The prototype link is only used when retrieving property values from an object (it is not touched when updating an object). When retrieving a property value from an object, if it cannot be found, it will look for it in the prototype object that it is linked to. For example:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>person.age; // undefined - property age does not exist
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">person</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="c1">// undefined - property age does not exist</span>
 </pre></div>
 </td></tr></tbody></table>
 
 <p>JavaScript tried to find the property age on person, and it could not. So then it tried to find it on <code>Object.prototype</code> and it could not find it either. So it returned "<em>undefined</em>".</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre>Object.prototype.age = 56; // Every object is linked to Object.prototype by default
-person.age; // 56
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">Object</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">56</span><span class="p">;</span> <span class="c1">// Every object is linked to Object.prototype by default</span>
+<span class="n">person</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="c1">// 56</span>
 </pre></div>
 </td></tr></tbody></table>
 
 <p>JavaScript could not find age on person, but it did find it on <code>Object.prototype</code>, which is linked to person. Therefore the prototype linkage is used to <em>augment</em> an object with additional properties. In a classical object oriented language like Java or C++, augmentation is performed using inheritance. And so a prototype link can be considered as providing the property augmentation feature of object inheritance.</p>
-<h2 id="creating-function-objects">Creating Function Objects <a id="cfo"></a><a title="Permanent link" class="headerlink" href="#creating-function-objects"></a></h2>
+<h2 id="creating-function-objects">Creating Function Objects <a id="cfo"></a><a href="#creating-function-objects" title="Permanent link" class="headerlink"></a></h2>
 <p>Functions in JavaScript are objects and are <a href="http://en.wikipedia.org/wiki/First-class_citizen">first class citizens</a><sup class="print">L3</sup>. A variable can be assigned a function object like so:</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -213,7 +213,7 @@ person.age; // 56
 
 <p>In the above example, <em>addNum</em> was searched for <em>divide</em>. Then <code>Function.prototype</code> was searched, after which, <code>Object.prototype</code> was searched, where it was eventually found. Therefore prototype links are chained together, whereby if a property is not found in the current object, it then searches for it in its linked prototype object. And if that object does not have the property, it is then searched for in that object's linked prototype object, and so on, until the process ends with <code>Object.prototype</code>.</p>
 <p>The process described above is the mainstay of <a href="http://en.wikipedia.org/wiki/Prototype-based_programming">Prototype Based Programming</a><sup class="print">L4</sup>, and it is called <em>prototype chaining</em>.</p>
-<h2 id="creating-objects-from-functions">Creating Objects From Functions <a id="coff"></a><a title="Permanent link" class="headerlink" href="#creating-objects-from-functions"></a></h2>
+<h2 id="creating-objects-from-functions">Creating Objects From Functions <a id="coff"></a><a href="#creating-objects-from-functions" title="Permanent link" class="headerlink"></a></h2>
 <p>This section should not be confused with the previous section. Their titles share similar wording, but in this section, we are going to talk about how to create a new object using a function, and last section we talked about creating function objects.</p>
 <p>To recap from the last section, this is how a <em>function object</em> is created:</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -263,12 +263,12 @@ person.age; // 56
 
 <p>In the above, the <code>alien</code> and <code>human</code> objects are constructed from the function <code>Entity</code> via the <em>constructor invocation pattern</em> that is initiated by putting the <code>new</code> keyword in front of the function name. When <code>alien</code> is constructed, <code>Entity</code>'s prototype property has not been altered, and so <code>alien</code> is linked to <code>Object.prototype</code>. But when constructing <code>human</code>, <code>Entity</code>'s prototype property was altered to species, and so the prototype object linked to <code>human</code> is <code>species</code>, which in turn is itself linked to <code>Object.prototype</code>:</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre>alien.species; // undefined
-human.species; // human
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">alien</span><span class="p">.</span><span class="n">species</span><span class="p">;</span> <span class="c1">// undefined</span>
+<span class="n">human</span><span class="p">.</span><span class="n">species</span><span class="p">;</span> <span class="c1">// human</span>
 </pre></div>
 </td></tr></tbody></table>
 
-<h3 id="the-problem-with-using-the-constructor-invocation-pattern">The problem with using the "constructor invocation pattern" <a id="pcip"></a><a title="Permanent link" class="headerlink" href="#the-problem-with-using-the-constructor-invocation-pattern"></a></h3>
+<h3 id="the-problem-with-using-the-constructor-invocation-pattern">The problem with using the "constructor invocation pattern" <a id="pcip"></a><a href="#the-problem-with-using-the-constructor-invocation-pattern" title="Permanent link" class="headerlink"></a></h3>
 <p>Using <code>new</code> is one of four ways in which to invoke a function, the most popular way being to call the function. For example:</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -327,7 +327,7 @@ human.species; // human
 </pre></div>
 </td></tr></tbody></table>
 
-<h1 id="conclusion">Conclusion<a title="Permanent link" class="headerlink" href="#conclusion"></a></h1>
+<h1 id="conclusion">Conclusion<a href="#conclusion" title="Permanent link" class="headerlink"></a></h1>
 <p>Object orientation in JavaScript is a bit of a mess. This is because JavaScript is quite unsure about what it is, and ends up being a mix of a classical object oriented language and a prototype based language. Hence we get the <code>new</code> keyword, which makes JavaScript look like a classical object oriented language, even though it is not.</p>
 <p>To summarise, here are the three objects this blog discusses:</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -341,16 +341,16 @@ human.species; // human
  9
 10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1">//Object Literal</span>
-<span class="kd">var</span> <span class="nx">objectLiteral</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">"property1"</span><span class="o">:</span><span class="s2">"value1"</span>
+<span class="k">var</span> <span class="n">objectLiteral</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"property1"</span><span class="o">:</span><span class="s">"value1"</span>
 <span class="p">};</span>
 
 <span class="c1">//Function Object</span>
-<span class="kd">var</span> <span class="nx">functionObject</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">var</span> <span class="n">functionObject</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
 <span class="p">}</span>
 
 <span class="c1">//Object From Function</span>
-<span class="kd">var</span> <span class="nx">objectFromFunction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">functionObject</span><span class="p">();</span>
+<span class="k">var</span> <span class="n">objectFromFunction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">functionObject</span><span class="p">();</span>
 </pre></div>
 </td></tr></tbody></table>
 
@@ -386,7 +386,7 @@ human.species; // human
             </td>
         </tr>
     </tbody></table>
-</center><p></p><h2 class="print">Links</h2><div class="print"><ol class="print-links"><li>http://en.wikipedia.org/wiki/Douglas_Crockford</li><li>http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?ie=UTF8&amp;qid=1346978272&amp;sr=8-1&amp;keywords=javascript+the+good+parts</li><li>http://en.wikipedia.org/wiki/First-class_citizen</li><li>http://en.wikipedia.org/wiki/Prototype-based_programming</li><li>http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci</li></ol></div>
+</center><p></p><h2 class="print">Links</h2><div style="margin-left: 2.0em;" class="print"><ol class="print-links"><li>http://en.wikipedia.org/wiki/Douglas_Crockford</li><li>http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?ie=UTF8&amp;qid=1346978272&amp;sr=8-1&amp;keywords=javascript+the+good+parts</li><li>http://en.wikipedia.org/wiki/First-class_citizen</li><li>http://en.wikipedia.org/wiki/Prototype-based_programming</li><li>http://doctrina.org/Javascript-Function-Invocation-Patterns.html#ci</li></ol></div>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.
