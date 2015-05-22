@@ -120,7 +120,7 @@
 	<div class="article-content">
 		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
 <p>My friend and colleague, <a href="http://dome.hobbits.grus.uberspace.de/">Dominik Messinger</a><sup class="print">L1</sup> was fortunate to learn about abstract data structures in high school<sup id="sf-maximum-height-of-red-black-tree-1-back"><a href="#sf-maximum-height-of-red-black-tree-1" title="He is German, so I think this is a nod to the excellent school system in Germany." class="simple-footnote">1</a></sup>. After chatting to him one day, the topic of red-black trees came up. He studied <a href="http://en.wikipedia.org/wiki/AVL_tree">AVL trees</a><sup class="print">L2</sup> in depth at high school, but did not do the same for red-black trees. After this chat, I realized I had not formalized this topic in my mind either. So I decided to choose one topic and write about...</p>
-<p>So here is an analysis of the maximum height of a red-black trees. </p>
+<p>So here is an analysis of the maximum height of a red-black trees.</p>
 <h1 id="background-knowledge">Background Knowledge<a href="#background-knowledge" title="Permanent link" class="headerlink"></a></h1>
 <h2 id="tree-level">Tree Level<a href="#tree-level" title="Permanent link" class="headerlink"></a></h2>
 <p>A node's level is the number of parent node ancestors the node has. Level is zero based (the root is at level 0 since it has no ancestors).</p>
@@ -151,20 +151,20 @@ n = 2^{k+1}-1
 <p>The maximum height of a red-black tree is the root-null path that contains the most number of nodes. Ironically, an examiniation of the shortest root-null path is needed to calculate the maximum height.</p>
 <h4 id="length-of-the-shortest-root-null-path">Length Of The Shortest Root-Null Path<a href="#length-of-the-shortest-root-null-path" title="Permanent link" class="headerlink"></a></h4>
 <p>By invariant 4, the <em>maximum number of black nodes</em> in any root-null path is restricted by the number of nodes in the <em>shortest</em> root-null path. Assume the shortest root-null path is at level <span class="math">\(k\)</span>:</p>
-<ol>
+<ul>
 <li>There are <span class="math">\(k+1\)</span> nodes in the root-null path at level <span class="math">\(k\)</span>.</li>
 <li>There is a <em>full</em> and <em>complete</em> binary subtree with <span class="math">\(k\)</span> levels.</li>
-</ol>
+</ul>
 <p>For example, if the shortest root-null path is at level 2, the full and complete binary subtree would look like the image below:</p>
 <p><img src="images/full-complete-binary-subtree.png"></p>
-<p>Suppose the full and complete binary subtree has <span class="math">\(n\)</span> nodes, then using the fact that <span class="math">\(n=2^{k+1}-1\)</span>, it can be shown that the number of nodes in the root-null path (i.e. <span class="math">\(k+1\)</span>) is logarithmic:</p>
+<p>Suppose the full and complete binary subtree has <span class="math">\(n\)</span> nodes, then using the fact that <span class="math">\(n=2^{k+1}-1\)</span>, the number of nodes in the root-null path (i.e. <span class="math">\(k+1\)</span>) is logarithmic in <span class="math">\(n\)</span>:</p>
 <div class="math">\begin{array}{ccc}
 n &amp; = &amp; 2^{k+1}-1 \\
 k+1 &amp; = &amp; \log_2(n+1)
 \end{array}</div>
-<p><em>By invariant 4</em>: The maximum number of black nodes in any root-null path is <span class="math">\(\log_2(n+1)\)</span></p>
+<p><em>Due to invariant 4</em>, the maximum number of <strong>black nodes</strong> in any root-null path is <span class="math">\(\log_2(n+1)\)</span></p>
 <h4 id="length-of-the-longest-root-null-path">Length Of The Longest Root-Null Path<a href="#length-of-the-longest-root-null-path" title="Permanent link" class="headerlink"></a></h4>
-<p>The longest root-null path will have <span class="math">\(\log_2(n+1)\)</span> black nodes (the maximum that it can have). The question now becomes: How many red nodes can be present? By invariant 3, a red node must have black node children. This restricts the maximum number of red nodes to being placed between the black nodes:</p>
+<p>The longest root-null path will have <span class="math">\(\log_2(n+1)\)</span> black nodes (the maximum that it can have due to invariant 4). The question now becomes: How many red nodes can be present? By invariant 3, a red node must have black node children. This restricts the maximum number of red nodes to being placed between the black nodes:</p>
 <p><img src="images/red-black-in-between.png"></p>
 <p>The maximum number of red nodes in a root-null path is therefore constrained by the maximum number of black nodes, which is <span class="math">\(\log_2(n+1)\)</span>. So the length of the longest root-null path is:</p>
 <div class="math">\begin{array}{lcl}
@@ -172,9 +172,11 @@ k+1 &amp; = &amp; \log_2(n+1)
                       &amp;=&amp; \log_2(n+1) + \log_2(n+1) \\
                       &amp;=&amp; 2\cdot\log_2(n+1)
 \end{array}</div>
-<p>This proves that the height of a red-black tree is <span class="math">\(O(log_2(n))\)</span> where <span class="math">\(n\)</span> is the total number of nodes. In a binary search tree, the time complexity of a search operation is governed by the maximum height of the tree. This means that search in a red-black tree is logarithmic time complexity.</p>
+<p>This proves that the height of a red-black tree is <span class="math">\(O\left(\log n\right)\)</span> where <span class="math">\(n\)</span> is the total number of nodes. It is also worth noting that the constant factor in the big-O notation is <span class="math">\(2\)</span>, which is very low.</p>
+<h2 id="searching-is-logarithmic">Searching Is Logarithmic<a href="#searching-is-logarithmic" title="Permanent link" class="headerlink"></a></h2>
+<p>In a binary search tree, the time complexity of a search operation is governed by the maximum height of the tree. This means that search in a red-black tree is logarithmic time complexity.</p>
 <h1 id="conclusion">Conclusion<a href="#conclusion" title="Permanent link" class="headerlink"></a></h1>
-<p>A red-black tree is probably the most used balanced binary search tree algorithm. This article demonstrates the reasons why: It's height is logarithmic. It is a little bit more work to show that <em>update</em>, <em>delete</em> and <em>insert</em> is also logarithmic, but any proof would rely upon the fact the maximum height is logarithmic.</p>
+<p>A red-black tree is probably the most used balanced binary search tree algorithm. It is a little bit more work to show that <em>update</em>, <em>delete</em> and <em>insert</em> is also logarithmic, but any proof would rely upon the fact the maximum height is logarithmic.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",

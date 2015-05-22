@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-05-11T00:00:00-07:00</updated><entry><title>Maximum Height Of A Red-Black Tree</title><link href="http://doctrina.org/maximum-height-of-red-black-tree.html" rel="alternate"></link><updated>2015-05-11T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-05-11:maximum-height-of-red-black-tree.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;My friend and colleague, &lt;a href="http://dome.hobbits.grus.uberspace.de/"&gt;Dominik Messinger&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt; was fortunate to learn about abstract data structures in high school&lt;sup id="sf-maximum-height-of-red-black-tree-1-back"&gt;&lt;a href="#sf-maximum-height-of-red-black-tree-1" title="He is German, so I think this is a nod to the excellent school system in Germany." class="simple-footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;. After chatting to him one day, the topic of red-black trees came up. He studied &lt;a href="http://en.wikipedia.org/wiki/AVL_tree"&gt;AVL trees&lt;/a&gt;&lt;sup class="print"&gt;L2&lt;/sup&gt; in depth at high school, but did not do the same for red-black trees. After this chat, I realized I had not formalized this topic in my mind either. So I decided to choose one topic and write about...&lt;/p&gt;
-&lt;p&gt;So here is an analysis of the maximum height of a red-black trees. &lt;/p&gt;
+&lt;p&gt;So here is an analysis of the maximum height of a red-black trees.&lt;/p&gt;
 &lt;h1 id="background-knowledge"&gt;Background Knowledge&lt;a href="#background-knowledge" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;h2 id="tree-level"&gt;Tree Level&lt;a href="#tree-level" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A node's level is the number of parent node ancestors the node has. Level is zero based (the root is at level 0 since it has no ancestors).&lt;/p&gt;
@@ -32,20 +32,20 @@ n = 2^{k+1}-1
 &lt;p&gt;The maximum height of a red-black tree is the root-null path that contains the most number of nodes. Ironically, an examiniation of the shortest root-null path is needed to calculate the maximum height.&lt;/p&gt;
 &lt;h4 id="length-of-the-shortest-root-null-path"&gt;Length Of The Shortest Root-Null Path&lt;a href="#length-of-the-shortest-root-null-path" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;By invariant 4, the &lt;em&gt;maximum number of black nodes&lt;/em&gt; in any root-null path is restricted by the number of nodes in the &lt;em&gt;shortest&lt;/em&gt; root-null path. Assume the shortest root-null path is at level &lt;span class="math"&gt;\(k\)&lt;/span&gt;:&lt;/p&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;There are &lt;span class="math"&gt;\(k+1\)&lt;/span&gt; nodes in the root-null path at level &lt;span class="math"&gt;\(k\)&lt;/span&gt;.&lt;/li&gt;
 &lt;li&gt;There is a &lt;em&gt;full&lt;/em&gt; and &lt;em&gt;complete&lt;/em&gt; binary subtree with &lt;span class="math"&gt;\(k\)&lt;/span&gt; levels.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;p&gt;For example, if the shortest root-null path is at level 2, the full and complete binary subtree would look like the image below:&lt;/p&gt;
 &lt;p&gt;&lt;img src="images/full-complete-binary-subtree.png"&gt;&lt;/p&gt;
-&lt;p&gt;Suppose the full and complete binary subtree has &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes, then using the fact that &lt;span class="math"&gt;\(n=2^{k+1}-1\)&lt;/span&gt;, it can be shown that the number of nodes in the root-null path (i.e. &lt;span class="math"&gt;\(k+1\)&lt;/span&gt;) is logarithmic:&lt;/p&gt;
+&lt;p&gt;Suppose the full and complete binary subtree has &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes, then using the fact that &lt;span class="math"&gt;\(n=2^{k+1}-1\)&lt;/span&gt;, the number of nodes in the root-null path (i.e. &lt;span class="math"&gt;\(k+1\)&lt;/span&gt;) is logarithmic in &lt;span class="math"&gt;\(n\)&lt;/span&gt;:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{array}{ccc}
 n &amp;amp; = &amp;amp; 2^{k+1}-1 \\
 k+1 &amp;amp; = &amp;amp; \log_2(n+1)
 \end{array}&lt;/div&gt;
-&lt;p&gt;&lt;em&gt;By invariant 4&lt;/em&gt;: The maximum number of black nodes in any root-null path is &lt;span class="math"&gt;\(\log_2(n+1)\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Due to invariant 4&lt;/em&gt;, the maximum number of &lt;strong&gt;black nodes&lt;/strong&gt; in any root-null path is &lt;span class="math"&gt;\(\log_2(n+1)\)&lt;/span&gt;&lt;/p&gt;
 &lt;h4 id="length-of-the-longest-root-null-path"&gt;Length Of The Longest Root-Null Path&lt;a href="#length-of-the-longest-root-null-path" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;The longest root-null path will have &lt;span class="math"&gt;\(\log_2(n+1)\)&lt;/span&gt; black nodes (the maximum that it can have). The question now becomes: How many red nodes can be present? By invariant 3, a red node must have black node children. This restricts the maximum number of red nodes to being placed between the black nodes:&lt;/p&gt;
+&lt;p&gt;The longest root-null path will have &lt;span class="math"&gt;\(\log_2(n+1)\)&lt;/span&gt; black nodes (the maximum that it can have due to invariant 4). The question now becomes: How many red nodes can be present? By invariant 3, a red node must have black node children. This restricts the maximum number of red nodes to being placed between the black nodes:&lt;/p&gt;
 &lt;p&gt;&lt;img src="images/red-black-in-between.png"&gt;&lt;/p&gt;
 &lt;p&gt;The maximum number of red nodes in a root-null path is therefore constrained by the maximum number of black nodes, which is &lt;span class="math"&gt;\(\log_2(n+1)\)&lt;/span&gt;. So the length of the longest root-null path is:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{array}{lcl}
@@ -53,9 +53,11 @@ k+1 &amp;amp; = &amp;amp; \log_2(n+1)
                       &amp;amp;=&amp;amp; \log_2(n+1) + \log_2(n+1) \\
                       &amp;amp;=&amp;amp; 2\cdot\log_2(n+1)
 \end{array}&lt;/div&gt;
-&lt;p&gt;This proves that the height of a red-black tree is &lt;span class="math"&gt;\(O(log_2(n))\)&lt;/span&gt; where &lt;span class="math"&gt;\(n\)&lt;/span&gt; is the total number of nodes. In a binary search tree, the time complexity of a search operation is governed by the maximum height of the tree. This means that search in a red-black tree is logarithmic time complexity.&lt;/p&gt;
+&lt;p&gt;This proves that the height of a red-black tree is &lt;span class="math"&gt;\(O\left(\log n\right)\)&lt;/span&gt; where &lt;span class="math"&gt;\(n\)&lt;/span&gt; is the total number of nodes. It is also worth noting that the constant factor in the big-O notation is &lt;span class="math"&gt;\(2\)&lt;/span&gt;, which is very low.&lt;/p&gt;
+&lt;h2 id="searching-is-logarithmic"&gt;Searching Is Logarithmic&lt;a href="#searching-is-logarithmic" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In a binary search tree, the time complexity of a search operation is governed by the maximum height of the tree. This means that search in a red-black tree is logarithmic time complexity.&lt;/p&gt;
 &lt;h1 id="conclusion"&gt;Conclusion&lt;a href="#conclusion" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;A red-black tree is probably the most used balanced binary search tree algorithm. This article demonstrates the reasons why: It's height is logarithmic. It is a little bit more work to show that &lt;em&gt;update&lt;/em&gt;, &lt;em&gt;delete&lt;/em&gt; and &lt;em&gt;insert&lt;/em&gt; is also logarithmic, but any proof would rely upon the fact the maximum height is logarithmic.&lt;/p&gt;
+&lt;p&gt;A red-black tree is probably the most used balanced binary search tree algorithm. It is a little bit more work to show that &lt;em&gt;update&lt;/em&gt;, &lt;em&gt;delete&lt;/em&gt; and &lt;em&gt;insert&lt;/em&gt; is also logarithmic, but any proof would rely upon the fact the maximum height is logarithmic.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
