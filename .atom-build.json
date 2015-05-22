@@ -1,0 +1,5 @@
+{
+    "cmd": "./build.sh",
+    "args": [],
+    "sh": true
+}
