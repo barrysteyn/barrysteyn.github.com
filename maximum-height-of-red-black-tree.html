@@ -125,7 +125,12 @@
 <h2 id="tree-level">Tree Level<a href="#tree-level" title="Permanent link" class="headerlink"></a></h2>
 <p>A node's level is the number of parent node ancestors the node has. Level is zero based (the root is at level 0 since it has no ancestors).</p>
 <p><img src="images/binary-tree-level.png"></p>
-<p>An important observation is that a node at level <span class="math">\(k\)</span> has <span class="math">\(k+1\)</span> parent ancestors.</p>
+<p>The number of nodes in a path from the root node to a node at level <span class="math">\(k\)</span> is <span class="math">\(k+1\)</span>. For example:</p>
+<ul>
+<li><strong>At level 0</strong>: There is 1 node in the path from root to level 0 (the root node).</li>
+<li><strong>At level 1</strong>: There are two nodes in a path from root to level 1.</li>
+<li><strong>At level <span class="math">\(k\)</span></strong>: There are <span class="math">\(k+1\)</span> nodes in a path from root to level <span class="math">\(k\)</span>.</li>
+</ul>
 <h2 id="full-and-complete-binary-tree">Full And Complete Binary Tree<a href="#full-and-complete-binary-tree" title="Permanent link" class="headerlink"></a></h2>
 <p>A tree that is both <em>full and complete</em><sup id="sf-maximum-height-of-red-black-tree-2-back"><a href="#sf-maximum-height-of-red-black-tree-2" title="Full and complete binary trees are sometimes called perfect binary trees." class="simple-footnote">2</a></sup> has the following properties:</p>
 <ol>

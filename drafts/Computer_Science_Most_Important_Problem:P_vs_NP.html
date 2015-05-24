@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="theme/img/doctrina-icon.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="theme/img/apple-touch-icon-144-precomposed.png">
 
-    <title>Doctrina - 	Computer Science's Most Important Problem: Is P = NP?
+    <title>Doctrina - 	Computer Science's Most Important Problem: Is P vs NP
 </title>
 
     <!-- Bootstrap Base CSS -->
@@ -34,14 +34,17 @@
     <nav id="navbar-top" class="navbar navbar-fixed-top navbar-offset-start " role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand " href="/index.html#page-top">
+                <a class="navbar-brand hidden-grid-float-breakpoint" href="/index.html#page-top">
                     <img alt="brand for doctrina" src="http://doctrina.org/theme/img/apple-touch-icon-144-precomposed.png" style="float: left; max-height:100%;" />
                     <span style="padding-left: 0.5em;">Doctrina</span>
                 </a>
                 
-                <button type="button" class="navbar-toggle" style="" data-toggle="collapse" data-target="#navigation-menu">
-<i class="fa fa-bars"></i>                </button>
+                <button type="button" class="navbar-toggle" style="float: left; margin-left: 15px; margin-right: 0px;" data-toggle="collapse" data-target="#navigation-menu">
+<img src="http://doctrina.org/theme/img/apple-touch-icon-144-precomposed.png" style="max-height:1.0em; padding-right: 0.2em" />Doctrina                </button>
 
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-menu-toc">
+                    Table Of Contents
+                </button>
             </div>
 
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
@@ -54,6 +57,30 @@
                         </div>
             </div>
 
+            <div class="collapse navbar-collapse navbar-right" id="navigation-menu-toc">
+	
+		<div class="visible-grid-float-breakpoint">
+					<div class="toc"><span class="toctitle">Table Of Contents</span><ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#a-video-explanation">A Video Explanation</a></li>
+</ul>
+</li>
+<li><a href="#definitions">Definitions</a><ul>
+<li><a href="#p">P</a></li>
+<li><a href="#np">NP</a></li>
+<li><a href="#np-complete">NP Complete</a></li>
+<li><a href="#np-hard">NP Hard</a></li>
+</ul>
+</li>
+<li><a href="#reducing-to-np-complete">Reducing To NP Complete</a></li>
+<li><a href="#if-p-np">If P != NP</a></li>
+<li><a href="#if-p-np_1">If P = NP</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+
+		</div>
+            </div>
 
         </div>
     </nav>
@@ -63,7 +90,7 @@
 	<section class="container-fluid title">
 	<div class="row">
 		<div class="col-md-12">
-			<h1><a href="" rel="bookmark" title="Permalink to Computer Science's Most Important Problem: Is P = NP?">	Computer Science's Most Important Problem: Is P = NP?
+			<h1><a href="" rel="bookmark" title="Permalink to Computer Science's Most Important Problem: Is P vs NP">	Computer Science's Most Important Problem: Is P vs NP
 </a></h1>
 			<span>
 				<a href="http://doctrina.org/index.html#about"><img src="http://doctrina.org/theme/img/me.jpg" class="img-rounded"></img></a>
@@ -84,41 +111,70 @@
 				</div>
 		</div>
 		<div class="row">
-				<div class="col-xs-12 col-md-1 col-md-push-10 text-center">
+				<div class="col-xs-12 col-md-1 col-md-push-11 text-center">
 <div id="share">
 	<div>
 		<span class="toctitle">Share</span>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Computer%20Science%27s%20Most%20Important%20Problem%3A%20Is%20P%20%3D%20NP%3F&url=http%3A//doctrina.org/drafts/Computer_Science_Most_Important_Problem_Is_P_%3D_NP.html&via=">
+	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Computer%20Science%27s%20Most%20Important%20Problem%3A%20Is%20P%20vs%20NP&url=http%3A//doctrina.org/drafts/Computer_Science_Most_Important_Problem%3AP_vs_NP.html&via=">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
 	    </a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/drafts/Computer_Science_Most_Important_Problem_Is_P_%3D_NP.html">
+		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/drafts/Computer_Science_Most_Important_Problem%3AP_vs_NP.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/drafts/Computer_Science_Most_Important_Problem_Is_P_%3D_NP.html">
+		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/drafts/Computer_Science_Most_Important_Problem%3AP_vs_NP.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/drafts/Computer_Science_Most_Important_Problem_Is_P_%3D_NP.html&title=Computer%20Science%27s%20Most%20Important%20Problem%3A%20Is%20P%20%3D%20NP%3F">
+	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/drafts/Computer_Science_Most_Important_Problem%3AP_vs_NP.html&title=Computer%20Science%27s%20Most%20Important%20Problem%3A%20Is%20P%20vs%20NP">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
 	    </a>
 	</div>
 </div>				</div>				
 
+				<div class="col-md-3 col-md-pull-1 hidden-grid-float-breakpoint">
+					<nav id="toc-affix">
+								<div class="toc"><span class="toctitle">Table Of Contents</span><ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#a-video-explanation">A Video Explanation</a></li>
+</ul>
+</li>
+<li><a href="#definitions">Definitions</a><ul>
+<li><a href="#p">P</a></li>
+<li><a href="#np">NP</a></li>
+<li><a href="#np-complete">NP Complete</a></li>
+<li><a href="#np-hard">NP Hard</a></li>
+</ul>
+</li>
+<li><a href="#reducing-to-np-complete">Reducing To NP Complete</a></li>
+<li><a href="#if-p-np">If P != NP</a></li>
+<li><a href="#if-p-np_1">If P = NP</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
 
-			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
+					</nav>
+				</div>
+
+			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-0 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="computer-sciences-most-important-unsolved-problem-is-p-np">Computer Science's Most Important Unsolved Problem: Is P = NP?<a class="headerlink" href="#computer-sciences-most-important-unsolved-problem-is-p-np" title="Permanent link"></a></h1>
+		
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h1>
+<h2 id="a-video-explanation">A Video Explanation<a class="headerlink" href="#a-video-explanation" title="Permanent link"></a></h2>
+<p><div class="videobox">
+<iframe allowfullscreen="" frameborder="0" height="390" mozallowfullscreen="" src="https://www.youtube.com/embed/YX40hbAHx3s" webkitallowfullscreen="" width="640">
+</iframe>
+</div></p>
 <p>Explain Why</p>
 <h1 id="definitions">Definitions<a class="headerlink" href="#definitions" title="Permanent link"></a></h1>
 <h2 id="p">P<a class="headerlink" href="#p" title="Permanent link"></a></h2>
@@ -146,7 +202,7 @@
 					<div class="content-border">
 						<h2>Comments</h2>
         				<div class="divider-grey"></div>
-						<a id="disqus" href="http://doctrina.org/drafts/Computer_Science_Most_Important_Problem_Is_P_=_NP.html#disqus_thread">0 Comments</a>
+						<a id="disqus" href="http://doctrina.org/drafts/Computer_Science_Most_Important_Problem:P_vs_NP.html#disqus_thread">0 Comments</a>
 						<div id="disqus_thread"></div>
 					</div>
 			    </div>
@@ -222,8 +278,8 @@
 
 		var disqus = {
 			shortname: 'doctrina',
-			identifier: 'http://doctrina.org/drafts/Computer_Science_Most_Important_Problem_Is_P_=_NP.html',
-			url: 'http://doctrina.org/drafts/Computer_Science_Most_Important_Problem_Is_P_=_NP.html',
+			identifier: 'http://doctrina.org/drafts/Computer_Science_Most_Important_Problem:P_vs_NP.html',
+			url: 'http://doctrina.org/drafts/Computer_Science_Most_Important_Problem:P_vs_NP.html',
 			developer: 0
 		};
 

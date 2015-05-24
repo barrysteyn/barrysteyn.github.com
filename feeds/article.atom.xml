@@ -6,7 +6,12 @@
 &lt;h2 id="tree-level"&gt;Tree Level&lt;a href="#tree-level" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A node's level is the number of parent node ancestors the node has. Level is zero based (the root is at level 0 since it has no ancestors).&lt;/p&gt;
 &lt;p&gt;&lt;img src="images/binary-tree-level.png"&gt;&lt;/p&gt;
-&lt;p&gt;An important observation is that a node at level &lt;span class="math"&gt;\(k\)&lt;/span&gt; has &lt;span class="math"&gt;\(k+1\)&lt;/span&gt; parent ancestors.&lt;/p&gt;
+&lt;p&gt;The number of nodes in a path from the root node to a node at level &lt;span class="math"&gt;\(k\)&lt;/span&gt; is &lt;span class="math"&gt;\(k+1\)&lt;/span&gt;. For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;At level 0&lt;/strong&gt;: There is 1 node in the path from root to level 0 (the root node).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;At level 1&lt;/strong&gt;: There are two nodes in a path from root to level 1.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;At level &lt;span class="math"&gt;\(k\)&lt;/span&gt;&lt;/strong&gt;: There are &lt;span class="math"&gt;\(k+1\)&lt;/span&gt; nodes in a path from root to level &lt;span class="math"&gt;\(k\)&lt;/span&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id="full-and-complete-binary-tree"&gt;Full And Complete Binary Tree&lt;a href="#full-and-complete-binary-tree" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A tree that is both &lt;em&gt;full and complete&lt;/em&gt;&lt;sup id="sf-maximum-height-of-red-black-tree-2-back"&gt;&lt;a href="#sf-maximum-height-of-red-black-tree-2" title="Full and complete binary trees are sometimes called perfect binary trees." class="simple-footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; has the following properties:&lt;/p&gt;
 &lt;ol&gt;
