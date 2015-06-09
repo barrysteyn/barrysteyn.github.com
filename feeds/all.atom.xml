@@ -1,5 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/all.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-05-11T00:00:00-07:00</updated><entry><title>Maximum Height Of A Red-Black Tree</title><link href="http://doctrina.org/maximum-height-of-red-black-tree.html" rel="alternate"></link><updated>2015-05-11T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-05-11:maximum-height-of-red-black-tree.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/all.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-06-04T00:00:00-07:00</updated><entry><title>Const Liffy Pattern For C++</title><link href="http://doctrina.org/Const-Liffy-Pattern.html" rel="alternate"></link><updated>2015-06-04T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-06-04:Const-Liffy-Pattern.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Immutable state has &lt;a href="http://www.drdobbs.com/cpp/practical-advantages-of-immutable-values/240163690"&gt;many advantages&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt;. Unfortunately, C++ is designed to easily mutate state. My colleague Vincent Lascaux shared a code snippet that tries to alleviate this problem by attempting to avoid normal variables in favor of using constants that are always initialized. I decided to name his pattern &lt;em&gt;const liffy&lt;/em&gt;...&lt;/p&gt;
+&lt;h2 id="background-knowledge"&gt;Background Knowledge&lt;a href="#background-knowledge" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/C%2B%2B11"&gt;C++ standard 11&lt;/a&gt;&lt;sup class="print"&gt;L2&lt;/sup&gt; introduced some amazing features to C++. Two such features are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;a href="http://en.cppreference.com/w/cpp/language/auto"&gt;auto&lt;/a&gt;&lt;sup class="print"&gt;L3&lt;/sup&gt; variable initializer.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://en.cppreference.com/w/cpp/language/lambda"&gt;Lambda functions&lt;/a&gt;&lt;sup class="print"&gt;L4&lt;/sup&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="auto-variable-initializer"&gt;Auto Variable initializer&lt;a href="#auto-variable-initializer" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The keyword &lt;em&gt;auto&lt;/em&gt; can be used to declare a variable. During compilation, the compiler will replace the &lt;em&gt;auto&lt;/em&gt; keyword using the rules for &lt;a href="http://en.cppreference.com/w/cpp/language/template_argument_deduction"&gt;template argument deduction&lt;/a&gt;&lt;sup class="print"&gt;L5&lt;/sup&gt; thereby ensuring type safety.&lt;/p&gt;
+&lt;p&gt;Standard modifiers for variables (like &amp;amp; and &lt;em&gt;const&lt;/em&gt;) are valid to put before &lt;em&gt;auto&lt;/em&gt;. For example, the following is perfectly legal:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;result_of_some_function&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;h3 id="lambda-functions"&gt;Lambda Functions&lt;a href="#lambda-functions" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A Lambda function is an unnamed function object capable of &lt;em&gt;capturing&lt;/em&gt; variables in scope. The syntax is as follows&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;[capture-list] (parameters) { body }&lt;/code&gt; &lt;sup id="sf-Const-Liffy-Pattern-1-back"&gt;&lt;a href="#sf-Const-Liffy-Pattern-1" title="This is not the only syntax for lambdas in C++, there are other syntaxesL6" class="simple-footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The capture list is very important. It specifies the way that variables declared outside the lambda are available within the lambda. if a lambda function uses a capture list specified by &lt;code&gt;[&amp;amp;]&lt;/code&gt;, then all variables declared in the block where the lambda is invoked is available to the lambda &lt;em&gt;as a reference&lt;/em&gt;. The &lt;em&gt;parameters&lt;/em&gt; are optional (in fact, no parameters are used in the &lt;em&gt;const liffy&lt;/em&gt; pattern).&lt;/p&gt;
+&lt;p&gt;For example, the following code uses a lambda function to &lt;em&gt;filter&lt;/em&gt; out all strings that do not contain the substring &lt;em&gt;"world"&lt;/em&gt;:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;word&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"world"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;vector&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;strings&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"hello"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"world"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"hello world"&lt;/span&gt;&lt;span class="p"&gt;)};&lt;/span&gt;
+&lt;span class="n"&gt;vector&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;results&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;for_each&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;strings&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;begin&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;strings&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;word&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;npos&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;results&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push_back&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;h1 id="the-const-liffy-pattern"&gt;The Const Liffy Pattern&lt;a href="#the-const-liffy-pattern" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Using lambda functions, we can initialize const variables by immediately invoking the lambda:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="n"&gt;here&lt;/span&gt;&lt;span class="p"&gt;...;&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;Note the invokation operator &lt;code&gt;()&lt;/code&gt; operator in the above snippet. JavaScript calls this pattern an &lt;a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression"&gt;immediately invoked function expression&lt;/a&gt;&lt;sup class="print"&gt;L7&lt;/sup&gt; commonly just called &lt;code&gt;iffy&lt;/code&gt;. I therefore named the pattern above &lt;em&gt;const liffy&lt;/em&gt;, with &lt;em&gt;liffy&lt;/em&gt; being short for &lt;em&gt;lambda iffy&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;const liffy&lt;/em&gt; pattern elegantly lets one use immutable state. Some examples should set things straight.&lt;/p&gt;
+&lt;h2 id="reading-a-variable-protected-by-a-mutex"&gt;Reading A Variable Protected By A Mutex&lt;a href="#reading-a-variable-protected-by-a-mutex" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Multithreaded programming requires the use of a &lt;a href="http://en.wikipedia.org/wiki/Mutual_exclusion"&gt;mutex&lt;/a&gt;&lt;sup class="print"&gt;L8&lt;/sup&gt; to guard against &lt;a href="http://en.wikipedia.org/wiki/Race_condition"&gt;race conditions&lt;/a&gt;&lt;sup class="print"&gt;L9&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Here is a generic example of reading a variable that is protected by a mutex:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;mutex&lt;/span&gt; &lt;span class="n"&gt;obj_mutex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;lock_guard&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;mutex&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;lock&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj_mutex&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;protected_variable&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;The code sample above suffers from the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The variable &lt;code&gt;instance&lt;/code&gt; starts off as being uninitialized (or in the above case, initialzed to what can be considered a bogus value: &lt;em&gt;nullptr&lt;/em&gt;).&lt;/li&gt;
+&lt;li&gt;Type information is lost: If &lt;code&gt;instance&lt;/code&gt; could be a reference instead of a pointer, &lt;em&gt;nullptr&lt;/em&gt; errors would never happen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Using the &lt;em&gt;const liffy&lt;/em&gt; pattern ameliorates the situation:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;lock_guard&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;mutex&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;lock&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj_mutex&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;protected_variable&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;In the above code sample, &lt;code&gt;instance&lt;/code&gt; is a constant reference that is initialized to the required value. All the issues mentioned in the first example have been solved.&lt;/p&gt;
+&lt;h2 id="creating-short-helper-functions"&gt;Creating Short Helper Functions&lt;a href="#creating-short-helper-functions" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Assume we have a &lt;em&gt;Shape&lt;/em&gt; class that is sub-classed with different types of shapes (e.g. circle, square). Given &lt;strong&gt;shapes&lt;/strong&gt;, a collection of &lt;em&gt;Shape&lt;/em&gt; objects, a render function will only draw red square or blue circles. That render function could look like this:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Shapes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="n"&gt;shouldDraw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;switch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;:&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Square&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;shouldDraw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;:&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Circle&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;shouldDraw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shouldDraw&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Draw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;In the above code snippet, the variable &lt;em&gt;shoulddraw&lt;/em&gt; is initialized to &lt;code&gt;false&lt;/code&gt; (which becomes the default of the switch statement). The &lt;code&gt;false&lt;/code&gt; value is then overwritten with the correct logic in the switch statement. But why intialize &lt;em&gt;shoulddraw&lt;/em&gt; to false?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;At the time of intialization, it is not known what the state of &lt;em&gt;shoulddraw&lt;/em&gt; should be. Setting it to &lt;code&gt;false&lt;/code&gt; does not really make sense.&lt;/li&gt;
+&lt;li&gt;A programmer is then forces to read the proceeding four lines of the switch statement to make sense of what &lt;em&gt;shoulddraw&lt;/em&gt; is. So in effect, one has to read these lines just to make sense of &lt;em&gt;shoulddraw&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Seeing as a &lt;em&gt;lambda&lt;/em&gt; function is really an anonymous helper function, the &lt;em&gt;const liffy&lt;/em&gt; pattern can help here as well:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Shapes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="n"&gt;shouldDraw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;switch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;:&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Square&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;:&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Circle&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="nl"&gt;default:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}();&lt;/span&gt;
+
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shouldDraw&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Draw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;With the const liffy pattern, &lt;em&gt;shoulddraw&lt;/em&gt; becomes a constant. The code is not only cleaner by using &lt;code&gt;false&lt;/code&gt; in the default of the switch statement, but it is also easier to reason about and understand.&lt;/p&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;a href="#conclusion" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;The &lt;em&gt;const liffy&lt;/em&gt; pattern is actually just the result of an anonymous block. It is done all the time in languages like &lt;a href="http://en.wikipedia.org/wiki/Scala_%28programming_language%29"&gt;scala&lt;/a&gt;&lt;sup class="print"&gt;L10&lt;/sup&gt; and is inspired by the discipline of functional languages. Using it allows for immutable state with all its &lt;a href="http://www.drdobbs.com/cpp/practical-advantages-of-immutable-values/240163690"&gt;advantages&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt;.&lt;/p&gt;&lt;h2 class="print"&gt;Links&lt;/h2&gt;&lt;div style="margin-left: 2.0em;" class="print"&gt;&lt;ol class="print-links"&gt;&lt;li&gt;http://www.drdobbs.com/cpp/practical-advantages-of-immutable-values/240163690&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/C%2B%2B11&lt;/li&gt;&lt;li&gt;http://en.cppreference.com/w/cpp/language/auto&lt;/li&gt;&lt;li&gt;http://en.cppreference.com/w/cpp/language/lambda&lt;/li&gt;&lt;li&gt;http://en.cppreference.com/w/cpp/language/template_argument_deduction&lt;/li&gt;&lt;li&gt;http://en.cppreference.com/w/cpp/language/lambda#Syntax&lt;/li&gt;&lt;li&gt;https://en.wikipedia.org/wiki/Immediately-invoked_function_expression&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Mutual_exclusion&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Race_condition&lt;/li&gt;&lt;li&gt;http://en.wikipedia.org/wiki/Scala_%28programming_language%29&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;ol class="simple-footnotes"&gt;&lt;li id="sf-Const-Liffy-Pattern-1"&gt;This is not the only syntax for lambdas in C++, there are other &lt;a href="http://en.cppreference.com/w/cpp/language/lambda#Syntax"&gt;syntaxes&lt;/a&gt;&lt;sup class="print"&gt;L6&lt;/sup&gt; &lt;a href="#sf-Const-Liffy-Pattern-1-back" class="simple-footnote-back"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</summary><category term="C++"></category><category term="Software Engineering"></category></entry><entry><title>Maximum Height Of A Red-Black Tree</title><link href="http://doctrina.org/maximum-height-of-red-black-tree.html" rel="alternate"></link><updated>2015-05-11T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-05-11:maximum-height-of-red-black-tree.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;My friend and colleague, &lt;a href="http://dome.hobbits.grus.uberspace.de/"&gt;Dominik Messinger&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt; was fortunate to learn about abstract data structures in high school&lt;sup id="sf-maximum-height-of-red-black-tree-1-back"&gt;&lt;a href="#sf-maximum-height-of-red-black-tree-1" title="He is German, so I think this is a nod to the excellent school system in Germany." class="simple-footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;. After chatting to him one day, the topic of red-black trees came up. He studied &lt;a href="http://en.wikipedia.org/wiki/AVL_tree"&gt;AVL trees&lt;/a&gt;&lt;sup class="print"&gt;L2&lt;/sup&gt; in depth at high school, but did not do the same for red-black trees. After this chat, I realized I had not formalized this topic in my mind either. So I decided to choose one topic and write about...&lt;/p&gt;
 &lt;p&gt;So here is an analysis of the maximum height of a red-black trees.&lt;/p&gt;
 &lt;h1 id="background-knowledge"&gt;Background Knowledge&lt;a href="#background-knowledge" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
