@@ -8,6 +8,14 @@ Status: draft
 
 # Background Knowledge
 
+## Notation
+I will use the following notation:
+
+\begin{array}{ll}
+h && \text{the height of node} \\
+n && \text{the number of nodes in a tree} \\
+\end{array}
+
 ## Tree Node Height
 A tree node's height is the number of edges in the longest downward path between the node and a leaf[ref]A leaf is a node with no children.[/ref].
 
@@ -37,7 +45,19 @@ The heapify algorithm is extremely simple:
        BubbleDown(idx)
        idx--
 
-## Proof That Heapify Time Is Linear
+## Proof That Heapify Is Linear
+
+First, an observation: In a binary tree, the number of nodes of a certain height
+is less than or equal to $\left\lceil\frac{n}{2^{h+1}}$. Using ceilings is awkward,
+and it can be removed by using $n+1$ in the numerator:
+
+$$
+\text{number of nodes of height }h \leq \frac{n+1}{2^{h+1}}
+$$
+
+The reason it works is because a full and complete binary tree is always odd, and
+therefore, $2^{h+1}$ will never divide $n$. Adding $1$ to $n$ will make it even,
+and therefore remove the need for the ceilings.
 
 \begin{align*}
 \text{Heapify for all }n\text{ nodes} & = \sum_{h=0}^{log_2n} n\cdot O(h) \\

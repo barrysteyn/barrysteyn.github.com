@@ -24,7 +24,7 @@ JINJA_FILTERS = {
 PATH = 'content'
 AUTHOR = u'Barry Steyn'
 SITENAME = u'Doctrina'
-SITEURL = u'http://doctrina'
+SITEURL = u'http://localhost:8000'
 
 # URL
 RELATIVE_URLS=False
@@ -82,7 +82,9 @@ MATH_JAX = {
     'indent': '1.0em',
     'linebreak_automatic':True,
     'latex_preview': '[math]',
-    'responsive': True
+    'responsive': True,
+    'align': 'left',
+    'indent': '1.0em'
 }
 
 #Sitemap plugin
