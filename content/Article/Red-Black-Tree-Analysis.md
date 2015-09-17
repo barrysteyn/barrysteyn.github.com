@@ -10,27 +10,27 @@ So here is an analysis of the maximum height of a red-black trees.
 
 # Background Knowledge
 
-## Tree Level
+## Tree Node Depth
 
-A node's level is the number of parent node ancestors the node has. Level is zero based (the root is at level 0 since it has no ancestors).
+A tree node's depth is the number of parent node ancestors the node has. Depth is zero based (the root is at depth 0 since it has no ancestors).
 
-{% img images/binary-tree-level.png %}
+{% img images/binary-tree-depth.png %}
 
-The number of nodes in a path from the root node to a node at level $k$ is $k+1$. For example:
+The number of nodes in a path from the root node to a node at depth $k$ is $k+1$. For example:
 
- * **At level 0**: There is 1 node in the path from root to level 0 (the root node).
- * **At level 1**: There are two nodes in a path from root to level 1.
- * **At level $k$**: There are $k+1$ nodes in a path from root to level $k$.
+ * **At depth 0**: There is 1 node in the path from root to depth 0 (the root node).
+ * **At depth 1**: There are two nodes in a path from root to depth 1.
+ * **At depth $k$**: There are $k+1$ nodes in a path from root to depth $k$.
 
 ## Full And Complete Binary Tree
 A tree that is both *full and complete*[ref]Full and complete binary trees are sometimes called *perfect binary trees*.[/ref] has the following properties:
 
  1. All non-leaf nodes have two children.
- 2. All leaf nodes are at the same level.
+ 2. All leaf nodes are at the same depth.
 
 {% img images/full-complete-binary-tree.png %}
 
-A full and complete binary tree with $n$ nodes and $k$ levels has the following relationship:
+A full and complete binary tree with $n$ nodes and maximum depth $k$ (the depth of the leaf nodes) has the following relationship:
 \begin{equation*}
 n = 2^{k+1}-1
 \end{equation*}
@@ -44,16 +44,16 @@ A red-black tree is a [binary search tree](http://en.wikipedia.org/wiki/Binary_s
   3. Every red node must either have zero or two black chilren.
   4. Every root-null path must have the same number of black nodes.
 
-### The Maximum Height Of A Red-Black Tree
-The maximum height of a red-black tree is the root-null path that contains the most number of nodes. Ironically, an examiniation of the shortest root-null path is needed to calculate the maximum height.
+### The Maximum Depth Of A Red-Black Tree
+The maximum depth of a red-black tree is the root-null path that contains the most number of nodes. Ironically, an examination of the shortest root-null path (the root-null path with the least number of nodes) is needed to calculate the maximum depth.
 
 #### Length Of The Shortest Root-Null Path
-By invariant 4, the *maximum number of black nodes* in any root-null path is restricted by the number of nodes in the *shortest* root-null path. Assume the shortest root-null path is at level $k$:
+By invariant 4, the *maximum number of black nodes* in any root-null path is restricted by the number of nodes in the *shortest* root-null path. Assume the shortest root-null path has depth $k$:
 
- * There are $k+1$ nodes in the root-null path at level $k$.
- * There is a *full* and *complete* binary subtree with $k$ levels.
+ * There are $k+1$ nodes in the root-null path at depth $k$.
+ * There is a *full* and *complete* binary subtree of depth $k$.
 
-For example, if the shortest root-null path is at level 2, the full and complete binary subtree would look like the image below:
+For example, if the shortest root-null path is at depth 2, the full and complete binary subtree would look like the image below:
 
 {% img images/full-complete-binary-subtree.png %}
 
