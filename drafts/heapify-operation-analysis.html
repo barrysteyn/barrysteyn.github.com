@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="theme/img/doctrina-icon.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="theme/img/apple-touch-icon-144-precomposed.png">
 
-    <title>Doctrina - 	Algorithm Analysis
+    <title>Doctrina - 	Heapify Analysis
 </title>
 
     <!-- Bootstrap Base CSS -->
@@ -47,7 +47,7 @@
             <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                         <div>
                             <ul class="nav navbar-nav">
-<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/notes.html"><span>Noteses</span></a></li> 
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/article.html"><span>Articles</span></a></li> 
                                 <li><a href="#comments"><span>Comments</span></a></li> 
                                 <li><a href="#footer"><span>Connect</span></a></li> 
                             </ul>
@@ -63,7 +63,7 @@
 	<section class="container-fluid title">
 	<div class="row">
 		<div class="col-md-12">
-			<h1><a href="" rel="bookmark" title="Permalink to Algorithm Analysis">	Algorithm Analysis
+			<h1><a href="" rel="bookmark" title="Permalink to Heapify Analysis">	Heapify Analysis
 </a></h1>
 			<span>
 				<a href="http://doctrina.org/index.html#about"><img src="http://doctrina.org/theme/img/me.jpg" class="img-rounded"></img></a>
@@ -79,7 +79,7 @@
 					<ul class="center-list">
 						<li class="print text-center" style="font-size: 1.5em; margin-top: 1.0em;"><strong>Barry Steyn</strong></li>
 						<li class="print text-center" style="margin-bottom: 0.5em">barry.steyn@gmail.com</li>
-						<li><b>Published</b>: 11  Apr  2013</li>
+						<li><b>Published</b>: 22  Jul  2015</li>
 					</ul>
 				</div>
 		</div>
@@ -90,25 +90,25 @@
 		<span class="toctitle">Share</span>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Algorithm%20Analysis&url=http%3A//doctrina.org/drafts/Algorithm-Analysis.html&via=">
+	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Heapify%20Analysis&url=http%3A//doctrina.org/drafts/heapify-operation-analysis.html&via=">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
 	    </a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/drafts/Algorithm-Analysis.html">
+		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/drafts/heapify-operation-analysis.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/drafts/Algorithm-Analysis.html">
+		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/drafts/heapify-operation-analysis.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/drafts/Algorithm-Analysis.html&title=Algorithm%20Analysis">
+	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/drafts/heapify-operation-analysis.html&title=Heapify%20Analysis">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
 	    </a>
@@ -118,43 +118,38 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="algorithm-analysis">Algorithm Analysis<a class="headerlink" href="#algorithm-analysis" title="Permanent link"></a></h1>
-<h2 id="aymptotic-notation-big-oh">Aymptotic Notation: Big Oh<a class="headerlink" href="#aymptotic-notation-big-oh" title="Permanent link"></a></h2>
-<p>Note: These definitions are not rigorous but should serve for interview purposes</p>
+		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
+<h1 id="background-knowledge">Background Knowledge<a href="#background-knowledge" title="Permanent link" class="headerlink"></a></h1>
+<h2 id="tree-node-height">Tree Node Height<a href="#tree-node-height" title="Permanent link" class="headerlink"></a></h2>
+<p>A tree node's height is the number of edges in the longest downward path between the node and a leaf<sup id="sf-heapify-operation-analysis-1-back"><a href="#sf-heapify-operation-analysis-1" title="A leaf is a node with no children." class="simple-footnote">1</a></sup>.</p>
+<h3 id="lemma-maximum-number-of-nodes-of-height-h">Lemma: Maximum number of nodes of height <span class="math">\(h\)</span><a href="#lemma-maximum-number-of-nodes-of-height-h" title="Permanent link" class="headerlink"></a></h3>
+<h2 id="a-heap">A Heap<a href="#a-heap" title="Permanent link" class="headerlink"></a></h2>
 <ul>
-<li><span class="math">\(f(n) = O(g(n)) \Rightarrow f(n) \text{ is bounded above by } g(n)\)</span> <ul>
-<li><span class="math">\(f(n) \leq c\cdot g(n) \text{ for some constant } c\)</span></li>
+<li>Almost complete binary tree</li>
+<li>Heap property: key[x] &lt;= all keys of x's children</li>
+<li>Implementation needs a random access list =&gt; array</li>
 </ul>
-</li>
-<li><span class="math">\(f(n) = \Omega(g(n)) \Rightarrow f(n) \text{ is bounded below by } g(n)\)</span><ul>
-<li><span class="math">\(f(n) \geq c\cdot g(n) \text{ for some constant } c\)</span></li>
+<h3 id="heap-operations">Heap Operations<a href="#heap-operations" title="Permanent link" class="headerlink"></a></h3>
+<ul>
+<li>calculate a node's parent</li>
+<li>calculate a node's children</li>
+<li>bubble down</li>
 </ul>
-</li>
-<li><span class="math">\(f(n) = \Theta(g(n)) \Rightarrow f(n) \text{ is bounded above and below by } g(n)\)</span> <ul>
-<li><span class="math">\(c_0\cdot g(n) \leq f(n) \leq c_1\cdot g(n) \text{ for constants } c_0, c_1\)</span></li>
-</ul>
-</li>
-</ul>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link"></a></h3>
-<p>Is <span class="math">\((x + y)^2 = O(x^2 + y^2)\)</span>?</p>
-<p>Expand <span class="math">\((x + y)^2\)</span> to <span class="math">\(x^2 + 2xy + y^2\)</span>, which contains an extra term, namely <span class="math">\(2xy\)</span>. There are two scenarios: <span class="math">\(x &lt; y\)</span> or <span class="math">\(y &lt; x\)</span>. In either case, <span class="math">\(2xy \leq 2(x^2 + y^2)\)</span>. So <span class="math">\((x + y)^2 \leq 3\cdot (x^2 + y^2) \Rightarrow (x + y)^2 = O(x^2 + y^2)\)</span>.</p>
-<h2 id="growth-rates">Growth Rates<a class="headerlink" href="#growth-rates" title="Permanent link"></a></h2>
-<p>Important to know that:</p>
-<p><center> <span class="math">\(n! \gg 2^n \gg n^3 \gg n^2 \gg n\cdot log n \gg n \gg log n \gg 1\)</span></center></p>
-<h3 id="example-of-n">Example of <span class="math">\(n!\)</span><a class="headerlink" href="#example-of-n" title="Permanent link"></a></h3>
-<h3 id="example-of-2n">Example of <span class="math">\(2^n\)</span><a class="headerlink" href="#example-of-2n" title="Permanent link"></a></h3>
-<p>A recursive definition of the Fibonacci series as presented below:
-<script src="https://gist.github.com/barrysteyn/5413430.js"></script>
-Note: There are more efficient ways of calculating Fibonacci series.</p>
-<h3 id="example-of-n3">Example of <span class="math">\(n^3\)</span><a class="headerlink" href="#example-of-n3" title="Permanent link"></a></h3>
-<h3 id="example-of-n2">Example of <span class="math">\(n^2\)</span><a class="headerlink" href="#example-of-n2" title="Permanent link"></a></h3>
-<h3 id="example-of-ncdot-log-n">Example of <span class="math">\(n\cdot log n\)</span><a class="headerlink" href="#example-of-ncdot-log-n" title="Permanent link"></a></h3>
-<p>The canonical example is <a href="">Merge Sort</a></p>
-<h3 id="example-of-n_1">Example of <span class="math">\(n\)</span><a class="headerlink" href="#example-of-n_1" title="Permanent link"></a></h3>
-<h3 id="example-of-log-n">Example of <span class="math">\(log n\)</span><a class="headerlink" href="#example-of-log-n" title="Permanent link"></a></h3>
-<p>Binary search.</p>
-<h3 id="example-of-1">Example of <span class="math">\(1\)</span><a class="headerlink" href="#example-of-1" title="Permanent link"></a></h3>
-<p>Array index access.</p>
+<h1 id="heapify">Heapify<a href="#heapify" title="Permanent link" class="headerlink"></a></h1>
+<h2 id="algorithm">Algorithm<a href="#algorithm" title="Permanent link" class="headerlink"></a></h2>
+<p>The heapify algorithm is extremely simple:</p>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre>Heap = arbitrary array
+idx = (Heap.size()-1)/2
+while (idx &gt; 0)
+   BubbleDown(idx)
+   idx--
+</pre></div>
+</td></tr></tbody></table>
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -211,7 +206,7 @@ Note: There are more efficient ways of calculating Fibonacci series.</p>
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script>
+</script><ol class="simple-footnotes"><li id="sf-heapify-operation-analysis-1">A leaf is a node with no children. <a href="#sf-heapify-operation-analysis-1-back" class="simple-footnote-back">↩</a></li></ol>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.
@@ -229,7 +224,7 @@ Note: There are more efficient ways of calculating Fibonacci series.</p>
 					<div class="content-border">
 						<h2>Comments</h2>
         				<div class="divider-grey"></div>
-						<a id="disqus" href="http://doctrina.org/drafts/Algorithm-Analysis.html#disqus_thread">0 Comments</a>
+						<a id="disqus" href="http://doctrina.org/drafts/heapify-operation-analysis.html#disqus_thread">0 Comments</a>
 						<div id="disqus_thread"></div>
 					</div>
 			    </div>
@@ -305,8 +300,8 @@ Note: There are more efficient ways of calculating Fibonacci series.</p>
 
 		var disqus = {
 			shortname: 'doctrina',
-			identifier: 'http://doctrina.org/drafts/Algorithm-Analysis.html',
-			url: 'http://doctrina.org/drafts/Algorithm-Analysis.html',
+			identifier: 'http://doctrina.org/drafts/heapify-operation-analysis.html',
+			url: 'http://doctrina.org/drafts/heapify-operation-analysis.html',
 			developer: 0
 		};
 

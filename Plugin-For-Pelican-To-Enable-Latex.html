@@ -126,7 +126,7 @@ writing equations in by using <code>\begin{equation}...\end{equation}</code>.</p
 <h2 id="installation">Installation<a href="#installation" title="Permanent link" class="headerlink"></a></h2>
 <p>To enable, ensure that <code>latex.py</code> is put somewhere that is accessible.
 Then use as follows by adding the following to your settings.py:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">"latex"</span><span class="p">]</span>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>PLUGINS = ["latex"]
 </pre></div>
 </td></tr></tbody></table>
 
@@ -136,7 +136,7 @@ there. An easy way to find where pelican is installed is to verbose list the
 available themes by typing <code>pelican-themes -l -v</code>. </p>
 <p>Once the pelican folder is found, copy <code>latex.py</code> to the <code>plugins</code> folder. Then 
 add to settings.py like this:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">"pelican.plugins.latex"</span><span class="p">]</span>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>PLUGINS = ["pelican.plugins.latex"]
 </pre></div>
 </td></tr></tbody></table>
 
@@ -153,7 +153,7 @@ between the <code>&lt;head&gt;</code> parameters (for the NotMyIdea template, th
 <h2 id="usage">Usage<a href="#usage" title="Permanent link" class="headerlink"></a></h2>
 <p>Latex will be embedded in every article. If however you want latex only for
 selected articles, then in settings.py, add</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">LATEX</span> <span class="o">=</span> <span class="err">'</span><span class="n">article</span><span class="err">'</span>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>LATEX = 'article'
 </pre></div>
 </td></tr></tbody></table>
 

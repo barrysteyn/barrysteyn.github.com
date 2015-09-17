@@ -211,11 +211,11 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">shape</span> <span class="o">:</span><span class="n">Shapes</span><span class="p">)</span>
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">shape</span> <span class="p">:</span><span class="n">Shapes</span><span class="p">)</span>
   <span class="kt">bool</span> <span class="n">shouldDraw</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
   <span class="k">switch</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">ShapeType</span>:<span class="o">:</span><span class="n">Square</span><span class="o">:</span> <span class="n">shouldDraw</span> <span class="o">=</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">red</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">ShapeType</span>:<span class="o">:</span><span class="n">Circle</span><span class="o">:</span> <span class="n">shouldDraw</span> <span class="o">=</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">blue</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">ShapeType</span><span class="o">::</span><span class="nl">Square</span><span class="p">:</span> <span class="n">shouldDraw</span> <span class="o">=</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">red</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">ShapeType</span><span class="o">::</span><span class="nl">Circle</span><span class="p">:</span> <span class="n">shouldDraw</span> <span class="o">=</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">blue</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">shouldDraw</span><span class="p">)</span> <span class="n">Draw</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
 <span class="p">}</span>
@@ -238,12 +238,12 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">shape</span> <span class="o">:</span><span class="n">Shapes</span><span class="p">)</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">shape</span> <span class="p">:</span><span class="n">Shapes</span><span class="p">)</span>
   <span class="k">const</span> <span class="kt">bool</span> <span class="n">shouldDraw</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span>
     <span class="k">switch</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">case</span> <span class="n">ShapeType</span>:<span class="o">:</span><span class="n">Square</span><span class="o">:</span> <span class="k">return</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">red</span><span class="p">;</span>
-      <span class="k">case</span> <span class="n">ShapeType</span>:<span class="o">:</span><span class="n">Circle</span><span class="o">:</span> <span class="k">return</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">blue</span><span class="p">;</span>
-      <span class="nl">default:</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+      <span class="k">case</span> <span class="n">ShapeType</span><span class="o">::</span><span class="nl">Square</span><span class="p">:</span> <span class="k">return</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">red</span><span class="p">;</span>
+      <span class="k">case</span> <span class="n">ShapeType</span><span class="o">::</span><span class="nl">Circle</span><span class="p">:</span> <span class="k">return</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">blue</span><span class="p">;</span>
+      <span class="k">default</span><span class="o">:</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}();</span>
 

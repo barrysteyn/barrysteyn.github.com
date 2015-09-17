@@ -148,14 +148,14 @@
 <p>Object Literals do not look like traditional objects. In fact, Object Literals look more like a structure that can hold things.  There is however one difference between a JavaScript object and a structure that can hold things: All JavaScript objects have a <em>prototype</em> linking.</p>
 <h2 id="the-prototype-link">The Prototype Link<a href="#the-prototype-link" title="Permanent link" class="headerlink"></a></h2>
 <p>Every Object has a <em>hidden</em> link to another object called a <em>prototype link</em>. Objects by default are linked to the object <code>Object.prototype</code>. The prototype link is only used when retrieving property values from an object (it is not touched when updating an object). When retrieving a property value from an object, if it cannot be found, it will look for it in the prototype object that it is linked to. For example:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">person</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="c1">// undefined - property age does not exist</span>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>person.age; // undefined - property age does not exist
 </pre></div>
 </td></tr></tbody></table>
 
 <p>JavaScript tried to find the property age on person, and it could not. So then it tried to find it on <code>Object.prototype</code> and it could not find it either. So it returned "<em>undefined</em>".</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">Object</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">56</span><span class="p">;</span> <span class="c1">// Every object is linked to Object.prototype by default</span>
-<span class="n">person</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="c1">// 56</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre>Object.prototype.age = 56; // Every object is linked to Object.prototype by default
+person.age; // 56
 </pre></div>
 </td></tr></tbody></table>
 
@@ -263,8 +263,8 @@
 
 <p>In the above, the <code>alien</code> and <code>human</code> objects are constructed from the function <code>Entity</code> via the <em>constructor invocation pattern</em> that is initiated by putting the <code>new</code> keyword in front of the function name. When <code>alien</code> is constructed, <code>Entity</code>'s prototype property has not been altered, and so <code>alien</code> is linked to <code>Object.prototype</code>. But when constructing <code>human</code>, <code>Entity</code>'s prototype property was altered to species, and so the prototype object linked to <code>human</code> is <code>species</code>, which in turn is itself linked to <code>Object.prototype</code>:</p>
 <table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">alien</span><span class="p">.</span><span class="n">species</span><span class="p">;</span> <span class="c1">// undefined</span>
-<span class="n">human</span><span class="p">.</span><span class="n">species</span><span class="p">;</span> <span class="c1">// human</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre>alien.species; // undefined
+human.species; // human
 </pre></div>
 </td></tr></tbody></table>
 
@@ -341,16 +341,16 @@
  9
 10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1">//Object Literal</span>
-<span class="k">var</span> <span class="n">objectLiteral</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">"property1"</span><span class="o">:</span><span class="s">"value1"</span>
+<span class="kd">var</span> <span class="nx">objectLiteral</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"property1"</span><span class="o">:</span><span class="s2">"value1"</span>
 <span class="p">};</span>
 
 <span class="c1">//Function Object</span>
-<span class="k">var</span> <span class="n">functionObject</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">functionObject</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 <span class="p">}</span>
 
 <span class="c1">//Object From Function</span>
-<span class="k">var</span> <span class="n">objectFromFunction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">functionObject</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">objectFromFunction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">functionObject</span><span class="p">();</span>
 </pre></div>
 </td></tr></tbody></table>
 

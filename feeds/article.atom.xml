@@ -92,11 +92,11 @@
 5
 6
 7
-8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Shapes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nl"&gt;shape&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Shapes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="n"&gt;shouldDraw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
   &lt;span class="k"&gt;switch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;:&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Square&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;shouldDraw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;:&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Circle&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;shouldDraw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="nl"&gt;Square&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;shouldDraw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="nl"&gt;Circle&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;shouldDraw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
   &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shouldDraw&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Draw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
@@ -119,12 +119,12 @@
  8
  9
 10
-11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Shapes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nl"&gt;shape&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Shapes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="n"&gt;shouldDraw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="k"&gt;switch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-      &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;:&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Square&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;:&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Circle&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="nl"&gt;default:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="nl"&gt;Square&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;ShapeType&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="nl"&gt;Circle&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
   &lt;span class="p"&gt;}();&lt;/span&gt;
 
@@ -139,23 +139,23 @@
 &lt;p&gt;My friend and colleague, &lt;a href="http://dome.hobbits.grus.uberspace.de/"&gt;Dominik Messinger&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt; was fortunate to learn about abstract data structures in high school&lt;sup id="sf-maximum-height-of-red-black-tree-1-back"&gt;&lt;a href="#sf-maximum-height-of-red-black-tree-1" title="He is German, so I think this is a nod to the excellent school system in Germany." class="simple-footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;. After chatting to him one day, the topic of red-black trees came up. He studied &lt;a href="http://en.wikipedia.org/wiki/AVL_tree"&gt;AVL trees&lt;/a&gt;&lt;sup class="print"&gt;L2&lt;/sup&gt; in depth at high school, but did not do the same for red-black trees. After this chat, I realized I had not formalized this topic in my mind either. So I decided to choose one topic and write about...&lt;/p&gt;
 &lt;p&gt;So here is an analysis of the maximum height of a red-black trees.&lt;/p&gt;
 &lt;h1 id="background-knowledge"&gt;Background Knowledge&lt;a href="#background-knowledge" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id="tree-level"&gt;Tree Level&lt;a href="#tree-level" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;A node's level is the number of parent node ancestors the node has. Level is zero based (the root is at level 0 since it has no ancestors).&lt;/p&gt;
-&lt;p&gt;&lt;img src="images/binary-tree-level.png"&gt;&lt;/p&gt;
-&lt;p&gt;The number of nodes in a path from the root node to a node at level &lt;span class="math"&gt;\(k\)&lt;/span&gt; is &lt;span class="math"&gt;\(k+1\)&lt;/span&gt;. For example:&lt;/p&gt;
+&lt;h2 id="tree-node-depth"&gt;Tree Node Depth&lt;a href="#tree-node-depth" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A tree node's depth is the number of parent node ancestors the node has. Depth is zero based (the root is at depth 0 since it has no ancestors).&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/binary-tree-depth.png"&gt;&lt;/p&gt;
+&lt;p&gt;The number of nodes in a path from the root node to a node at depth &lt;span class="math"&gt;\(k\)&lt;/span&gt; is &lt;span class="math"&gt;\(k+1\)&lt;/span&gt;. For example:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;At level 0&lt;/strong&gt;: There is 1 node in the path from root to level 0 (the root node).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;At level 1&lt;/strong&gt;: There are two nodes in a path from root to level 1.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;At level &lt;span class="math"&gt;\(k\)&lt;/span&gt;&lt;/strong&gt;: There are &lt;span class="math"&gt;\(k+1\)&lt;/span&gt; nodes in a path from root to level &lt;span class="math"&gt;\(k\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;At depth 0&lt;/strong&gt;: There is 1 node in the path from root to depth 0 (the root node).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;At depth 1&lt;/strong&gt;: There are two nodes in a path from root to depth 1.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;At depth &lt;span class="math"&gt;\(k\)&lt;/span&gt;&lt;/strong&gt;: There are &lt;span class="math"&gt;\(k+1\)&lt;/span&gt; nodes in a path from root to depth &lt;span class="math"&gt;\(k\)&lt;/span&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="full-and-complete-binary-tree"&gt;Full And Complete Binary Tree&lt;a href="#full-and-complete-binary-tree" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A tree that is both &lt;em&gt;full and complete&lt;/em&gt;&lt;sup id="sf-maximum-height-of-red-black-tree-2-back"&gt;&lt;a href="#sf-maximum-height-of-red-black-tree-2" title="Full and complete binary trees are sometimes called perfect binary trees." class="simple-footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; has the following properties:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;All non-leaf nodes have two children.&lt;/li&gt;
-&lt;li&gt;All leaf nodes are at the same level.&lt;/li&gt;
+&lt;li&gt;All leaf nodes are at the same depth.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src="images/full-complete-binary-tree.png"&gt;&lt;/p&gt;
-&lt;p&gt;A full and complete binary tree with &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes and &lt;span class="math"&gt;\(k\)&lt;/span&gt; levels has the following relationship:
+&lt;p&gt;A full and complete binary tree with &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes and maximum depth &lt;span class="math"&gt;\(k\)&lt;/span&gt; (the depth of the leaf nodes) has the following relationship:
 &lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation*}
 n = 2^{k+1}-1
@@ -169,15 +169,15 @@ n = 2^{k+1}-1
 &lt;li&gt;Every red node must either have zero or two black chilren.&lt;/li&gt;
 &lt;li&gt;Every root-null path must have the same number of black nodes.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id="the-maximum-height-of-a-red-black-tree"&gt;The Maximum Height Of A Red-Black Tree&lt;a href="#the-maximum-height-of-a-red-black-tree" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;The maximum height of a red-black tree is the root-null path that contains the most number of nodes. Ironically, an examiniation of the shortest root-null path is needed to calculate the maximum height.&lt;/p&gt;
+&lt;h3 id="the-maximum-depth-of-a-red-black-tree"&gt;The Maximum Depth Of A Red-Black Tree&lt;a href="#the-maximum-depth-of-a-red-black-tree" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The maximum depth of a red-black tree is the root-null path that contains the most number of nodes. Ironically, an examination of the shortest root-null path (the root-null path with the least number of nodes) is needed to calculate the maximum depth.&lt;/p&gt;
 &lt;h4 id="length-of-the-shortest-root-null-path"&gt;Length Of The Shortest Root-Null Path&lt;a href="#length-of-the-shortest-root-null-path" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;By invariant 4, the &lt;em&gt;maximum number of black nodes&lt;/em&gt; in any root-null path is restricted by the number of nodes in the &lt;em&gt;shortest&lt;/em&gt; root-null path. Assume the shortest root-null path is at level &lt;span class="math"&gt;\(k\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;By invariant 4, the &lt;em&gt;maximum number of black nodes&lt;/em&gt; in any root-null path is restricted by the number of nodes in the &lt;em&gt;shortest&lt;/em&gt; root-null path. Assume the shortest root-null path has depth &lt;span class="math"&gt;\(k\)&lt;/span&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;There are &lt;span class="math"&gt;\(k+1\)&lt;/span&gt; nodes in the root-null path at level &lt;span class="math"&gt;\(k\)&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;There is a &lt;em&gt;full&lt;/em&gt; and &lt;em&gt;complete&lt;/em&gt; binary subtree with &lt;span class="math"&gt;\(k\)&lt;/span&gt; levels.&lt;/li&gt;
+&lt;li&gt;There are &lt;span class="math"&gt;\(k+1\)&lt;/span&gt; nodes in the root-null path at depth &lt;span class="math"&gt;\(k\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;There is a &lt;em&gt;full&lt;/em&gt; and &lt;em&gt;complete&lt;/em&gt; binary subtree of depth &lt;span class="math"&gt;\(k\)&lt;/span&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For example, if the shortest root-null path is at level 2, the full and complete binary subtree would look like the image below:&lt;/p&gt;
+&lt;p&gt;For example, if the shortest root-null path is at depth 2, the full and complete binary subtree would look like the image below:&lt;/p&gt;
 &lt;p&gt;&lt;img src="images/full-complete-binary-subtree.png"&gt;&lt;/p&gt;
 &lt;p&gt;Suppose the full and complete binary subtree has &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes, then using the fact that &lt;span class="math"&gt;\(n=2^{k+1}-1\)&lt;/span&gt;, the number of nodes in the root-null path (i.e. &lt;span class="math"&gt;\(k+1\)&lt;/span&gt;) is logarithmic in &lt;span class="math"&gt;\(n\)&lt;/span&gt;:&lt;/p&gt;
 &lt;div class="math"&gt;\begin{array}{ccc}
@@ -209,11 +209,13 @@ k+1 &amp;amp; = &amp;amp; \log_2(n+1)
         indent = (screen.width &lt; 768) ? "0em" : indent;
         linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
     }
-    
+
     var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -223,6 +225,7 @@ k+1 &amp;amp; = &amp;amp; \log_2(n+1)
         "    displayAlign: '"+ align +"'," +
         "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
         "        displayMath: [ ['$$','$$'] ]," +
@@ -331,11 +334,13 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         indent = (screen.width &lt; 768) ? "0em" : indent;
         linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
     }
-    
+
     var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -345,6 +350,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         "    displayAlign: '"+ align +"'," +
         "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
         "        displayMath: [ ['$$','$$'] ]," +
@@ -414,11 +420,13 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         indent = (screen.width &lt; 768) ? "0em" : indent;
         linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
     }
-    
+
     var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -428,6 +436,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         "    displayAlign: '"+ align +"'," +
         "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
         "        displayMath: [ ['$$','$$'] ]," +
@@ -508,11 +517,13 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         indent = (screen.width &lt; 768) ? "0em" : indent;
         linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
     }
-    
+
     var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -522,6 +533,7 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
         "    displayAlign: '"+ align +"'," +
         "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
         "        displayMath: [ ['$$','$$'] ]," +
@@ -571,11 +583,13 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         indent = (screen.width &lt; 768) ? "0em" : indent;
         linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
     }
-    
+
     var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -585,6 +599,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         "    displayAlign: '"+ align +"'," +
         "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
         "        displayMath: [ ['$$','$$'] ]," +
@@ -651,11 +666,13 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         indent = (screen.width &lt; 768) ? "0em" : indent;
         linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
     }
-    
+
     var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -665,6 +682,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
         "    displayAlign: '"+ align +"'," +
         "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
         "        displayMath: [ ['$$','$$'] ]," +
@@ -719,11 +737,11 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 2
 3
 4
-5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;//Outer loop&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;//Inner loop&lt;/span&gt;
-        &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Hello World"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;for (i=0; i &amp;lt; 4; i++) { //Outer loop
+    for (i=0; i &amp;lt; 2; i++) { //Inner loop
+        document.write("Hello World"); 
+    }
+}
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 
@@ -1047,7 +1065,7 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;p&gt;Method invocation is identified when a function is preceded by &lt;code&gt;object.&lt;/code&gt;, where &lt;code&gt;object&lt;/code&gt; is the name of some object. JavaScript will set the &lt;code&gt;this&lt;/code&gt; parameter to the object where the method was invoked on. In the example above, &lt;code&gt;this&lt;/code&gt; would be set to &lt;code&gt;obj&lt;/code&gt;. JavaScript binds &lt;code&gt;this&lt;/code&gt; at execution (also known as &lt;em&gt;late binding&lt;/em&gt;).&lt;/p&gt;
 &lt;h2 id="function-invocation"&gt;Function Invocation &lt;a id="fi"&gt;&lt;/a&gt;&lt;a href="#function-invocation" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Function invocation is performed by invoking a function using &lt;code&gt;()&lt;/code&gt;:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//5&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;add(2,3); //5
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 
@@ -1250,14 +1268,14 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;p&gt;Object Literals do not look like traditional objects. In fact, Object Literals look more like a structure that can hold things.  There is however one difference between a JavaScript object and a structure that can hold things: All JavaScript objects have a &lt;em&gt;prototype&lt;/em&gt; linking.&lt;/p&gt;
 &lt;h2 id="the-prototype-link"&gt;The Prototype Link&lt;a href="#the-prototype-link" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Every Object has a &lt;em&gt;hidden&lt;/em&gt; link to another object called a &lt;em&gt;prototype link&lt;/em&gt;. Objects by default are linked to the object &lt;code&gt;Object.prototype&lt;/code&gt;. The prototype link is only used when retrieving property values from an object (it is not touched when updating an object). When retrieving a property value from an object, if it cannot be found, it will look for it in the prototype object that it is linked to. For example:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// undefined - property age does not exist&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;person.age; // undefined - property age does not exist
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 
 &lt;p&gt;JavaScript tried to find the property age on person, and it could not. So then it tried to find it on &lt;code&gt;Object.prototype&lt;/code&gt; and it could not find it either. So it returned "&lt;em&gt;undefined&lt;/em&gt;".&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prototype&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;56&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Every object is linked to Object.prototype by default&lt;/span&gt;
-&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// 56&lt;/span&gt;
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;Object.prototype.age = 56; // Every object is linked to Object.prototype by default
+person.age; // 56
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 
@@ -1365,8 +1383,8 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 
 &lt;p&gt;In the above, the &lt;code&gt;alien&lt;/code&gt; and &lt;code&gt;human&lt;/code&gt; objects are constructed from the function &lt;code&gt;Entity&lt;/code&gt; via the &lt;em&gt;constructor invocation pattern&lt;/em&gt; that is initiated by putting the &lt;code&gt;new&lt;/code&gt; keyword in front of the function name. When &lt;code&gt;alien&lt;/code&gt; is constructed, &lt;code&gt;Entity&lt;/code&gt;'s prototype property has not been altered, and so &lt;code&gt;alien&lt;/code&gt; is linked to &lt;code&gt;Object.prototype&lt;/code&gt;. But when constructing &lt;code&gt;human&lt;/code&gt;, &lt;code&gt;Entity&lt;/code&gt;'s prototype property was altered to species, and so the prototype object linked to &lt;code&gt;human&lt;/code&gt; is &lt;code&gt;species&lt;/code&gt;, which in turn is itself linked to &lt;code&gt;Object.prototype&lt;/code&gt;:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;alien&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;species&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// undefined&lt;/span&gt;
-&lt;span class="n"&gt;human&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;species&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// human&lt;/span&gt;
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;alien.species; // undefined
+human.species; // human
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 
@@ -1443,16 +1461,16 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
  9
 10
 11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;//Object Literal&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;objectLiteral&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s"&gt;"property1"&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;"value1"&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;objectLiteral&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;"property1"&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;"value1"&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 
 &lt;span class="c1"&gt;//Function Object&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;functionObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;functionObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="c1"&gt;//Object From Function&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;objectFromFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;functionObject&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;objectFromFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;functionObject&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 

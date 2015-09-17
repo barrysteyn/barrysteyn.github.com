@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/</loc>
-<lastmod>2015-06-09T09:26:57-00:00</lastmod>
+<lastmod>2015-09-17T07:10:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/archives.html</loc>
-<lastmod>2015-06-09T09:26:57-00:00</lastmod>
+<lastmod>2015-09-17T07:10:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/tags.html</loc>
-<lastmod>2015-06-09T09:26:57-00:00</lastmod>
+<lastmod>2015-09-17T07:10:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/categories.html</loc>
-<lastmod>2015-06-09T09:26:57-00:00</lastmod>
+<lastmod>2015-09-17T07:10:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/pages/resume.html</loc>
-<lastmod>2015-06-09T09:26:57-00:00</lastmod>
+<lastmod>2015-09-17T07:10:56-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -214,15 +214,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://doctrina.org/tag/development.html</loc>
-<lastmod>2012-12-19T00:00:00-08:12</lastmod>
+<loc>http://doctrina.org/tag/datastructures.html</loc>
+<lastmod>2015-05-11T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://doctrina.org/tag/datastructures.html</loc>
-<lastmod>2015-05-11T00:00:00-08:12</lastmod>
+<loc>http://doctrina.org/tag/development.html</loc>
+<lastmod>2012-12-19T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -291,15 +291,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://doctrina.org/tag/computer-science.html</loc>
-<lastmod>2013-03-16T00:00:00-08:12</lastmod>
+<loc>http://doctrina.org/tag/red-black-tree.html</loc>
+<lastmod>2015-05-11T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://doctrina.org/tag/software.html</loc>
-<lastmod>2013-03-16T00:00:00-08:12</lastmod>
+<loc>http://doctrina.org/tag/mathematical_nonsense.html</loc>
+<lastmod>2013-03-02T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -312,8 +312,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://doctrina.org/tag/red-black-tree.html</loc>
-<lastmod>2015-05-11T00:00:00-08:12</lastmod>
+<loc>http://doctrina.org/tag/computer-science.html</loc>
+<lastmod>2013-03-16T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -326,8 +326,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://doctrina.org/tag/mathematical_nonsense.html</loc>
-<lastmod>2013-03-02T00:00:00-08:12</lastmod>
+<loc>http://doctrina.org/tag/software.html</loc>
+<lastmod>2013-03-16T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
