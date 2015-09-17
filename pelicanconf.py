@@ -78,6 +78,8 @@ PLUGINS = [
 
 #Render Math Plugin
 MATH_JAX = {
+    'align': 'left',
+    'indent': '1.0em',
     'linebreak_automatic':True,
     'latex_preview': '[math]',
     'responsive': True
