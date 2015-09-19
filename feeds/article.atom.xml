@@ -1,5 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-06-04T00:00:00-07:00</updated><entry><title>Const Liffy Pattern For C++</title><link href="http://doctrina.org/Const-Liffy-Pattern.html" rel="alternate"></link><updated>2015-06-04T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-06-04:Const-Liffy-Pattern.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-09-17T00:00:00-07:00</updated><entry><title>Maximum Amount Of Nodes Of A Certain Height</title><link href="http://doctrina.org/nodes-of-certain-height.html" rel="alternate"></link><updated>2015-09-17T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-09-17:nodes-of-certain-height.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Given a binary tree with &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes, there can be at most &lt;span class="math"&gt;\(\left\lceil \frac{n}{2^{h+1}} \right\rceil\)&lt;/span&gt; nodes with height &lt;span class="math"&gt;\(h\)&lt;/span&gt;. Here follows a proof&lt;sup id="sf-nodes-of-certain-height-1-back"&gt;&lt;a href="#sf-nodes-of-certain-height-1" title="This proof is not my own, I found the main ideas by doing a Google Search. Unfortunately, I cannot find who to acknowledge, so if this looks familiar, please shout" class="simple-footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h1 id="background-knowledge"&gt;Background Knowledge&lt;a href="#background-knowledge" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="tree-height"&gt;Tree Height&lt;a href="#tree-height" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In a binary tree, &lt;em&gt;height&lt;/em&gt; of a node is defined as the number of edges in &lt;em&gt;the longest path&lt;/em&gt; from that node to a leaf node. Leaf nodes are therefore at height 0, while the root node has the largest height&lt;/p&gt;
+&lt;h2 id="max-number-of-leaves"&gt;Max Number Of Leaves&lt;a href="#max-number-of-leaves" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;For for a tree with &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes, there can be at most &lt;span class="math"&gt;\(\left\lceil\frac{n}{2}\right\rceil\)&lt;/span&gt; &lt;em&gt;leaf nodes&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id="notation"&gt;Notation&lt;a href="#notation" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The following notation will be used:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{array}{lcl}
+T &amp;amp; := &amp;amp; \text{tree of height } h \\
+T^{'} &amp;amp; := &amp;amp; \text{tree of height } h-1 \\
+n &amp;amp; := &amp;amp; \text{the number of nodes in } T \\
+n^{'} &amp;amp; := &amp;amp; \text{the number of nodes in } T^{'} \\
+N_h &amp;amp; := &amp;amp; \text{number of nodes of height }h\text{ in }T \\
+N^{'}_{h-1} &amp;amp; := &amp;amp; \text{number of nodes of height }h-1\text{ in }T^{'}
+\end{array}&lt;/div&gt;
+&lt;h1 id="proof"&gt;Proof&lt;a href="#proof" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This is an inductive proof.&lt;/p&gt;
+&lt;h2 id="base-case"&gt;Base Case&lt;a href="#base-case" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;At height 0, there is only 1 node in the tree, namely the root node:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{array}{lcl}
+ N_0 &amp;amp; = &amp;amp; 1 \\
+     &amp;amp; = &amp;amp; \left\lceil\frac{1}{2}\right\rceil \\
+     &amp;amp; = &amp;amp; \left\lceil\frac{n}{2^{h+1}}\right\rceil
+\end{array}&lt;/div&gt;
+&lt;h2 id="inductive-case"&gt;Inductive Case&lt;a href="#inductive-case" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Assume that the relationship holds for height &lt;span class="math"&gt;\(h-1\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; that nodes at height &lt;span class="math"&gt;\(h\)&lt;/span&gt; in &lt;span class="math"&gt;\(T\)&lt;/span&gt; are at height &lt;span class="math"&gt;\(h-1\)&lt;/span&gt; in &lt;span class="math"&gt;\(T^{'}\)&lt;/span&gt;. The number
+of nodes in &lt;span class="math"&gt;\(T^{'}\)&lt;/span&gt;, namely &lt;span class="math"&gt;\(n^{'}\)&lt;/span&gt;, is equal to the number of nodes in &lt;span class="math"&gt;\(T\)&lt;/span&gt; minus
+the leaf nodes in &lt;span class="math"&gt;\(T\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$
+n^{'} = n - \left\lceil \frac{n}{2} \right\rceil  = \left\lfloor \frac{n}{2} \right\rfloor
+$$&lt;/div&gt;
+&lt;p&gt;By induction:
+&lt;/p&gt;
+&lt;div class="math"&gt;\begin{array}{lcl}
+  N_h &amp;amp; = &amp;amp; N^{'}_{h-1} \\
+      &amp;amp; = &amp;amp; \left\lceil \frac{n^{'}}{2^h} \right\rceil \\
+      &amp;amp; = &amp;amp; \left\lceil\frac{\left\lfloor \frac{n}{2}\right\rfloor}{2^h}\right\rceil \\
+      &amp;amp; \leq &amp;amp; \left\lceil\frac{\frac{n}{2}}{2^h}\right\rceil \\
+      &amp;amp; = &amp;amp; \left\lceil \frac{n}{2^{h+1}} \right\rceil
+\end{array}&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "1.0em",
+        linebreak = "true";
+
+    if (true) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: '[math]'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;&lt;ol class="simple-footnotes"&gt;&lt;li id="sf-nodes-of-certain-height-1"&gt;This proof is not my own, I found the main ideas by doing a Google Search. Unfortunately, I cannot find who to acknowledge, so if this looks familiar, please shout &lt;a href="#sf-nodes-of-certain-height-1-back" class="simple-footnote-back"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</summary><category term="datastructures"></category><category term="heap"></category></entry><entry><title>Const Liffy Pattern For C++</title><link href="http://doctrina.org/Const-Liffy-Pattern.html" rel="alternate"></link><updated>2015-06-04T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-06-04:Const-Liffy-Pattern.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Immutable state has &lt;a href="http://www.drdobbs.com/cpp/practical-advantages-of-immutable-values/240163690"&gt;many advantages&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt;. Unfortunately, C++ is designed to easily mutate state. My colleague Vincent Lascaux shared a code snippet that tries to alleviate this problem by attempting to avoid normal variables in favor of using constants that are always initialized. I decided to name his pattern &lt;em&gt;const liffy&lt;/em&gt;...&lt;/p&gt;
 &lt;h2 id="background-knowledge"&gt;Background Knowledge&lt;a href="#background-knowledge" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/C%2B%2B11"&gt;C++ standard 11&lt;/a&gt;&lt;sup class="print"&gt;L2&lt;/sup&gt; introduced some amazing features to C++. Two such features are:&lt;/p&gt;
@@ -200,8 +299,8 @@ k+1 &amp;amp; = &amp;amp; \log_2(n+1)
 &lt;h1 id="conclusion"&gt;Conclusion&lt;a href="#conclusion" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;A red-black tree is probably the most used balanced binary search tree algorithm. It is a little bit more work to show that &lt;em&gt;update&lt;/em&gt;, &lt;em&gt;delete&lt;/em&gt; and &lt;em&gt;insert&lt;/em&gt; is also logarithmic, but any proof would rely upon the fact the maximum height is logarithmic.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
+    var align = "left",
+        indent = "1.0em",
         linebreak = "true";
 
     if (true) {
@@ -325,8 +424,8 @@ Z+X &amp;amp; = &amp;amp; 0\bmod Y \\
 &lt;p&gt;
 This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes from &lt;span class="math"&gt;\(Z\)&lt;/span&gt; will get to the start of the cylce.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
+    var align = "left",
+        indent = "1.0em",
         linebreak = "true";
 
     if (true) {
@@ -411,8 +510,8 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 &lt;script src="https://gist.github.com/barrysteyn/5177637.js?file=merge-sort-with-split-inversion-count.c"&gt;&lt;/script&gt;
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
+    var align = "left",
+        indent = "1.0em",
         linebreak = "true";
 
     if (true) {
@@ -508,8 +607,8 @@ This proves that advancing by &lt;span class="math"&gt;\(X\)&lt;/span&gt; nodes 
 \end{aligned}&lt;/div&gt;
 &lt;p&gt;In this case, the series sum is dominated by the last term (e.g. &lt;span class="math"&gt;\(r^k\)&lt;/span&gt;), and is bounded above by &lt;span class="math"&gt;\(2\cdot r^k\)&lt;/span&gt;.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
+    var align = "left",
+        indent = "1.0em",
         linebreak = "true";
 
     if (true) {
@@ -574,8 +673,8 @@ log_b n^{log_b a}&amp;amp;= log_b(X) &amp;amp; \cr
 n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 \end{aligned}&lt;/div&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
+    var align = "left",
+        indent = "1.0em",
         linebreak = "true";
 
     if (true) {
@@ -657,8 +756,8 @@ n^{log_b a}&amp;amp;= X = a^{log_b n} &amp;amp; \cr
 &lt;h1 id="conclusion"&gt;Conclusion&lt;a href="#conclusion" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The above functions should perform better error checking if used in production. It also only works for encoding and decoding of a strings (although it is not too difficult to get it to work for files as well). This should give the inquisitive (and frustrated) programmer a base from which to work from.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
+    var align = "left",
+        indent = "1.0em",
         linebreak = "true";
 
     if (true) {
