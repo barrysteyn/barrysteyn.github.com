@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-09-17T00:00:00-07:00</updated><entry><title>Maximum Amount Of Nodes Of A Certain Height</title><link href="http://doctrina.org/nodes-of-certain-height.html" rel="alternate"></link><updated>2015-09-17T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-09-17:nodes-of-certain-height.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2015-12-23T00:00:00-08:00</updated><entry><title>The Archer's Paradox</title><link href="http://doctrina.org/Archers-Paradox.html" rel="alternate"></link><updated>2015-12-23T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-12-23:Archers-Paradox.html</id><summary type="html">&lt;h1 id="the-archers-paradox"&gt;The Archer's Paradox&lt;a class="headerlink" href="#the-archers-paradox" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Really interesting video explaining how an arrow, fired from a bow, is able to
+hit it's mark with the bow being in the way.&lt;/p&gt;
+&lt;p&gt;&lt;div class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/O7zewtuUM_0'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/div&gt;&lt;/p&gt;</summary><category term="interesting"></category><category term="video"></category></entry><entry><title>The Car Differential</title><link href="http://doctrina.org/Car-Differential.html" rel="alternate"></link><updated>2015-12-23T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-12-23:Car-Differential.html</id><summary type="html">&lt;h1 id="a-car-differential"&gt;A Car Differential&lt;a href="#a-car-differential" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;When turning a corner, one wheel must necessarily turn faster than the other
+wheel. This is achieved by each wheel being independent to the other wheel. Both
+wheels are able to work together in harmony by being connected to the
+&lt;a href="https://en.wikipedia.org/wiki/Differential_(mechanical_device)"&gt;differential&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt;.
+This video explains how it works.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="videobox"&gt;
+                &lt;iframe src="https://www.youtube.com/embed/K4JhruinbWc" height="390" mozallowfullscreen="" width="640" frameborder="0" allowfullscreen="" webkitallowfullscreen=""&gt;
+                &lt;/iframe&gt;
+            &lt;/div&gt;&lt;p&gt;&lt;/p&gt;&lt;h2 class="print"&gt;Links&lt;/h2&gt;&lt;div style="margin-left: 2.0em;" class="print"&gt;&lt;ol class="print-links"&gt;&lt;li&gt;https://en.wikipedia.org/wiki/Differential_(mechanical_device)&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</summary><category term="interesting"></category><category term="video"></category><category term="engineering"></category></entry><entry><title>Maximum Amount Of Nodes Of A Certain Height</title><link href="http://doctrina.org/nodes-of-certain-height.html" rel="alternate"></link><updated>2015-09-17T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2015-09-17:nodes-of-certain-height.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Given a binary tree with &lt;span class="math"&gt;\(n\)&lt;/span&gt; nodes, there can be at most &lt;span class="math"&gt;\(\left\lceil \frac{n}{2^{h+1}} \right\rceil\)&lt;/span&gt; nodes with height &lt;span class="math"&gt;\(h\)&lt;/span&gt;. Here follows a proof&lt;sup id="sf-nodes-of-certain-height-1-back"&gt;&lt;a href="#sf-nodes-of-certain-height-1" title="This proof is not my own, I found the main ideas by doing a Google Search. Unfortunately, I cannot find who to acknowledge, so if this looks familiar, please shout" class="simple-footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 &lt;h1 id="background-knowledge"&gt;Background Knowledge&lt;a href="#background-knowledge" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;h2 id="tree-height"&gt;Tree Height&lt;a href="#tree-height" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;

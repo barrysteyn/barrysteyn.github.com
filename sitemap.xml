@@ -5,37 +5,51 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/</loc>
-<lastmod>2015-09-19T11:11:51-00:00</lastmod>
+<lastmod>2015-12-23T08:03:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/archives.html</loc>
-<lastmod>2015-09-19T11:11:51-00:00</lastmod>
+<lastmod>2015-12-23T08:03:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/tags.html</loc>
-<lastmod>2015-09-19T11:11:51-00:00</lastmod>
+<lastmod>2015-12-23T08:03:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/categories.html</loc>
-<lastmod>2015-09-19T11:11:51-00:00</lastmod>
+<lastmod>2015-12-23T08:03:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/pages/resume.html</loc>
-<lastmod>2015-09-19T11:11:51-00:00</lastmod>
+<lastmod>2015-12-23T08:03:38-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://doctrina.org/Archers-Paradox.html</loc>
+<lastmod>2015-12-23T00:00:00-08:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.75</priority>
+</url>
+
+<url>
+<loc>http://doctrina.org/Car-Differential.html</loc>
+<lastmod>2015-12-23T00:00:00-08:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.75</priority>
 </url>
 
 <url>
@@ -194,7 +208,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/category/article.html</loc>
-<lastmod>2015-09-17T00:00:00-08:12</lastmod>
+<lastmod>2015-12-23T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -263,6 +277,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://doctrina.org/tag/interesting.html</loc>
+<lastmod>2015-12-23T00:00:00-08:12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://doctrina.org/tag/javascript.html</loc>
 <lastmod>2013-03-14T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
@@ -277,8 +298,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://doctrina.org/tag/algorithms.html</loc>
-<lastmod>2015-02-18T00:00:00-08:12</lastmod>
+<loc>http://doctrina.org/tag/engineering.html</loc>
+<lastmod>2015-12-23T00:00:00-08:12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://doctrina.org/tag/video.html</loc>
+<lastmod>2015-12-23T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -300,6 +328,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://doctrina.org/tag/lecture.html</loc>
 <lastmod>2013-03-14T00:00:00-08:12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://doctrina.org/tag/algorithms.html</loc>
+<lastmod>2015-02-18T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -348,7 +383,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/author/barry-steyn.html</loc>
-<lastmod>2015-09-17T00:00:00-08:12</lastmod>
+<lastmod>2015-12-23T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
