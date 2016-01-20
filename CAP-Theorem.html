@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="theme/img/doctrina-icon.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="theme/img/apple-touch-icon-144-precomposed.png">
 
-    <title>Doctrina - 	Heapify Analysis
+    <title>Doctrina - 	The CAP Theorem
 </title>
 
     <!-- Bootstrap Base CSS -->
@@ -63,7 +63,7 @@
 	<section class="container-fluid title">
 	<div class="row">
 		<div class="col-md-12">
-			<h1><a href="" rel="bookmark" title="Permalink to Heapify Analysis">	Heapify Analysis
+			<h1><a href="" rel="bookmark" title="Permalink to The CAP Theorem">	The CAP Theorem
 </a></h1>
 			<span>
 				<a href="http://doctrina.org/index.html#about"><img src="http://doctrina.org/theme/img/me.jpg" class="img-rounded"></img></a>
@@ -79,7 +79,7 @@
 					<ul class="center-list">
 						<li class="print text-center" style="font-size: 1.5em; margin-top: 1.0em;"><strong>Barry Steyn</strong></li>
 						<li class="print text-center" style="margin-bottom: 0.5em">barry.steyn@gmail.com</li>
-						<li><b>Published</b>: 22  Jul  2015</li>
+						<li><b>Published</b>: 19  Jan  2016</li>
 					</ul>
 				</div>
 		</div>
@@ -90,25 +90,25 @@
 		<span class="toctitle">Share</span>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Heapify%20Analysis&url=http%3A//doctrina.org/drafts/heapify-operation-analysis.html&via=">
+	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=The%20CAP%20Theorem&url=http%3A//doctrina.org/CAP-Theorem.html&via=">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
 	    </a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/drafts/heapify-operation-analysis.html">
+		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/CAP-Theorem.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/drafts/heapify-operation-analysis.html">
+		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/CAP-Theorem.html">
 		    <i class="fa fa-circle fa-stack-2x"></i>
 		    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
 		</a>
 	</div>
 	<div>
-	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/drafts/heapify-operation-analysis.html&title=Heapify%20Analysis">
+	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/CAP-Theorem.html&title=The%20CAP%20Theorem">
 	        <i class="fa fa-circle fa-stack-2x"></i>
 	        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
 	    </a>
@@ -118,111 +118,16 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
-<p>A heap (also known as a <em>priority queue</em>) is a data structure used to produce
-a recurring ?? in logarithmic time. It is normally implemented using an array...</p>
-<h1 id="background-knowledge">Background Knowledge<a href="#background-knowledge" title="Permanent link" class="headerlink"></a></h1>
-<h2 id="tree-node-height">Tree Node Height<a href="#tree-node-height" title="Permanent link" class="headerlink"></a></h2>
-<p>A tree node's height is the number of edges in the longest downward path between
-the node and a leaf<sup id="sf-heapify-operation-analysis-1-back"><a href="#sf-heapify-operation-analysis-1" title="A leaf is a node with no children." class="simple-footnote">1</a></sup>.</p>
-<h3 id="lemma-maximum-number-of-nodes-of-height-h">Lemma: Maximum number of nodes of height <span class="math">\(h\)</span><a href="#lemma-maximum-number-of-nodes-of-height-h" title="Permanent link" class="headerlink"></a></h3>
-<h2 id="a-heap">A Heap<a href="#a-heap" title="Permanent link" class="headerlink"></a></h2>
-<ul>
-<li>Almost complete binary tree</li>
-<li>Heap property: key[x] &lt;= all keys of x's children</li>
-<li>Implementation needs a random access list =&gt; array</li>
-</ul>
-<h3 id="common-heap-operations-parents-and-children">Common Heap Operations: Parents And Children<a href="#common-heap-operations-parents-and-children" title="Permanent link" class="headerlink"></a></h3>
-<p>Given an index <span class="math">\(x\)</span> of a heap with <span class="math">\(n\)</span> nodes, the following constant time
-operations can be used to find the parent or children nodes:</p>
-<div class="math">$$
-\text{parent node} = \max\left(0, \frac{x-1}{2}\right) \\
-\text{left child} = (x \times 2) + 1 \text{ [must be less than }n\text{]} \\
-\text{right child} = (x \times 2) + 2 \text{ [must be less than} n\text{]}
-$$</div>
-<h3 id="bubble-down">Bubble Down<a href="#bubble-down" title="Permanent link" class="headerlink"></a></h3>
-<h1 id="heapify">Heapify<a href="#heapify" title="Permanent link" class="headerlink"></a></h1>
-<h2 id="algorithm">Algorithm<a href="#algorithm" title="Permanent link" class="headerlink"></a></h2>
-<p>The heapify algorithm is extremely simple:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre>Heap = arbitrary array
-idx = (Heap.size()-1)/2
-while (idx &gt; 0)
-   BubbleDown(idx)
-   idx--
-</pre></div>
-</td></tr></tbody></table>
-
-<h2 id="proof-that-heapify-time-is-linear">Proof That Heapify Time Is Linear<a href="#proof-that-heapify-time-is-linear" title="Permanent link" class="headerlink"></a></h2>
-<div class="math">\begin{align*}
-\text{Heapify for all }n\text{ nodes} &amp; = \sum_{h=0}^{log_2n} n\cdot O(h) \\
-                                      &amp; \leq \sum_{h=0}^{log_2n} (n+1) \cdot O(h) \\
-                                      &amp; = \sum_{h=0}^{log_2n} (n+1)\cdot \frac{c\cdot h}{2^{h+1}} \\
-                                      &amp; = (n+1) \cdot \frac{c}{2}\cdot\sum_{h=0}^{log_2n}\cdot \frac{h}{2^h} \\
-                                      &amp; \leq (n+1) \cdot \frac{c}{2} \sum_{h=0}^\infty \cdot \frac{h}{2^h} \\
-                                      &amp; = (n+1) \cdot\frac{c}{2}\cdot d \\
-                                      &amp; = O(n+1) = O(n)
-\end{align*}</div>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "left",
-        indent = "1.0em",
-        linebreak = "true";
-
-    if (true) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: '[math]'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script><ol class="simple-footnotes"><li id="sf-heapify-operation-analysis-1">A leaf is a node with no children. <a href="#sf-heapify-operation-analysis-1-back" class="simple-footnote-back">↩</a></li></ol>
+		<h1 id="cap-theorem">CAP Theorem<a href="#cap-theorem" title="Permanent link" class="headerlink"></a></h1>
+<p>The <a href="https://en.wikipedia.org/wiki/CAP_theorem">CAP Theorem</a><sup class="print">L1</sup> defines constraints
+of a distributed system. Here is a concise very well explained video about the
+topic.</p>
+<p></p><div class="videobox">
+                <iframe src="https://www.youtube.com/embed/Jw1iFr4v58M" height="390" mozallowfullscreen="" width="640" frameborder="0" allowfullscreen="" webkitallowfullscreen="">
+                </iframe>
+            </div><p></p>
+<p>Also, read about <a href="http://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed">how the CAP rules have changed</a><sup class="print">L2</sup>
+since Eric Brewer first published the theorem.</p><h2 class="print">Links</h2><div style="margin-left: 2.0em;" class="print"><ol class="print-links"><li>https://en.wikipedia.org/wiki/CAP_theorem</li><li>http://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed</li></ol></div>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.
@@ -240,7 +145,7 @@ while (idx &gt; 0)
 					<div class="content-border">
 						<h2>Comments</h2>
         				<div class="divider-grey"></div>
-						<a id="disqus" href="http://doctrina.org/drafts/heapify-operation-analysis.html#disqus_thread">0 Comments</a>
+						<a id="disqus" href="http://doctrina.org/CAP-Theorem.html#disqus_thread">0 Comments</a>
 						<div id="disqus_thread"></div>
 					</div>
 			    </div>
@@ -316,8 +221,8 @@ while (idx &gt; 0)
 
 		var disqus = {
 			shortname: 'doctrina',
-			identifier: 'http://doctrina.org/drafts/heapify-operation-analysis.html',
-			url: 'http://doctrina.org/drafts/heapify-operation-analysis.html',
+			identifier: 'http://doctrina.org/CAP-Theorem.html',
+			url: 'http://doctrina.org/CAP-Theorem.html',
 			developer: 0
 		};
 
