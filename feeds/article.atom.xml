@@ -1,5 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2016-01-19T00:00:00-08:00</updated><entry><title>The CAP Theorem</title><link href="http://doctrina.org/CAP-Theorem.html" rel="alternate"></link><updated>2016-01-19T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-01-19:CAP-Theorem.html</id><summary type="html">&lt;h1 id="cap-theorem"&gt;CAP Theorem&lt;a href="#cap-theorem" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2016-02-03T00:00:00-08:00</updated><entry><title>Big O Notation</title><link href="http://doctrina.org/big-o-notation.html" rel="alternate"></link><updated>2016-02-03T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-02-03:big-o-notation.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="videobox"&gt;
+                &lt;iframe src="https://www.youtube.com/embed/eNsKNfFUqFo" height="390" mozallowfullscreen="" width="640" frameborder="0" allowfullscreen="" webkitallowfullscreen=""&gt;
+                &lt;/iframe&gt;
+            &lt;/div&gt;&lt;p&gt;&lt;/p&gt;
+&lt;h1 id="definition"&gt;Definition&lt;a href="#definition" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Big O notation concerns functions &lt;strong&gt;defined on the positive integers&lt;/strong&gt;:
+A function &lt;span class="math"&gt;\(T(n)\)&lt;/span&gt; is said to be &lt;em&gt;big O&lt;/em&gt; of &lt;span class="math"&gt;\(f(n)\)&lt;/span&gt; if eventually,
+(&lt;em&gt;for all sufficiently large values of &lt;span class="math"&gt;\(n\)&lt;/span&gt;&lt;/em&gt;), &lt;span class="math"&gt;\(T(n)\)&lt;/span&gt; is bounded above
+by a &lt;em&gt;constant multiple&lt;/em&gt; of &lt;span class="math"&gt;\(f(n)\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id="formal-mathematical-definition"&gt;Formal Mathematical Definition&lt;a href="#formal-mathematical-definition" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="math"&gt;$$
+T(n) = O(f(n)) \iff \exists \text{ constants } c, n_0 \text { s.t. } T(n) \leq c\cdot f(n)\hspace{2mm} \forall n \geq n_0
+$$&lt;/div&gt;
+&lt;h1 id="orders-of-common-functions"&gt;Orders Of Common functions&lt;a href="#orders-of-common-functions" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This taken from the &lt;a href="https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions"&gt;wikipedia article&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt;
+about Big O.&lt;/p&gt;
+&lt;p&gt;The following list is in ascending order of growth:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(O(1)\)&lt;/span&gt; - &lt;strong&gt;constant&lt;/strong&gt; - array lookup by index&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(O(\log\log n)\)&lt;/span&gt; - &lt;strong&gt;double logarithmic&lt;/strong&gt; - interpolation search&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(O(\log n)\)&lt;/span&gt; - logarithm - &lt;a href="../binary-search.html"&gt;Binary Search&lt;/a&gt;&lt;sup class="print"&gt;L2&lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "1.0em",
+        linebreak = "true";
+
+    if (true) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: '[math]'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;&lt;h2 class="print"&gt;Links&lt;/h2&gt;&lt;div style="margin-left: 2.0em;" class="print"&gt;&lt;ol class="print-links"&gt;&lt;li&gt;https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions&lt;/li&gt;&lt;li&gt;../binary-search.html&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</summary></entry><entry><title>The CAP Theorem</title><link href="http://doctrina.org/CAP-Theorem.html" rel="alternate"></link><updated>2016-01-19T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-01-19:CAP-Theorem.html</id><summary type="html">&lt;h1 id="cap-theorem"&gt;CAP Theorem&lt;a href="#cap-theorem" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/CAP_theorem"&gt;CAP Theorem&lt;/a&gt;&lt;sup class="print"&gt;L1&lt;/sup&gt; defines constraints
 of a distributed system. Here is a concise very well explained video about the
 topic.&lt;/p&gt;

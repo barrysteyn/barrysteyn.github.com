@@ -1,0 +1,315 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Presense Of Barry Steyn - Software Engineer, Entrepreneur">
+    <meta name="author" content="Barry Steyn">
+    <link rel="shortcut icon" href="theme/img/doctrina-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="theme/img/apple-touch-icon-144-precomposed.png">
+
+    <title>Doctrina - 	Big O Notation
+</title>
+
+    <!-- Bootstrap Base CSS -->
+    <link href="http://doctrina.org/theme/css/base.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="http://doctrina.org/theme/css/main.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800|Source+Code+Pro" rel="stylesheet">
+
+<link rel="stylesheet" href="http://doctrina.org/theme/css/print.css" type="text/css" media="print" />
+</head>
+
+<body id="page-top">
+    <!-- Top Nav Bar -->
+    <nav id="navbar-top" class="navbar navbar-fixed-top navbar-offset-start " role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand " href="/index.html#page-top">
+                    <img alt="brand for doctrina" src="http://doctrina.org/theme/img/apple-touch-icon-144-precomposed.png" style="float: left; max-height:100%;" />
+                    <span style="padding-left: 0.5em;">Doctrina</span>
+                </a>
+                
+                <button type="button" class="navbar-toggle" style="" data-toggle="collapse" data-target="#navigation-menu">
+<i class="fa fa-bars"></i>                </button>
+
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
+                        <div>
+                            <ul class="nav navbar-nav">
+<li class="visible-grid-float-breakpoint"><a href="/index.html">Home</a></li>                                <li><a href="category/article.html"><span>Articles</span></a></li> 
+                                <li><a href="#comments"><span>Comments</span></a></li> 
+                                <li><a href="#footer"><span>Connect</span></a></li> 
+                            </ul>
+                        </div>
+            </div>
+
+
+        </div>
+    </nav>
+    <!-- End Top Nav Bar -->
+
+    <!-- User Defined Sections -->
+	<section class="container-fluid title">
+	<div class="row">
+		<div class="col-md-12">
+			<h1><a href="" rel="bookmark" title="Permalink to Big O Notation">	Big O Notation
+</a></h1>
+			<span>
+				<a href="http://doctrina.org/index.html#about"><img src="http://doctrina.org/theme/img/me.jpg" class="img-rounded"></img></a>
+			</span>
+		</div>
+	</div>
+</section>
+
+<section class="content">
+	<div class="container">
+		<div class="row">
+				<div class="col-xs-12 text-center metadata">
+					<ul class="center-list">
+						<li class="print text-center" style="font-size: 1.5em; margin-top: 1.0em;"><strong>Barry Steyn</strong></li>
+						<li class="print text-center" style="margin-bottom: 0.5em">barry.steyn@gmail.com</li>
+						<li><b>Published</b>: 03  Feb  2016</li>
+					</ul>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col-xs-12 col-md-1 col-md-push-10 text-center">
+<div id="share">
+	<div>
+		<span class="toctitle">Share</span>
+	</div>
+	<div>
+	    <a class="fa-stack fa-lg twitter" href="https://twitter.com/intent/tweet?text=Big%20O%20Notation&url=http%3A//doctrina.org/big-o-notation.html&via=">
+	        <i class="fa fa-circle fa-stack-2x"></i>
+	        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	    </a>
+	</div>
+	<div>
+		<a class="fa-stack fa-lg facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//doctrina.org/big-o-notation.html">
+		    <i class="fa fa-circle fa-stack-2x"></i>
+		    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+		</a>
+	</div>
+	<div>
+		<a class="fa-stack fa-lg google-plus" href="https://plus.google.com/share?url=http%3A//doctrina.org/big-o-notation.html">
+		    <i class="fa fa-circle fa-stack-2x"></i>
+		    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+		</a>
+	</div>
+	<div>
+	    <a class="fa-stack fa-lg linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A//doctrina.org/big-o-notation.html&title=Big%20O%20Notation">
+	        <i class="fa fa-circle fa-stack-2x"></i>
+	        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+	    </a>
+	</div>
+</div>				</div>				
+
+
+			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
+	<div class="article-content">
+		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
+<p></p><div class="videobox">
+                <iframe src="https://www.youtube.com/embed/eNsKNfFUqFo" height="390" mozallowfullscreen="" width="640" frameborder="0" allowfullscreen="" webkitallowfullscreen="">
+                </iframe>
+            </div><p></p>
+<h1 id="definition">Definition<a href="#definition" title="Permanent link" class="headerlink"></a></h1>
+<p>Big O notation concerns functions <strong>defined on the positive integers</strong>:
+A function <span class="math">\(T(n)\)</span> is said to be <em>big O</em> of <span class="math">\(f(n)\)</span> if eventually,
+(<em>for all sufficiently large values of <span class="math">\(n\)</span></em>), <span class="math">\(T(n)\)</span> is bounded above
+by a <em>constant multiple</em> of <span class="math">\(f(n)\)</span></p>
+<h2 id="formal-mathematical-definition">Formal Mathematical Definition<a href="#formal-mathematical-definition" title="Permanent link" class="headerlink"></a></h2>
+<div class="math">$$
+T(n) = O(f(n)) \iff \exists \text{ constants } c, n_0 \text { s.t. } T(n) \leq c\cdot f(n)\hspace{2mm} \forall n \geq n_0
+$$</div>
+<h1 id="orders-of-common-functions">Orders Of Common functions<a href="#orders-of-common-functions" title="Permanent link" class="headerlink"></a></h1>
+<p>This taken from the <a href="https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions">wikipedia article</a><sup class="print">L1</sup>
+about Big O.</p>
+<p>The following list is in ascending order of growth:</p>
+<ol>
+<li><span class="math">\(O(1)\)</span> - <strong>constant</strong> - array lookup by index</li>
+<li><span class="math">\(O(\log\log n)\)</span> - <strong>double logarithmic</strong> - interpolation search</li>
+<li><span class="math">\(O(\log n)\)</span> - logarithm - <a href="../binary-search.html">Binary Search</a><sup class="print">L2</sup></li>
+</ol>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "1.0em",
+        linebreak = "true";
+
+    if (true) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: '[math]'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script><h2 class="print">Links</h2><div style="margin-left: 2.0em;" class="print"><ol class="print-links"><li>https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions</li><li>../binary-search.html</li></ol></div>
+
+		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
+			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.
+		</div>
+	</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<section class="content" id="comments">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="content-border">
+						<h2>Comments</h2>
+        				<div class="divider-grey"></div>
+						<a id="disqus" href="http://doctrina.org/big-o-notation.html#disqus_thread">0 Comments</a>
+						<div id="disqus_thread"></div>
+					</div>
+			    </div>
+			</div>
+    	</div>
+	</section>
+    <!-- End Sections -->
+
+    <!-- Connect -->
+    <section id="connect" class="text-center title">
+        <div class="container">
+            <h1>Connect</h1>
+            
+            <div class="row" style="padding: 1.0em 0;">
+                Found anything useful on this site? Drop me a line, I'd love to hear about it.
+            </div>
+            
+            <div class="divider-grey"></div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                    <div>
+                        <a class="fa-stack fa-lg x" id="x" tabindex="0">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg twitter" href="https://twitter.com/barrysteyn" target="_blank">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg linkedin" href="https://www.linkedin.com/in/barrysteyn" target="_blank">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </a>
+                        <a class="fa-stack fa-lg github" href="https://github.com/barrysteyn" target="_blank">
+                            <i class="fa fa-github fa-stack-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div id="footer" class="row">
+                <div class="col-xs-12">
+                    <p>&copy; <script>document.write(new Date().getFullYear());</script> Barry Steyn. All Rights Reserved.
+                </div>
+            </div>
+            <!-- End Footer -->
+        </div>
+    </section>
+    <!-- End Connect -->
+
+
+    <!-- JavaScript -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var scrollspies = {};
+        scrollspies.body = {
+            'target': '#navigation-menu'
+        };
+
+		//Do not remove navbar-offset-start class
+	var navbarOffset = false;
+
+	//Scrollspy object
+    scrollspies.body = {
+        'target': '.toc'
+    };
+
+
+	$(function() {
+		$('#content div.article-content a[href^="http"]').attr('target','_blank');
+
+		var disqus = {
+			shortname: 'doctrina',
+			identifier: 'http://doctrina.org/big-o-notation.html',
+			url: 'http://doctrina.org/big-o-notation.html',
+			developer: 0
+		};
+
+		disqus_comments(disqus);
+	});
+    </script>
+    <script src="http://doctrina.org/theme/js/main.js"></script>
+    <!-- End JavaScript -->
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-33789117-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+</body>
+
+</html>

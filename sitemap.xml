@@ -5,37 +5,44 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/</loc>
-<lastmod>2016-01-19T21:07:06-00:00</lastmod>
+<lastmod>2016-03-02T07:59:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/archives.html</loc>
-<lastmod>2016-01-19T21:07:06-00:00</lastmod>
+<lastmod>2016-03-02T07:59:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/tags.html</loc>
-<lastmod>2016-01-19T21:07:06-00:00</lastmod>
+<lastmod>2016-03-02T07:59:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/categories.html</loc>
-<lastmod>2016-01-19T21:07:06-00:00</lastmod>
+<lastmod>2016-03-02T07:59:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/pages/resume.html</loc>
-<lastmod>2016-01-19T21:07:06-00:00</lastmod>
+<lastmod>2016-03-02T07:59:40-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://doctrina.org/big-o-notation.html</loc>
+<lastmod>2016-02-03T00:00:00-08:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.75</priority>
 </url>
 
 <url>
@@ -215,7 +222,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/category/article.html</loc>
-<lastmod>2016-01-19T00:00:00-08:12</lastmod>
+<lastmod>2016-02-03T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -404,7 +411,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/author/barry-steyn.html</loc>
-<lastmod>2016-01-19T00:00:00-08:12</lastmod>
+<lastmod>2016-02-03T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
