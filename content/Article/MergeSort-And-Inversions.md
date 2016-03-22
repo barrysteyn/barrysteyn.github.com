@@ -7,12 +7,12 @@ Tags: Software, Computer Science, Algorithms
 #Merge Sort
 Merge sort is the classic divide and conquor algorithm, and is used as a canonical example for explaining the topic. It is quite easy to implement (specially in Python) but I wanted to see a C implementation. Google found me some [stack overflow](http://www.stackoverflow.com) links as well as several blog sites that listed code. And oh my god, the code was terrible. Most code that I have seen is a mixture of [Quick Sort](http://en.wikipedia.org/wiki/Quick_sort). And there are several untruths, for instance, that one can implement merge sort in place!
 
-Merge sort is $O(n\cdot log(n))$, and in fact, it is proven that for a comparison based sort, one cannot achieve better results. So then why is Quick Sort so popular when it is $O(n^2)$? It is because Quick Sort has average complexity of $O(n\cdot log(n))$ (one has to choose very unlucky random pivots for it to be $O(n^2)$) but also, Quick Sort can be accomplished in place. Merge Sort cannot! In fact, merge sort's space complexity is always going to be $2\cdot n$ - there is no getting around this and still guaranteeing $O(n\cdot log(n))$ performance.
+Merge sort is $O\left(n\cdot log(n)\right)$, and in fact, it is proven that for a comparison based sort, one cannot achieve better results. So then why is Quick Sort so popular when it is $O\left(n^2\right)$? It is because Quick Sort has average complexity of $O\left(n\cdot log(n)\right)$ (one has to choose very unlucky random pivots for it to be $O\left(n^2\right)$) but also, Quick Sort can be accomplished in *logarithmic space*. Merge Sort cannot! In fact, merge sort's space complexity is always going to be $2\cdot n$ - there is no getting around this and still guaranteeing $O\left(n\cdot log(n)\right)$ performance.
 
 To Summarize:
 
- * Merge Sort is $O(n\cdot log(n))$.
- * Merge Sort cannot sort in place.
+ * Merge Sort time: $O(n\cdot log(n))$.
+ * Merge Sort space: $O(n)$
 
 ## Merge Sort Example Code
 Here is my C implementation of Merge Sort. The merge function is where the extra space is required, and although it is only required temporarily and destroyed once the stack is popped, it still makes the sort require $2\cdot n$ space.
@@ -37,7 +37,7 @@ Merge sort leads to interesting applications besides sorting. One of the most in
 A brute force algorithm would be to compare each element in both arrays to each other, and determine if they would need to be swapped. This is $O(n^2)$ (quadratic in $n$). Can we do better?
 
 ##Counting Inversions: Divide And Conquer
-In fact, we can do much better. The key point to note that is that we can get this information for free during the merge stage of the Merge Sort. 
+In fact, we can do much better. The key point to note that is that we can get this information for free during the merge stage of the Merge Sort.
 
 In the merge stage, two sorted arrays are merged into one sorted array. Lets call these arrays $A$ and $B$. Then the number of split inversions involving an element $y \in B$ of the second array is *precisely the number elements lefts in the first array $A$ when $y$ is copied into the temporary buffer*. Adding up these split inversions during the merge stage will result in the total number of split inversions.
 
