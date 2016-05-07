@@ -24,7 +24,7 @@ JINJA_FILTERS = {
 PATH = 'content'
 AUTHOR = u'Barry Steyn'
 SITENAME = u'Doctrina'
-SITEURL = u'http://localhost:8000'
+SITEURL = u'http://doctrina'
 
 # URL
 RELATIVE_URLS=False

@@ -1,9 +1,8 @@
 Date: 2016-05-07
 Title: Hollandaise Sauce
 Tags: sauce, other-recipes
-Slug: Hollandaise Sauce
+Slug: Hollandaise-Sauce
 
-# Hollandaise Sauce
 {% youtube sPKWYM8-YgY %}
 
 # Ingredients
