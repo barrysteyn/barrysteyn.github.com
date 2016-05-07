@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Doctrina</title><link>http://doctrina.org/</link><description></description><atom:link href="http://doctrina.org/feeds/barry-steyn.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 03 Feb 2016 00:00:00 -0800</lastBuildDate><item><title>Big O Notation</title><link>http://doctrina.org/big-o-notation.html</link><description>&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Doctrina</title><link>http://doctrina.org/</link><description></description><atom:link href="http://doctrina.org/feeds/barry-steyn.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 07 May 2016 00:00:00 -0700</lastBuildDate><item><title>Hollandaise Sauce</title><link>http://doctrina.org/Hollandaise%20Sauce.html</link><description>&lt;h1 id="hollandaise-sauce"&gt;Hollandaise Sauce&lt;a class="headerlink" href="#hollandaise-sauce" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;div class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/sPKWYM8-YgY'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/div&gt;&lt;/p&gt;
+&lt;h1 id="ingredients"&gt;Ingredients&lt;a class="headerlink" href="#ingredients" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1 large egg yolk&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;4 tablespoons&lt;/strong&gt; cold unsalted butter, cubed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2 tablespoons&lt;/strong&gt; cold water&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1 tablespoon&lt;/strong&gt; fresh lemon juice (you can always add more to taste)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="method"&gt;Method&lt;a class="headerlink" href="#method" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Take all ingredients, put it in a metal bowl, and whisk while heating over medium heat (see video).&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Barry Steyn</dc:creator><pubDate>Sat, 07 May 2016 00:00:00 -0700</pubDate><guid>tag:doctrina.org,2016-05-07:Hollandaise Sauce.html</guid><category>sauce</category><category>other-recipes</category></item><item><title>Big O Notation</title><link>http://doctrina.org/big-o-notation.html</link><description>&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="videobox"&gt;
                 &lt;iframe src="https://www.youtube.com/embed/eNsKNfFUqFo" height="390" mozallowfullscreen="" width="640" frameborder="0" allowfullscreen="" webkitallowfullscreen=""&gt;
                 &lt;/iframe&gt;
