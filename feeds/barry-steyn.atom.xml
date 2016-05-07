@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/barry-steyn.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2016-05-07T00:00:00-07:00</updated><entry><title>Hollandaise Sauce</title><link href="http://doctrina.org/Hollandaise%20Sauce.html" rel="alternate"></link><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:Hollandaise Sauce.html</id><summary type="html">&lt;h1 id="hollandaise-sauce"&gt;Hollandaise Sauce&lt;a class="headerlink" href="#hollandaise-sauce" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/barry-steyn.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2016-05-07T00:00:00-07:00</updated><entry><title>Hollandaise Sauce</title><link href="http://doctrina.org/Hollandaise-Sauce.html" rel="alternate"></link><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:Hollandaise-Sauce.html</id><summary type="html">&lt;p&gt;&lt;div class="videobox"&gt;
                 &lt;iframe width="640" height="390"
                     src='https://www.youtube.com/embed/sPKWYM8-YgY'
                     frameborder='0' webkitAllowFullScreen mozallowfullscreen
@@ -15,7 +14,34 @@
 &lt;li&gt;&lt;strong&gt;1 tablespoon&lt;/strong&gt; fresh lemon juice (you can always add more to taste)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="method"&gt;Method&lt;a class="headerlink" href="#method" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;Take all ingredients, put it in a metal bowl, and whisk while heating over medium heat (see video).&lt;/p&gt;</summary><category term="sauce"></category><category term="other-recipes"></category></entry><entry><title>Big O Notation</title><link href="http://doctrina.org/big-o-notation.html" rel="alternate"></link><updated>2016-02-03T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-02-03:big-o-notation.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Take all ingredients, put it in a metal bowl, and whisk while heating over medium heat (see video).&lt;/p&gt;</summary><category term="sauce"></category><category term="other-recipes"></category></entry><entry><title>Thai Turkey Skilley</title><link href="http://doctrina.org/Thai-Turkey-Skillet.html" rel="alternate"></link><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:Thai-Turkey-Skillet.html</id><summary type="html">&lt;p&gt;&lt;div class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/kqGZbDocK2w'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/div&gt;&lt;/p&gt;
+&lt;h1 id="ingredients"&gt;Ingredients&lt;a class="headerlink" href="#ingredients" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;3 lb&lt;/strong&gt; turkey or chicken mince&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;4 large&lt;/strong&gt; red peppers, sliced&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1.5 table-spoons&lt;/strong&gt; of ground ginger&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3 teaspoons&lt;/strong&gt; crushed red pepper flakes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;9&lt;/strong&gt; cloves of crushed garlic&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;9 table-spoons&lt;/strong&gt; natural peanut butter&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;6 table-spoons&lt;/strong&gt; lime juice&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;6 table-spoons&lt;/strong&gt; soy sauce&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3 table-spoons&lt;/strong&gt; sesame oil&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1.5 cups&lt;/strong&gt; chopped cilantro&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="method"&gt;Method&lt;a class="headerlink" href="#method" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Brown the turkey/chicken mince&lt;/li&gt;
+&lt;li&gt;Stir &lt;em&gt;red peppers&lt;/em&gt;, &lt;em&gt;ground ginger&lt;/em&gt; and &lt;em&gt;red pepper flakes&lt;/em&gt; into mince&lt;/li&gt;
+&lt;li&gt;Whisk &lt;em&gt;peanut-butter, lime juice, soy sauce, sesame oil&lt;/em&gt; and &lt;em&gt;cilantro&lt;/em&gt; together&lt;/li&gt;
+&lt;li&gt;Add recently whisked sauce to minced meat&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Eat on romaine lettuce leaves&lt;/p&gt;</summary><category term="sauce"></category><category term="entree"></category></entry><entry><title>Big O Notation</title><link href="http://doctrina.org/big-o-notation.html" rel="alternate"></link><updated>2016-02-03T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-02-03:big-o-notation.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="videobox"&gt;
                 &lt;iframe src="https://www.youtube.com/embed/eNsKNfFUqFo" height="390" mozallowfullscreen="" width="640" frameborder="0" allowfullscreen="" webkitallowfullscreen=""&gt;
                 &lt;/iframe&gt;
