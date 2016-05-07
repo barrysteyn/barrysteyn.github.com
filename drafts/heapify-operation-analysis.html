@@ -122,6 +122,12 @@
 <p>A heap (also known as a <em>priority queue</em>) is a data structure used to produce
 a recurring ?? in logarithmic time. It is normally implemented using an array...</p>
 <h1 id="background-knowledge">Background Knowledge<a href="#background-knowledge" title="Permanent link" class="headerlink"></a></h1>
+<h2 id="notation">Notation<a href="#notation" title="Permanent link" class="headerlink"></a></h2>
+<p>I will use the following notation:</p>
+<div class="math">\begin{array}{ll}
+h &amp;&amp; \text{the height of node} \\
+n &amp;&amp; \text{the number of nodes in a tree} \\
+\end{array}</div>
 <h2 id="tree-node-height">Tree Node Height<a href="#tree-node-height" title="Permanent link" class="headerlink"></a></h2>
 <p>A tree node's height is the number of edges in the longest downward path between
 the node and a leaf<sup id="sf-heapify-operation-analysis-1-back"><a href="#sf-heapify-operation-analysis-1" title="A leaf is a node with no children." class="simple-footnote">1</a></sup>.</p>
@@ -157,6 +163,30 @@ while (idx &gt; 0)
 </td></tr></tbody></table>
 
 <h2 id="proof-that-heapify-time-is-linear">Proof That Heapify Time Is Linear<a href="#proof-that-heapify-time-is-linear" title="Permanent link" class="headerlink"></a></h2>
+<p>First, an observation: In a binary tree, the number of nodes of a certain height
+is less than or equal to <span class="math">\(\left\lceil\frac{n}{2^{h+1}}\)</span>. Using ceilings is awkward,
+and it can be removed by using <span class="math">\(n+1\)</span> in the numerator:</p>
+<div class="math">$$
+\text{number of nodes of height }h \leq \frac{n+1}{2^{h+1}}
+$$</div>
+<p>The reason it works is because a full and complete binary tree is always odd, and
+therefore, <span class="math">\(2^{h+1}\)</span> will never divide <span class="math">\(n\)</span>. Adding <span class="math">\(1\)</span> to <span class="math">\(n\)</span> will make it even,
+and therefore remove the need for the ceilings.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>ba640c88b089047721ec30ea069a9137ce837d59</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <div class="math">\begin{align*}
 \text{Heapify for all }n\text{ nodes} &amp; = \sum_{h=0}^{log_2n} n\cdot O(h) \\
                                       &amp; \leq \sum_{h=0}^{log_2n} (n+1) \cdot O(h) \\
