@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/barry-steyn.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2016-05-07T00:00:00-07:00</updated><entry><title>Hollandaise Sauce</title><link href="http://doctrina.org/Hollandaise-Sauce.html" rel="alternate"></link><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:Hollandaise-Sauce.html</id><summary type="html">&lt;p&gt;&lt;div class="videobox"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/barry-steyn.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2016-05-09T00:00:00-07:00</updated><entry><title>Thai Pineapple Chicken Curry</title><link href="http://doctrina.org/Thai-Pineapple-Chicken-Curry.html" rel="alternate"></link><updated>2016-05-09T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-09:Thai-Pineapple-Chicken-Curry.html</id><summary type="html">&lt;h1 id="ingredients"&gt;Ingredients&lt;a class="headerlink" href="#ingredients" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1 table-spoon&lt;/strong&gt; olive oil&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2&lt;/strong&gt; chicken breasts, cubed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1 table-spoon&lt;/strong&gt; grated ginger&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2 cloves&lt;/strong&gt; garlic, crushed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2 table-spoons&lt;/strong&gt; red curry paste&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;½ cup&lt;/strong&gt; chicken broth&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1 teaspoon&lt;/strong&gt; sugar&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;½ teaspoon&lt;/strong&gt; ground turmeric&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;½ cup&lt;/strong&gt; bamboo shoots&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;4&lt;/strong&gt; kaffir lime leaves&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1.5 table-spoons&lt;/strong&gt; fish sauce&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2 cups&lt;/strong&gt; freshly diced pineapple&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1 tin&lt;/strong&gt; coconut milk&lt;/li&gt;
+&lt;li&gt;Fresh coriander leaves (for garnishing)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="method"&gt;Method&lt;a class="headerlink" href="#method" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Heat oil and &lt;em&gt;brown&lt;/em&gt; the chicken breasts&lt;/li&gt;
+&lt;li&gt;Add ginger and garlic, &lt;em&gt;cook for two minutes&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Add curry paste and &lt;em&gt;cook for further two minutes&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Add &lt;em&gt;chicken broth, sugar, turmeric, bamboo shoots, lime leaves, pineapple&lt;/em&gt; and &lt;em&gt;fish sauce&lt;/em&gt;.
+ Simmer on medium heat for &lt;em&gt;ten minutes&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Add coconut milk, and simmer for &lt;em&gt;five minutes&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="entree"></category><category term="thai-recipes"></category></entry><entry><title>Hollandaise Sauce</title><link href="http://doctrina.org/Hollandaise-Sauce.html" rel="alternate"></link><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:Hollandaise-Sauce.html</id><summary type="html">&lt;p&gt;&lt;div class="videobox"&gt;
                 &lt;iframe width="640" height="390"
                     src='https://www.youtube.com/embed/sPKWYM8-YgY'
                     frameborder='0' webkitAllowFullScreen mozallowfullscreen
@@ -14,7 +39,7 @@
 &lt;li&gt;&lt;strong&gt;1 tablespoon&lt;/strong&gt; fresh lemon juice (you can always add more to taste)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="method"&gt;Method&lt;a class="headerlink" href="#method" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;Take all ingredients, put it in a metal bowl, and whisk while heating over medium heat (see video).&lt;/p&gt;</summary><category term="sauce"></category><category term="other-recipes"></category></entry><entry><title>Thai Turkey Skilley</title><link href="http://doctrina.org/Thai-Turkey-Skillet.html" rel="alternate"></link><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:Thai-Turkey-Skillet.html</id><summary type="html">&lt;p&gt;&lt;div class="videobox"&gt;
+&lt;p&gt;Take all ingredients, put it in a metal bowl, and whisk while heating over medium heat (see video).&lt;/p&gt;</summary><category term="sauce"></category><category term="other-recipes"></category></entry><entry><title>Thai Turkey Skillet</title><link href="http://doctrina.org/Thai-Turkey-Skillet.html" rel="alternate"></link><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:Thai-Turkey-Skillet.html</id><summary type="html">&lt;p&gt;&lt;div class="videobox"&gt;
                 &lt;iframe width="640" height="390"
                     src='https://www.youtube.com/embed/kqGZbDocK2w'
                     frameborder='0' webkitAllowFullScreen mozallowfullscreen

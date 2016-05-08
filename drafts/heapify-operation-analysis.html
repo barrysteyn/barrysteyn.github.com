@@ -119,8 +119,6 @@
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
 		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
-<p>A heap (also known as a <em>priority queue</em>) is a data structure used to produce
-a recurring ?? in logarithmic time. It is normally implemented using an array...</p>
 <h1 id="background-knowledge">Background Knowledge<a href="#background-knowledge" title="Permanent link" class="headerlink"></a></h1>
 <h2 id="notation">Notation<a href="#notation" title="Permanent link" class="headerlink"></a></h2>
 <p>I will use the following notation:</p>
@@ -129,8 +127,7 @@ h &amp;&amp; \text{the height of node} \\
 n &amp;&amp; \text{the number of nodes in a tree} \\
 \end{array}</div>
 <h2 id="tree-node-height">Tree Node Height<a href="#tree-node-height" title="Permanent link" class="headerlink"></a></h2>
-<p>A tree node's height is the number of edges in the longest downward path between
-the node and a leaf<sup id="sf-heapify-operation-analysis-1-back"><a href="#sf-heapify-operation-analysis-1" title="A leaf is a node with no children." class="simple-footnote">1</a></sup>.</p>
+<p>A tree node's height is the number of edges in the longest downward path between the node and a leaf<sup id="sf-heapify-operation-analysis-1-back"><a href="#sf-heapify-operation-analysis-1" title="A leaf is a node with no children." class="simple-footnote">1</a></sup>.</p>
 <h3 id="lemma-maximum-number-of-nodes-of-height-h">Lemma: Maximum number of nodes of height <span class="math">\(h\)</span><a href="#lemma-maximum-number-of-nodes-of-height-h" title="Permanent link" class="headerlink"></a></h3>
 <h2 id="a-heap">A Heap<a href="#a-heap" title="Permanent link" class="headerlink"></a></h2>
 <ul>
@@ -138,15 +135,12 @@ the node and a leaf<sup id="sf-heapify-operation-analysis-1-back"><a href="#sf-h
 <li>Heap property: key[x] &lt;= all keys of x's children</li>
 <li>Implementation needs a random access list =&gt; array</li>
 </ul>
-<h3 id="common-heap-operations-parents-and-children">Common Heap Operations: Parents And Children<a href="#common-heap-operations-parents-and-children" title="Permanent link" class="headerlink"></a></h3>
-<p>Given an index <span class="math">\(x\)</span> of a heap with <span class="math">\(n\)</span> nodes, the following constant time
-operations can be used to find the parent or children nodes:</p>
-<div class="math">$$
-\text{parent node} = \max\left(0, \frac{x-1}{2}\right) \\
-\text{left child} = (x \times 2) + 1 \text{ [must be less than }n\text{]} \\
-\text{right child} = (x \times 2) + 2 \text{ [must be less than} n\text{]}
-$$</div>
-<h3 id="bubble-down">Bubble Down<a href="#bubble-down" title="Permanent link" class="headerlink"></a></h3>
+<h3 id="heap-operations">Heap Operations<a href="#heap-operations" title="Permanent link" class="headerlink"></a></h3>
+<ul>
+<li>calculate a node's parent</li>
+<li>calculate a node's children</li>
+<li>bubble down</li>
+</ul>
 <h1 id="heapify">Heapify<a href="#heapify" title="Permanent link" class="headerlink"></a></h1>
 <h2 id="algorithm">Algorithm<a href="#algorithm" title="Permanent link" class="headerlink"></a></h2>
 <p>The heapify algorithm is extremely simple:</p>
@@ -162,7 +156,7 @@ while (idx &gt; 0)
 </pre></div>
 </td></tr></tbody></table>
 
-<h2 id="proof-that-heapify-time-is-linear">Proof That Heapify Time Is Linear<a href="#proof-that-heapify-time-is-linear" title="Permanent link" class="headerlink"></a></h2>
+<h2 id="proof-that-heapify-is-linear">Proof That Heapify Is Linear<a href="#proof-that-heapify-is-linear" title="Permanent link" class="headerlink"></a></h2>
 <p>First, an observation: In a binary tree, the number of nodes of a certain height
 is less than or equal to <span class="math">\(\left\lceil\frac{n}{2^{h+1}}\)</span>. Using ceilings is awkward,
 and it can be removed by using <span class="math">\(n+1\)</span> in the numerator:</p>
@@ -172,21 +166,6 @@ $$</div>
 <p>The reason it works is because a full and complete binary tree is always odd, and
 therefore, <span class="math">\(2^{h+1}\)</span> will never divide <span class="math">\(n\)</span>. Adding <span class="math">\(1\)</span> to <span class="math">\(n\)</span> will make it even,
 and therefore remove the need for the ceilings.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>ba640c88b089047721ec30ea069a9137ce837d59</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <div class="math">\begin{align*}
 \text{Heapify for all }n\text{ nodes} &amp; = \sum_{h=0}^{log_2n} n\cdot O(h) \\
                                       &amp; \leq \sum_{h=0}^{log_2n} (n+1) \cdot O(h) \\
