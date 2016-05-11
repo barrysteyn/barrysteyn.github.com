@@ -1,6 +1,6 @@
 Date: 2016-05-07
 Title: Thai Turkey Skillet
-Tags: sauce, entree
+Tags: entree
 Slug: Thai-Turkey-Skillet
 
 {% youtube kqGZbDocK2w %}
