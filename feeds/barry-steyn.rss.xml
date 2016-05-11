@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Doctrina</title><link>http://doctrina.org/</link><description></description><atom:link href="http://doctrina.org/feeds/barry-steyn.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 09 May 2016 00:00:00 -0700</lastBuildDate><item><title>Thai Pineapple Chicken Curry</title><link>http://doctrina.org/Thai-Pineapple-Chicken-Curry.html</link><description>&lt;h1 id="ingredients"&gt;Ingredients&lt;a class="headerlink" href="#ingredients" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Doctrina</title><link>http://doctrina.org/</link><description></description><atom:link href="http://doctrina.org/feeds/barry-steyn.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 10 May 2016 00:00:00 -0700</lastBuildDate><item><title>Greek Lemon Chicken And Potatoes</title><link>http://doctrina.org/Greek-Lemon-Chicken-And-Potatoes.html</link><description>&lt;p&gt;&lt;div class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/h6OSMbfhIao'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/div&gt;&lt;/p&gt;
+&lt;h1 id="ingredient"&gt;Ingredient&lt;a class="headerlink" href="#ingredient" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1 kilogram&lt;/strong&gt; chicken wings&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1 tablespoon&lt;/strong&gt; kosher salt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1 teaspoon&lt;/strong&gt; freshly ground black pepper&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1 teaspoon dried&lt;/strong&gt; rosemary&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1 rounded tablespoon&lt;/strong&gt; dried oregano&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pinch&lt;/strong&gt; of cayenne&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;6 cloves of garlic&lt;/strong&gt;, finely minced&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1/2 cup&lt;/strong&gt; fresh lemon juice&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1/2 cup&lt;/strong&gt; olive oil&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3 russet potatoes&lt;/strong&gt;, cut in quarters&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2/3 cup&lt;/strong&gt; chicken broth for the pan, plus a splash to deglaze after roasting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="method"&gt;Method&lt;a class="headerlink" href="#method" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Put &lt;em&gt;chicken&lt;/em&gt; in bowl, and season generously with &lt;em&gt;salt, black pepper, rosemary, oregano&lt;/em&gt; and &lt;em&gt;cayenne&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Add &lt;em&gt;garlic, lemon juice&lt;/em&gt; and &lt;em&gt;olive oil&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Add the &lt;em&gt;potatoes&lt;/em&gt;, and give everything a thourough mixing&lt;/li&gt;
+&lt;li&gt;Transfer to a lighly oiled roasting pan, then add the chicken broth to the pan&lt;/li&gt;
+&lt;li&gt;Finally, add the lemon marinade over the chicken and potatoes&lt;/li&gt;
+&lt;li&gt;Transfer to a 425 degree oven, and roast for &lt;em&gt;45 minutes&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Barry Steyn</dc:creator><pubDate>Tue, 10 May 2016 00:00:00 -0700</pubDate><guid>tag:doctrina.org,2016-05-10:Greek-Lemon-Chicken-And-Potatoes.html</guid><category>entree</category></item><item><title>Thai Pineapple Chicken Curry</title><link>http://doctrina.org/Thai-Pineapple-Chicken-Curry.html</link><description>&lt;h1 id="ingredients"&gt;Ingredients&lt;a class="headerlink" href="#ingredients" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;1 table-spoon&lt;/strong&gt; olive oil&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;2&lt;/strong&gt; chicken breasts, cubed&lt;/li&gt;
@@ -66,7 +95,7 @@
 &lt;li&gt;Whisk &lt;em&gt;peanut-butter, lime juice, soy sauce, sesame oil&lt;/em&gt; and &lt;em&gt;cilantro&lt;/em&gt; together&lt;/li&gt;
 &lt;li&gt;Add recently whisked sauce to minced meat&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Eat on romaine lettuce leaves&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Barry Steyn</dc:creator><pubDate>Sat, 07 May 2016 00:00:00 -0700</pubDate><guid>tag:doctrina.org,2016-05-07:Thai-Turkey-Skillet.html</guid><category>sauce</category><category>entree</category></item><item><title>Big O Notation</title><link>http://doctrina.org/big-o-notation.html</link><description>&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Eat on romaine lettuce leaves&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Barry Steyn</dc:creator><pubDate>Sat, 07 May 2016 00:00:00 -0700</pubDate><guid>tag:doctrina.org,2016-05-07:Thai-Turkey-Skillet.html</guid><category>entree</category></item><item><title>Big O Notation</title><link>http://doctrina.org/big-o-notation.html</link><description>&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="videobox"&gt;
                 &lt;iframe src="https://www.youtube.com/embed/eNsKNfFUqFo" height="390" mozallowfullscreen="" width="640" frameborder="0" allowfullscreen="" webkitallowfullscreen=""&gt;
                 &lt;/iframe&gt;

@@ -5,44 +5,51 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/</loc>
-<lastmod>2016-05-08T16:49:41-00:00</lastmod>
+<lastmod>2016-05-10T18:41:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/archives.html</loc>
-<lastmod>2016-05-08T16:49:41-00:00</lastmod>
+<lastmod>2016-05-10T18:41:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/tags.html</loc>
-<lastmod>2016-05-08T16:49:41-00:00</lastmod>
+<lastmod>2016-05-10T18:41:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/categories.html</loc>
-<lastmod>2016-05-08T16:49:41-00:00</lastmod>
+<lastmod>2016-05-10T18:41:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/pages/recipes.html</loc>
-<lastmod>2016-05-08T16:49:41-00:00</lastmod>
+<lastmod>2016-05-10T18:41:15-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://doctrina.org/pages/resume.html</loc>
-<lastmod>2016-05-08T16:49:41-00:00</lastmod>
+<lastmod>2016-05-10T18:41:15-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://doctrina.org/Greek-Lemon-Chicken-And-Potatoes.html</loc>
+<lastmod>2016-05-10T00:00:00-07:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.75</priority>
 </url>
 
 <url>
@@ -271,7 +278,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/category/recipe.html</loc>
-<lastmod>2016-05-09T00:00:00-08:12</lastmod>
+<lastmod>2016-05-10T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -376,7 +383,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/tag/entree.html</loc>
-<lastmod>2016-05-09T00:00:00-08:12</lastmod>
+<lastmod>2016-05-10T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -474,7 +481,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://doctrina.org/author/barry-steyn.html</loc>
-<lastmod>2016-05-09T00:00:00-08:12</lastmod>
+<lastmod>2016-05-10T00:00:00-08:12</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
