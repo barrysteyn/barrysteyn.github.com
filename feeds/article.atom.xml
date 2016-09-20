@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2016-02-03T00:00:00-08:00</updated><entry><title>Big O Notation</title><link href="http://doctrina.org/big-o-notation.html" rel="alternate"></link><updated>2016-02-03T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-02-03:big-o-notation.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/article.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2016-09-20T00:00:00-07:00</updated><entry><title>Why You Shouldn't Trust Successful People's Advice</title><link href="http://doctrina.org/Dont-Trust-Successful-People-Advice.html" rel="alternate"></link><updated>2016-09-20T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-09-20:Dont-Trust-Successful-People-Advice.html</id><summary type="html">&lt;h1 id="why-you-shouldnt-trust-successful-peoples-advice"&gt;Why You Shouldn't Trust Successful People's Advice&lt;a class="headerlink" href="#why-you-shouldnt-trust-successful-peoples-advice" title="Permanent link"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;It seems sensible to model oneself on traits that are displayed by successful
+people. And while this is not inherently incorrect, there is a problem when
+traits of less successful are ignored.&lt;/p&gt;
+&lt;p&gt;This video dispels the myth about only trusting successful people's advice,
+while, at the same time, ignoring less successful people.&lt;/p&gt;
+&lt;p&gt;&lt;div class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/1k7jeQQdqPA'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/div&gt;&lt;/p&gt;</summary><category term="interesting"></category><category term="video"></category></entry><entry><title>Big O Notation</title><link href="http://doctrina.org/big-o-notation.html" rel="alternate"></link><updated>2016-02-03T00:00:00-08:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-02-03:big-o-notation.html</id><summary type="html">&lt;h1 id="introduction"&gt;Introduction&lt;a href="#introduction" title="Permanent link" class="headerlink"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="videobox"&gt;
                 &lt;iframe src="https://www.youtube.com/embed/eNsKNfFUqFo" height="390" mozallowfullscreen="" width="640" frameborder="0" allowfullscreen="" webkitallowfullscreen=""&gt;
                 &lt;/iframe&gt;
