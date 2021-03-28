@@ -24,7 +24,7 @@ JINJA_FILTERS = {
 PATH = 'content'
 AUTHOR = u'Barry Steyn'
 SITENAME = u'Doctrina'
-SITEURL = u'http://doctrina'
+SITEURL = u'http://doctrina:8000'
 
 # URL
 RELATIVE_URLS=False
@@ -73,7 +73,6 @@ PLUGINS = [
     'sitemap',  # For SEO
     'liquid_tags.youtube',  # liquid tags - embed youtube
     'liquid_tags.img',  # liquid tags - image
-    'md_inline_extension'  # my inline md extension :)
 ]
 
 #Render Math Plugin
@@ -103,16 +102,18 @@ SITEMAP = {
 }
 
 #Markdown Extensions
-MD_EXTENSIONS = [
-    'toc(title=Table Of Contents, permalink=)',  # See https://pythonhosted.org/Markdown/extensions/toc.html for options
-    'codehilite(css_class=highlight, linenums=True)'  # used for applying pygments.css to code
-]
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.toc': {'title': 'Table Of Contents', 'permalink': []}
+    },
+    'output_format': 'html5',
+}
 
-# Jinja2 Extensions
-JINJA_EXTENSIONS = [
-  'jinja2.ext.loopcontrols',
-  'jinja2.ext.with_'
-]
+# Jinja2 Environment    
+JINJA_ENVIRONMENT = {
+    'extensions': ['jinja2.ext.loopcontrols','jinja2.ext.with_']
+}
 
 # Theme
 THEME = 'doctrina-pelican_theme/Output'
