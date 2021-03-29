@@ -1,6 +1,6 @@
 [submodule "doctrina-pelican_theme"]
 	path = doctrina-pelican_theme
-	url = git@bitbucket.org:bsteyn/doctrina-pelican_theme.git
+	url = git@personal.github.com:barrysteyn/doctrina-pelican-theme.git 
 [submodule "plugins/pelican-plugins"]
 	path = plugins/pelican-plugins
 	url = git@github.com:getpelican/pelican-plugins.git
