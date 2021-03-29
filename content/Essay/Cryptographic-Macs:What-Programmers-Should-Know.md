@@ -6,7 +6,7 @@ Subcategory: Cryptography
 
 [TOC]
 
-#Introduction
+# Introduction
 A MAC ([message authentication code](http://en.wikipedia.org/wiki/Message_authentication_code)) plays a vital role in the world of cryptography. It ensures message integrity and combats *active attacks*[ref]An active attack is an attack whereby the message payload is changed tricking both communicating parties.[/ref].
 
 A MAC is often confused with a cryptograhic hash (i.e. SHA256). I think it was an unfortunate choice of words to use *cryptographic hash*, because as I will show , a cryptographic hash is not even designed to be secure.
@@ -17,7 +17,7 @@ This article aims to set things right. It will explain the following:
  * Why a cryptographic hash is insecure, and when it should be used.
  * What a MAC is.
 
-#Cryptographic Hash Function
+# Cryptographic Hash Function
 
 A cryptographic hash function exhibits four properties:
 

@@ -27,3 +27,5 @@ Make sure that `/etc/hosts` has an entry for *doctrina* like so:
 ```
 127.0.0.1 	doctrina
 ```
+
+Then go to *http://doctrina:8000* and write away.
