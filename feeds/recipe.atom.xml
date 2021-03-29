@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina - Recipe</title><link href="https://doctrina.org/" rel="alternate"></link><link href="https://doctrina.org/feeds/recipe.atom.xml" rel="self"></link><id>https://doctrina.org/</id><updated>2016-05-10T00:00:00-07:00</updated><entry><title>Greek Lemon Chicken And Potatoes</title><link href="https://doctrina.org/Greek-Lemon-Chicken-And-Potatoes.html" rel="alternate"></link><published>2016-05-10T00:00:00-07:00</published><updated>2016-05-10T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-10:/Greek-Lemon-Chicken-And-Potatoes.html</id><summary type="html">&lt;p&gt;&lt;span class="videobox"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Doctrina - Recipe</title><link href="http://doctrina.org/" rel="alternate"></link><link href="http://doctrina.org/feeds/recipe.atom.xml" rel="self"></link><id>http://doctrina.org/</id><updated>2016-05-10T00:00:00-07:00</updated><entry><title>Greek Lemon Chicken And Potatoes</title><link href="http://doctrina.org/Greek-Lemon-Chicken-And-Potatoes.html" rel="alternate"></link><published>2016-05-10T00:00:00-07:00</published><updated>2016-05-10T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-10:/Greek-Lemon-Chicken-And-Potatoes.html</id><summary type="html">&lt;p&gt;&lt;span class="videobox"&gt;
                     &lt;iframe width="640" height="390"
                         src='https://www.youtube.com/embed/h6OSMbfhIao'
                         frameborder='0' webkitAllowFullScreen
@@ -46,7 +46,7 @@
 &lt;li&gt;Transfer to a lighly oiled roasting pan, then add the chicken broth to the pan&lt;/li&gt;
 &lt;li&gt;Finally, add the lemon marinade over the chicken and potatoes&lt;/li&gt;
 &lt;li&gt;Transfer to a 425 degree oven, and roast for &lt;em&gt;45 minutes&lt;/em&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="Recipe"></category><category term="entree"></category></entry><entry><title>Thai Pineapple Chicken Curry</title><link href="https://doctrina.org/Thai-Pineapple-Chicken-Curry.html" rel="alternate"></link><published>2016-05-09T00:00:00-07:00</published><updated>2016-05-09T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-09:/Thai-Pineapple-Chicken-Curry.html</id><summary type="html">&lt;h1 id="ingredients"&gt;Ingredients&lt;/h1&gt;
+&lt;/ol&gt;</content><category term="Recipe"></category><category term="entree"></category></entry><entry><title>Thai Pineapple Chicken Curry</title><link href="http://doctrina.org/Thai-Pineapple-Chicken-Curry.html" rel="alternate"></link><published>2016-05-09T00:00:00-07:00</published><updated>2016-05-09T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-09:/Thai-Pineapple-Chicken-Curry.html</id><summary type="html">&lt;h1 id="ingredients"&gt;Ingredients&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;1 table-spoon&lt;/strong&gt; olive oil&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;2&lt;/strong&gt; chicken breasts, cubed&lt;/li&gt;
@@ -84,7 +84,7 @@
 &lt;li&gt;Add &lt;em&gt;chicken broth, sugar, turmeric, bamboo shoots, lime leaves, pineapple&lt;/em&gt; and &lt;em&gt;fish sauce&lt;/em&gt;.
  Simmer on medium heat for &lt;em&gt;ten minutes&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;Add coconut milk, and simmer for &lt;em&gt;five minutes&lt;/em&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><category term="Recipe"></category><category term="entree"></category><category term="thai-recipes"></category></entry><entry><title>Hollandaise Sauce</title><link href="https://doctrina.org/Hollandaise-Sauce.html" rel="alternate"></link><published>2016-05-07T00:00:00-07:00</published><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:/Hollandaise-Sauce.html</id><content type="html">&lt;p&gt;&lt;span class="videobox"&gt;
+&lt;/ol&gt;</content><category term="Recipe"></category><category term="entree"></category><category term="thai-recipes"></category></entry><entry><title>Hollandaise Sauce</title><link href="http://doctrina.org/Hollandaise-Sauce.html" rel="alternate"></link><published>2016-05-07T00:00:00-07:00</published><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:/Hollandaise-Sauce.html</id><content type="html">&lt;p&gt;&lt;span class="videobox"&gt;
                     &lt;iframe width="640" height="390"
                         src='https://www.youtube.com/embed/sPKWYM8-YgY'
                         frameborder='0' webkitAllowFullScreen
@@ -99,7 +99,7 @@
 &lt;li&gt;&lt;strong&gt;1 tablespoon&lt;/strong&gt; fresh lemon juice (you can always add more to taste)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="method"&gt;Method&lt;/h1&gt;
-&lt;p&gt;Take all ingredients, put it in a metal bowl, and whisk while heating over medium heat (see video).&lt;/p&gt;</content><category term="Recipe"></category><category term="sauce"></category><category term="other-recipes"></category></entry><entry><title>Thai Turkey Skillet</title><link href="https://doctrina.org/Thai-Turkey-Skillet.html" rel="alternate"></link><published>2016-05-07T00:00:00-07:00</published><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:/Thai-Turkey-Skillet.html</id><summary type="html">&lt;p&gt;&lt;span class="videobox"&gt;
+&lt;p&gt;Take all ingredients, put it in a metal bowl, and whisk while heating over medium heat (see video).&lt;/p&gt;</content><category term="Recipe"></category><category term="sauce"></category><category term="other-recipes"></category></entry><entry><title>Thai Turkey Skillet</title><link href="http://doctrina.org/Thai-Turkey-Skillet.html" rel="alternate"></link><published>2016-05-07T00:00:00-07:00</published><updated>2016-05-07T00:00:00-07:00</updated><author><name>Barry Steyn</name></author><id>tag:doctrina.org,2016-05-07:/Thai-Turkey-Skillet.html</id><summary type="html">&lt;p&gt;&lt;span class="videobox"&gt;
                     &lt;iframe width="640" height="390"
                         src='https://www.youtube.com/embed/kqGZbDocK2w'
                         frameborder='0' webkitAllowFullScreen
