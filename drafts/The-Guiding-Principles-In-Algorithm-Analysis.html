@@ -118,7 +118,7 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="guiding-principle-1-worst-case-analysis">Guiding Principle 1: Worst Case Analysis<a class="headerlink" href="#guiding-principle-1-worst-case-analysis" title="Permanent link"></a></h1>
+		<h1 id="guiding-principle-1-worst-case-analysis">Guiding Principle 1: Worst Case Analysis</h1>
 <p>Why worst case analysis:</p>
 <ol>
 <li>Running time will hold for <strong>every</strong> input of length n.</li>
@@ -126,16 +126,16 @@
 <li>Average case analysis requires <em>domain knowledge</em>.</li>
 <li>Worst case is usually much easier to analyse.</li>
 </ol>
-<h1 id="guiding-principle-2-ignore-constant-factors-and-lower-order-terms">Guiding Principle 2: Ignore constant factors and lower-order terms<a class="headerlink" href="#guiding-principle-2-ignore-constant-factors-and-lower-order-terms" title="Permanent link"></a></h1>
+<h1 id="guiding-principle-2-ignore-constant-factors-and-lower-order-terms">Guiding Principle 2: Ignore constant factors and lower-order terms</h1>
 <ol>
 <li>It is easier to analyse.</li>
 <li>Constants depend on computer architecture/compiler/programmer. Therefore it loses generality.</li>
 <li>Throwing away constant factors/lower-order terms loses very little predictive power.</li>
 </ol>
-<h1 id="guiding-principle-3-asymptotic-analysis">Guiding Principle 3: Asymptotic Analysis<a class="headerlink" href="#guiding-principle-3-asymptotic-analysis" title="Permanent link"></a></h1>
+<h1 id="guiding-principle-3-asymptotic-analysis">Guiding Principle 3: Asymptotic Analysis</h1>
 <p>Focus on running times for large input values. This is because only big problems are interesting (small problems can be solved in inefficient ways quickly).</p>
 <p>Example: $\underbrace{6n\cdot log_2n+6n}_{\text{Merge Sort}} $ is better than $\frac{1}{2}\cdot n^2 $ (selection sort)</p>
-<h1 id="a-fast-algorithm">A Fast Algorithm<a class="headerlink" href="#a-fast-algorithm" title="Permanent link"></a></h1>
+<h1 id="a-fast-algorithm">A Fast Algorithm</h1>
 <p>A fast algorithm (using the above guiding principles) is therefore an algorithm that grows slowly in <em>worst case running time</em> when input grows.</p>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">

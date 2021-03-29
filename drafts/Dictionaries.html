@@ -125,7 +125,7 @@
 <li>Lookup</li>
 </ol>
 <p>Dictionaries are distinguished by using <em>keys</em> as index values for the above operations.</p>
-<h1 id="hash-tables">Hash Tables<a class="headerlink" href="#hash-tables" title="Permanent link"></a></h1>
+<h1 id="hash-tables">Hash Tables</h1>
 <p>Hash tables are the most famous form of a dictionary. It is based on an array and exploits the ability of array random access. </p>
 <p>Hash tables guarantee that <em>insertion</em>, <em>deletion</em> and <em>lookup</em> will all happen in O(1) time with the following caveats:</p>
 <ol>
@@ -137,20 +137,20 @@
 <li>Based on an array</li>
 <li>Exploits random access property of an array</li>
 </ul>
-<h2 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link"></a></h2>
-<h3 id="de-duplication">De-Duplication<a class="headerlink" href="#de-duplication" title="Permanent link"></a></h3>
+<h2 id="applications">Applications</h2>
+<h3 id="de-duplication">De-Duplication</h3>
 <p>Removes duplicates. In a stream of objects, use a hash-table to remove duplicates.</p>
-<h3 id="2-sum-problem">2 Sum Problem<a class="headerlink" href="#2-sum-problem" title="Permanent link"></a></h3>
+<h3 id="2-sum-problem">2 Sum Problem</h3>
 <p><strong>input</strong>: Integer list in <em>no-particular order</em>. A target sum <em>t</em>.
 You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> that sum to <em>t</em>.</p>
 <p><strong>Solution</strong>: Add each element to a hash table. Then, for each element <em>x</em>, search for <em>t-x</em> in the hash table.</p>
-<h3 id="more-examples">More examples<a class="headerlink" href="#more-examples" title="Permanent link"></a></h3>
+<h3 id="more-examples">More examples</h3>
 <ol>
 <li><strong>Compilers</strong>. To support super fast lookups to for symbols.</li>
 <li><strong>Block network traffic</strong>. Have a blacklist to drop things.</li>
 <li><strong>Speed up search algorithms</strong>. Use hash table to avoid looking up things you have already looked up.</li>
 </ol>
-<h2 id="hash-implementation">Hash Implementation<a class="headerlink" href="#hash-implementation" title="Permanent link"></a></h2>
+<h2 id="hash-implementation">Hash Implementation</h2>
 <ol>
 <li>Choose size of array (the number of buckets)</li>
 <li>A hash function, which maps a key to a bucket.</li>
@@ -161,7 +161,7 @@ You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> 
 <li><strong>Open addressing</strong>. If collision occurs, we probe the table in some other location. Therefore hash function produces hash sequence. There are various strategies: (1) Linear probing (2) double hash function.</li>
 </ol>
 <p>Open addressing is more difficult to implement deletion.</p>
-<h3 id="properties-of-a-good-hash-function">Properties of a good hash function<a class="headerlink" href="#properties-of-a-good-hash-function" title="Permanent link"></a></h3>
+<h3 id="properties-of-a-good-hash-function">Properties of a good hash function</h3>
 <ol>
 <li>It should lead to good performance. This is done by spreading data out as evenly as possible.</li>
 <li>It is important that the hash function can be evaluated quickly.</li>
@@ -172,7 +172,7 @@ You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> 
 <li>Choose <em>n</em> (the number of buckets) as a prime number.</li>
 <li>The prime should not be too close to <em>patterns</em> in the data.</li>
 </ul>
-<h3 id="universal-hashing-function-introduction">Universal Hashing Function - Introduction<a class="headerlink" href="#universal-hashing-function-introduction" title="Permanent link"></a></h3>
+<h3 id="universal-hashing-function-introduction">Universal Hashing Function - Introduction</h3>
 <p>The load factor <span class="math">\(\alpha\)</span> of a hash table:</p>
 <div class="math">$$\alpha = \frac{\text{# of objects in a hash table}}{\text{# of buckets}}$$</div>
 <p>The load needs to be constant <span class="math">\(O(1)\)</span> to run in constant time. For <em>open addressing</em>, the load must be less than 1, but even for <em>chaining</em>, the load better not much bigger than a factor of 1.</p>
@@ -183,7 +183,7 @@ You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> 
 <li>Use randomization. Design a family of hash functions and then pick one at run time at random.</li>
 </ol>
 <p>2 above implies that for each data set, choosing a random hash function will make it difficult to find the pathological data set to destroy the function.</p>
-<h3 id="universal-hash-function-implementation">Universal Hash Function - Implementation<a class="headerlink" href="#universal-hash-function-implementation" title="Permanent link"></a></h3>
+<h3 id="universal-hash-function-implementation">Universal Hash Function - Implementation</h3>
 <p>Let <span class="math">\(H\)</span> be a set of hash functions from <span class="math">\(u\)</span> to <span class="math">\(\{0,1,2,\ldots,n-1\}\)</span>. <span class="math">\(H\)</span> is universal <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\forall x,y \in u\)</span>, pr that <span class="math">\(h(x) = h(y)\)</span> is <span class="math">\(\frac{1}{n}\)</span> where <span class="math">\(h \in H\)</span>.</p>
 <p><strong>Example</strong>: Creating a universal hash function for ip addresses.</p>
 <ol>
@@ -205,15 +205,16 @@ You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> 
     }
 
     var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
         "    displayAlign: '"+ align +"'," +
@@ -227,6 +228,8 @@ You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> 
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
@@ -247,6 +250,8 @@ You need to find two integers from the unsorted list, <em>x</em> and <em>y</em> 
                 "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
             "});" +
         "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>

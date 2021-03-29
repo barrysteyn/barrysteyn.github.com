@@ -118,72 +118,55 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
-<p>Immutable state has <a href="http://www.drdobbs.com/cpp/practical-advantages-of-immutable-values/240163690">many advantages</a><sup class="print">L1</sup>. Unfortunately, C++ is designed to easily mutate state. My colleague Vincent Lascaux shared a code snippet that tries to alleviate this problem by attempting to avoid normal variables in favor of using constants that are always initialized. I decided to name his pattern <em>const liffy</em>...</p>
-<h2 id="background-knowledge">Background Knowledge<a href="#background-knowledge" title="Permanent link" class="headerlink"></a></h2>
-<p><a href="http://en.wikipedia.org/wiki/C%2B%2B11">C++ standard 11</a><sup class="print">L2</sup> introduced some amazing features to C++. Two such features are:</p>
+		<h1 id=introduction>Introduction</h1>
+<p>Immutable state has <a href="http://www.drdobbs.com/cpp/practical-advantages-of-immutable-values/240163690">many advantages</a><sup class=print>L1</sup>. Unfortunately, C++ is designed to easily mutate state. My colleague Vincent Lascaux shared a code snippet that tries to alleviate this problem by attempting to avoid normal variables in favor of using constants that are always initialized. I decided to name his pattern <em>const liffy</em>...</p>
+<h2 id=background-knowledge>Background Knowledge</h2>
+<p><a href="http://en.wikipedia.org/wiki/C%2B%2B11">C++ standard 11</a><sup class=print>L2</sup> introduced some amazing features to C++. Two such features are:</p>
 <ol>
-<li>The <a href="http://en.cppreference.com/w/cpp/language/auto">auto</a><sup class="print">L3</sup> variable initializer.</li>
-<li><a href="http://en.cppreference.com/w/cpp/language/lambda">Lambda functions</a><sup class="print">L4</sup>.</li>
+<li>The <a href="http://en.cppreference.com/w/cpp/language/auto">auto</a><sup class=print>L3</sup> variable initializer.</li>
+<li><a href="http://en.cppreference.com/w/cpp/language/lambda">Lambda functions</a><sup class=print>L4</sup>.</li>
 </ol>
-<h3 id="auto-variable-initializer">Auto Variable initializer<a href="#auto-variable-initializer" title="Permanent link" class="headerlink"></a></h3>
-<p>The keyword <em>auto</em> can be used to declare a variable. During compilation, the compiler will replace the <em>auto</em> keyword using the rules for <a href="http://en.cppreference.com/w/cpp/language/template_argument_deduction">template argument deduction</a><sup class="print">L5</sup> thereby ensuring type safety.</p>
+<h3 id=auto-variable-initializer>Auto Variable initializer</h3>
+<p>The keyword <em>auto</em> can be used to declare a variable. During compilation, the compiler will replace the <em>auto</em> keyword using the rules for <a href="http://en.cppreference.com/w/cpp/language/template_argument_deduction">template argument deduction</a><sup class=print>L5</sup> thereby ensuring type safety.</p>
 <p>Standard modifiers for variables (like &amp; and <em>const</em>) are valid to put before <em>auto</em>. For example, the following is perfectly legal:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">const</span> <span class="k">auto</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">result_of_some_function</span><span class="p">();</span>
-</pre></div>
-</td></tr></tbody></table>
+<div class=highlight><pre><span></span><code><span class=k>auto</span> <span class=n>a</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+<span class=k>const</span> <span class=k>auto</span> <span class=n>b</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+<span class=k>const</span> <span class=k>auto</span><span class=o>&amp;</span> <span class=n>c</span> <span class=o>=</span> <span class=n>result_of_some_function</span><span class=p>();</span>
+</code></pre></div>
 
-<h3 id="lambda-functions">Lambda Functions<a href="#lambda-functions" title="Permanent link" class="headerlink"></a></h3>
+<h3 id=lambda-functions>Lambda Functions</h3>
 <p>A Lambda function is an unnamed function object capable of <em>capturing</em> variables in scope. The syntax is as follows</p>
 <blockquote>
-<p><code>[capture-list] (parameters) { body }</code> <sup id="sf-Const-Liffy-Pattern-1-back"><a href="#sf-Const-Liffy-Pattern-1" title="This is not the only syntax for lambdas in C++, there are other syntaxesL6" class="simple-footnote">1</a></sup></p>
+<p><code>[capture-list] (parameters) { body }</code> <sup id=sf-Const-Liffy-Pattern-1-back><a href=#sf-Const-Liffy-Pattern-1 class=simple-footnote title="This is not the only syntax for lambdas in C++, there are other syntaxesL6">1</a></sup></p>
 </blockquote>
 <p>The capture list is very important. It specifies the way that variables declared outside the lambda are available within the lambda. if a lambda function uses a capture list specified by <code>[&amp;]</code>, then all variables declared in the block where the lambda is invoked is available to the lambda <em>as a reference</em>. The <em>parameters</em> are optional (in fact, no parameters are used in the <em>const liffy</em> pattern).</p>
 <p>For example, the following code uses a lambda function to <em>filter</em> out all strings that do not contain the substring <em>"world"</em>:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">string</span> <span class="n">word</span> <span class="o">=</span> <span class="s">"world"</span><span class="p">;</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">strings</span> <span class="o">=</span> <span class="p">{</span> <span class="n">string</span><span class="p">(</span><span class="s">"hello"</span><span class="p">),</span> <span class="n">string</span><span class="p">(</span><span class="s">"world"</span><span class="p">),</span> <span class="n">string</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)};</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">results</span><span class="p">;</span>
-<span class="n">for_each</span><span class="p">(</span><span class="n">strings</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">strings</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">(</span><span class="n">string</span> <span class="n">test</span><span class="p">)</span> <span class="p">{</span>
-   <span class="k">if</span> <span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">!=</span> <span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span>
-    <span class="n">results</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">test</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-</td></tr></tbody></table>
+<div class=highlight><pre><span></span><code><span class=n>string</span> <span class=n>word</span> <span class=o>=</span> <span class=s>"world"</span><span class=p>;</span>
+<span class=n>vector</span><span class=o>&lt;</span><span class=n>string</span><span class=o>&gt;</span> <span class=n>strings</span> <span class=o>=</span> <span class=p>{</span> <span class=n>string</span><span class=p>(</span><span class=s>"hello"</span><span class=p>),</span> <span class=n>string</span><span class=p>(</span><span class=s>"world"</span><span class=p>),</span> <span class=n>string</span><span class=p>(</span><span class=s>"hello world"</span><span class=p>)};</span>
+<span class=n>vector</span><span class=o>&lt;</span><span class=n>string</span><span class=o>&gt;</span> <span class=n>results</span><span class=p>;</span>
+<span class=n>for_each</span><span class=p>(</span><span class=n>strings</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>strings</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> <span class=p>[</span><span class=o>&amp;</span><span class=p>]</span> <span class=p>(</span><span class=n>string</span> <span class=n>test</span><span class=p>)</span> <span class=p>{</span>
+   <span class=k>if</span> <span class=p>(</span><span class=n>test</span><span class=p>.</span><span class=n>find</span><span class=p>(</span><span class=n>word</span><span class=p>)</span> <span class=o>!=</span> <span class=n>string</span><span class=o>::</span><span class=n>npos</span><span class=p>)</span>
+    <span class=n>results</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>test</span><span class=p>);</span>
+<span class=p>});</span>
+</code></pre></div>
 
-<h1 id="the-const-liffy-pattern">The Const Liffy Pattern<a href="#the-const-liffy-pattern" title="Permanent link" class="headerlink"></a></h1>
+<h1 id=the-const-liffy-pattern>The Const Liffy Pattern</h1>
 <p>Using lambda functions, we can initialize const variables by immediately invoking the lambda:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">const</span> <span class="k">auto</span> <span class="n">var</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span> <span class="n">code</span> <span class="n">here</span><span class="p">...;</span> <span class="k">return</span> <span class="n">something</span><span class="p">;</span> <span class="p">}</span> <span class="p">()</span>
-</pre></div>
-</td></tr></tbody></table>
+<div class=highlight><pre><span></span><code><span class=k>const</span> <span class=k>auto</span> <span class=n>var</span> <span class=o>=</span> <span class=p>[</span><span class=o>&amp;</span><span class=p>]</span> <span class=p>{</span> <span class=n>code</span> <span class=n>here</span><span class=p>...;</span> <span class=k>return</span> <span class=n>something</span><span class=p>;</span> <span class=p>}</span> <span class=p>()</span>
+</code></pre></div>
 
-<p>Note the invokation operator <code>()</code> operator in the above snippet. JavaScript calls this pattern an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">immediately invoked function expression</a><sup class="print">L7</sup> commonly just called <code>iffy</code>. I therefore named the pattern above <em>const liffy</em>, with <em>liffy</em> being short for <em>lambda iffy</em>.</p>
+<p>Note the invokation operator <code>()</code> operator in the above snippet. JavaScript calls this pattern an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">immediately invoked function expression</a><sup class=print>L7</sup> commonly just called <code>iffy</code>. I therefore named the pattern above <em>const liffy</em>, with <em>liffy</em> being short for <em>lambda iffy</em>.</p>
 <p>The <em>const liffy</em> pattern elegantly lets one use immutable state. Some examples should set things straight.</p>
-<h2 id="reading-a-variable-protected-by-a-mutex">Reading A Variable Protected By A Mutex<a href="#reading-a-variable-protected-by-a-mutex" title="Permanent link" class="headerlink"></a></h2>
-<p>Multithreaded programming requires the use of a <a href="http://en.wikipedia.org/wiki/Mutual_exclusion">mutex</a><sup class="print">L8</sup> to guard against <a href="http://en.wikipedia.org/wiki/Race_condition">race conditions</a><sup class="print">L9</sup>.</p>
+<h2 id=reading-a-variable-protected-by-a-mutex>Reading A Variable Protected By A Mutex</h2>
+<p>Multithreaded programming requires the use of a <a href="http://en.wikipedia.org/wiki/Mutual_exclusion">mutex</a><sup class=print>L8</sup> to guard against <a href="http://en.wikipedia.org/wiki/Race_condition">race conditions</a><sup class=print>L9</sup>.</p>
 <p>Here is a generic example of reading a variable that is protected by a mutex:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">Object</span><span class="o">*</span> <span class="n">instance</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">mutex</span> <span class="n">obj_mutex</span><span class="p">;</span>
-<span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">obj_mutex</span><span class="p">);</span>
-    <span class="n">instance</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">protected_variable</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></tbody></table>
+<div class=highlight><pre><span></span><code><span class=n>Object</span><span class=o>*</span> <span class=n>instance</span><span class=p>;</span>
+<span class=n>std</span><span class=o>::</span><span class=n>mutex</span> <span class=n>obj_mutex</span><span class=p>;</span>
+<span class=p>{</span>
+    <span class=n>std</span><span class=o>::</span><span class=n>lock_guard</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>mutex</span><span class=o>&gt;</span> <span class=n>lock</span><span class=p>(</span><span class=n>obj_mutex</span><span class=p>);</span>
+    <span class=n>instance</span> <span class=o>=</span> <span class=o>&amp;</span><span class=n>protected_variable</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div>
 
 <p>The code sample above suffers from the following:</p>
 <ul>
@@ -191,36 +174,24 @@
 <li>Type information is lost: If <code>instance</code> could be a reference instead of a pointer, <em>nullptr</em> errors would never happen.</li>
 </ul>
 <p>Using the <em>const liffy</em> pattern ameliorates the situation:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">instance</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">obj_mutex</span><span class="p">);</span>
-  <span class="k">return</span> <span class="n">protected_variable</span><span class="p">;</span>
-<span class="p">}()</span>
-</pre></div>
-</td></tr></tbody></table>
+<div class=highlight><pre><span></span><code><span class=k>const</span> <span class=k>auto</span><span class=o>&amp;</span> <span class=n>instance</span> <span class=o>=</span> <span class=p>[</span><span class=o>&amp;</span><span class=p>]</span> <span class=p>{</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>lock_guard</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>mutex</span><span class=o>&gt;</span> <span class=n>lock</span><span class=p>(</span><span class=n>obj_mutex</span><span class=p>);</span>
+  <span class=k>return</span> <span class=n>protected_variable</span><span class=p>;</span>
+<span class=p>}()</span>
+</code></pre></div>
 
 <p>In the above code sample, <code>instance</code> is a constant reference that is initialized to the required value. All the issues mentioned in the first example have been solved.</p>
-<h2 id="creating-short-helper-functions">Creating Short Helper Functions<a href="#creating-short-helper-functions" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=creating-short-helper-functions>Creating Short Helper Functions</h2>
 <p>Assume we have a <em>Shape</em> class that is sub-classed with different types of shapes (e.g. circle, square). Given <strong>shapes</strong>, a collection of <em>Shape</em> objects, a render function will only draw red square or blue circles. That render function could look like this:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">shape</span> <span class="p">:</span><span class="n">Shapes</span><span class="p">)</span>
-  <span class="kt">bool</span> <span class="n">shouldDraw</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="k">switch</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">ShapeType</span><span class="o">::</span><span class="nl">Square</span><span class="p">:</span> <span class="n">shouldDraw</span> <span class="o">=</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">red</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">ShapeType</span><span class="o">::</span><span class="nl">Circle</span><span class="p">:</span> <span class="n">shouldDraw</span> <span class="o">=</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">blue</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">shouldDraw</span><span class="p">)</span> <span class="n">Draw</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></tbody></table>
+<div class=highlight><pre><span></span><code><span class=k>for</span> <span class=p>(</span><span class=k>auto</span><span class=o>&amp;&amp;</span> <span class=nl>shape</span> <span class=p>:</span><span class=n>Shapes</span><span class=p>)</span>
+  <span class=kt>bool</span> <span class=n>shouldDraw</span> <span class=o>=</span> <span class=nb>false</span><span class=p>;</span>
+  <span class=k>switch</span> <span class=p>(</span><span class=n>shape</span><span class=p>.</span><span class=n>type</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>case</span> <span class=n>ShapeType</span><span class=o>::</span><span class=nl>Square</span><span class=p>:</span> <span class=n>shouldDraw</span> <span class=o>=</span> <span class=n>shape</span><span class=p>.</span><span class=n>color</span><span class=p>()</span> <span class=o>==</span> <span class=n>Color</span><span class=o>::</span><span class=n>red</span><span class=p>;</span> <span class=k>break</span><span class=p>;</span>
+    <span class=k>case</span> <span class=n>ShapeType</span><span class=o>::</span><span class=nl>Circle</span><span class=p>:</span> <span class=n>shouldDraw</span> <span class=o>=</span> <span class=n>shape</span><span class=p>.</span><span class=n>color</span><span class=p>()</span> <span class=o>==</span> <span class=n>Color</span><span class=o>::</span><span class=n>blue</span><span class=p>;</span> <span class=k>break</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=k>if</span> <span class=p>(</span><span class=n>shouldDraw</span><span class=p>)</span> <span class=n>Draw</span><span class=p>(</span><span class=n>shape</span><span class=p>);</span>
+<span class=p>}</span>
+</code></pre></div>
 
 <p>In the above code snippet, the variable <em>shoulddraw</em> is initialized to <code>false</code> (which becomes the default of the switch statement). The <code>false</code> value is then overwritten with the correct logic in the switch statement. But why intialize <em>shoulddraw</em> to false?</p>
 <ul>
@@ -228,33 +199,22 @@
 <li>A programmer is then forces to read the proceeding four lines of the switch statement to make sense of what <em>shoulddraw</em> is. So in effect, one has to read these lines just to make sense of <em>shoulddraw</em>.</li>
 </ul>
 <p>Seeing as a <em>lambda</em> function is really an anonymous helper function, the <em>const liffy</em> pattern can help here as well:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">shape</span> <span class="p">:</span><span class="n">Shapes</span><span class="p">)</span>
-  <span class="k">const</span> <span class="kt">bool</span> <span class="n">shouldDraw</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span>
-    <span class="k">switch</span> <span class="p">(</span><span class="n">shape</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">case</span> <span class="n">ShapeType</span><span class="o">::</span><span class="nl">Square</span><span class="p">:</span> <span class="k">return</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">red</span><span class="p">;</span>
-      <span class="k">case</span> <span class="n">ShapeType</span><span class="o">::</span><span class="nl">Circle</span><span class="p">:</span> <span class="k">return</span> <span class="n">shape</span><span class="p">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">blue</span><span class="p">;</span>
-      <span class="k">default</span><span class="o">:</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}();</span>
+<div class=highlight><pre><span></span><code><span class=k>for</span> <span class=p>(</span><span class=k>auto</span><span class=o>&amp;&amp;</span> <span class=nl>shape</span> <span class=p>:</span><span class=n>Shapes</span><span class=p>)</span>
+  <span class=k>const</span> <span class=kt>bool</span> <span class=n>shouldDraw</span> <span class=o>=</span> <span class=p>[</span><span class=o>&amp;</span><span class=p>]</span> <span class=p>{</span>
+    <span class=k>switch</span> <span class=p>(</span><span class=n>shape</span><span class=p>.</span><span class=n>type</span><span class=p>)</span> <span class=p>{</span>
+      <span class=k>case</span> <span class=n>ShapeType</span><span class=o>::</span><span class=nl>Square</span><span class=p>:</span> <span class=k>return</span> <span class=n>shape</span><span class=p>.</span><span class=n>color</span><span class=p>()</span> <span class=o>==</span> <span class=n>Color</span><span class=o>::</span><span class=n>red</span><span class=p>;</span>
+      <span class=k>case</span> <span class=n>ShapeType</span><span class=o>::</span><span class=nl>Circle</span><span class=p>:</span> <span class=k>return</span> <span class=n>shape</span><span class=p>.</span><span class=n>color</span><span class=p>()</span> <span class=o>==</span> <span class=n>Color</span><span class=o>::</span><span class=n>blue</span><span class=p>;</span>
+      <span class=k>default</span><span class=o>:</span> <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+    <span class=p>}</span>
+  <span class=p>}();</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">shouldDraw</span><span class="p">)</span> <span class="n">Draw</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></tbody></table>
+  <span class=k>if</span> <span class=p>(</span><span class=n>shouldDraw</span><span class=p>)</span> <span class=n>Draw</span><span class=p>(</span><span class=n>shape</span><span class=p>);</span>
+<span class=p>}</span>
+</code></pre></div>
 
 <p>With the const liffy pattern, <em>shoulddraw</em> becomes a constant. The code is not only cleaner by using <code>false</code> in the default of the switch statement, but it is also easier to reason about and understand.</p>
-<h1 id="conclusion">Conclusion<a href="#conclusion" title="Permanent link" class="headerlink"></a></h1>
-<p>The <em>const liffy</em> pattern is actually just the result of an anonymous block. It is done all the time in languages like <a href="http://en.wikipedia.org/wiki/Scala_%28programming_language%29">scala</a><sup class="print">L10</sup> and is inspired by the discipline of functional languages. Using it allows for immutable state with all its <a href="http://www.drdobbs.com/cpp/practical-advantages-of-immutable-values/240163690">advantages</a><sup class="print">L1</sup>.</p><h2 class="print">Links</h2><div style="margin-left: 2.0em;" class="print"><ol class="print-links"><li>http://www.drdobbs.com/cpp/practical-advantages-of-immutable-values/240163690</li><li>http://en.wikipedia.org/wiki/C%2B%2B11</li><li>http://en.cppreference.com/w/cpp/language/auto</li><li>http://en.cppreference.com/w/cpp/language/lambda</li><li>http://en.cppreference.com/w/cpp/language/template_argument_deduction</li><li>http://en.cppreference.com/w/cpp/language/lambda#Syntax</li><li>https://en.wikipedia.org/wiki/Immediately-invoked_function_expression</li><li>http://en.wikipedia.org/wiki/Mutual_exclusion</li><li>http://en.wikipedia.org/wiki/Race_condition</li><li>http://en.wikipedia.org/wiki/Scala_%28programming_language%29</li></ol></div><ol class="simple-footnotes"><li id="sf-Const-Liffy-Pattern-1">This is not the only syntax for lambdas in C++, there are other <a href="http://en.cppreference.com/w/cpp/language/lambda#Syntax">syntaxes</a><sup class="print">L6</sup> <a href="#sf-Const-Liffy-Pattern-1-back" class="simple-footnote-back">↩</a></li></ol>
+<h1 id=conclusion>Conclusion</h1>
+<p>The <em>const liffy</em> pattern is actually just the result of an anonymous block. It is done all the time in languages like <a href="http://en.wikipedia.org/wiki/Scala_%28programming_language%29">scala</a><sup class=print>L10</sup> and is inspired by the discipline of functional languages. Using it allows for immutable state with all its <a href="http://www.drdobbs.com/cpp/practical-advantages-of-immutable-values/240163690">advantages</a><sup class=print>L1</sup>.</p><h2 class=print>Links</h2><div class=print style="margin-left: 2.0em;"><ol class=print-links><li>http://www.drdobbs.com/cpp/practical-advantages-of-immutable-values/240163690</li><li>http://en.wikipedia.org/wiki/C%2B%2B11</li><li>http://en.cppreference.com/w/cpp/language/auto</li><li>http://en.cppreference.com/w/cpp/language/lambda</li><li>http://en.cppreference.com/w/cpp/language/template_argument_deduction</li><li>http://en.cppreference.com/w/cpp/language/lambda#Syntax</li><li>https://en.wikipedia.org/wiki/Immediately-invoked_function_expression</li><li>http://en.wikipedia.org/wiki/Mutual_exclusion</li><li>http://en.wikipedia.org/wiki/Race_condition</li><li>http://en.wikipedia.org/wiki/Scala_%28programming_language%29</li></ol></div><ol class=simple-footnotes><li id=sf-Const-Liffy-Pattern-1>This is not the only syntax for lambdas in C++, there are other <a href="http://en.cppreference.com/w/cpp/language/lambda#Syntax">syntaxes</a><sup class=print>L6</sup> <a href=#sf-Const-Liffy-Pattern-1-back class=simple-footnote-back>↩</a></li></ol>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

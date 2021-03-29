@@ -118,81 +118,54 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link"></a></h1>
+		<h1 id="core-concepts">Core Concepts</h1>
 <ul>
 <li>Encapsulation - hiding infor</li>
 </ul>
-<h1 id="classes-and-objects">Classes And Objects<a class="headerlink" href="#classes-and-objects" title="Permanent link"></a></h1>
+<h1 id="classes-and-objects">Classes And Objects</h1>
 <ul>
 <li>Class is an abstract definition of something that has <em>attributes</em> and <em>actions</em>. </li>
 <li>An object is a specific instance of a class.</li>
 </ul>
 <p>In C++:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">class</span> <span class="nt">Point</span> <span class="p">{</span>
-    <span class="n">private</span><span class="o">:</span>
-        <span class="k">float</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">public</span><span class="o">:</span>
-        <span class="n">Point</span><span class="p">(</span><span class="k">float</span> <span class="n">X</span><span class="o">,</span> <span class="k">float</span> <span class="n">Y</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">,</span> <span class="n">y</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="err">{</span><span class="p">}</span>
-        <span class="nt">const</span> <span class="nt">float</span> <span class="nt">getX</span><span class="o">()</span> <span class="nt">const</span><span class="o">;</span>
-        <span class="nt">const</span> <span class="nt">float</span> <span class="nt">getY</span><span class="o">()</span> <span class="nt">const</span><span class="o">;</span>
-        <span class="nt">void</span> <span class="nt">setX</span><span class="o">(</span><span class="nt">const</span> <span class="nt">float</span> <span class="o">&amp;</span><span class="nt">x</span><span class="o">);</span>
-        <span class="nt">void</span> <span class="nt">setY</span><span class="o">(</span><span class="nt">const</span> <span class="nt">float</span> <span class="o">&amp;</span><span class="nt">x</span><span class="o">);</span>
-<span class="err">}</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Point</span> <span class="p">{</span>
+    <span class="n">private</span><span class="p">:</span>
+        <span class="nb nb-Type">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">public</span><span class="p">:</span>
+        <span class="n">Point</span><span class="p">(</span><span class="nb nb-Type">float</span> <span class="n">X</span><span class="p">,</span> <span class="nb nb-Type">float</span> <span class="n">Y</span><span class="p">)</span> <span class="p">:</span> <span class="n">x</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="p">{}</span>
+        <span class="k">const</span> <span class="nb nb-Type">float</span> <span class="n">getX</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+        <span class="k">const</span> <span class="nb nb-Type">float</span> <span class="n">getY</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+        <span class="n">void</span> <span class="n">setX</span><span class="p">(</span><span class="k">const</span> <span class="nb nb-Type">float</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+        <span class="n">void</span> <span class="n">setY</span><span class="p">(</span><span class="k">const</span> <span class="nb nb-Type">float</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="p">};</span>
 
-<span class="nt">const</span> <span class="nt">float</span> <span class="nt">Point</span><span class="o">:</span><span class="nd">:getX</span><span class="o">()</span> <span class="nt">const</span> <span class="p">{</span><span class="n">return</span> <span class="n">x</span><span class="p">;}</span>
-<span class="nt">const</span> <span class="nt">float</span> <span class="nt">Point</span><span class="o">:</span><span class="nd">:getY</span><span class="o">()</span> <span class="nt">const</span> <span class="p">{</span><span class="n">return</span> <span class="n">y</span><span class="p">;}</span>
-<span class="nt">void</span> <span class="nt">Point</span><span class="o">:</span><span class="nd">:setX</span><span class="o">(</span><span class="nt">const</span> <span class="nt">float</span> <span class="o">&amp;</span><span class="nt">x</span><span class="o">)</span> <span class="p">{</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;}</span>
-<span class="nt">void</span> <span class="nt">Point</span><span class="o">:</span><span class="nd">:setY</span><span class="o">(</span><span class="nt">const</span> <span class="nt">float</span> <span class="o">&amp;</span><span class="nt">y</span><span class="o">)</span> <span class="p">{</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;}</span>
-</pre></div>
-</td></tr></table>
+<span class="k">const</span> <span class="nb nb-Type">float</span> <span class="n">Point</span><span class="p">::</span><span class="n">getX</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">x</span><span class="p">;}</span>
+<span class="k">const</span> <span class="nb nb-Type">float</span> <span class="n">Point</span><span class="p">::</span><span class="n">getY</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">y</span><span class="p">;}</span>
+<span class="n">void</span> <span class="n">Point</span><span class="p">::</span><span class="n">setX</span><span class="p">(</span><span class="k">const</span> <span class="nb nb-Type">float</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;}</span>
+<span class="n">void</span> <span class="n">Point</span><span class="p">::</span><span class="n">setY</span><span class="p">(</span><span class="k">const</span> <span class="nb nb-Type">float</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;}</span>
+</code></pre></div>
 
 <p>In Java:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre>public class Point {
-    private float x=0, y=0;
-    public Point(float X, float Y) {
-        x = X;
-        y = Y;
+<div class="highlight"><pre><span></span><code><span class="nv">public</span> <span class="nv">class</span> <span class="nv">Point</span> {
+    <span class="nv">private</span> <span class="nv">float</span> <span class="nv">x</span><span class="o">=</span><span class="mi">0</span>, <span class="nv">y</span><span class="o">=</span><span class="mi">0</span><span class="c1">;</span>
+    <span class="nv">public</span> <span class="nv">Point</span><span class="ss">(</span><span class="nv">float</span> <span class="nv">X</span>, <span class="nv">float</span> <span class="nv">Y</span><span class="ss">)</span> {
+        <span class="nv">x</span> <span class="o">=</span> <span class="nv">X</span><span class="c1">;</span>
+        <span class="nv">y</span> <span class="o">=</span> <span class="nv">Y</span><span class="c1">;</span>
     }
 
-    public float getX() { return x;}
-    public float getY() { return y;}
-    public void setX(float x) { this.x = X;}
-    public void setY(float y) { this.y = Y;}
+    <span class="nv">public</span> <span class="nv">float</span> <span class="nv">getX</span><span class="ss">()</span> { <span class="k">return</span> <span class="nv">x</span><span class="c1">;}</span>
+    <span class="nv">public</span> <span class="nv">float</span> <span class="nv">getY</span><span class="ss">()</span> { <span class="k">return</span> <span class="nv">y</span><span class="c1">;}</span>
+    <span class="nv">public</span> <span class="nv">void</span> <span class="nv">setX</span><span class="ss">(</span><span class="nv">float</span> <span class="nv">x</span><span class="ss">)</span> { <span class="nv">this</span>.<span class="nv">x</span> <span class="o">=</span> <span class="nv">X</span><span class="c1">;}</span>
+    <span class="nv">public</span> <span class="nv">void</span> <span class="nv">setY</span><span class="ss">(</span><span class="nv">float</span> <span class="nv">y</span><span class="ss">)</span> { <span class="nv">this</span>.<span class="nv">y</span> <span class="o">=</span> <span class="nv">Y</span><span class="c1">;}</span>
 }
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 <p><strong>Some Key Differences</strong></p>
 <ul>
 <li>In Java, the class and business logic is <em>'mixed'</em> together. In C++, they are separated.</li>
 <li>In Java, an access modifier (normally public) is specified before a class.</li>
 </ul>
-<h1 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link"></a></h1>
+<h1 id="inheritance">Inheritance</h1>
 <p>Assume Class B inherits from Class A. Class B has all <em>public</em> and <em>protected</em> attributes from Class A. Class B defines an <em>'is a'</em> relationship, whereby Class B <em>is a</em> Class A. This means that Class B can be used anywhere Class A is used. </p>
 <p>The following access modifiers apply to inheritance:</p>
 <ul>
@@ -203,47 +176,27 @@
 <p>The difference between public and protected: Protected acts like <em>private</em> to everything except inherited classes.</p>
 <p>A base class can also be abstract, meaning that it cannot be instantiated.</p>
 <p>In C++</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">class</span> <span class="nt">Shape</span> <span class="p">{</span>
-    <span class="n">protected</span><span class="o">:</span>
-        <span class="n">Point</span> <span class="k">center</span><span class="p">;</span>
-        <span class="n">Shape</span> <span class="p">(</span><span class="n">Point</span> <span class="o">&amp;</span> <span class="n">Center</span><span class="p">)</span> <span class="o">:</span> <span class="k">center</span><span class="p">(</span><span class="n">Center</span><span class="p">)</span> <span class="err">{</span><span class="p">}</span>
-    <span class="nt">public</span><span class="o">:</span>
-        <span class="nt">const</span> <span class="nt">Point</span><span class="o">&amp;</span> <span class="nt">getCenter</span><span class="o">();</span>
-        <span class="nt">virtual</span> <span class="nt">void</span> <span class="nt">draw</span><span class="o">()</span> <span class="o">=</span> <span class="nt">0</span><span class="o">;</span>
-<span class="err">}</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Shape</span> <span class="p">{</span>
+    <span class="n">protected</span><span class="p">:</span>
+        <span class="n">Point</span> <span class="n">center</span><span class="p">;</span>
+        <span class="n">Shape</span> <span class="p">(</span><span class="n">Point</span> <span class="o">&amp;</span> <span class="n">Center</span><span class="p">)</span> <span class="p">:</span> <span class="n">center</span><span class="p">(</span><span class="n">Center</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="n">public</span><span class="p">:</span>
+        <span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">getCenter</span><span class="p">();</span>
+        <span class="n">virtual</span> <span class="n">void</span> <span class="n">draw</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
 
-<span class="nt">const</span> <span class="nt">Point</span><span class="o">&amp;</span> <span class="nt">Shape</span><span class="o">:</span><span class="nd">:getCenter</span><span class="o">()</span> <span class="p">{</span><span class="n">return</span> <span class="k">center</span><span class="p">;}</span>
+<span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">Shape</span><span class="p">::</span><span class="n">getCenter</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">center</span><span class="p">;}</span>
 
-<span class="nt">class</span> <span class="nt">Rectangle</span> <span class="o">:</span> <span class="nt">Shape</span> <span class="p">{</span>
-    <span class="n">private</span><span class="o">:</span>
-        <span class="n">int</span> <span class="n">h</span><span class="o">,</span> <span class="n">w</span><span class="p">;</span>
-    <span class="n">public</span><span class="o">:</span>
-        <span class="n">Shape</span><span class="p">(</span><span class="n">int</span> <span class="n">H</span><span class="o">,</span> <span class="n">int</span> <span class="n">W</span><span class="o">,</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">Center</span><span class="p">)</span> <span class="o">:</span> <span class="n">h</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="o">,</span> <span class="n">w</span><span class="p">(</span><span class="n">W</span><span class="p">)</span><span class="o">,</span> <span class="k">center</span><span class="p">(</span><span class="n">Center</span><span class="p">)</span> <span class="err">{</span><span class="p">}</span>
-        <span class="nt">void</span> <span class="nt">draw</span><span class="o">();</span>
-<span class="err">}</span>
+<span class="k">class</span> <span class="n">Rectangle</span> <span class="p">:</span> <span class="n">Shape</span> <span class="p">{</span>
+    <span class="n">private</span><span class="p">:</span>
+        <span class="nb nb-Type">int</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
+    <span class="n">public</span><span class="p">:</span>
+        <span class="n">Shape</span><span class="p">(</span><span class="nb nb-Type">int</span> <span class="n">H</span><span class="p">,</span> <span class="nb nb-Type">int</span> <span class="n">W</span><span class="p">,</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">Center</span><span class="p">)</span> <span class="p">:</span> <span class="n">h</span><span class="p">(</span><span class="n">H</span><span class="p">),</span> <span class="n">w</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="n">center</span><span class="p">(</span><span class="n">Center</span><span class="p">)</span> <span class="p">{}</span>
+        <span class="n">void</span> <span class="n">draw</span><span class="p">();</span>
+<span class="p">}</span>
 
-<span class="nt">public</span> <span class="nt">void</span> <span class="nt">Rectangle</span><span class="o">:</span><span class="nd">:draw</span><span class="o">()</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
-</pre></div>
-</td></tr></table>
+<span class="n">public</span> <span class="n">void</span> <span class="n">Rectangle</span><span class="p">::</span><span class="n">draw</span><span class="p">()</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</code></pre></div>
 
 <p><strong>Note:</strong></p>
 <ul>
@@ -253,68 +206,36 @@
 <li>Can have multiple inheritance.</li>
 </ul>
 <p>In Java</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19</pre></div></td><td class="code"><div class="highlight"><pre>public abstract class Shape {
-    protected Point center;
-    protected Shape(Point center) {this.center = center;}
+<div class="highlight"><pre><span></span><code><span class="n">public</span> <span class="n">abstract</span> <span class="k">class</span> <span class="n">Shape</span> <span class="p">{</span>
+    <span class="n">protected</span> <span class="n">Point</span> <span class="n">center</span><span class="p">;</span>
+    <span class="n">protected</span> <span class="n">Shape</span><span class="p">(</span><span class="n">Point</span> <span class="n">center</span><span class="p">)</span> <span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">center</span><span class="p">;}</span>
 
-    public Point getCenter() {return center;}
-    public void draw();
-}
+    <span class="n">public</span> <span class="n">Point</span> <span class="n">getCenter</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">center</span><span class="p">;}</span>
+    <span class="n">public</span> <span class="n">void</span> <span class="n">draw</span><span class="p">();</span>
+<span class="p">}</span>
 
-public class Rectangle extends Shape {
-    private int h=0, w=0;
+<span class="n">public</span> <span class="k">class</span> <span class="n">Rectangle</span> <span class="k">extends</span> <span class="n">Shape</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="nb nb-Type">int</span> <span class="n">h</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
-    public Shape(int h, int w, Point center) {
-        this.h = h; this.w = w; this.center = center;
-    }
+    <span class="n">public</span> <span class="n">Shape</span><span class="p">(</span><span class="nb nb-Type">int</span> <span class="n">h</span><span class="p">,</span> <span class="nb nb-Type">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">Point</span> <span class="n">center</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span> <span class="n">this</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span> <span class="n">this</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">center</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    public void draw() {
-        ...
-    }
-}
-</pre></div>
-</td></tr></table>
+    <span class="n">public</span> <span class="n">void</span> <span class="n">draw</span><span class="p">()</span> <span class="p">{</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <p><strong>Note:</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre>* Inheritance accomplished by `extends` key word.
-* Can only have a single inheritance.
-* Java uses the `super` keyword to call parent constructors explicitly. It must be the first statement in a child constructor.
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre><span></span><code><span class="o">*</span> <span class="n">Inheritance</span> <span class="n">accomplished</span> <span class="k">by</span> <span class="n n-Quoted">`extends`</span> <span class="k">key</span> <span class="n">word</span><span class="p">.</span>
+<span class="o">*</span> <span class="n">Can</span> <span class="k">only</span> <span class="n">have</span> <span class="n">a</span> <span class="n">single</span> <span class="n">inheritance</span><span class="p">.</span>
+<span class="o">*</span> <span class="n">Java</span> <span class="n">uses</span> <span class="n">the</span> <span class="n n-Quoted">`super`</span> <span class="n">keyword</span> <span class="k">to</span> <span class="k">call</span> <span class="n">parent</span> <span class="n">constructors</span> <span class="n">explicitly</span><span class="p">.</span> <span class="n">It</span> <span class="n">must</span> <span class="n">be</span> <span class="n">the</span> <span class="k">first</span> <span class="n">statement</span> <span class="k">in</span> <span class="n">a</span> <span class="n">child</span> <span class="n">constructor</span><span class="p">.</span>
+</code></pre></div>
 
-<h1 id="multiple-inheritance">Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Permanent link"></a></h1>
+<h1 id="multiple-inheritance">Multiple Inheritance</h1>
 <p>C++ allows it, Java (and C#) disallow it! This is because of the classic case known as the <a href="http://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem">diamond problem</a>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="n">A</span> {
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">A</span> {
 }
 
 <span class="k">class</span> <span class="n">B</span> : <span class="n">A</span> {
@@ -325,22 +246,21 @@ public class Rectangle extends Shape {
 
 <span class="k">class</span> <span class="n">D</span> : <span class="n">B</span>,<span class="n">C</span> {
 }
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 <p>In the above, class D has two copies of A. This leads to ambiguity (for instance, what destructor to call or what method to call). This is such a profound problem that Java (and C#) disallow multiple inheritance.</p>
 <p>In C++, one can alleviate the problem by using <a href="http://www.learncpp.com/cpp-tutorial/118-virtual-base-classes/">virtual base classes</a>.</p>
-<h1 id="inheritance-vs-interface">Inheritance VS Interface<a class="headerlink" href="#inheritance-vs-interface" title="Permanent link"></a></h1>
+<h1 id="inheritance-vs-interface">Inheritance VS Interface</h1>
 <p>An interface is a contract whereby the class that implements the interface will implement the methods defined in the interface. Interfaces can be thought of a abstract class without any state (i.e. variables). In fact, this is how they are implemented in C++. An interface is vital for languages that do not allow multiple inheritance (e.g. Java or C#) as a class can implement multiple interfaces.</p>
 <p>The difference between an interface and an inherited class: Use inheritance when the class is tightly coupled to the base class and forms an <em>is-a</em> relationship (e.g. square is-a shape), but use interfaces when the connection is loosely defined (e.g. square implements the svg-draw interface).</p>
-<h1 id="polymorphism">Polymorphism<a class="headerlink" href="#polymorphism" title="Permanent link"></a></h1>
+<h1 id="polymorphism">Polymorphism</h1>
 <p>Polymorphism is the ability to provide <em>multiple implementations</em> for a particular method and <em>select the correct implementation</em> based on its surrounding context. This implies that polymorphic functions can be bound at run time (known as <em>late binding</em>). Polymorphism is accomplished using two mechanisms:</p>
 <ul>
 <li><em>Overloading</em> - multiple versions of the same function, but with different input parameters. </li>
 <li><em>Overriding</em> - a multiple definitions of the same function in a parent class and in its child class.</li>
 </ul>
 <p>Late binding applies to function <em>overriding</em>. A child class can be up-casted to its parent, yet when a parent invokes a method, the child's definition will be run. This is called a <em>virtual</em> function. In Java, all functions are virtual by default, and one must use the keyword <code>final</code> to make them non-virtual. In C++, all functions are by default non-virtual, and functions must be marked by the keyword <code>virtual</code> to make them virtual.</p>
-<h1 id="polymorphism_1">Polymorphism<a class="headerlink" href="#polymorphism_1" title="Permanent link"></a></h1>
+<h1 id="polymorphism_1">Polymorphism</h1>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

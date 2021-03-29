@@ -120,16 +120,16 @@
 	<div class="article-content">
 		<p>The following fact for infinite series crops up all the time:</p>
 <div class="math">$$ r\neq 1, 1+r+r^2+r^3+\ldots +r^k = \frac{r^{k+1}-1}{r-1} $$</div>
-<h1 id="proof">Proof<a class="headerlink" href="#proof" title="Permanent link"></a></h1>
+<h1 id="proof">Proof</h1>
 <p>The proof is by induction:</p>
-<h3 id="base-case-k1">Base Case: k=1<a class="headerlink" href="#base-case-k1" title="Permanent link"></a></h3>
+<h3 id="base-case-k1">Base Case: k=1</h3>
 <p>For the base case, where k=1, the left hand side of the above sum is <span class="math">\(1+r\)</span>, and the right hand side is <span class="math">\(\frac{r^2-1}{1-r}\)</span>:</p>
 <div class="math">\begin{aligned}
  1+r &amp;= (1+r)\cdot \frac{1-r}{1-r} \cr
  &amp;= \frac{(1+r)(1-r)}{1-r} \cr
  &amp;= \frac{r^2-1}{1-r} \cr
 \end{aligned}</div>
-<h3 id="inductive-case-kn">Inductive Case: k=n<a class="headerlink" href="#inductive-case-kn" title="Permanent link"></a></h3>
+<h3 id="inductive-case-kn">Inductive Case: k=n</h3>
 <p>Assume the above holds for <span class="math">\(k=n-1\)</span>, then <span class="math">\(1+r+r^2+r^3+\ldots +r^{n-1} = \frac{r^n-1}{r-1}\)</span>. </p>
 <div class="math">$$\left( 1+r+r^2+r^3+\ldots +r^{n-1} \right) + r^n $$</div>
 <p>By the inductive argument:</p>
@@ -139,12 +139,12 @@
  &amp;= \frac{r^{n+1} - r^n + r^n -1}{r-1} \cr
  &amp;= \frac{r^{n+1} -1}{r-1} \cr
 \end{aligned}</div>
-<h1 id="some-useful-facts">Some useful facts<a class="headerlink" href="#some-useful-facts" title="Permanent link"></a></h1>
-<h3 id="assume-r-1-then-the-sum-is-bounded-by-frac11-r">Assume r &lt; 1, then the sum is bounded by <span class="math">\(\frac{1}{1-r}\)</span><a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-frac11-r" title="Permanent link"></a></h3>
+<h1 id="some-useful-facts">Some useful facts</h1>
+<h3 id="assume-r-1-then-the-sum-is-bounded-by-frac11-r">Assume r &lt; 1, then the sum is bounded by <span class="math">\(\frac{1}{1-r}\)</span></h3>
 <p>If <span class="math">\(r &lt; 1\)</span>, then: <span class="math">\(1+r+r^2+r^3+\ldots +r^k \leq \frac{1}{1-r}\)</span></p>
 <p>This is easy to see: if <span class="math">\(r&lt;1\)</span>, then <span class="math">\(1 - r^{k+1} \leq 1\)</span>, and so <span class="math">\(\frac{r^{k+1}-1}{r-1} = \frac{1-r^{k+1}}{1-r}\leq \frac{1}{1-r}\)</span>.</p>
 <p>In this case, the series sum is dominated by the first term (e.g. 1), and is bounded above by something that is independent of k.</p>
-<h3 id="assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right">Assume r &gt; 1, then the sum is bounded by <span class="math">\(r^k\cdot \left(1+\frac{1}{r-1} \right)\)</span><a class="headerlink" href="#assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right" title="Permanent link"></a></h3>
+<h3 id="assume-r-1-then-the-sum-is-bounded-by-rkcdot-left1frac1r-1-right">Assume r &gt; 1, then the sum is bounded by <span class="math">\(r^k\cdot \left(1+\frac{1}{r-1} \right)\)</span></h3>
 <p>If <span class="math">\(r &gt; 1\)</span>, then: <span class="math">\( 1+r+r^2+r^3+\ldots +r^k \leq r^k\cdot \left(1+\frac{1}{r-1} \right)\)</span></p>
 <p>The proof:
 </p>
@@ -169,15 +169,16 @@
     }
 
     var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
         "    displayAlign: '"+ align +"'," +
@@ -191,6 +192,8 @@
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
@@ -211,6 +214,8 @@
                 "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
             "});" +
         "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>

@@ -118,51 +118,51 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
-<p>Given a <a href="http://en.wikipedia.org/wiki/Linked_list#Singly_linked_list">singly linked list</a><sup class="print">L1</sup> that has a cycle, how can one determine the first node in the cycle?</p>
+		<h1 id=introduction>Introduction</h1>
+<p>Given a <a href="http://en.wikipedia.org/wiki/Linked_list#Singly_linked_list">singly linked list</a><sup class=print>L1</sup> that has a cycle, how can one determine the first node in the cycle?</p>
 <p><img src="http://doctrina.org/images/ll-cycle-problem.png"></p>
 <p>Using the image above as an example, the aim would be to find the orange node.</p>
-<h1 id="algorithm">Algorithm<a href="#algorithm" title="Permanent link" class="headerlink"></a></h1>
+<h1 id=algorithm>Algorithm</h1>
 <p><img src="http://doctrina.org/images/ll-cycle-intersection.png">
 Use two iterators, but make one move at twice the speed of the other. Starting from the head (first) node of the list, these iterators will meet at the red colored node. Now set one iterator back to the head node and leave the other at the red node. Moving both iterators at normal speed where they meet for the second time will be the orange node.</p>
 <p>Go through this algorithm yourself with the above image, and it can easily be that the algorithm works for this example. Ever wondered why it worked?</p>
-<h2 id="history">History<a href="#history" title="Permanent link" class="headerlink"></a></h2>
-<p>This algorithm actually has a formal name: It is called <a href="http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare">Floyd's cycle-finding algorithm</a><sup class="print">L2</sup> and can be used to find cycles in a graph (a linked-list is also a graph) without using extra space in linear time. It is named after <a href="http://en.wikipedia.org/wiki/Robert_W._Floyd">Robert W. Floyd</a><sup class="print">L3</sup>.</p>
-<h1 id="proof-of-the-algorithm">Proof Of The Algorithm<a href="#proof-of-the-algorithm" title="Permanent link" class="headerlink"></a></h1>
+<h2 id=history>History</h2>
+<p>This algorithm actually has a formal name: It is called <a href="http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare">Floyd's cycle-finding algorithm</a><sup class=print>L2</sup> and can be used to find cycles in a graph (a linked-list is also a graph) without using extra space in linear time. It is named after <a href="http://en.wikipedia.org/wiki/Robert_W._Floyd">Robert W. Floyd</a><sup class=print>L3</sup>.</p>
+<h1 id=proof-of-the-algorithm>Proof Of The Algorithm</h1>
 <p><img src="http://doctrina.org/images/ll-cycle-definition.png"></p>
 <p>Assume the following (refer to the above image):</p>
 <ul>
 <li>The node that starts the cycle is colored orange.</li>
-<li>There are <span class="math">\(X\)</span> number of nodes up to and including the orange node.</li>
-<li>The cycle contains <span class="math">\(Y\)</span> number of nodes where <span class="math">\(Y \geq 2\)</span> (since by definition, a cycle must contain at least two nodes).</li>
-<li>The two iterators first meet after <span class="math">\(Z\)</span> nodes from the start of the cycle (these nodes are colored red in the above image).</li>
+<li>There are <span class=math>\(X\)</span> number of nodes up to and including the orange node.</li>
+<li>The cycle contains <span class=math>\(Y\)</span> number of nodes where <span class=math>\(Y \geq 2\)</span> (since by definition, a cycle must contain at least two nodes).</li>
+<li>The two iterators first meet after <span class=math>\(Z\)</span> nodes from the start of the cycle (these nodes are colored red in the above image).</li>
 </ul>
-<h2 id="aim-of-the-proof">Aim Of The Proof<a href="#aim-of-the-proof" title="Permanent link" class="headerlink"></a></h2>
-<p>The aim is to prove that the starting node of the cycle will be reached after advancing <span class="math">\(X\)</span> number of nodes from where the iterators first meet (<span class="math">\(Z\)</span> nodes into the cycle). Why does this suffice? Because we assume that there are <span class="math">\(X\)</span> number of nodes leading up to the start of the cycle, so advancing <span class="math">\(X\)</span> number of nodes inside the cycle to get to the start implies that the two iterators will meet at the beginning of the cycle.</p>
-<h2 id="proof">Proof<a href="#proof" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=aim-of-the-proof>Aim Of The Proof</h2>
+<p>The aim is to prove that the starting node of the cycle will be reached after advancing <span class=math>\(X\)</span> number of nodes from where the iterators first meet (<span class=math>\(Z\)</span> nodes into the cycle). Why does this suffice? Because we assume that there are <span class=math>\(X\)</span> number of nodes leading up to the start of the cycle, so advancing <span class=math>\(X\)</span> number of nodes inside the cycle to get to the start implies that the two iterators will meet at the beginning of the cycle.</p>
+<h2 id=proof>Proof</h2>
 <p>The proof is done in two parts. It is proved that:</p>
 <ol>
 <li>The fast iterator cannot "jump" over the slow iterator in the cycle.</li>
-<li>Advancing by <span class="math">\(X\)</span> nodes from <span class="math">\(Z\)</span> nodes into the cycle will yield the beginning of the cycle.</li>
+<li>Advancing by <span class=math>\(X\)</span> nodes from <span class=math>\(Z\)</span> nodes into the cycle will yield the beginning of the cycle.</li>
 </ol>
-<h3 id="the-fast-iterator-cannot-jump-over-the-slow-iterator-in-the-cycle">The fast iterator cannot "jump" over the slow iterator in the cycle<a href="#the-fast-iterator-cannot-jump-over-the-slow-iterator-in-the-cycle" title="Permanent link" class="headerlink"></a></h3>
-<p>This proved by contradiction. Assume the fast iterator will always jump over the slow iterator. Then if the slow iterator ends at position <span class="math">\((x+1)\)</span>, the fast iterator will end at <span class="math">\((x+2)\)</span>. But this can only happen if both iterators started at position <span class="math">\(x\)</span>, which is a contradiction.</p>
+<h3 id=the-fast-iterator-cannot-jump-over-the-slow-iterator-in-the-cycle>The fast iterator cannot "jump" over the slow iterator in the cycle</h3>
+<p>This proved by contradiction. Assume the fast iterator will always jump over the slow iterator. Then if the slow iterator ends at position <span class=math>\((x+1)\)</span>, the fast iterator will end at <span class=math>\((x+2)\)</span>. But this can only happen if both iterators started at position <span class=math>\(x\)</span>, which is a contradiction.</p>
 <p>This has three implications:</p>
 <ol>
 <li>The iterators will <em>always</em> meet in the cycle.</li>
 <li>The slow iterator cannot complete more than one cycle before the intersection occurs.</li>
-<li>By the above implication, this algorithm is linear in the number of nodes present: <span class="math">\(O(n)\)</span></li>
+<li>By the above implication, this algorithm is linear in the number of nodes present: <span class=math>\(O(n)\)</span></li>
 </ol>
-<p>The second implication above may need some explaining. The cycle has <span class="math">\(Y\)</span> nodes, and while the slow iterator advances over those nodes, the fast iterator will catch up to it. As shown above, the fast iterator cannot jump over the slow iterator and therefore they will meet (I leave this as an exercise to the reader to prove more formally).</p>
-<h3 id="advancing-by-x-nodes-from-z-nodes-into-the-cycle-will-yield-the-beginning-of-the-cycle">Advancing by <span class="math">\(X\)</span> nodes from <span class="math">\(Z\)</span> nodes into the cycle will yield the beginning of the cycle.<a href="#advancing-by-x-nodes-from-z-nodes-into-the-cycle-will-yield-the-beginning-of-the-cycle" title="Permanent link" class="headerlink"></a></h3>
-<p>To start the proof, note that the two iterators first meet after <span class="math">\(Z\)</span> nodes from the start of the cycle. The iterator that advances at normal speed would have progressed <span class="math">\(X+Z\)</span> nodes. The iterator that advances at double speed could potentially have gone round the cycle many times, so it would have progressed <span class="math">\(X+n\cdot Y+Z\)</span> nodes, where <span class="math">\(n \in \mathbb{N}\)</span>. The proof starts by establishing a relationship between the iterators: The number of nodes progressed by the normal iterator at double speed (i.e. <span class="math">\(2\cdot (X+Z)\)</span>) is equal to the number of nodes progressed by the fast iterator (i.e. <span class="math">\(X+n\cdot Y+Z\)</span>).</p>
-<div class="math">\begin{array}{ll}
+<p>The second implication above may need some explaining. The cycle has <span class=math>\(Y\)</span> nodes, and while the slow iterator advances over those nodes, the fast iterator will catch up to it. As shown above, the fast iterator cannot jump over the slow iterator and therefore they will meet (I leave this as an exercise to the reader to prove more formally).</p>
+<h3 id=advancing-by-x-nodes-from-z-nodes-into-the-cycle-will-yield-the-beginning-of-the-cycle>Advancing by <span class=math>\(X\)</span> nodes from <span class=math>\(Z\)</span> nodes into the cycle will yield the beginning of the cycle.</h3>
+<p>To start the proof, note that the two iterators first meet after <span class=math>\(Z\)</span> nodes from the start of the cycle. The iterator that advances at normal speed would have progressed <span class=math>\(X+Z\)</span> nodes. The iterator that advances at double speed could potentially have gone round the cycle many times, so it would have progressed <span class=math>\(X+n\cdot Y+Z\)</span> nodes, where <span class=math>\(n \in \mathbb{N}\)</span>. The proof starts by establishing a relationship between the iterators: The number of nodes progressed by the normal iterator at double speed (i.e. <span class=math>\(2\cdot (X+Z)\)</span>) is equal to the number of nodes progressed by the fast iterator (i.e. <span class=math>\(X+n\cdot Y+Z\)</span>).</p>
+<div class=math>\begin{array}{ll}
 X+n\cdot Y+Z &amp; = &amp; 2\cdot (X+Z) \text{ where } n \in \mathbb{N} \\
 Z+X &amp; = &amp; n\cdot Y \\
 Z+X &amp; = &amp; 0\bmod Y \\
 \end{array}</div>
 <p>
-This proves that advancing by <span class="math">\(X\)</span> nodes from <span class="math">\(Z\)</span> will get to the start of the cylce.</p>
+This proves that advancing by <span class=math>\(X\)</span> nodes from <span class=math>\(Z\)</span> will get to the start of the cylce.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "1.0em",
@@ -175,15 +175,16 @@ This proves that advancing by <span class="math">\(X\)</span> nodes from <span c
     }
 
     var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
         "    displayAlign: '"+ align +"'," +
@@ -197,6 +198,8 @@ This proves that advancing by <span class="math">\(X\)</span> nodes from <span c
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
@@ -217,9 +220,11 @@ This proves that advancing by <span class="math">\(X\)</span> nodes from <span c
                 "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
             "});" +
         "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script><h2 class="print">Links</h2><div style="margin-left: 2.0em;" class="print"><ol class="print-links"><li>http://en.wikipedia.org/wiki/Linked_list#Singly_linked_list</li><li>http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare</li><li>http://en.wikipedia.org/wiki/Robert_W._Floyd</li></ol></div>
+</script><h2 class=print>Links</h2><div class=print style="margin-left: 2.0em;"><ol class=print-links><li>http://en.wikipedia.org/wiki/Linked_list#Singly_linked_list</li><li>http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare</li><li>http://en.wikipedia.org/wiki/Robert_W._Floyd</li></ol></div>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

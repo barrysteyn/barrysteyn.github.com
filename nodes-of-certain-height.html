@@ -118,16 +118,16 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
-<p>Given a binary tree with <span class="math">\(n\)</span> nodes, there can be at most <span class="math">\(\left\lceil \frac{n}{2^{h+1}} \right\rceil\)</span> nodes with height <span class="math">\(h\)</span>. Here follows a proof<sup id="sf-nodes-of-certain-height-1-back"><a href="#sf-nodes-of-certain-height-1" title="This proof is not my own, I found the main ideas by doing a Google Search. Unfortunately, I cannot find who to acknowledge, so if this looks familiar, please shout" class="simple-footnote">1</a></sup>.</p>
-<h1 id="background-knowledge">Background Knowledge<a href="#background-knowledge" title="Permanent link" class="headerlink"></a></h1>
-<h2 id="tree-height">Tree Height<a href="#tree-height" title="Permanent link" class="headerlink"></a></h2>
+		<h1 id=introduction>Introduction</h1>
+<p>Given a binary tree with <span class=math>\(n\)</span> nodes, there can be at most <span class=math>\(\left\lceil \frac{n}{2^{h+1}} \right\rceil\)</span> nodes with height <span class=math>\(h\)</span>. Here follows a proof<sup id=sf-nodes-of-certain-height-1-back><a href=#sf-nodes-of-certain-height-1 class=simple-footnote title="This proof is not my own, I found the main ideas by doing a Google Search. Unfortunately, I cannot find who to acknowledge, so if this looks familiar, please shout">1</a></sup>.</p>
+<h1 id=background-knowledge>Background Knowledge</h1>
+<h2 id=tree-height>Tree Height</h2>
 <p>In a binary tree, <em>height</em> of a node is defined as the number of edges in <em>the longest path</em> from that node to a leaf node. Leaf nodes are therefore at height 0, while the root node has the largest height</p>
-<h2 id="max-number-of-leaves">Max Number Of Leaves<a href="#max-number-of-leaves" title="Permanent link" class="headerlink"></a></h2>
-<p>For for a tree with <span class="math">\(n\)</span> nodes, there can be at most <span class="math">\(\left\lceil\frac{n}{2}\right\rceil\)</span> <em>leaf nodes</em>.</p>
-<h2 id="notation">Notation<a href="#notation" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=max-number-of-leaves>Max Number Of Leaves</h2>
+<p>For for a tree with <span class=math>\(n\)</span> nodes, there can be at most <span class=math>\(\left\lceil\frac{n}{2}\right\rceil\)</span> <em>leaf nodes</em>.</p>
+<h2 id=notation>Notation</h2>
 <p>The following notation will be used:</p>
-<div class="math">\begin{array}{lcl}
+<div class=math>\begin{array}{lcl}
 T &amp; := &amp; \text{tree of height } h \\
 T^{'} &amp; := &amp; \text{tree of height } h-1 \\
 n &amp; := &amp; \text{the number of nodes in } T \\
@@ -135,26 +135,26 @@ n^{'} &amp; := &amp; \text{the number of nodes in } T^{'} \\
 N_h &amp; := &amp; \text{number of nodes of height }h\text{ in }T \\
 N^{'}_{h-1} &amp; := &amp; \text{number of nodes of height }h-1\text{ in }T^{'}
 \end{array}</div>
-<h1 id="proof">Proof<a href="#proof" title="Permanent link" class="headerlink"></a></h1>
+<h1 id=proof>Proof</h1>
 <p>This is an inductive proof.</p>
-<h2 id="base-case">Base Case<a href="#base-case" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=base-case>Base Case</h2>
 <p>At height 0, there is only 1 node in the tree, namely the root node:</p>
-<div class="math">\begin{array}{lcl}
+<div class=math>\begin{array}{lcl}
  N_0 &amp; = &amp; 1 \\
      &amp; = &amp; \left\lceil\frac{1}{2}\right\rceil \\
      &amp; = &amp; \left\lceil\frac{n}{2^{h+1}}\right\rceil
 \end{array}</div>
-<h2 id="inductive-case">Inductive Case<a href="#inductive-case" title="Permanent link" class="headerlink"></a></h2>
-<p>Assume that the relationship holds for height <span class="math">\(h-1\)</span>.</p>
-<p><strong>Note</strong> that nodes at height <span class="math">\(h\)</span> in <span class="math">\(T\)</span> are at height <span class="math">\(h-1\)</span> in <span class="math">\(T^{'}\)</span>. The number
-of nodes in <span class="math">\(T^{'}\)</span>, namely <span class="math">\(n^{'}\)</span>, is equal to the number of nodes in <span class="math">\(T\)</span> minus
-the leaf nodes in <span class="math">\(T\)</span>:</p>
-<div class="math">$$
+<h2 id=inductive-case>Inductive Case</h2>
+<p>Assume that the relationship holds for height <span class=math>\(h-1\)</span>.</p>
+<p><strong>Note</strong> that nodes at height <span class=math>\(h\)</span> in <span class=math>\(T\)</span> are at height <span class=math>\(h-1\)</span> in <span class=math>\(T^{'}\)</span>. The number
+of nodes in <span class=math>\(T^{'}\)</span>, namely <span class=math>\(n^{'}\)</span>, is equal to the number of nodes in <span class=math>\(T\)</span> minus
+the leaf nodes in <span class=math>\(T\)</span>:</p>
+<div class=math>$$
 n^{'} = n - \left\lceil \frac{n}{2} \right\rceil  = \left\lfloor \frac{n}{2} \right\rfloor
 $$</div>
 <p>By induction:
 </p>
-<div class="math">\begin{array}{lcl}
+<div class=math>\begin{array}{lcl}
   N_h &amp; = &amp; N^{'}_{h-1} \\
       &amp; = &amp; \left\lceil \frac{n^{'}}{2^h} \right\rceil \\
       &amp; = &amp; \left\lceil\frac{\left\lfloor \frac{n}{2}\right\rfloor}{2^h}\right\rceil \\
@@ -173,15 +173,16 @@ $$</div>
     }
 
     var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
         "    displayAlign: '"+ align +"'," +
@@ -195,6 +196,8 @@ $$</div>
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
@@ -215,9 +218,11 @@ $$</div>
                 "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
             "});" +
         "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script><ol class="simple-footnotes"><li id="sf-nodes-of-certain-height-1">This proof is not my own, I found the main ideas by doing a Google Search. Unfortunately, I cannot find who to acknowledge, so if this looks familiar, please shout <a href="#sf-nodes-of-certain-height-1-back" class="simple-footnote-back">↩</a></li></ol>
+</script><ol class=simple-footnotes><li id=sf-nodes-of-certain-height-1>This proof is not my own, I found the main ideas by doing a Google Search. Unfortunately, I cannot find who to acknowledge, so if this looks familiar, please shout <a href=#sf-nodes-of-certain-height-1-back class=simple-footnote-back>↩</a></li></ol>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

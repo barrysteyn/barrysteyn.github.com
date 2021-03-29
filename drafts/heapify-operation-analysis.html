@@ -118,55 +118,50 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
-<h1 id="background-knowledge">Background Knowledge<a href="#background-knowledge" title="Permanent link" class="headerlink"></a></h1>
-<h2 id="notation">Notation<a href="#notation" title="Permanent link" class="headerlink"></a></h2>
+		<h1 id=introduction>Introduction</h1>
+<h1 id=background-knowledge>Background Knowledge</h1>
+<h2 id=notation>Notation</h2>
 <p>I will use the following notation:</p>
-<div class="math">\begin{array}{ll}
+<div class=math>\begin{array}{ll}
 h &amp;&amp; \text{the height of node} \\
 n &amp;&amp; \text{the number of nodes in a tree} \\
 \end{array}</div>
-<h2 id="tree-node-height">Tree Node Height<a href="#tree-node-height" title="Permanent link" class="headerlink"></a></h2>
-<p>A tree node's height is the number of edges in the longest downward path between the node and a leaf<sup id="sf-heapify-operation-analysis-1-back"><a href="#sf-heapify-operation-analysis-1" title="A leaf is a node with no children." class="simple-footnote">1</a></sup>.</p>
-<h3 id="lemma-maximum-number-of-nodes-of-height-h">Lemma: Maximum number of nodes of height <span class="math">\(h\)</span><a href="#lemma-maximum-number-of-nodes-of-height-h" title="Permanent link" class="headerlink"></a></h3>
-<h2 id="a-heap">A Heap<a href="#a-heap" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=tree-node-height>Tree Node Height</h2>
+<p>A tree node's height is the number of edges in the longest downward path between the node and a leaf<sup id=sf-heapify-operation-analysis-1-back><a href=#sf-heapify-operation-analysis-1 class=simple-footnote title="A leaf is a node with no children.">1</a></sup>.</p>
+<h3 id=lemma-maximum-number-of-nodes-of-height-h>Lemma: Maximum number of nodes of height <span class=math>\(h\)</span></h3>
+<h2 id=a-heap>A Heap</h2>
 <ul>
 <li>Almost complete binary tree</li>
 <li>Heap property: key[x] &lt;= all keys of x's children</li>
 <li>Implementation needs a random access list =&gt; array</li>
 </ul>
-<h3 id="heap-operations">Heap Operations<a href="#heap-operations" title="Permanent link" class="headerlink"></a></h3>
+<h3 id=heap-operations>Heap Operations</h3>
 <ul>
 <li>calculate a node's parent</li>
 <li>calculate a node's children</li>
 <li>bubble down</li>
 </ul>
-<h1 id="heapify">Heapify<a href="#heapify" title="Permanent link" class="headerlink"></a></h1>
-<h2 id="algorithm">Algorithm<a href="#algorithm" title="Permanent link" class="headerlink"></a></h2>
+<h1 id=heapify>Heapify</h1>
+<h2 id=algorithm>Algorithm</h2>
 <p>The heapify algorithm is extremely simple:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre>Heap = arbitrary array
-idx = (Heap.size()-1)/2
-while (idx &gt; 0)
-   BubbleDown(idx)
-   idx--
-</pre></div>
-</td></tr></tbody></table>
+<div class=highlight><pre><span></span><code><span class=nv>Heap</span> <span class=o>=</span> <span class=nv>arbitrary</span> <span class=nv>array</span>
+<span class=nv>idx</span> <span class=o>=</span> <span class=ss>(</span><span class=nv>Heap</span>.<span class=nv>size</span><span class=ss>()</span><span class=o>-</span><span class=mi>1</span><span class=ss>)</span><span class=o>/</span><span class=mi>2</span>
+<span class=k>while</span> <span class=ss>(</span><span class=nv>idx</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=ss>)</span>
+   <span class=nv>BubbleDown</span><span class=ss>(</span><span class=nv>idx</span><span class=ss>)</span>
+   <span class=nv>idx</span><span class=o>--</span>
+</code></pre></div>
 
-<h2 id="proof-that-heapify-is-linear">Proof That Heapify Is Linear<a href="#proof-that-heapify-is-linear" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=proof-that-heapify-is-linear>Proof That Heapify Is Linear</h2>
 <p>First, an observation: In a binary tree, the number of nodes of a certain height
-is less than or equal to <span class="math">\(\left\lceil\frac{n}{2^{h+1}}\)</span>. Using ceilings is awkward,
-and it can be removed by using <span class="math">\(n+1\)</span> in the numerator:</p>
-<div class="math">$$
+is less than or equal to <span class=math>\(\left\lceil\frac{n}{2^{h+1}}\)</span>. Using ceilings is awkward,
+and it can be removed by using <span class=math>\(n+1\)</span> in the numerator:</p>
+<div class=math>$$
 \text{number of nodes of height }h \leq \frac{n+1}{2^{h+1}}
 $$</div>
 <p>The reason it works is because a full and complete binary tree is always odd, and
-therefore, <span class="math">\(2^{h+1}\)</span> will never divide <span class="math">\(n\)</span>. Adding <span class="math">\(1\)</span> to <span class="math">\(n\)</span> will make it even,
+therefore, <span class=math>\(2^{h+1}\)</span> will never divide <span class=math>\(n\)</span>. Adding <span class=math>\(1\)</span> to <span class=math>\(n\)</span> will make it even,
 and therefore remove the need for the ceilings.</p>
-<div class="math">\begin{align*}
+<div class=math>\begin{align*}
 \text{Heapify for all }n\text{ nodes} &amp; = \sum_{h=0}^{log_2n} n\cdot O(h) \\
                                       &amp; \leq \sum_{h=0}^{log_2n} (n+1) \cdot O(h) \\
                                       &amp; = \sum_{h=0}^{log_2n} (n+1)\cdot \frac{c\cdot h}{2^{h+1}} \\
@@ -187,15 +182,16 @@ and therefore remove the need for the ceilings.</p>
     }
 
     var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
         "    displayAlign: '"+ align +"'," +
@@ -209,6 +205,8 @@ and therefore remove the need for the ceilings.</p>
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
@@ -229,9 +227,11 @@ and therefore remove the need for the ceilings.</p>
                 "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
             "});" +
         "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script><ol class="simple-footnotes"><li id="sf-heapify-operation-analysis-1">A leaf is a node with no children. <a href="#sf-heapify-operation-analysis-1-back" class="simple-footnote-back">↩</a></li></ol>
+</script><ol class=simple-footnotes><li id=sf-heapify-operation-analysis-1>A leaf is a node with no children. <a href=#sf-heapify-operation-analysis-1-back class=simple-footnote-back>↩</a></li></ol>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

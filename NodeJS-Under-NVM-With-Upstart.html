@@ -118,27 +118,28 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<p>Yet another very short blog article to help anyone who wants to setup an upstart process that runs a <a href="http://nodejs.org/">NodeJS</a><sup class="print">L1</sup> app under <a href="https://github.com/creationix/nvm">nvm</a><sup class="print">L2</sup>. Unlike the <a href="http://doctrina.org/VirtualEnv-With-Upstart.html">uwsgi setup</a><sup class="print">L3</sup>, there is no specific argument switch to give Node that will make it use nvm environment variables. In fact, since Node is single threaded, there is no special server process that must run in the background to interact with it (unlike <a href="http://projects.unbit.it/uwsgi/">uwsgi</a><sup class="print">L4</sup> that is needed for Python). This means that whatever executes Node must also introduce the environment variables manually. But doesn't that defeat the purpose of <a href="https://github.com/creationix/nvm">nvm</a><sup class="print">L2</sup>? Yes, it does! So lets just use <a href="https://github.com/creationix/nvm">nvm</a><sup class="print">L2</sup> to <em>manually introduce those environment variables</em>.</p>
-<p>In order to run a <a href="http://nodejs.org/">Node</a><sup class="print">L1</sup> server in upstart that is under nvm, two things need to be determined:</p>
+		<p>Yet another very short blog article to help anyone who wants to setup an upstart process that runs a <a href="http://nodejs.org/">NodeJS</a><sup class=print>L1</sup> app under <a href="https://github.com/creationix/nvm">nvm</a><sup class=print>L2</sup>. Unlike the <a href="http://doctrina.org/VirtualEnv-With-Upstart.html">uwsgi setup</a><sup class=print>L3</sup>, there is no specific argument switch to give Node that will make it use nvm environment variables. In fact, since Node is single threaded, there is no special server process that must run in the background to interact with it (unlike <a href="http://projects.unbit.it/uwsgi/">uwsgi</a><sup class=print>L4</sup> that is needed for Python). This means that whatever executes Node must also introduce the environment variables manually. But doesn't that defeat the purpose of <a href="https://github.com/creationix/nvm">nvm</a><sup class=print>L2</sup>? Yes, it does! So lets just use <a href="https://github.com/creationix/nvm">nvm</a><sup class=print>L2</sup> to <em>manually introduce those environment variables</em>.</p>
+<p>In order to run a <a href="http://nodejs.org/">Node</a><sup class=print>L1</sup> server in upstart that is under nvm, two things need to be determined:</p>
 <ol>
 <li>The folder where the node app is defined. Not only is this the path where node will execute your app, but node will also search a folder called <em>node_modules</em> under this path for <em>locally installed libraries</em></li>
 <li>The folder where you have installed your <code>nvm.sh</code> script.</li>
 </ol>
-<p><strong>NOTE</strong>: For what follows, the assumption is that the version of node that will be used for execution is the <a href="https://github.com/creationix/nvm#usage">default version of nvm</a><sup class="print">L5</sup>. This accomplished by using <code>alias</code> with nvm to set <code>default</code> (see previous link).</p>
-<h1 id="an-upstart-example">An Upstart Example<a href="#an-upstart-example" title="Permanent link" class="headerlink"></a></h1>
+<p><strong>NOTE</strong>: For what follows, the assumption is that the version of node that will be used for execution is the <a href="https://github.com/creationix/nvm#usage">default version of nvm</a><sup class=print>L5</sup>. This accomplished by using <code>alias</code> with nvm to set <code>default</code> (see previous link).</p>
+<h1 id=an-upstart-example>An Upstart Example</h1>
 <p>Lets assume the following:</p>
 <ul>
 <li>Your app is defined in the path <code>"/home/dev/node-script"</code></li>
 <li>The <em>nvm.sh</em> script is installed in <code>"/home/dev/nvm/nvm.sh"</code></li>
 </ul>
-<p>Then an upstart script to start node that will run this script under nvm is as follows:
-<script src="https://gist.github.com/4467515.js"></script></p>
+<p>Then an upstart script to start node that will run this script under nvm is as follows:</p>
+<script src="https://gist.github.com/4467515.js"></script>
+
 <p>The above upstart script is very basic, so you should customize it to suit your needs. Yet it has the essential ingredients. The important bit is the <em>exec</em> command on line 11, which starts a bash shell script with the argument <code>-c</code>. This argument means that any text afterwards will be executed as a command script. The command script passed does two things that are separated by <code>&amp;&amp;</code> (the logical and operator):</p>
 <ol>
-<li><code>source /home/dev/nvm/nvm.sh</code> - this will execute the <code>nvm.sh</code> shell script that loads/creates all relevant environment variables. By using the <a href="http://ss64.com/bash/period.html">source</a><sup class="print">L6</sup> command, all these variables are put within the current shell that it is running in.</li>
-<li><code>exec node app</code> - it is essential that we use <a href="http://ss64.com/bash/exec.html">exec</a><sup class="print">L7</sup> to execute the node app. This will replace the current shell with <code>node app</code> <em>without creating a new process</em>.</li>
+<li><code>source /home/dev/nvm/nvm.sh</code> - this will execute the <code>nvm.sh</code> shell script that loads/creates all relevant environment variables. By using the <a href="http://ss64.com/bash/period.html">source</a><sup class=print>L6</sup> command, all these variables are put within the current shell that it is running in.</li>
+<li><code>exec node app</code> - it is essential that we use <a href="http://ss64.com/bash/exec.html">exec</a><sup class=print>L7</sup> to execute the node app. This will replace the current shell with <code>node app</code> <em>without creating a new process</em>.</li>
 </ol>
-<p>The result of the above two commands is that the node app is executed within its own process but which has access to all environment variables that results from running the nvm shell script.</p><h2 class="print">Links</h2><div style="margin-left: 2.0em;" class="print"><ol class="print-links"><li>http://nodejs.org/</li><li>https://github.com/creationix/nvm</li><li>http://doctrina.org/VirtualEnv-With-Upstart.html</li><li>http://projects.unbit.it/uwsgi/</li><li>https://github.com/creationix/nvm#usage</li><li>http://ss64.com/bash/period.html</li><li>http://ss64.com/bash/exec.html</li></ol></div>
+<p>The result of the above two commands is that the node app is executed within its own process but which has access to all environment variables that results from running the nvm shell script.</p><h2 class=print>Links</h2><div class=print style="margin-left: 2.0em;"><ol class=print-links><li>http://nodejs.org/</li><li>https://github.com/creationix/nvm</li><li>http://doctrina.org/VirtualEnv-With-Upstart.html</li><li>http://projects.unbit.it/uwsgi/</li><li>https://github.com/creationix/nvm#usage</li><li>http://ss64.com/bash/period.html</li><li>http://ss64.com/bash/exec.html</li></ol></div>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

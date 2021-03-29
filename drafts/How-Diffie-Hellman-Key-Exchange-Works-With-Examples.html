@@ -119,8 +119,8 @@
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
 		<p>In order to attain secure cryptographic communication between two parties, a shared secret key is needed. The shared secret key will most commonly be used to encrypt/decrypt a block cipher (like <a href="">AES</a>). Most commonly, communication happens over the Internet, which is a very insecure medium. The Internet is combination of public and private equipment that neither of the two communicating parties control. So how can two parties agree upon a unique session key over an insecure medium and guarantee that an evesdropper will not be able to learn the key. The answer: By using <em>Diffie-Hellman key exchange</em>.</p>
-<h1 id="the-diffie-hellman-key-exchange-protocol">The Diffie-Hellman Key Exchange Protocol<a class="headerlink" href="#the-diffie-hellman-key-exchange-protocol" title="Permanent link"></a></h1>
-<h2 id="pick-two-large-prime-numbers-numbers">Pick Two Large Prime Numbers Numbers<a class="headerlink" href="#pick-two-large-prime-numbers-numbers" title="Permanent link"></a></h2>
+<h1 id="the-diffie-hellman-key-exchange-protocol">The Diffie-Hellman Key Exchange Protocol</h1>
+<h2 id="pick-two-large-prime-numbers-numbers">Pick Two Large Prime Numbers Numbers</h2>
 <p>The Diffie-Hellman key exchange protocol is quite simple. It starts with one of the communicating parties (it does not matter who) picking two numbers. There are only two requirements for these numbers:</p>
 <ol>
 <li>They must be prime.</li>
@@ -145,15 +145,16 @@
     }
 
     var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
         "    displayAlign: '"+ align +"'," +
@@ -167,6 +168,8 @@
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
@@ -187,6 +190,8 @@
                 "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
             "});" +
         "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>

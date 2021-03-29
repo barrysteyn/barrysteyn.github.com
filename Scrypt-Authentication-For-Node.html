@@ -118,17 +118,17 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="scrypt-for-nodejs">Scrypt For NodeJS<a href="#scrypt-for-nodejs" title="Permanent link" class="headerlink"></a></h1>
-<p>node-scrypt is a native node C++ wrapper for Colin Percival's scrypt <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation</a><sup class="print">L1</sup> utility.</p>
-<h2 id="what-is-scrypt">What Is Scrypt?<a href="#what-is-scrypt" title="Permanent link" class="headerlink"></a></h2>
-<p>Scrypt is an advanced crypto library used mainly for <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation</a><sup class="print">L1</sup> (i.e. password authenticator). More information can be found here:</p>
+		<h1 id=scrypt-for-nodejs>Scrypt For NodeJS</h1>
+<p>node-scrypt is a native node C++ wrapper for Colin Percival's scrypt <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation</a><sup class=print>L1</sup> utility.</p>
+<h2 id=what-is-scrypt>What Is Scrypt?</h2>
+<p>Scrypt is an advanced crypto library used mainly for <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation</a><sup class=print>L1</sup> (i.e. password authenticator). More information can be found here:</p>
 <ul>
-<li><a href="http://www.tarsnap.com/scrypt.html">Tarsnap blurb about scrypt</a><sup class="print">L2</sup> - Colin Percival (the author of scrypt) explains a bit about it.</li>
-<li><a href="http://www.tarsnap.com/scrypt/scrypt.pdf">Academic paper explaining scrypt</a><sup class="print">L3</sup>.</li>
-<li><a href="http://en.wikipedia.org/wiki/Scrypt">Wikipedia Article on scrypt</a><sup class="print">L4</sup>.</li>
+<li><a href="http://www.tarsnap.com/scrypt.html">Tarsnap blurb about scrypt</a><sup class=print>L2</sup> - Colin Percival (the author of scrypt) explains a bit about it.</li>
+<li><a href="http://www.tarsnap.com/scrypt/scrypt.pdf">Academic paper explaining scrypt</a><sup class=print>L3</sup>.</li>
+<li><a href="http://en.wikipedia.org/wiki/Scrypt">Wikipedia Article on scrypt</a><sup class=print>L4</sup>.</li>
 </ul>
-<p>For additional interest, read the article on wikipedias about the <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation function</a><sup class="print">L1</sup>.</p>
-<h3 id="the-three-essential-properties-of-password-key-derivation">The Three Essential Properties Of Password Key Derivation<a href="#the-three-essential-properties-of-password-key-derivation" title="Permanent link" class="headerlink"></a></h3>
+<p>For additional interest, read the article on wikipedias about the <a href="http://en.wikipedia.org/wiki/Key_derivation_function">key derivation function</a><sup class=print>L1</sup>.</p>
+<h3 id=the-three-essential-properties-of-password-key-derivation>The Three Essential Properties Of Password Key Derivation</h3>
 <p>Password key derivation requires three properties:</p>
 <ul>
 <li>The password must not be stored in plaintext. (Therefore it is hashed).</li>
@@ -136,7 +136,7 @@
 <li>The salted hash function must not be fast. (If someone does get hold of the salted hashes, their only option will be brute force which will be very slow).</li>
 </ul>
 <p>This scrypt library automatically handles the above properties. The last item seems strange: Computer scientists are normally pre-occupied with making things fast. Yet it is this property that sets Scrypt apart from the competition. As computers evolve and get more powerful, they are able to attack this property more efficiently. This has become especially apparent with the rise of parallel programming. Scrypt aims to defend against all types of attacks, not matter the attackers power now or in the future.</p>
-<h3 id="what-this-module-provides">What This Module Provides<a href="#what-this-module-provides" title="Permanent link" class="headerlink"></a></h3>
+<h3 id=what-this-module-provides>What This Module Provides</h3>
 <p>This module implements the following:</p>
 <ul>
 <li><strong>Scrypt password key derivation</strong><ul>
@@ -150,7 +150,7 @@
 </li>
 </ul>
 <p>I suspect scrypt will be used mainly as a password key derivation function (its author's intended use), but I have also ported the scrypt encryption and decryption functions as implementations for them were available from the author. Performing scrypt cryptography is done if you value security over speed. Scrypt is more secure than a vanilla block cipher (e.g. AES) but it is much slower. It is also the basis for the key derivation functions.</p>
-<h2 id="why-use-scrypt">Why Use Scrypt?<a href="#why-use-scrypt" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=why-use-scrypt>Why Use Scrypt?</h2>
 <p>It is probably the most advanced key derivation function available. This is is quote taken from a comment in hacker news:</p>
 <blockquote>
 <p>Passwords hashed with scrypt with sufficiently-high strength values (there are 3 tweakable input numbers) are fundamentally impervious to being cracked. I use the word "fundamental" in the literal sense, here; even if you had the resources of a large country, you would not be able to design any hardware (whether it be GPU hardware, custom-designed hardware, or otherwise) which could crack these hashes. Ever. (For sufficiently-small definitions of "ever". At the very least "within your lifetime"; probably far longer.)</p>
@@ -173,20 +173,20 @@
 <p>the system [will use] the amount of RAM which [is] specified [as the] fraction of the available RAM, but no more than maxmem, and no less than 1MiB</p>
 </blockquote>
 <p>Therefore at the very least, 1MiB of ram will be used.</p>
-<h3 id="the-three-tweakable-inputs">The Three Tweakable Inputs<a href="#the-three-tweakable-inputs" title="Permanent link" class="headerlink"></a></h3>
-<p><u><strong>Note</strong>: This is a very important section to understand</u>. The three tweakable inputs mentioned above are actually just <em>human understandable</em> inputs into a translation function that produces the inputs required for the internal scrypt cryptographic function. These inputs (as defined in the <a href="http://www.tarsnap.com/scrypt/scrypt.pdf">scrypt paper</a><sup class="print">L3</sup>) are as follows:</p>
+<h3 id=the-three-tweakable-inputs>The Three Tweakable Inputs</h3>
+<p><u><strong>Note</strong>: This is a very important section to understand</u>. The three tweakable inputs mentioned above are actually just <em>human understandable</em> inputs into a translation function that produces the inputs required for the internal scrypt cryptographic function. These inputs (as defined in the <a href="http://www.tarsnap.com/scrypt/scrypt.pdf">scrypt paper</a><sup class=print>L3</sup>) are as follows:</p>
 <ol>
 <li><strong>N</strong> - general work factor, iteration count.</li>
 <li><strong>r</strong> - blocksize in use for underlying hash; fine-tunes the relative memory-cost.</li>
 <li><strong>p</strong> - parallelization factor; fine-tunes the relative cpu-cost.</li>
 </ol>
 <p>Values for <em>maxtime</em>, <em>maxmemfrac</em> and <em>maxmem</em> are translated into the above values, which are then fed to the scrypt function. The translation function also takes into account the CPU and Memory capabilities of a machine. Therefore values of <em>N</em>, <em>r</em> and <em>p</em> may differ for different machines that have different specs.</p>
-<h2 id="pros-and-cons">Pros And Cons<a href="#pros-and-cons" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=pros-and-cons>Pros And Cons</h2>
 <p>Here are some pros and cons for using it:</p>
-<h3 id="pros">Pros<a href="#pros" title="Permanent link" class="headerlink"></a></h3>
+<h3 id=pros>Pros</h3>
 <ul>
-<li>The scrypt algorithm has been published by <a href="http://en.wikipedia.org/wiki/IETF">IETF</a><sup class="print">L5</sup> as an <a href="http://en.wikipedia.org/wiki/Internet_Draft">Internet Draft</a><sup class="print">L6</sup> and is thus on track to becoming a standard. See <a href="https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00">here</a><sup class="print">L7</sup> for the draft.</li>
-<li>It is being actively used in production at <a href="http://www.tarsnap.com/">Tarsnap</a><sup class="print">L8</sup>.</li>
+<li>The scrypt algorithm has been published by <a href="http://en.wikipedia.org/wiki/IETF">IETF</a><sup class=print>L5</sup> as an <a href="http://en.wikipedia.org/wiki/Internet_Draft">Internet Draft</a><sup class=print>L6</sup> and is thus on track to becoming a standard. See <a href="https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00">here</a><sup class=print>L7</sup> for the draft.</li>
+<li>It is being actively used in production at <a href="http://www.tarsnap.com/">Tarsnap</a><sup class=print>L8</sup>.</li>
 <li>It is much more secure than bcrypt.</li>
 <li>It is designed to be future proof against attacks with future (and more advanced) hardware.</li>
 <li>It is designed to defend against large scale custom hardware attacks.</li>
@@ -197,268 +197,173 @@
 <blockquote>
 <p>We estimate that on modern (2009) hardware, if 5 seconds are spent computing a derived key, the cost of a hardware brute-force attack against scrypt is roughly 4000 times greater than the cost of a similar attack against bcrypt (to find the same password), and 20000 times greater than a similar attack against PBKDF2.</p>
 </blockquote>
-<h3 id="cons">Cons<a href="#cons" title="Permanent link" class="headerlink"></a></h3>
-<p>There is just one con I can think of: It is a relatively new library (only been around since 2009). Cryptographers don't really like new libraries for production deployment as it has not been <em>battle tested</em>. That being said, it is being actively used in <a href="http://www.tarsnap.com/">Tarsnap</a><sup class="print">L8</sup> (as mentioned above) and the author is very active.</p>
-<h1 id="security-issuesconcerns">Security Issues/Concerns<a href="#security-issuesconcerns" title="Permanent link" class="headerlink"></a></h1>
+<h3 id=cons>Cons</h3>
+<p>There is just one con I can think of: It is a relatively new library (only been around since 2009). Cryptographers don't really like new libraries for production deployment as it has not been <em>battle tested</em>. That being said, it is being actively used in <a href="http://www.tarsnap.com/">Tarsnap</a><sup class=print>L8</sup> (as mentioned above) and the author is very active.</p>
+<h1 id=security-issuesconcerns>Security Issues/Concerns</h1>
 <p>As should be the case with any security tool, this library should be scrutinized by anyone using it. If you find or suspect an issue with the code- please bring it to my attention and I'll spend some time trying to make sure that this tool is as secure as possible.</p>
-<h1 id="platforms">Platforms<a href="#platforms" title="Permanent link" class="headerlink"></a></h1>
+<h1 id=platforms>Platforms</h1>
 <p>This library works on the following platforms:</p>
 <ul>
 <li>Linux</li>
 <li>MAC OS</li>
 </ul>
 <p>Windows support is coming very soon.</p>
-<h1 id="installation-instructions">Installation Instructions<a href="#installation-instructions" title="Permanent link" class="headerlink"></a></h1>
-<p>This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to <a href="https://github.com/kelvinwong-ca">Kelvin Wong</a><sup class="print">L9</sup>).</p>
-<h2 id="from-npm">From NPM<a href="#from-npm" title="Permanent link" class="headerlink"></a></h2>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>npm install scrypt
-</pre></div>
-</td></tr></tbody></table>
+<h1 id=installation-instructions>Installation Instructions</h1>
+<p>This library has been tested and works on Linux (Ubuntu to be exact) and Mac OS (thanks to <a href="https://github.com/kelvinwong-ca">Kelvin Wong</a><sup class=print>L9</sup>).</p>
+<h2 id=from-npm>From NPM</h2>
+<div class=highlight><pre><span></span><code>npm install scrypt
+</code></pre></div>
 
-<h2 id="from-source">From Source<a href="#from-source" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=from-source>From Source</h2>
 <p>You will need <code>node-gyp</code> to get this to work (install it if you don't have it: <code>npm install -g node-gyp</code>):</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre>git clone https://github.com/barrysteyn/node-scrypt.git
+<div class=highlight><pre><span></span><code>git clone https://github.com/barrysteyn/node-scrypt.git
 cd node-scrypt
 node-gyp configure build
-</pre></div>
-</td></tr></tbody></table>
+</code></pre></div>
 
-<h1 id="testing">Testing<a href="#testing" title="Permanent link" class="headerlink"></a></h1>
-<p>Testing is accomplished with the <a href="https://github.com/isaacs/node-tap">node tap module</a><sup class="print">L10</sup>.</p>
-<h2 id="if-installed-via-npm">If installed via NPM<a href="#if-installed-via-npm" title="Permanent link" class="headerlink"></a></h2>
+<h1 id=testing>Testing</h1>
+<p>Testing is accomplished with the <a href="https://github.com/isaacs/node-tap">node tap module</a><sup class=print>L10</sup>.</p>
+<h2 id=if-installed-via-npm>If installed via NPM</h2>
 <p>To test, go to the folder where scrypt was installed, and type:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre>cd node_modules/scrypt
+<div class=highlight><pre><span></span><code>cd node_modules/scrypt
 npm install
 node tests/scrypt-tests
-</pre></div>
-</td></tr></tbody></table>
+</code></pre></div>
 
-<h2 id="if-installed-via-source">If installed via source<a href="#if-installed-via-source" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=if-installed-via-source>If installed via source</h2>
 <p>Go to the folder where scrypt was installed and type:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre>cd node-scrypt
+<div class=highlight><pre><span></span><code>cd node-scrypt
 npm install
 node tests/scrypt-tests
-</pre></div>
-</td></tr></tbody></table>
+</code></pre></div>
 
-<h1 id="hash-info">Hash Info<a href="#hash-info" title="Permanent link" class="headerlink"></a></h1>
-<p>All scrypt output is encoded into Base64 using <a href="http://www.adp-gmbh.ch/">René Nyffenegger</a><sup class="print">L11</sup> <a href="http://www.adp-gmbh.ch/cpp/common/base64.html">library</a><sup class="print">L12</sup>. The character sets that compromises all output are <code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/</code>.</p>
-<h1 id="usage">Usage<a href="#usage" title="Permanent link" class="headerlink"></a></h1>
+<h1 id=hash-info>Hash Info</h1>
+<p>All scrypt output is encoded into Base64 using <a href="http://www.adp-gmbh.ch/">René Nyffenegger</a><sup class=print>L11</sup> <a href="http://www.adp-gmbh.ch/cpp/common/base64.html">library</a><sup class=print>L12</sup>. The character sets that compromises all output are <code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/</code>.</p>
+<h1 id=usage>Usage</h1>
 <p>There are both asynchronous and synchronous functions available. It is highly recommended not to use the synchronous version unless necessary due to the fact that Node's event loop will be blocked for the duration of these purposefully slow functions.</p>
-<h2 id="asynchronous-authentication">Asynchronous Authentication<a href="#asynchronous-authentication" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=asynchronous-authentication>Asynchronous Authentication</h2>
 <p>For interactive authentication, set <code>maxtime</code> to <code>0.1</code> - 100 milliseconds. </p>
-<h3 id="to-create-a-password-hash">To create a password hash<a href="#to-create-a-password-hash" title="Permanent link" class="headerlink"></a></h3>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">scrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"scrypt"</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="s2">"This is a password"</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">maxtime</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<h3 id=to-create-a-password-hash>To create a password hash</h3>
+<div class=highlight><pre><span></span><code><span class=k>var</span> <span class=n>scrypt</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>"scrypt"</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>password</span> <span class=o>=</span> <span class=s2>"This is a password"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxtime</span> <span class=o>=</span> <span class=mf>0.1</span><span class=p>;</span>
 
-<span class="nx">scrypt</span><span class="p">.</span><span class="nx">passwordHash</span><span class="p">(</span><span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">pwdhash</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">//pwdhash should now be stored in the database</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-</pre></div>
-</td></tr></tbody></table>
+<span class=n>scrypt</span><span class=o>.</span><span class=n>passwordHash</span><span class=p>(</span><span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>,</span> <span class=n>function</span><span class=p>(</span><span class=n>err</span><span class=p>,</span> <span class=n>pwdhash</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>err</span><span class=p>)</span> <span class=p>{</span>
+        <span class=o>//</span><span class=n>pwdhash</span> <span class=n>should</span> <span class=n>now</span> <span class=n>be</span> <span class=n>stored</span> <span class=ow>in</span> <span class=n>the</span> <span class=n>database</span>
+    <span class=p>}</span>
+<span class=p>});</span>
+</code></pre></div>
 
 <p>Note: <code>maxmem</code> and <code>maxmemfrac</code> can also be passed to hash function. If they are not passed, then <code>maxmem</code> defaults to <code>0</code> and <code>maxmemfrac</code> defaults to <code>0.5</code>. If these values are to be passed, then they must be passed after <code>maxtime</code>  and before the callback function like so:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">scrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"scrypt"</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="s2">"This is a password"</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">maxtime</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">maxmem</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">maxmemfrac</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<div class=highlight><pre><span></span><code><span class=k>var</span> <span class=n>scrypt</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>"scrypt"</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>password</span> <span class=o>=</span> <span class=s2>"This is a password"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxtime</span> <span class=o>=</span> <span class=mf>0.1</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxmem</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>maxmemfrac</span> <span class=o>=</span> <span class=mf>0.5</span><span class=p>;</span>
 
-<span class="nx">scrypt</span><span class="p">.</span><span class="nx">passwordHash</span><span class="p">(</span><span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="nx">maxmem</span><span class="p">,</span> <span class="nx">maxmemfrac</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">pwdhash</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">//pwdhash should now be stored in the database</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-</pre></div>
-</td></tr></tbody></table>
+<span class=n>scrypt</span><span class=o>.</span><span class=n>passwordHash</span><span class=p>(</span><span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>,</span> <span class=n>maxmem</span><span class=p>,</span> <span class=n>maxmemfrac</span><span class=p>,</span> <span class=n>function</span><span class=p>(</span><span class=n>err</span><span class=p>,</span> <span class=n>pwdhash</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>err</span><span class=p>)</span> <span class=p>{</span>
+        <span class=o>//</span><span class=n>pwdhash</span> <span class=n>should</span> <span class=n>now</span> <span class=n>be</span> <span class=n>stored</span> <span class=ow>in</span> <span class=n>the</span> <span class=n>database</span>
+    <span class=p>}</span>
+<span class=p>});</span>
+</code></pre></div>
 
-<h3 id="to-verify-a-password-hash">To verify a password hash<a href="#to-verify-a-password-hash" title="Permanent link" class="headerlink"></a></h3>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">scrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"scrypt"</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="s2">"This is a password"</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">hash</span><span class="p">;</span> <span class="c1">//This should be obtained from the database</span>
+<h3 id=to-verify-a-password-hash>To verify a password hash</h3>
+<div class=highlight><pre><span></span><code><span class=k>var</span> <span class=n>scrypt</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>"scrypt"</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>password</span> <span class=o>=</span> <span class=s2>"This is a password"</span><span class=p>;</span>
+<span class=k>var</span> <span class=nb>hash</span><span class=p>;</span> <span class=o>//</span><span class=n>This</span> <span class=n>should</span> <span class=n>be</span> <span class=n>obtained</span> <span class=n>from</span> <span class=n>the</span> <span class=n>database</span>
 
-<span class="nx">scrypt</span><span class="p">.</span><span class="nx">verifyHash</span><span class="p">(</span><span class="nx">hash</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nx">result</span><span class="p">;</span> <span class="c1">//Will be True</span>
+<span class=n>scrypt</span><span class=o>.</span><span class=n>verifyHash</span><span class=p>(</span><span class=nb>hash</span><span class=p>,</span> <span class=n>password</span><span class=p>,</span> <span class=n>function</span><span class=p>(</span><span class=n>err</span><span class=p>,</span> <span class=n>result</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>err</span><span class=p>)</span>
+        <span class=k>return</span> <span class=n>result</span><span class=p>;</span> <span class=o>//</span><span class=n>Will</span> <span class=n>be</span> <span class=n>True</span>
 
-    <span class="k">return</span> <span class="nx">False</span><span class="p">;</span>    
-<span class="p">});</span>
-</pre></div>
-</td></tr></tbody></table>
+    <span class=k>return</span> <span class=n>False</span><span class=p>;</span>    
+<span class=p>});</span>
+</code></pre></div>
 
-<h2 id="synchronous-authentication">Synchronous Authentication<a href="#synchronous-authentication" title="Permanent link" class="headerlink"></a></h2>
+<h2 id=synchronous-authentication>Synchronous Authentication</h2>
 <p>Again, for interactive authentication, set <code>maxtime</code> to <code>0.1</code> - 100 milliseconds. </p>
-<h3 id="to-create-a-password-hash_1">To create a password hash<a href="#to-create-a-password-hash_1" title="Permanent link" class="headerlink"></a></h3>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre>var scrypt = require("scrypt");
-var password = "This is a password";
-var maxtime = 0.1;
+<h3 id=to-create-a-password-hash_1>To create a password hash</h3>
+<div class=highlight><pre><span></span><code><span class=k>var</span> <span class=n>scrypt</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>"scrypt"</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>password</span> <span class=o>=</span> <span class=s2>"This is a password"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxtime</span> <span class=o>=</span> <span class=mf>0.1</span><span class=p>;</span>
 
-var hash = scrypt.passwordHashSync(password, maxtime);
-</pre></div>
-</td></tr></tbody></table>
+<span class=k>var</span> <span class=nb>hash</span> <span class=o>=</span> <span class=n>scrypt</span><span class=o>.</span><span class=n>passwordHashSync</span><span class=p>(</span><span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>);</span>
+</code></pre></div>
 
 <p>Note: <code>maxmem</code> and <code>maxmemfrac</code> can also be passed to hash function. If they are not passed, then <code>maxmem</code> defaults to <code>0</code> and <code>maxmemfrac</code> defaults to <code>0.5</code>. If these values are to be passed, then they must be passed after <code>maxtime</code>  and before the callback function like so:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre>var scrypt = require("scrypt");
-var password = "This is a password";
-var maxtime = 0.1;
-var maxmem = 0, maxmemfrac = 0.5;
+<div class=highlight><pre><span></span><code><span class=k>var</span> <span class=n>scrypt</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>"scrypt"</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>password</span> <span class=o>=</span> <span class=s2>"This is a password"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxtime</span> <span class=o>=</span> <span class=mf>0.1</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxmem</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>maxmemfrac</span> <span class=o>=</span> <span class=mf>0.5</span><span class=p>;</span>
 
-var hash = scrypt.passwordHashSync(password, maxtime, maxmem, maxmemfrac);
-</pre></div>
-</td></tr></tbody></table>
+<span class=k>var</span> <span class=nb>hash</span> <span class=o>=</span> <span class=n>scrypt</span><span class=o>.</span><span class=n>passwordHashSync</span><span class=p>(</span><span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>,</span> <span class=n>maxmem</span><span class=p>,</span> <span class=n>maxmemfrac</span><span class=p>);</span>
+</code></pre></div>
 
-<h3 id="to-verify-a-password-hash_1">To verify a password hash<a href="#to-verify-a-password-hash_1" title="Permanent link" class="headerlink"></a></h3>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre>var scrypt = require("scrypt");
-var password = "This is a password";
-var hash; //This should be obtained from the database
+<h3 id=to-verify-a-password-hash_1>To verify a password hash</h3>
+<div class=highlight><pre><span></span><code><span class=k>var</span> <span class=n>scrypt</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>"scrypt"</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>password</span> <span class=o>=</span> <span class=s2>"This is a password"</span><span class=p>;</span>
+<span class=k>var</span> <span class=nb>hash</span><span class=p>;</span> <span class=o>//</span><span class=n>This</span> <span class=n>should</span> <span class=n>be</span> <span class=n>obtained</span> <span class=n>from</span> <span class=n>the</span> <span class=n>database</span>
 
-var result = scrypt.verifyHashSync(hash, password);
-</pre></div>
-</td></tr></tbody></table>
+<span class=k>var</span> <span class=n>result</span> <span class=o>=</span> <span class=n>scrypt</span><span class=o>.</span><span class=n>verifyHashSync</span><span class=p>(</span><span class=nb>hash</span><span class=p>,</span> <span class=n>password</span><span class=p>);</span>
+</code></pre></div>
 
 <p>Note: There is no error description for the synchronous version. Therefore, if an error occurs, it will just return its result as <code>false</code>.</p>
-<h2 id="asynchronous-encryption-and-decryption">Asynchronous Encryption and Decryption<a href="#asynchronous-encryption-and-decryption" title="Permanent link" class="headerlink"></a></h2>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">scrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"scrypt"</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">"Hello World"</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="s2">"Pass"</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">maxtime</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<h2 id=asynchronous-encryption-and-decryption>Asynchronous Encryption and Decryption</h2>
+<div class=highlight><pre><span></span><code><span class=k>var</span> <span class=n>scrypt</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>"scrypt"</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>message</span> <span class=o>=</span> <span class=s2>"Hello World"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>password</span> <span class=o>=</span> <span class=s2>"Pass"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxtime</span> <span class=o>=</span> <span class=mf>1.0</span><span class=p>;</span>
 
-<span class="nx">scrypt</span><span class="p">.</span><span class="nx">encrypt</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">cipher</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cipher</span><span class="p">);</span>
-    <span class="nx">scrypt</span><span class="p">.</span><span class="nx">decrypt</span><span class="p">(</span><span class="nx">cipher</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
-    <span class="p">});</span>
-<span class="p">});</span>
-</pre></div>
-</td></tr></tbody></table>
+<span class=n>scrypt</span><span class=o>.</span><span class=n>encrypt</span><span class=p>(</span><span class=n>message</span><span class=p>,</span> <span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>,</span> <span class=n>function</span><span class=p>(</span><span class=n>err</span><span class=p>,</span> <span class=n>cipher</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>console</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=n>cipher</span><span class=p>);</span>
+    <span class=n>scrypt</span><span class=o>.</span><span class=n>decrypt</span><span class=p>(</span><span class=n>cipher</span><span class=p>,</span> <span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>,</span> <span class=n>function</span><span class=p>(</span><span class=n>err</span><span class=p>,</span> <span class=n>msg</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>console</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=n>msg</span><span class=p>);</span>
+    <span class=p>});</span>
+<span class=p>});</span>
+</code></pre></div>
 
 <p>Note that <code>maxmem</code> and <code>maxmemfrac</code> can also be passed to the functions. If they are not passed, then <code>maxmem</code> defaults to <code>0</code> and <code>maxmemfrac</code> defaults to <code>0.5</code>. If these values are to be passed, then they must be passed after <code>maxtime</code>  and before the callback function like so:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">scrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"scrypt"</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">"Hello World"</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="s2">"Pass"</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">maxtime</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">maxmem</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//Defaults to 0 if not set</span>
-<span class="kd">var</span> <span class="nx">maxmemfrac</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span> <span class="c1">//Defaults to 0.5 if not set</span>
+<div class=highlight><pre><span></span><code><span class=k>var</span> <span class=n>scrypt</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>"scrypt"</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>message</span> <span class=o>=</span> <span class=s2>"Hello World"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>password</span> <span class=o>=</span> <span class=s2>"Pass"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxtime</span> <span class=o>=</span> <span class=mf>1.0</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxmem</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=o>//</span><span class=n>Defaults</span> <span class=n>to</span> <span class=mi>0</span> <span class=k>if</span> <span class=ow>not</span> <span class=n>set</span>
+<span class=k>var</span> <span class=n>maxmemfrac</span> <span class=o>=</span> <span class=mf>1.5</span><span class=p>;</span> <span class=o>//</span><span class=n>Defaults</span> <span class=n>to</span> <span class=mf>0.5</span> <span class=k>if</span> <span class=ow>not</span> <span class=n>set</span>
 
-<span class="nx">scrypt</span><span class="p">.</span><span class="nx">encrypt</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="nx">maxmem</span><span class="p">,</span> <span class="nx">maxmemfrac</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">cipher</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cipher</span><span class="p">);</span>
-    <span class="nx">scrypt</span><span class="p">.</span><span class="nx">decrypt</span><span class="p">(</span><span class="nx">cipher</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">maxtime</span><span class="p">,</span> <span class="nx">maxmem</span><span class="p">,</span> <span class="nx">maxmemfrac</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
-    <span class="p">});</span>
-<span class="p">});</span>
-</pre></div>
-</td></tr></tbody></table>
+<span class=n>scrypt</span><span class=o>.</span><span class=n>encrypt</span><span class=p>(</span><span class=n>message</span><span class=p>,</span> <span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>,</span> <span class=n>maxmem</span><span class=p>,</span> <span class=n>maxmemfrac</span><span class=p>,</span> <span class=n>function</span><span class=p>(</span><span class=n>err</span><span class=p>,</span> <span class=n>cipher</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>console</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=n>cipher</span><span class=p>);</span>
+    <span class=n>scrypt</span><span class=o>.</span><span class=n>decrypt</span><span class=p>(</span><span class=n>cipher</span><span class=p>,</span> <span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>,</span> <span class=n>maxmem</span><span class=p>,</span> <span class=n>maxmemfrac</span><span class=p>,</span> <span class=n>function</span><span class=p>(</span><span class=n>err</span><span class=p>,</span> <span class=n>msg</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>console</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=n>msg</span><span class=p>);</span>
+    <span class=p>});</span>
+<span class=p>});</span>
+</code></pre></div>
 
-<h2 id="synchronous-encryption-and-decryption">Synchronous Encryption and Decryption<a href="#synchronous-encryption-and-decryption" title="Permanent link" class="headerlink"></a></h2>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre>var scrypt = require("scrypt");
-var message = "Hello World";
-var password = "Pass";
-var maxtime = 1.0;
+<h2 id=synchronous-encryption-and-decryption>Synchronous Encryption and Decryption</h2>
+<div class=highlight><pre><span></span><code><span class=k>var</span> <span class=n>scrypt</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>"scrypt"</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>message</span> <span class=o>=</span> <span class=s2>"Hello World"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>password</span> <span class=o>=</span> <span class=s2>"Pass"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxtime</span> <span class=o>=</span> <span class=mf>1.0</span><span class=p>;</span>
 
-var cipher = scrypt.encryptSync(message, password, maxtime);
-var plainText = scrypt.decryptSync(cipher, password, maxtime);
-</pre></div>
-</td></tr></tbody></table>
+<span class=k>var</span> <span class=n>cipher</span> <span class=o>=</span> <span class=n>scrypt</span><span class=o>.</span><span class=n>encryptSync</span><span class=p>(</span><span class=n>message</span><span class=p>,</span> <span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>plainText</span> <span class=o>=</span> <span class=n>scrypt</span><span class=o>.</span><span class=n>decryptSync</span><span class=p>(</span><span class=n>cipher</span><span class=p>,</span> <span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>);</span>
+</code></pre></div>
 
 <p>Note: that <code>maxmem</code> and <code>maxmemfrac</code> can also be passed to the functions. If they are not passed, then <code>maxmem</code> defaults to <code>0</code> and <code>maxmemfrac</code> defaults to <code>0.5</code>. If these values are to be passed, then they must be passed after <code>maxtime</code>  and before the callback function like so:</p>
-<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre>var scrypt = require("scrypt");
-var message = "Hello World";
-var password = "Pass";
-var maxtime = 1.0;
-var maxmem = 1; //Defaults to 0 if not set
-var maxmemfrac = 1.5; //Defaults to 0.5 if not set
+<div class=highlight><pre><span></span><code><span class=k>var</span> <span class=n>scrypt</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>"scrypt"</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>message</span> <span class=o>=</span> <span class=s2>"Hello World"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>password</span> <span class=o>=</span> <span class=s2>"Pass"</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxtime</span> <span class=o>=</span> <span class=mf>1.0</span><span class=p>;</span>
+<span class=k>var</span> <span class=n>maxmem</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=o>//</span><span class=n>Defaults</span> <span class=n>to</span> <span class=mi>0</span> <span class=k>if</span> <span class=ow>not</span> <span class=n>set</span>
+<span class=k>var</span> <span class=n>maxmemfrac</span> <span class=o>=</span> <span class=mf>1.5</span><span class=p>;</span> <span class=o>//</span><span class=n>Defaults</span> <span class=n>to</span> <span class=mf>0.5</span> <span class=k>if</span> <span class=ow>not</span> <span class=n>set</span>
 
-var cipher = scrypt.encryptSync(message, password, maxtime, maxmem, maxmemfrac);
-var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac);
-</pre></div>
-</td></tr></tbody></table>
+<span class=k>var</span> <span class=n>cipher</span> <span class=o>=</span> <span class=n>scrypt</span><span class=o>.</span><span class=n>encryptSync</span><span class=p>(</span><span class=n>message</span><span class=p>,</span> <span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>,</span> <span class=n>maxmem</span><span class=p>,</span> <span class=n>maxmemfrac</span><span class=p>);</span>
+<span class=k>var</span> <span class=n>plainText</span> <span class=o>=</span> <span class=n>scrypt</span><span class=o>.</span><span class=n>decryptSync</span><span class=p>(</span><span class=n>cipher</span><span class=p>,</span> <span class=n>password</span><span class=p>,</span> <span class=n>maxtime</span><span class=p>,</span> <span class=n>maxmem</span><span class=p>,</span> <span class=n>maxmemfrac</span><span class=p>);</span>
+</code></pre></div>
 
-<h1 id="api">Api<a href="#api" title="Permanent link" class="headerlink"></a></h1>
-<h2 id="authentication">Authentication<a href="#authentication" title="Permanent link" class="headerlink"></a></h2>
-<h3 id="asynchronous">Asynchronous<a href="#asynchronous" title="Permanent link" class="headerlink"></a></h3>
+<h1 id=api>Api</h1>
+<h2 id=authentication>Authentication</h2>
+<h3 id=asynchronous>Asynchronous</h3>
 <ul>
 <li><code>passwordHash(password, maxtime, maxmem, maxmemfrac, callback_function)</code><ul>
 <li><code>password</code> - [REQUIRED] - a password string.</li>
@@ -475,7 +380,7 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 </ul>
 </li>
 </ul>
-<h3 id="synchronous">Synchronous<a href="#synchronous" title="Permanent link" class="headerlink"></a></h3>
+<h3 id=synchronous>Synchronous</h3>
 <ul>
 <li><code>passwordHashSync(password, maxtime, maxmem, maxmemfrac)</code><ul>
 <li><code>password</code> - [REQUIRED] - a password string.</li>
@@ -490,8 +395,8 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 </ul>
 </li>
 </ul>
-<h2 id="encryptiondecryption">Encryption/Decryption<a href="#encryptiondecryption" title="Permanent link" class="headerlink"></a></h2>
-<h3 id="asynchronous_1">Asynchronous<a href="#asynchronous_1" title="Permanent link" class="headerlink"></a></h3>
+<h2 id=encryptiondecryption>Encryption/Decryption</h2>
+<h3 id=asynchronous_1>Asynchronous</h3>
 <ul>
 <li><code>encrypt(message, password, maxtime, maxmem, maxmemfrac, callback_function)</code><ul>
 <li><code>message</code> - [REQUIRED] - the message data to be encrypted.</li>
@@ -512,7 +417,7 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 </ul>
 </li>
 </ul>
-<h3 id="synchronous_1">Synchronous<a href="#synchronous_1" title="Permanent link" class="headerlink"></a></h3>
+<h3 id=synchronous_1>Synchronous</h3>
 <ul>
 <li><code>encryptSync(message, password, maxtime, maxmem, maxmemfrac)</code><ul>
 <li><code>message</code> - [REQUIRED] - the message data to be encrypted.</li>
@@ -531,14 +436,14 @@ var plainText = scrypt.decryptSync(cipher, password, maxtime, maxmem, maxmemfrac
 </ul>
 </li>
 </ul>
-<h1 id="credits">Credits<a href="#credits" title="Permanent link" class="headerlink"></a></h1>
-<p>The scrypt library is Colin Percival's <a href="http://www.tarsnap.com/scrypt.html">scrypt</a><sup class="print">L2</sup> project. This includes the encryption/decryption functions which are basically just wrappers into this library.</p>
+<h1 id=credits>Credits</h1>
+<p>The scrypt library is Colin Percival's <a href="http://www.tarsnap.com/scrypt.html">scrypt</a><sup class=print>L2</sup> project. This includes the encryption/decryption functions which are basically just wrappers into this library.</p>
 <p>The password hash and verify functions are also very heavily influenced by the scrypt source code, with most functionality being copied from various placed within scrypt.</p>
-<h1 id="contributors">Contributors<a href="#contributors" title="Permanent link" class="headerlink"></a></h1>
+<h1 id=contributors>Contributors</h1>
 <ul>
-<li><a href="http://www.adp-gmbh.ch/">René Nyffenegger</a><sup class="print">L11</sup> - produced original Base64 encoding code.</li>
-<li><a href="https://github.com/kelvinwong-ca">Kelvin Wong</a><sup class="print">L9</sup> - MAC OS compilation and testing.</li>
-</ul><h2 class="print">Links</h2><div style="margin-left: 2.0em;" class="print"><ol class="print-links"><li>http://en.wikipedia.org/wiki/Key_derivation_function</li><li>http://www.tarsnap.com/scrypt.html</li><li>http://www.tarsnap.com/scrypt/scrypt.pdf</li><li>http://en.wikipedia.org/wiki/Scrypt</li><li>http://en.wikipedia.org/wiki/IETF</li><li>http://en.wikipedia.org/wiki/Internet_Draft</li><li>https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00</li><li>http://www.tarsnap.com/</li><li>https://github.com/kelvinwong-ca</li><li>https://github.com/isaacs/node-tap</li><li>http://www.adp-gmbh.ch/</li><li>http://www.adp-gmbh.ch/cpp/common/base64.html</li></ol></div>
+<li><a href="http://www.adp-gmbh.ch/">René Nyffenegger</a><sup class=print>L11</sup> - produced original Base64 encoding code.</li>
+<li><a href="https://github.com/kelvinwong-ca">Kelvin Wong</a><sup class=print>L9</sup> - MAC OS compilation and testing.</li>
+</ul><h2 class=print>Links</h2><div class=print style="margin-left: 2.0em;"><ol class=print-links><li>http://en.wikipedia.org/wiki/Key_derivation_function</li><li>http://www.tarsnap.com/scrypt.html</li><li>http://www.tarsnap.com/scrypt/scrypt.pdf</li><li>http://en.wikipedia.org/wiki/Scrypt</li><li>http://en.wikipedia.org/wiki/IETF</li><li>http://en.wikipedia.org/wiki/Internet_Draft</li><li>https://tools.ietf.org/html/draft-josefsson-scrypt-kdf-00</li><li>http://www.tarsnap.com/</li><li>https://github.com/kelvinwong-ca</li><li>https://github.com/isaacs/node-tap</li><li>http://www.adp-gmbh.ch/</li><li>http://www.adp-gmbh.ch/cpp/common/base64.html</li></ol></div>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.

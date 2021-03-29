@@ -118,69 +118,69 @@
 
 			<div id="content" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-md-pull-1">
 	<div class="article-content">
-		<h1 id="introduction">Introduction<a href="#introduction" title="Permanent link" class="headerlink"></a></h1>
-<p>My friend and colleague, <a href="http://dome.hobbits.grus.uberspace.de/">Dominik Messinger</a><sup class="print">L1</sup> was fortunate to learn about abstract data structures in high school<sup id="sf-maximum-height-of-red-black-tree-1-back"><a href="#sf-maximum-height-of-red-black-tree-1" title="He is German, so I think this is a nod to the excellent school system in Germany." class="simple-footnote">1</a></sup>. After chatting to him one day, the topic of red-black trees came up. He studied <a href="http://en.wikipedia.org/wiki/AVL_tree">AVL trees</a><sup class="print">L2</sup> in depth at high school, but did not do the same for red-black trees. After this chat, I realized I had not formalized this topic in my mind either. So I decided to choose one topic and write about...</p>
+		<h1 id=introduction>Introduction</h1>
+<p>My friend and colleague, <a href="http://dome.hobbits.grus.uberspace.de/">Dominik Messinger</a><sup class=print>L1</sup> was fortunate to learn about abstract data structures in high school<sup id=sf-maximum-height-of-red-black-tree-1-back><a href=#sf-maximum-height-of-red-black-tree-1 class=simple-footnote title="He is German, so I think this is a nod to the excellent school system in Germany.">1</a></sup>. After chatting to him one day, the topic of red-black trees came up. He studied <a href="http://en.wikipedia.org/wiki/AVL_tree">AVL trees</a><sup class=print>L2</sup> in depth at high school, but did not do the same for red-black trees. After this chat, I realized I had not formalized this topic in my mind either. So I decided to choose one topic and write about...</p>
 <p>So here is an analysis of the maximum height of a red-black trees.</p>
-<h1 id="background-knowledge">Background Knowledge<a href="#background-knowledge" title="Permanent link" class="headerlink"></a></h1>
-<h2 id="tree-node-depth">Tree Node Depth<a href="#tree-node-depth" title="Permanent link" class="headerlink"></a></h2>
+<h1 id=background-knowledge>Background Knowledge</h1>
+<h2 id=tree-node-depth>Tree Node Depth</h2>
 <p>A tree node's depth is the number of parent node ancestors the node has. Depth is zero based (the root is at depth 0 since it has no ancestors).</p>
 <p><img src="images/binary-tree-depth.png"></p>
-<p>The number of nodes in a path from the root node to a node at depth <span class="math">\(k\)</span> is <span class="math">\(k+1\)</span>. For example:</p>
+<p>The number of nodes in a path from the root node to a node at depth <span class=math>\(k\)</span> is <span class=math>\(k+1\)</span>. For example:</p>
 <ul>
 <li><strong>At depth 0</strong>: There is 1 node in the path from root to depth 0 (the root node).</li>
 <li><strong>At depth 1</strong>: There are two nodes in a path from root to depth 1.</li>
-<li><strong>At depth <span class="math">\(k\)</span></strong>: There are <span class="math">\(k+1\)</span> nodes in a path from root to depth <span class="math">\(k\)</span>.</li>
+<li><strong>At depth <span class=math>\(k\)</span></strong>: There are <span class=math>\(k+1\)</span> nodes in a path from root to depth <span class=math>\(k\)</span>.</li>
 </ul>
-<h2 id="full-and-complete-binary-tree">Full And Complete Binary Tree<a href="#full-and-complete-binary-tree" title="Permanent link" class="headerlink"></a></h2>
-<p>A tree that is both <em>full and complete</em><sup id="sf-maximum-height-of-red-black-tree-2-back"><a href="#sf-maximum-height-of-red-black-tree-2" title="Full and complete binary trees are sometimes called perfect binary trees." class="simple-footnote">2</a></sup> has the following properties:</p>
+<h2 id=full-and-complete-binary-tree>Full And Complete Binary Tree</h2>
+<p>A tree that is both <em>full and complete</em><sup id=sf-maximum-height-of-red-black-tree-2-back><a href=#sf-maximum-height-of-red-black-tree-2 class=simple-footnote title="Full and complete binary trees are sometimes called perfect binary trees.">2</a></sup> has the following properties:</p>
 <ol>
 <li>All non-leaf nodes have two children.</li>
 <li>All leaf nodes are at the same depth.</li>
 </ol>
 <p><img src="images/full-complete-binary-tree.png"></p>
-<p>A full and complete binary tree with <span class="math">\(n\)</span> nodes and maximum depth <span class="math">\(k\)</span> (the depth of the leaf nodes) has the following relationship:
+<p>A full and complete binary tree with <span class=math>\(n\)</span> nodes and maximum depth <span class=math>\(k\)</span> (the depth of the leaf nodes) has the following relationship:
 </p>
-<div class="math">\begin{equation*}
+<div class=math>\begin{equation*}
 n = 2^{k+1}-1
 \end{equation*}</div>
-<h1 id="red-black-tree">Red-Black Tree<a href="#red-black-tree" title="Permanent link" class="headerlink"></a></h1>
-<h2 id="red-black-tree-invariants">Red-Black Tree Invariants<a href="#red-black-tree-invariants" title="Permanent link" class="headerlink"></a></h2>
-<p>A red-black tree is a <a href="http://en.wikipedia.org/wiki/Binary_search_tree">binary search tree</a><sup class="print">L3</sup> that is constrained by the following 4 invariants:</p>
+<h1 id=red-black-tree>Red-Black Tree</h1>
+<h2 id=red-black-tree-invariants>Red-Black Tree Invariants</h2>
+<p>A red-black tree is a <a href="http://en.wikipedia.org/wiki/Binary_search_tree">binary search tree</a><sup class=print>L3</sup> that is constrained by the following 4 invariants:</p>
 <ol>
 <li>Each node is either red or black.</li>
 <li>The root node is black.</li>
 <li>Every red node must either have zero or two black chilren.</li>
 <li>Every root-null path must have the same number of black nodes.</li>
 </ol>
-<h3 id="the-maximum-depth-of-a-red-black-tree">The Maximum Depth Of A Red-Black Tree<a href="#the-maximum-depth-of-a-red-black-tree" title="Permanent link" class="headerlink"></a></h3>
+<h3 id=the-maximum-depth-of-a-red-black-tree>The Maximum Depth Of A Red-Black Tree</h3>
 <p>The maximum depth of a red-black tree is the root-null path that contains the most number of nodes. Ironically, an examination of the shortest root-null path (the root-null path with the least number of nodes) is needed to calculate the maximum depth.</p>
-<h4 id="length-of-the-shortest-root-null-path">Length Of The Shortest Root-Null Path<a href="#length-of-the-shortest-root-null-path" title="Permanent link" class="headerlink"></a></h4>
-<p>By invariant 4, the <em>maximum number of black nodes</em> in any root-null path is restricted by the number of nodes in the <em>shortest</em> root-null path. Assume the shortest root-null path has depth <span class="math">\(k\)</span>:</p>
+<h4 id=length-of-the-shortest-root-null-path>Length Of The Shortest Root-Null Path</h4>
+<p>By invariant 4, the <em>maximum number of black nodes</em> in any root-null path is restricted by the number of nodes in the <em>shortest</em> root-null path. Assume the shortest root-null path has depth <span class=math>\(k\)</span>:</p>
 <ul>
-<li>There are <span class="math">\(k+1\)</span> nodes in the root-null path at depth <span class="math">\(k\)</span>.</li>
-<li>There is a <em>full</em> and <em>complete</em> binary subtree of depth <span class="math">\(k\)</span>.</li>
+<li>There are <span class=math>\(k+1\)</span> nodes in the root-null path at depth <span class=math>\(k\)</span>.</li>
+<li>There is a <em>full</em> and <em>complete</em> binary subtree of depth <span class=math>\(k\)</span>.</li>
 </ul>
 <p>For example, if the shortest root-null path is at depth 2, the full and complete binary subtree would look like the image below:</p>
 <p><img src="images/full-complete-binary-subtree.png"></p>
-<p>Suppose the full and complete binary subtree has <span class="math">\(n\)</span> nodes, then using the fact that <span class="math">\(n=2^{k+1}-1\)</span>, the number of nodes in the root-null path (i.e. <span class="math">\(k+1\)</span>) is logarithmic in <span class="math">\(n\)</span>:</p>
-<div class="math">\begin{array}{ccc}
+<p>Suppose the full and complete binary subtree has <span class=math>\(n\)</span> nodes, then using the fact that <span class=math>\(n=2^{k+1}-1\)</span>, the number of nodes in the root-null path (i.e. <span class=math>\(k+1\)</span>) is logarithmic in <span class=math>\(n\)</span>:</p>
+<div class=math>\begin{array}{ccc}
 n &amp; = &amp; 2^{k+1}-1 \\
 k+1 &amp; = &amp; \log_2(n+1)
 \end{array}</div>
-<p><em>Due to invariant 4</em>, the maximum number of <strong>black nodes</strong> in any root-null path is <span class="math">\(\log_2(n+1)\)</span></p>
-<h4 id="length-of-the-longest-root-null-path">Length Of The Longest Root-Null Path<a href="#length-of-the-longest-root-null-path" title="Permanent link" class="headerlink"></a></h4>
-<p>The longest root-null path will have <span class="math">\(\log_2(n+1)\)</span> black nodes (the maximum that it can have due to invariant 4). The question now becomes: How many red nodes can be present? By invariant 3, a red node must have black node children. This restricts the maximum number of red nodes to being placed between the black nodes:</p>
+<p><em>Due to invariant 4</em>, the maximum number of <strong>black nodes</strong> in any root-null path is <span class=math>\(\log_2(n+1)\)</span></p>
+<h4 id=length-of-the-longest-root-null-path>Length Of The Longest Root-Null Path</h4>
+<p>The longest root-null path will have <span class=math>\(\log_2(n+1)\)</span> black nodes (the maximum that it can have due to invariant 4). The question now becomes: How many red nodes can be present? By invariant 3, a red node must have black node children. This restricts the maximum number of red nodes to being placed between the black nodes:</p>
 <p><img src="images/red-black-in-between.png"></p>
-<p>The maximum number of red nodes in a root-null path is therefore constrained by the maximum number of black nodes, which is <span class="math">\(\log_2(n+1)\)</span>. So the length of the longest root-null path is:</p>
-<div class="math">\begin{array}{lcl}
+<p>The maximum number of red nodes in a root-null path is therefore constrained by the maximum number of black nodes, which is <span class=math>\(\log_2(n+1)\)</span>. So the length of the longest root-null path is:</p>
+<div class=math>\begin{array}{lcl}
 \text{Maximum height} &amp;=&amp; \text{max black nodes} + \text{max red nodes} \\
                       &amp;=&amp; \log_2(n+1) + \log_2(n+1) \\
                       &amp;=&amp; 2\cdot\log_2(n+1)
 \end{array}</div>
-<p>This proves that the height of a red-black tree is <span class="math">\(O\left(\log n\right)\)</span> where <span class="math">\(n\)</span> is the total number of nodes. It is also worth noting that the constant factor in the big-O notation is <span class="math">\(2\)</span>, which is very low.</p>
-<h2 id="searching-is-logarithmic">Searching Is Logarithmic<a href="#searching-is-logarithmic" title="Permanent link" class="headerlink"></a></h2>
+<p>This proves that the height of a red-black tree is <span class=math>\(O\left(\log n\right)\)</span> where <span class=math>\(n\)</span> is the total number of nodes. It is also worth noting that the constant factor in the big-O notation is <span class=math>\(2\)</span>, which is very low.</p>
+<h2 id=searching-is-logarithmic>Searching Is Logarithmic</h2>
 <p>In a binary search tree, the time complexity of a search operation is governed by the maximum height of the tree. This means that search in a red-black tree is logarithmic time complexity.</p>
-<h1 id="conclusion">Conclusion<a href="#conclusion" title="Permanent link" class="headerlink"></a></h1>
+<h1 id=conclusion>Conclusion</h1>
 <p>A red-black tree is probably the most used balanced binary search tree algorithm. It is a little bit more work to show that <em>update</em>, <em>delete</em> and <em>insert</em> is also logarithmic, but any proof would rely upon the fact the maximum height is logarithmic.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
@@ -194,15 +194,16 @@ k+1 &amp; = &amp; \log_2(n+1)
     }
 
     var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
         "    displayAlign: '"+ align +"'," +
@@ -216,6 +217,8 @@ k+1 &amp; = &amp; \log_2(n+1)
         "        preview: '[math]'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
@@ -236,9 +239,11 @@ k+1 &amp; = &amp; \log_2(n+1)
                 "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
             "});" +
         "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script><h2 class="print">Links</h2><div style="margin-left: 2.0em;" class="print"><ol class="print-links"><li>http://dome.hobbits.grus.uberspace.de/</li><li>http://en.wikipedia.org/wiki/AVL_tree</li><li>http://en.wikipedia.org/wiki/Binary_search_tree</li></ol></div><ol class="simple-footnotes"><li id="sf-maximum-height-of-red-black-tree-1">He is German, so I think this is a nod to the excellent school system in Germany. <a href="#sf-maximum-height-of-red-black-tree-1-back" class="simple-footnote-back">↩</a></li><li id="sf-maximum-height-of-red-black-tree-2">Full and complete binary trees are sometimes called <em>perfect binary trees</em>. <a href="#sf-maximum-height-of-red-black-tree-2-back" class="simple-footnote-back">↩</a></li></ol>
+</script><h2 class=print>Links</h2><div class=print style="margin-left: 2.0em;"><ol class=print-links><li>http://dome.hobbits.grus.uberspace.de/</li><li>http://en.wikipedia.org/wiki/AVL_tree</li><li>http://en.wikipedia.org/wiki/Binary_search_tree</li></ol></div><ol class=simple-footnotes><li id=sf-maximum-height-of-red-black-tree-1>He is German, so I think this is a nod to the excellent school system in Germany. <a href=#sf-maximum-height-of-red-black-tree-1-back class=simple-footnote-back>↩</a></li><li id=sf-maximum-height-of-red-black-tree-2>Full and complete binary trees are sometimes called <em>perfect binary trees</em>. <a href=#sf-maximum-height-of-red-black-tree-2-back class=simple-footnote-back>↩</a></li></ol>
 
 		<div class="print text-center" style="margin: 1.5em 0.5em 0.1em 0.5em; padding: 0.2em; border: 1px solid #000; page-break-inside: avoid;">
 			Thank you for printing this article. Please do not forget to come back to http://doctrina.org for fresh articles.
