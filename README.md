@@ -4,7 +4,7 @@
 
 ### Python
 
-`pip install pelican markfown inflect beautifulsoup4 html5lib`
+`pip install pelican markfown inflect beautifulsoup4 html5lib ghp-import`
 
 ## Checking The Theme Submodule Out
 The repo has a submodule that also needs to be cloned:
