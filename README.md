@@ -2,6 +2,13 @@
 
 ## Requirments:
 
+First do this:
+
+```
+git config user.name "Barry Steyn"
+git config user.email "barry.steyn@gmail.com"
+```
+
 ### Python
 
 `pip install -r requirements.txt`
