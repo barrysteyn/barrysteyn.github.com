@@ -1,4 +1,4 @@
-PY?=python
+PY?=python3
 PELICAN?=pelican
 PELICANOPTS=--ignore-cache
 THEME=doctrina-pelican_theme

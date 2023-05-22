@@ -1,0 +1,6 @@
+pelican
+markdown<3.2
+inflect
+beautifulsoup4
+html5lib
+ghp-import

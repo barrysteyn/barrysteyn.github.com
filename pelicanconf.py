@@ -112,7 +112,7 @@ MARKDOWN = {
 
 # Jinja2 Environment    
 JINJA_ENVIRONMENT = {
-    'extensions': ['jinja2.ext.loopcontrols','jinja2.ext.with_']
+    'extensions': ['jinja2.ext.loopcontrols']
 }
 
 # Theme
